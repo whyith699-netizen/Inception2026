@@ -1,40 +1,40 @@
 {
   "items": [
     {
-      "id": 1,
-      "name": "Prof. Ir. Sudjarwadi, M.Eng., Ph.D.",
-      "designation": "Rektor Universitas Gadjah Mada (UGM) Periode 2007–2012 & Guru Besar Teknik Sipil",
-      "image": "/images/alumni/testimoni-1.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Prof. Sudharto P. Hadi, MES., Ph.D.",
-      "designation": "Rektor Universitas Diponegoro (Undip) Periode 2010–2015 & Pakar Manajemen Lingkungan",
-      "image": "/images/alumni/testimoni-2.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Prof. Dr. dr. Eka J. Wahjoepramono, Sp.BS.",
-      "designation": "Pelopor Bedah Batang Otak Pertama di Indonesia & Guru Besar Ilmu Bedah Saraf",
-      "image": "/images/alumni/testimoni-3.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Dr. Rudjito",
-      "designation": "Direktur Utama PT Bank Rakyat Indonesia (2000–2005) & Ketua Dewan Komisioner LPS",
-      "image": "/images/alumni/testimoni-4.jpeg"
+      "id": 6,
+      "name": "AGUS MULIA S.Pt",
+      "designation": "Pengusaha",
+      "image": "/images/testimoni/testimoni-6.jpg"
     },
     {
       "id": 5,
-      "name": "Prof. DR. Widodo Muktiyo",
-      "designation": "Guru Besar UNS & Mantan Dirjen IKP Kementerian Kominfo RI",
-      "image": "/images/alumni/testimoni-5.jpg"
+      "name": "Winarno, S.Si., M.Eng",
+      "designation": "Dosen UNS - Kepala Prodi Informatika",
+      "image": "/images/testimoni/testimoni-5.jpg"
     },
     {
-      "id": 6,
+      "id": 4,
       "name": "Drs. Eko Hartono, MPP.",
-      "designation": "Diplomat Senior RI, Konsul Jenderal RI Jeddah (Purna 2023)",
-      "image": "/images/alumni/testimoni-6.jpg"
+      "designation": "Konsul Jenderal (Konjen) RI Jeddah - (Purna 2023)",
+      "image": "/images/testimoni/testimoni-4.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "Ir. Paulus Insap Santosa, M.Sc., Ph.D.",
+      "designation": "Universitas Gadjah Mada, Department of Information Technology and Electrical Engineering",
+      "image": "/images/testimoni/testimoni-3.jpg"
+    },
+    {
+      "id": 2,
+      "name": "PROF. DR. JOKO TRIYONO, S.T., M.T.",
+      "designation": "Dosen UNS & Direktur AKN Pacitan periode 2021-2025",
+      "image": "/images/testimoni/testimoni-2.jpg"
+    },
+    {
+      "id": 1,
+      "name": "Prof. DR. Widodo Muktiyo",
+      "designation": "Dirjen Kominfo & Dosen UNS",
+      "image": "/images/testimoni/testimoni-1.jpg"
     }
   ]
 }

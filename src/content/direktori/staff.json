@@ -1,107 +1,494 @@
 [
   {
-    "category": "Pimpinan",
+    "category": "Pimpinan Sekolah & Komite",
     "people": [
       {
-        "name": "Tantri Ambarsari, S.Pd., M.Eng.",
-        "role": "Kepala Sekolah",
-        "detail": "Membawahi 33 rombongan belajar, program hybrid learning, dan seluruh program ekstrakurikuler kesiswaan.",
-        "photo": "/images/school/kepsek-tantri-ambarsari.png"
+        "name": "Tantri Ambarsari, S.Pd.,M.Eng.",
+        "role": "Kepala Sekolah (Pembina  TK. I)",
+        "detail": "Penanggung jawab umum pengelolaan 33 rombongan belajar, program kurikulum merdeka, dan seluruh civitas akademika.",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241023T155439249Z_a64c8e05-08af-48b6-90bb-7d240065aaf8.jpg"
       },
       {
-        "name": "FX. Febriyanto Adi Nugroho, S.Si.",
-        "role": "Wakasek Bidang Kurikulum",
-        "detail": "Penanggung jawab kurikulum merdeka, penilaian hasil belajar, dan kalender akademik sekolah."
-      },
-      {
-        "name": "Bambang Budianto, S.Pd.",
-        "role": "Wakasek Bidang Kesiswaan",
-        "detail": "Pembinaan karakter siswa, pengelolaan 23 ekstrakurikuler, dan pendampingan lomba akademik."
+        "name": "Resmiyati, S.Pd.",
+        "role": "Wakasek Bidang Humas (Pembina  TK. I)",
+        "detail": "Koordinasi komunitas alumni KAPASSKA, program kerja sama instansi, dan kemitraan masyarakat.",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T020935681Z_40f450f2-c56d-4cee-9dfb-ef65e34d5b1c.jpg"
       },
       {
         "name": "Agus Purnama, S.Pd.",
-        "role": "Wakasek Bidang Sarana & Prasarana",
-        "detail": "Pengelolaan laboratorium riset, Perpustakaan Graha Pustaka, dan pemeliharaan gedung kampus 13."
+        "role": "Wakasek Bidang Sarana & Prasarana (Penata TK I)",
+        "detail": "Pengelolaan laboratorium riset, Perpustakaan Graha Pustaka, dan pemeliharaan gedung Kampus 13.",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T022129530Z_de651896-68cf-47c5-9c64-2aee76c1eefc.jpg"
       },
       {
-        "name": "Resmiyati, S.Pd., M.Pd.",
-        "role": "Wakasek Bidang Hubungan Masyarakat",
-        "detail": "Koordinasi komunitas alumni KAPASSKA, program kerja sama, dan publikasi sekolah."
+        "name": "Fx. Febriyanto Adi Nugroho, S.Si",
+        "role": "Wakasek Bidang Kurikulum (Penmud TK I)",
+        "detail": "Penanggung jawab kurikulum merdeka, penilaian hasil belajar, dan kalender akademik sekolah.",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T023822704Z_f07eaf1f-6044-4c75-85e6-a2c9cbb6ba95.jpg"
       },
       {
         "name": "Drs. Sumargana, M.S.",
         "role": "Ketua Komite Sekolah",
-        "detail": "Penasehat kepala sekolah dalam pengawasan mutu, anggaran BOS, dan perencanaan program sekolah."
+        "detail": "Penasehat dan pengawas mutu pendidikan, anggaran BOS/komite, serta perwakilan wali murid.",
+        "photo": "/images/school/logo.png"
       }
     ]
   },
   {
-    "category": "Sains & Riset",
+    "category": "Dewan Guru MIPA & Sains",
     "people": [
       {
-        "name": "Tim Guru Matematika",
-        "role": "Matematika",
-        "detail": "Pembina kelas riset, olimpiade matematika, dan persiapan ujian masuk perguruan tinggi negeri."
+        "name": "Drs. Yudy Saroso, M.Pd.",
+        "role": "Guru · Pembina Utama Muda",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Pembina Utama Muda).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241105T235754887Z_471eb65e-f068-4eaa-a791-90ca5008362e.jpg"
       },
       {
-        "name": "Tim Guru Fisika",
-        "role": "Fisika",
-        "detail": "Pembina OSN Fisika, laboratorium fisika, dan proyek sains siswa."
+        "name": "Drs. Kunta Ismana, M.Pd.",
+        "role": "Guru · Pembina  TK. I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Pembina  TK. I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241024T071518291Z_2abc5264-587a-4d58-85ed-d832eeff2d44.jpg"
       },
       {
-        "name": "Tim Guru Kimia",
-        "role": "Kimia",
-        "detail": "Pembina olimpiade kimia, praktikum laboratorium, dan riset lingkungan."
+        "name": "Herry Novis Damayanti, S.Si., M.Pd.",
+        "role": "Guru · Pembina",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Pembina).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T021414170Z_bf251461-dd4f-4474-aa0b-823429e24a6c.jpg"
       },
       {
-        "name": "Tim Guru Biologi",
-        "role": "Biologi",
-        "detail": "Pembina OSN Biologi, klub riset hayati, dan penelitian kebumian."
+        "name": "Dra. Sri Listyorini, M.Pd.",
+        "role": "Guru · Penata TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T021640628Z_081ff901-c866-4d95-8e6e-1cd0af4f5f1d.jpg"
+      },
+      {
+        "name": "Dwi Lestari, S.Ag., MPd.H.",
+        "role": "Guru · Penata TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T021936190Z_c84cd943-669b-4789-b3b4-5e6aebc7afd2.jpg"
+      },
+      {
+        "name": "Dwi Hartanti, ST, M.Pd.",
+        "role": "Guru · Penata TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T022206605Z_e7eaf573-b91a-497f-9dd1-05e0198d1cf8.jpg"
+      },
+      {
+        "name": "Kristian Sapto Nugroho, S.Pd.",
+        "role": "Guru · Penata TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T022302097Z_062f386d-509c-4a26-9458-29197759fba9.jpg"
+      },
+      {
+        "name": "Bening Pamularsih, S.Si, M.Pd.",
+        "role": "Guru · Penata TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T022722919Z_6b6ef95d-c39b-4661-94fd-c9b7847c7cec.jpg"
+      },
+      {
+        "name": "Dra. Sri Rahayu",
+        "role": "Guru · Penmud TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penmud TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T023310172Z_b0244ff3-9fcb-48aa-a59e-3716198a8347.jpg"
+      },
+      {
+        "name": "Budi Kristyono, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T094538336Z_42cc1953-4dc6-4994-99df-bee7c002e60a.jpg"
+      },
+      {
+        "name": "Juliana Kristin Harjati, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T094642084Z_127d8190-9b94-4c00-b41f-1e04b3132032.jpg"
+      },
+      {
+        "name": "Anjar Dwi Yastuwikami, S.S.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T095158186Z_f7c95664-e8ce-4b5b-8d2a-33039117ced7.jpg"
+      },
+      {
+        "name": "Esti Kusuma Wardhani , S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T095415196Z_5234330d-5af3-4a4d-89d8-89b421702e6e.jpg"
+      },
+      {
+        "name": "Hesti Puspitasari, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20250324T004619185Z_0b5b012f-7168-47a1-8a4f-518bcc6a7f39.jpeg"
+      },
+      {
+        "name": "Christina Elisse Prasetyaningtyas, S.Pd.",
+        "role": "Guru · Guru Tamu",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Tamu).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105634586Z_0d840fb8-7e2f-4209-8a5e-90a612fbeeb3.jpg"
+      },
+      {
+        "name": "Tajudin Ali Musthofa, S.Pd.",
+        "role": "Guru · Guru Ahli Muda",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Ahli Muda).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20250324T003826456Z_fbd38842-94da-4fb9-8b60-a1258c6a85fd.jpg"
+      },
+      {
+        "name": "Dwi Lestari, S.Pd",
+        "role": "Guru · Guru Tamu",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Tamu).",
+        "photo": "https://www.sma1klaten.sch.id/api/images/uploads/20260717T024216013Z_df78d871-986b-4559-93be-ac5a3f38cd40.jpeg"
       }
     ]
   },
   {
-    "category": "Sosial & Humaniora",
+    "category": "Dewan Guru Sosial & Humaniora",
     "people": [
       {
-        "name": "Tim Guru Sejarah & Sosiologi",
-        "role": "Sejarah, Sosiologi, Geografi",
-        "detail": "Pembina riset sosial, debat kebangsaan, dan studi kebumian masyarakat Klaten."
+        "name": "Daru Prapti, S.Pd, M.Pd.",
+        "role": "Guru · Pembina Utama Muda",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Pembina Utama Muda).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241023T155830054Z_ae4de54e-dc56-4e14-be23-f807313fc88d.jpg"
       },
       {
-        "name": "Tim Guru Ekonomi & Kewirausahaan",
-        "role": "Ekonomi, Akuntansi",
-        "detail": "Pembina studi ekonomi kreatif, koperasi siswa, dan program wirausaha muda."
+        "name": "Sri Jaka, S.Pd, M.Pd.",
+        "role": "Guru · Pembina  TK. I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Pembina  TK. I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241024T072037055Z_1541515a-0694-4f2b-90b4-f40f86650910.jpg"
+      },
+      {
+        "name": "Tri Suwarni Widayati, S.Pd, M.Pd.",
+        "role": "Guru · Pembina  TK. I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Pembina  TK. I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T021038633Z_0438fee6-9d2b-4b6a-b5df-86864500d907.jpg"
+      },
+      {
+        "name": "Aris Sinung Martana, S.Pd.",
+        "role": "Guru · Pembina  TK. I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Pembina  TK. I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T021110430Z_234946df-b6cb-47e9-abe8-852674eb0a9e.jpg"
+      },
+      {
+        "name": "Siti Nur Hidayah, S.Pd.",
+        "role": "Guru · Penata TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T021834013Z_baacf5ad-ad3e-4d30-9b93-c57d4406d2a3.jpg"
+      },
+      {
+        "name": "Dwi Arini, S.Pd.",
+        "role": "Guru · Penata TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T022016213Z_4c428bd4-4bab-4a7e-a6f7-d648b779be09.jpg"
+      },
+      {
+        "name": "Febriana Timbul Wahyanti, S.Pd.",
+        "role": "Guru · Penata TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T022410179Z_2cfeccae-7979-4353-bed9-5a703e3e2aa4.jpg"
+      },
+      {
+        "name": "Anik Hidayati, S.Pd.",
+        "role": "Guru · Penata",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T022804592Z_7c0f27ca-5232-4ac4-96c6-2f45c23d97c6.jpg"
+      },
+      {
+        "name": "Titik Suryani, S.Ag.",
+        "role": "Guru · Penata",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T022914893Z_622d2141-39e3-4b1d-af1d-140a1f22e069.jpg"
+      },
+      {
+        "name": "Suripto, S.Pd.",
+        "role": "Guru · Penmud TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penmud TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T023355471Z_b2a0749c-c83f-470e-b799-4fe3d44b2eb7.jpg"
+      },
+      {
+        "name": "Dina Faizah, S.Pd.",
+        "role": "Guru · Penmud TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penmud TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T023547673Z_a43e0e81-516f-4373-953e-39a349b064da.jpg"
+      },
+      {
+        "name": "Bambang Budiyanto, S.Pd.",
+        "role": "Guru · Penata Muda TK. I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata Muda TK. I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T023630205Z_f82b1901-9fd5-4ea3-bf75-5b8c385bde57.jpg"
+      },
+      {
+        "name": "Andy Rochmadi, S.Pd.",
+        "role": "Guru · Penata Muda TK. I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata Muda TK. I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T023724196Z_f9b5755b-7ad4-4976-9dea-ae76f9d1367c.jpg"
+      },
+      {
+        "name": "Dian Triningsih, S.T.",
+        "role": "Guru · Penata Muda",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata Muda).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T023900155Z_395b24ec-28a5-4202-82fa-791e3bd6ccc4.jpg"
+      },
+      {
+        "name": "Kafiyah Amri, S.Pd.",
+        "role": "Guru · Penmud TK I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penmud TK I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T023934133Z_5b3c2a64-4635-4d98-97ef-bfc35b47fc95.jpg"
+      },
+      {
+        "name": "Sumilah, S.Pd.",
+        "role": "Guru · Penata Muda",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata Muda).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T024140285Z_e7c6cda7-3555-42a8-be95-224fb4b4f517.jpg"
+      },
+      {
+        "name": "Agus Eko Cahyono, S.Pd.",
+        "role": "Guru · Penata Muda",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Penata Muda).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T024316071Z_375706eb-e585-455f-8abd-a737061d5757.jpg"
+      },
+      {
+        "name": "Dwi Purwani, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T032128687Z_f0ddc303-5493-4351-95ee-18ad2795780e.jpg"
       }
     ]
   },
   {
-    "category": "Bahasa & Seni",
+    "category": "Dewan Guru Bahasa & Seni",
     "people": [
       {
-        "name": "Tim Guru Bahasa & Seni",
-        "role": "Bahasa Indonesia, Bahasa Inggris, Sastra & Seni Budaya",
-        "detail": "Pembina FLS2N, teater, karawitan, dan pendampingan akademik masuk perguruan tinggi negeri."
+        "name": "Anisah Nur Hidayah, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T032230467Z_17654867-939c-4ed0-9e4f-7ef597cffe27.jpg"
+      },
+      {
+        "name": "Dian Oktarina, SE",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T032638033Z_ffa5b915-1401-409e-9e37-9f92125603ae.jpg"
+      },
+      {
+        "name": "Rizky Yoga Pratama, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T032727096Z_2159c369-ef6b-4a11-b363-f9aef2e83fdd.jpg"
+      },
+      {
+        "name": "Era Dwi Purwati, S.Kom.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T032956929Z_cb801179-7eef-47ef-941d-2978964dd5bc.jpg"
+      },
+      {
+        "name": "Heppy Kurniawati, S.Kom.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T094458986Z_b39bfc01-01d0-4d44-94bc-f17b57b8b26d.jpg"
+      },
+      {
+        "name": "Victor Gamma Kharisma, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T094609169Z_59790ae1-c8a9-4c56-8ee3-bd3fdcd2a39f.jpg"
+      },
+      {
+        "name": "Novita Kusumasari, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T094714147Z_87d74bb6-aeec-4257-ad0c-a188271b5e84.jpg"
+      },
+      {
+        "name": "Muh. Kurniawan Syafi'I, M.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T094742009Z_f997a57f-e680-465a-9e1c-d321d609e5db.jpg"
+      },
+      {
+        "name": "Danang Harjono, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T094809066Z_5c1fa919-d173-4173-bfa4-514c8d8421b6.jpg"
+      },
+      {
+        "name": "Valentino Yudha Prakoso, S.Pd",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T094920505Z_8946385f-f46e-45a2-bc26-0a91ab6bcf14.jpg"
+      },
+      {
+        "name": "Setijani, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T095623033Z_c9d23b53-63b7-448e-81ca-62b414259b9a.jpg"
+      },
+      {
+        "name": "Rahmad Kadaryanto, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T095803076Z_8a715e33-c7cd-41da-a462-1a78ccdf472c.jpg"
+      },
+      {
+        "name": "Galih Pranata, S.Pd.",
+        "role": "Guru · PPPK",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (PPPK).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105320050Z_2e416c6d-2f3c-44ff-bbf0-cdcaf1e16c0b.jpg"
+      },
+      {
+        "name": "Muhamad Taufik Ari W., M.Or.",
+        "role": "Guru · GTT",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (GTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105358620Z_36fbfb91-831e-43e1-a4da-be980a0d5758.jpg"
+      },
+      {
+        "name": "Shofi Hanifah, S.Pd. ",
+        "role": "Guru · Guru Tamu",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Tamu).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105435433Z_74ea55e4-073e-4828-9264-5cad4d62f9dc.jpg"
+      },
+      {
+        "name": "Dicky Indra Atmaja, S.Pd.",
+        "role": "Guru · Guru Tamu",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Tamu).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105609180Z_197714f6-e288-4e1d-bb5d-8049670c387b.jpg"
+      },
+      {
+        "name": "Almas Khoirun Nisa, S.Pd.",
+        "role": "Guru · Guru Tamu",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Tamu).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105705109Z_3b6f0615-70f5-4f27-9718-c29453277fe8.jpg"
+      },
+      {
+        "name": "Aulia Permana Sari, S. Pd.",
+        "role": "Guru · Guru Ahli Muda",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Ahli Muda).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241125T060756975Z_80bcab0e-f9a7-4022-add9-684b1aa16eb2.jpg"
+      },
+      {
+        "name": "Suparjono Eko I., S.Pd., M.Pd.",
+        "role": "Guru · Pembina Tk I",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Pembina Tk I).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241125T060832259Z_eacd31d3-485f-4b2e-92da-c00699fcdf8f.jpg"
+      },
+      {
+        "name": "Juarni, S.Pd.",
+        "role": "Guru · Guru Muda",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Muda).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241125T060921102Z_85ecce56-7196-4333-8ced-fab961dcd006.jpg"
+      },
+      {
+        "name": "Yulianti Fitriana Nur Aisah. S.Pd.",
+        "role": "Guru · Guru Tamu",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Tamu).",
+        "photo": "https://www.sma1klaten.sch.id/api/images/uploads/20260717T024255186Z_31e415a0-d272-4074-b7ec-8c7d52f7cfe1.jpg"
+      },
+      {
+        "name": "Nandita Datta Pradipta, S.Pd.",
+        "role": "Guru · Guru Tamu",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Tamu).",
+        "photo": "https://www.sma1klaten.sch.id/api/images/uploads/20260717T024320361Z_55038e72-6b01-443f-89f3-7f9667228184.jpg"
+      },
+      {
+        "name": "Nurma Kartikasari, S.Pd.",
+        "role": "Guru · Guru Tamu",
+        "detail": "Tenaga pendidik profesional SMA Negeri 1 Klaten (Guru Tamu).",
+        "photo": "https://www.sma1klaten.sch.id/api/images/uploads/20260717T024342448Z_aaa8735b-8cf8-47a9-8ea1-f78e9290fd29.jpg"
       }
     ]
   },
   {
-    "category": "Tenaga Kependidikan",
+    "category": "Tenaga Kependidikan & Tata Usaha",
     "people": [
       {
-        "name": "Staf Sekretariat & Tata Usaha",
-        "role": "Administrasi sekolah",
-        "detail": "Pelayanan administrasi PPDB, arsip siswa, surat menyurat, dan kepegawaian."
+        "name": "Elvina Dewi",
+        "role": "Staff · Penata",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (Penata).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T023005559Z_00b08baf-2c21-4eb9-a766-d258dd3ceab8.jpg"
       },
       {
-        "name": "Staf Perpustakaan Graha Pustaka",
-        "role": "Tata usaha perpustakaan",
-        "detail": "Pengelolaan koleksi, layanan e-Perpus, dan pendampingan literasi siswa."
+        "name": "Retno Tyasning Dewi",
+        "role": "Staff · Pengatur",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (Pengatur).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T024422557Z_ef12d775-6aff-4daf-9997-c80d432621a3.jpg"
       },
       {
-        "name": "Staf Laboratorium & Multimedia",
-        "role": "Teknisi laboratorium",
-        "detail": "Pemeliharaan alat laboratorium, dukungan praktikum, dan fasilitas digital sekolah."
+        "name": "Sri Murni",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105733475Z_6e946f7e-0bb8-4bec-9b95-d9d4f3946026.jpg"
+      },
+      {
+        "name": "Joko Surono",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105827526Z_cfbbf9e5-d462-4ea9-843d-32e3edbade98.jpg"
+      },
+      {
+        "name": "Agus Munaji",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105925165Z_e8ee52a6-fa5c-470f-9c9b-39cbb4dee9bf.jpg"
+      },
+      {
+        "name": "Dwi Ariyanto",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T105952249Z_d32c30fd-d45b-45b1-ba7c-17d5d6d3d84f.jpg"
+      },
+      {
+        "name": "Sugeng",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T110019391Z_7c3558c5-7521-40ac-8943-b54265cf6c3a.jpg"
+      },
+      {
+        "name": "Dody Irawan, SIP",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T110043068Z_840fe167-d97e-461b-a731-5913f254fdec.jpg"
+      },
+      {
+        "name": "Suep Nur Hamet",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T110113140Z_735aa318-fe7a-4f1a-b2c8-8bbd202e5d00.jpg"
+      },
+      {
+        "name": "Memed Efendi",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T110134144Z_32248d44-105b-45cd-8350-a33dbae96e47.jpg"
+      },
+      {
+        "name": "Primaldi Andanu Purnomo",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T110200427Z_ef22fa16-799b-44e6-a412-9c4feb389840.jpg"
+      },
+      {
+        "name": "Bayu Setyawan Ade Saputro",
+        "role": "Staff · PTT",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (PTT).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T110243343Z_cab07104-08ce-4ad1-8afe-7f17006b7be9.jpg"
+      },
+      {
+        "name": "Lukmono",
+        "role": "Staff · Outsourcing ",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (Outsourcing ).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T110313712Z_baa60972-8ee1-41cb-8642-ddaa1254b7cf.jpg"
+      },
+      {
+        "name": "Tri Sukamto",
+        "role": "Staff · Outsourcing ",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (Outsourcing ).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T110340884Z_9047ec8f-9191-4231-9cae-6d2482512f21.jpg"
+      },
+      {
+        "name": "Jahari",
+        "role": "Staff · Outsourcing ",
+        "detail": "Tenaga kependidikan dan administrasi sekolah (Outsourcing ).",
+        "photo": "https://www.sma1klaten.sch.id/uploads/20241106T110404382Z_5fc0c99b-0243-4dd6-b037-dec59a429de8.jpg"
       }
     ]
   }

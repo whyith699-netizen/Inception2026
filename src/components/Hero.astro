@@ -3,122 +3,338 @@ import { Image } from 'astro:assets';
 import Smansa1 from '../assets/school/Smansa1.jpg';
 ---
 
-<section class="hero-section" id="beranda-hero">
-  <div class="container hero-container">
-    <p class="lbl hero-lbl">Sekolah Menengah Atas Negeri 1 Klaten</p>
-
-    <h1 class="hero-headline">
-      Membina generasi berkarakter, kritis, dan berdaya jaya sejak 1957.
-    </h1>
-
-    <p class="hero-desc">
-      SMA Negeri 1 Klaten menjalankan Kurikulum Merdeka berbasis riset dengan 33 rombongan
-      belajar, 23 ekstrakurikuler kesiswaan, serta pendampingan akademik melalui asisten
-      digital SmansaBot AI.
-    </p>
-
-    <div class="hero-actions">
-      <a href="/ppdb" class="btn btn-primary">Lihat alur PPDB 2026</a>
-      <a href="/profil" class="btn-text">Sejarah sekolah dari 1957 hingga kini</a>
+<section class="hero-broadside" id="beranda-hero">
+  <div class="container hero-inner">
+    <!-- Eyebrow Meta Bar with Astronomical Coordinates -->
+    <div class="hero-meta-bar" data-reveal>
+      <span class="meta-tag">EST. 1957</span>
+      <span class="meta-sep" aria-hidden="true">&middot;</span>
+      <span class="meta-tag">SMA NEGERI 1 KLATEN</span>
+      <span class="meta-sep" aria-hidden="true">&middot;</span>
+      <span class="meta-tag">KAMPUS 13 PADMAWIJAYA</span>
+      <span class="meta-sep" aria-hidden="true">&middot;</span>
+      <span class="meta-coords num">7&deg;42'06.5"S 110&deg;36'09.0"E</span>
     </div>
 
-    <figure class="hero-figure">
-      <Image
-        src={Smansa1}
-        alt="Gedung utama SMA Negeri 1 Klaten di Jalan Merbabu Nomor 13, Klaten Selatan"
-        widths={[640, 1024, 1400]}
-        sizes="(max-width: 900px) 100vw, 1120px"
-        width={1400}
-        height={740}
-        loading="eager"
-        class="hero-photo"
-      />
+    <!-- Main Headline with Elegant Italic Accent -->
+    <h1 class="hero-title" data-reveal>
+      Tradisi Keunggulan Akademik dan Budi Luhur di Bumi <em>Padmawijaya</em>.
+    </h1>
+
+    <!-- Lead Description -->
+    <p class="hero-lead" data-reveal>
+      Sekolah rujukan tertua di Klaten yang mendidik 1.190 siswa dalam 33 rombongan belajar
+      Kurikulum Merdeka. Memadukan riset sains, 23 ekstrakurikuler, dan sarana kampus
+      seluas 15.619 m&sup2; berakreditasi A dengan <strong>Nilai 98 BAN-SM</strong>.
+    </p>
+
+    <!-- Action Row -->
+    <div class="hero-cta-group" data-reveal>
+      <a href="/ppdb" class="btn btn-primary">Informasi PPDB 2026</a>
+      <a href="/direktori" class="btn btn-secondary">Direktori 78 Pendidik</a>
+      <a href="/profil" class="btn-text">Sejarah 1957 &rarr;</a>
+    </div>
+
+    <!-- Credential Micro-Grid -->
+    <div class="hero-cred-grid" data-reveal>
+      <div class="cred-cell">
+        <span class="cred-num num">98</span>
+        <div class="cred-info">
+          <strong class="cred-title">Akreditasi A Unggul</strong>
+          <span class="cred-sub">SK No. 1347/BAN-SM/2021</span>
+        </div>
+      </div>
+      <div class="cred-cell">
+        <span class="cred-num num">20309676</span>
+        <div class="cred-info">
+          <strong class="cred-title">NPSN Resmi</strong>
+          <span class="cred-sub">NSS: 301046002001</span>
+        </div>
+      </div>
+      <div class="cred-cell">
+        <span class="cred-num num">33 Rombel</span>
+        <div class="cred-info">
+          <strong class="cred-title">1.190 Siswa</strong>
+          <span class="cred-sub">Kampus 15.619 m&sup2;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Architectural Showcase Frame -->
+    <figure class="hero-showcase" data-reveal>
+      <div class="frame-border">
+        <Image
+          src={Smansa1}
+          alt="Gedung utama Kampus 13 SMA Negeri 1 Klaten di Jalan Merbabu Nomor 13 Klaten Selatan"
+          widths={[640, 1024, 1400]}
+          sizes="(max-width: 900px) 100vw, 1120px"
+          width={1400}
+          height={740}
+          loading="eager"
+          class="hero-img"
+        />
+        <div class="frame-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>Kampus Rujukan Jawa Tengah &middot; Nilai 98</span>
+        </div>
+      </div>
       <figcaption class="hero-caption">
-        <span>Gedung utama Kampus 13</span>
-        <span class="hero-caption-sep" aria-hidden="true"></span>
-        <span>Jl. Merbabu No. 13, Klaten, Jawa Tengah 57423</span>
-        <span class="hero-caption-sep" aria-hidden="true"></span>
-        <span class="num">NPSN 20309676</span>
+        <span class="caption-title">Gedung Utama Kampus 13</span>
+        <span class="sep" aria-hidden="true">&middot;</span>
+        <span>Jalan Merbabu Nomor 13, Klaten Selatan 57423</span>
+        <span class="sep" aria-hidden="true">&middot;</span>
+        <span class="caption-archive">Arsip Dokumentasi Humas SMAN 1 Klaten</span>
       </figcaption>
     </figure>
   </div>
 </section>
 
 <style>
-  .hero-section {
-    padding: clamp(48px, 7vw, 84px) 0 clamp(40px, 5vw, 64px);
+  .hero-broadside {
+    padding: clamp(56px, 8vw, 92px) 0 clamp(48px, 6vw, 76px);
     background-color: var(--paper);
+    border-bottom: 1px solid var(--hairline);
   }
 
-  .hero-container {
+  .hero-inner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .hero-lbl {
-    margin-bottom: 18px;
-  }
-
-  .hero-headline {
-    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
-    font-weight: 500;
-    line-height: 1.12;
-    letter-spacing: -0.025em;
-    max-width: 20ch;
-    margin-bottom: 22px;
-  }
-
-  .hero-desc {
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    color: var(--ink-2);
-    max-width: 62ch;
-    margin-bottom: 32px;
-  }
-
-  .hero-actions {
+  /* Micro-Eyebrow Bar */
+  .hero-meta-bar {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: clamp(36px, 5vw, 56px);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding: 6px 14px;
+    background: var(--paper-2);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-sm);
   }
 
-  .hero-figure {
+  .meta-sep {
+    color: var(--hairline-2);
+  }
+
+  .meta-coords {
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Display Headline */
+  .hero-title {
+    font-family: var(--font-serif-display);
+    font-size: clamp(2.35rem, 5.2vw, 3.85rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: var(--tracking-tight);
+    color: var(--ink);
+    max-width: 22ch;
+    margin: 0 0 24px;
+    font-optical-sizing: auto;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+    padding-right: 0.08em;
+  }
+
+  /* Lead Description */
+  .hero-lead {
+    font-size: clamp(1.0625rem, 1.8vw, 1.2rem);
+    line-height: 1.65;
+    color: var(--ink-2);
+    max-width: 68ch;
+    margin: 0 0 36px;
+  }
+
+  .hero-lead strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Action Buttons */
+  .hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--hairline-2);
+    border-radius: var(--r-sm);
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--paper-2);
+    border-color: var(--ink-3);
+  }
+
+  /* Credential Micro-Grid (3 Columns Hairline) */
+  .hero-cred-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-sm);
     width: 100%;
+    margin-bottom: clamp(36px, 5vw, 56px);
+    overflow: hidden;
+  }
+
+  .cred-cell {
+    background: var(--surface);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cred-num {
+    font-family: var(--font-mono);
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .cred-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .cred-title {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .cred-sub {
+    font-size: 0.75rem;
+    color: var(--ink-3);
+    font-family: var(--font-mono);
+  }
+
+  /* Architectural Showcase Frame with Double Hairline */
+  .hero-showcase {
+    width: 100%;
+    margin: 0;
     border: 1px solid var(--hairline);
     border-radius: var(--r-md);
-    overflow: hidden;
     background: var(--surface);
+    overflow: hidden;
+    padding: 6px;
   }
 
-  .hero-photo {
+  .frame-border {
+    position: relative;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-sm);
+    overflow: hidden;
+  }
+
+  .hero-img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    display: block;
   }
 
+  /* Digital Seal Badge */
+  .frame-badge {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(27, 22, 19, 0.88);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--dark-hairline);
+    border-radius: var(--r-sm);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--dark-ink);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--dot-on-accent);
+  }
+
+  /* Technical Caption */
   .hero-caption {
     display: flex;
     align-items: center;
     gap: 12px;
     flex-wrap: wrap;
-    padding: 14px 18px;
-    border-top: 1px solid var(--hairline);
+    padding: 14px 14px 8px;
     font-size: 0.8125rem;
     color: var(--ink-3);
+    font-family: var(--font-mono);
   }
 
-  .hero-caption-sep {
-    width: 1px;
-    height: 12px;
-    background: var(--hairline-2);
+  .caption-title {
+    font-weight: 600;
+    color: var(--ink);
   }
 
-  @media (max-width: 640px) {
-    .hero-caption-sep {
-      display: none;
+  .sep {
+    color: var(--hairline-2);
+  }
+
+  .caption-archive {
+    margin-left: auto;
+  }
+
+  @media (max-width: 840px) {
+    .hero-cred-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .caption-archive {
+      margin-left: 0;
+    }
+
+    .frame-badge {
+      position: static;
+      margin: 10px 10px 0;
+      background: var(--dark);
     }
   }
 </style>

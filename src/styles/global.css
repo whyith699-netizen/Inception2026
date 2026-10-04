@@ -31,6 +31,12 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
   color: var(--ink);
   text-wrap: balance;
+  font-optical-sizing: auto;
+}
+
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  font-weight: 400;
 }
 
 a {
