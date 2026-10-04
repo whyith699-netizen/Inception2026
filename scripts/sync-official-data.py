@@ -50,16 +50,20 @@ def sync_staff():
     guru_bahasa_seni = []
     staf_tu = []
 
-    # Map Wakasek roles
-    wakasek_map = {
-        "Tantri Ambarsari": ("Kepala Sekolah", "Penanggung jawab umum pengelolaan 33 rombongan belajar, program kurikulum merdeka, dan seluruh civitas akademika."),
-        "Febriyanto": ("Wakasek Bidang Kurikulum", "Penanggung jawab kurikulum merdeka, penilaian hasil belajar, dan kalender akademik sekolah."),
-        "Bambang Budianto": ("Wakasek Bidang Kesiswaan", "Pembinaan karakter siswa, pengelolaan 23 ekstrakurikuler, dan pendampingan lomba akademik."),
-        "Agus Purnama": ("Wakasek Bidang Sarana & Prasarana", "Pengelolaan laboratorium riset, Perpustakaan Graha Pustaka, dan pemeliharaan gedung Kampus 13."),
-        "Resmiyati": ("Wakasek Bidang Humas", "Koordinasi komunitas alumni KAPASSKA, program kerja sama instansi, dan kemitraan masyarakat.")
-    }
+    # Map roles sesuai https://www.sma1klaten.sch.id/directory
+    # Selain kepala sekolah, title adalah Guru (atau Staff untuk tenaga kependidikan)
+    def determine_role(person_name, position):
+        if "Tantri Ambarsari" in person_name:
+            return "Kepala Sekolah"
+        elif "Sumargana" in person_name:
+            return "Ketua Komite Sekolah"
+        elif position == "Staff":
+            return "Staff"
+        else:
+            return "Guru"
 
-    # Add Komite
+    seen_ids = set()
+
     komite_person = {
         "name": "Drs. Sumargana, M.S.",
         "role": "Ketua Komite Sekolah",
@@ -67,59 +71,53 @@ def sync_staff():
         "photo": "/images/school/logo.png"
     }
 
-    seen_ids = set()
-
-    # First pass: Pimpinan
+    # Add Kepala Sekolah & Komite ke Pimpinan
     for s in staff_list:
         name = s.get("name", "")
         img = s.get("image_url")
         photo_url = f"{API_BASE}{img}" if img else "/images/school/logo.png"
 
-        matched_pimpinan = False
-        for lk, (role_title, detail_desc) in wakasek_map.items():
-            if lk in name:
-                pimpinan.append({
-                    "name": name,
-                    "role": f"{role_title} ({s.get('grade', 'Guru')})",
-                    "detail": detail_desc,
-                    "photo": photo_url
-                })
-                seen_ids.add(s["id_staff"])
-                matched_pimpinan = True
-                break
-        if matched_pimpinan:
-            continue
+        if "Tantri Ambarsari" in name:
+            pimpinan.append({
+                "name": name,
+                "role": "Kepala Sekolah",
+                "detail": f"Kepala Sekolah SMA Negeri 1 Klaten ({s.get('grade', 'Pembina TK. I')}).",
+                "photo": photo_url
+            })
+            seen_ids.add(s["id_staff"])
+            break
 
-    # Tambah Komite jika belum ada
+    # Tambah Komite
     pimpinan.append(komite_person)
 
-    # Second pass: Kategorikan sisa staf & guru
+    # Second pass: Kategorikan sisa staf & guru dengan title 'Guru' atau 'Staff'
     for s in staff_list:
         if s["id_staff"] in seen_ids:
             continue
 
         name = s.get("name", "")
-        grade = s.get("grade") or "Tenaga Pendidik"
+        grade = s.get("grade") or ""
         pos = s.get("position", "Guru")
-        teaching = s.get("teaching") or ""
         img = s.get("image_url")
         photo_url = f"{API_BASE}{img}" if img else "/images/school/logo.png"
 
+        role_title = determine_role(name, pos)
+        detail_text = f"Pangkat/Golongan: {grade}" if grade else "Civitas Akademika SMA Negeri 1 Klaten"
+
         item = {
             "name": name,
-            "role": f"{pos} · {grade}",
-            "detail": f"Tenaga pendidik profesional SMA Negeri 1 Klaten ({grade})." if pos == "Guru" else f"Tenaga kependidikan dan administrasi sekolah ({grade}).",
+            "role": role_title,
+            "detail": detail_text,
             "photo": photo_url
         }
 
         if pos == "Staff":
             staf_tu.append(item)
         else:
-            # Distribusikan guru ke rumpun ilmu
             n_lower = name.lower()
-            if any(k in n_lower for k in ["s.si", "m.si", "st", "m.t", "fisika", "kimia", "biologi", "matematika", "dra.", "drs."]) and len(guru_mipa) < 20:
+            if any(k in n_lower for k in ["s.si", "m.si", "st", "m.t", "fisika", "kimia", "biologi", "matematika", "dra.", "drs."]) and len(guru_mipa) < 22:
                 guru_mipa.append(item)
-            elif any(k in n_lower for k in ["s.pd.i", "s.ag", "sos", "ekonomi", "sejarah", "geografi", "ppkn"]) or len(guru_soshum) < 18:
+            elif any(k in n_lower for k in ["s.pd.i", "s.ag", "sos", "ekonomi", "sejarah", "geografi", "ppkn"]) or len(guru_soshum) < 20:
                 guru_soshum.append(item)
             else:
                 guru_bahasa_seni.append(item)

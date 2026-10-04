@@ -20,26 +20,26 @@ interface Props {
 
 const FILTER_CATEGORIES = [
   'Semua',
+  'Guru',
+  'Staff',
   'Pimpinan',
-  'Sains & Riset',
+  'MIPA & Sains',
   'Sosial & Humaniora',
   'Bahasa & Seni',
-  'Tenaga Kependidikan',
 ] as const;
 
-function matchCategory(personCategory: string | undefined, selected: string): boolean {
+function matchCategory(personCategory: string | undefined, personRole: string | undefined, selected: string): boolean {
   if (selected === 'Semua') return true;
-  if (!personCategory) return false;
-  if (personCategory === selected) return true;
+  if (selected === 'Guru') return personRole === 'Guru';
+  if (selected === 'Staff') return personRole === 'Staff';
 
+  const cat = (personCategory || '').toLowerCase();
   const target = selected.toLowerCase();
-  const cat = personCategory.toLowerCase();
 
   if (target === 'pimpinan') return cat.includes('pimpinan');
-  if (target === 'sains & riset') return cat.includes('sains') || cat.includes('riset');
+  if (target === 'mipa & sains') return cat.includes('mipa') || cat.includes('sains');
   if (target === 'sosial & humaniora') return cat.includes('sosial') || cat.includes('humaniora');
   if (target === 'bahasa & seni') return cat.includes('bahasa') || cat.includes('seni');
-  if (target === 'tenaga kependidikan') return cat.includes('kependidikan') || cat.includes('administrasi');
 
   return cat.includes(target);
 }
@@ -63,7 +63,7 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
     const query = search.toLowerCase().trim();
 
     return allPeople.filter((p) => {
-      const inCategory = matchCategory(p.category, selectedCategory);
+      const inCategory = matchCategory(p.category, p.role, selectedCategory);
       if (!inCategory) return false;
 
       if (!query) return true;
