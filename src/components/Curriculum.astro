@@ -2,53 +2,50 @@
 import CategoryIcons from './vectors/CategoryIcons.astro';
 
 const categories = [
-  { 
-    title: "Olimpiade & Riset Sains", 
-    level: "Tim OSN & Riset Ilmiah (KIR)", 
+  {
+    title: "Olimpiade dan riset sains",
+    level: "Tim OSN dan KIR",
     icon: "science" as const,
-    desc: "Laboratorium analitis terpadu & pendampingan kompetisi sains nasional dan internasional." 
+    desc: "Pembinaan laboratorium analitis, kelas riset kelompok, dan pendampingan kompetisi sains nasional."
   },
-  { 
-    title: "Geopolitik & Nalar Kritis", 
-    level: "Klub Debat & Riset Sosial", 
+  {
+    title: "Geopolitik dan nalar kritis",
+    level: "Klub debat dan riset sosial",
     icon: "social" as const,
-    desc: "Kajian fenomena kemasyarakatan, literasi hukum tata negara, dan pemikiran solutif." 
+    desc: "Kajian fenomena kemasyarakatan, literasi hukum tata negara, dan praktik berpikir solutif."
   },
-  { 
-    title: "Diplomasi & Bahasa Global", 
-    level: "Model UN & English Club", 
+  {
+    title: "Diplomasi dan bahasa global",
+    level: "Model UN dan English Club",
     icon: "language" as const,
-    desc: "Kecakapan public speaking dwibahasa, retorika logis, dan wawasan diplomasi global." 
+    desc: "Latihan public speaking dwibahasa, retorika logis, dan wawasan hubungan internasional."
   },
-  { 
-    title: "Sportivitas & Kepemimpinan", 
-    level: "DBL Basket, Futsal & Paskibra", 
+  {
+    title: "Sportivitas dan kepemimpinan",
+    level: "Basket, futsal, dan pramuka",
     icon: "sports" as const,
-    desc: "Pembentukan ketahanan fisik, kepemimpinan organisasi OSMANSA, dan integritas korps." 
+    desc: "Pembinaan ketahanan fisik, kepemimpinan organisasi OSMANSA, dan integritas korps."
   }
 ];
 ---
 
-<section class="curriculum-section" id="kurikulum">
+<section class="curriculum-section sec" id="kurikulum">
   <div class="container">
-    <div class="curriculum-intro text-center">
-      <span class="section-tag">Pilar Keunggulan Pembelajaran</span>
-      <h2 class="section-title">Ekosistem Belajar Seimbang Tanpa Sekat Potensi</h2>
-      <p class="section-desc">
-        Empat pilar pengembangan yang dirancang secara berimbang untuk memastikan setiap siswa bertumbuh cerdas secara intelektual, tangguh berkarakter, dan beretika lingkungan.
-      </p>
+    <div class="curriculum-intro">
+      <p class="lbl">Pilar pengembangan siswa</p>
+      <h2 class="section-title">Empat bidang pengembangan yang berjalan berdampingan</h2>
     </div>
 
     <div class="categories-grid">
       {categories.map((cat) => (
-        <div class="category-card">
-          <div class="category-icon-wrapper">
+        <article class="category-card" data-reveal>
+          <span class="category-icon-wrapper">
             <CategoryIcons icon={cat.icon} class="category-svg" />
-          </div>
+          </span>
           <h3 class="category-title">{cat.title}</h3>
           <span class="category-level">{cat.level}</span>
           <p class="category-desc">{cat.desc}</p>
-        </div>
+        </article>
       ))}
     </div>
   </div>
@@ -56,72 +53,48 @@ const categories = [
 
 <style>
   .curriculum-section {
-    padding: 70px 0 90px;
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
+    padding-top: clamp(56px, 8vw, 88px);
+    padding-bottom: clamp(56px, 8vw, 88px);
+    border-top: 1px solid var(--hairline);
   }
-
-  .text-center { text-align: center; }
 
   .curriculum-intro {
-    max-width: 740px;
-    margin: 0 auto 48px;
-  }
-
-  .section-tag {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-accent-coral);
-    margin-bottom: 8px;
-    display: block;
+    max-width: 640px;
+    margin-bottom: clamp(28px, 4vw, 44px);
   }
 
   .section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.8vw, 2.7rem);
-    color: var(--color-text-primary);
-    margin-bottom: 12px;
-    line-height: 1.25;
-  }
-
-  .section-desc {
-    font-size: 1.02rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
+    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+    font-weight: 500;
+    max-width: 26ch;
   }
 
   .categories-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
   }
 
   .category-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 28px 20px;
-    text-align: center;
+    background: var(--surface);
+    padding: 26px 22px 28px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    align-items: flex-start;
+    transition: background 0.2s ease;
   }
 
   .category-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-accent-coral);
-    box-shadow: var(--shadow-card);
+    background: var(--paper-2);
   }
 
   .category-icon-wrapper {
-    width: 60px;
-    height: 60px;
+    width: 28px;
+    height: 28px;
     margin-bottom: 16px;
     display: flex;
     align-items: center;
@@ -134,27 +107,25 @@ const categories = [
   }
 
   .category-title {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
+    font-size: 1.125rem;
+    font-weight: 500;
     margin-bottom: 4px;
     line-height: 1.3;
   }
 
   .category-level {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--color-accent-coral);
-    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
     margin-bottom: 10px;
-    display: block;
   }
 
   .category-desc {
-    font-size: 0.86rem;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    line-height: 1.55;
   }
 
   @media (max-width: 960px) {
@@ -163,7 +134,7 @@ const categories = [
     }
   }
 
-  @media (max-width: 520px) {
+  @media (max-width: 540px) {
     .categories-grid {
       grid-template-columns: 1fr;
     }

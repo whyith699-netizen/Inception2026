@@ -1,34 +1,34 @@
 ---
 const stats = [
-  { 
-    value: "1957", 
-    label: "Tahun Berdiri", 
-    sub: "69 Tahun Dedikasi Pendidikan (Sejak 5 Nov 1957)" 
+  {
+    value: "1957",
+    label: "Tahun berdiri",
+    sub: "69 tahun berdiri sejak 5 November 1957"
   },
-  { 
-    value: "Nilai 98", 
-    label: "Akreditasi A BAN-SM", 
-    sub: "Peringkat Unggul (SK 1347/BAN-SM/SK/2021)" 
+  {
+    value: "98",
+    label: "Nilai akreditasi BAN-SM",
+    sub: "Peringkat A, SK 1347/BAN-SM/SK/2021"
   },
-  { 
-    value: "1.190+", 
-    label: "Siswa Aktif", 
-    sub: "33 Rombongan Belajar (Kelas X-XII A s.d. K)" 
+  {
+    value: "1.190",
+    label: "Peserta didik",
+    sub: "33 rombongan belajar kelas X sampai XII"
   },
-  { 
-    value: "94.8%", 
-    label: "Lulusan di PTN", 
-    sub: "Diterima UGM, ITB, UI, Undip, UNS & Luar Negeri" 
+  {
+    value: "94.8%",
+    label: "Serapan perguruan tinggi",
+    sub: "Diterima di PTN dalam dan luar negeri"
   }
 ];
 ---
 
-<section class="metrics-section">
+<section class="metrics-section sec">
   <div class="container">
     <div class="metrics-grid">
-      {stats.map((item, idx) => (
-        <div class="metric-col">
-          <span class="metric-value">{item.value}</span>
+      {stats.map((item) => (
+        <div class="metric-col" data-reveal>
+          <span class="metric-value num">{item.value}</span>
           <span class="metric-label">{item.label}</span>
           <p class="metric-sub">{item.sub}</p>
         </div>
@@ -39,62 +39,62 @@ const stats = [
 
 <style>
   .metrics-section {
-    padding: 30px 0 60px;
+    padding-top: clamp(40px, 6vw, 64px);
+    padding-bottom: clamp(40px, 6vw, 64px);
+    border-top: 1px solid var(--hairline);
   }
 
   .metrics-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-subtle);
+    border-top: 1px solid var(--hairline);
   }
 
   .metric-col {
-    padding: 28px 24px;
+    padding: 26px 20px 4px;
     display: flex;
     flex-direction: column;
-    text-align: left;
-    border-right: 1px solid var(--color-border);
+    border-left: 1px solid var(--hairline);
   }
 
-  .metric-col:last-child {
-    border-right: none;
+  .metric-col:first-child {
+    border-left: none;
+    padding-left: 0;
   }
 
   .metric-value {
     font-family: var(--font-serif);
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--color-text-primary);
-    line-height: 1.1;
-    margin-bottom: 6px;
+    font-size: clamp(2.4rem, 3.6vw, 3.2rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 12px;
   }
 
   .metric-label {
-    font-size: 0.88rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: var(--color-accent-coral);
+    color: var(--ink);
     margin-bottom: 4px;
   }
 
   .metric-sub {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
-    line-height: 1.45;
+    font-size: 0.8125rem;
+    color: var(--ink-3);
+    line-height: 1.5;
   }
 
   @media (max-width: 900px) {
     .metrics-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-    .metric-col:nth-child(2) {
-      border-right: none;
+    .metric-col:nth-child(3) {
+      border-left: none;
+      padding-left: 0;
     }
-    .metric-col:nth-child(1), .metric-col:nth-child(2) {
-      border-bottom: 1px solid var(--color-border);
+    .metric-col:nth-child(-n + 2) {
+      padding-bottom: 24px;
     }
   }
 
@@ -103,11 +103,9 @@ const stats = [
       grid-template-columns: 1fr;
     }
     .metric-col {
-      border-right: none !important;
-      border-bottom: 1px solid var(--color-border);
-    }
-    .metric-col:last-child {
-      border-bottom: none;
+      border-left: none;
+      padding-left: 0;
+      padding-bottom: 20px;
     }
   }
 </style>

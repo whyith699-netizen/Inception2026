@@ -4,52 +4,45 @@ import { getCollection } from 'astro:content';
 const programs = await getCollection('programs');
 programs.sort((a, b) => a.data.order - b.data.order);
 
-const cardBadges: Record<string, string> = {
-  "mipa-riset": "Riset & Sains Terapan",
-  "ips-kreatif": "Sosial & Ekonomi Modern",
-  "bahasa-global": "Diplomasi & Budaya"
+const cardLabels: Record<string, string> = {
+  "mipa-riset": "Riset dan sains terapan",
+  "ips-kreatif": "Sosial dan ekonomi modern",
+  "bahasa-global": "Diplomasi dan budaya"
 };
 ---
 
-<section class="programs-section" id="program">
+<section class="programs-section sec" id="program">
   <div class="container">
     <div class="section-header">
       <div>
-        <span class="section-tag">Kurikulum Merdeka Riset</span>
-        <h2 class="section-title">Peminatan Akademik Berbasis Nalar Kritis</h2>
+        <p class="lbl">Kurikulum Merdeka</p>
+        <h2 class="section-title">Tiga pilar peminatan akademik</h2>
       </div>
-      <a href="/program" class="btn btn-outline btn-arrow">Detail Silabus & Jurusan</a>
+      <a href="/program" class="btn-text">Lihat silabus lengkap</a>
     </div>
 
     <div class="programs-grid">
       {programs.map((item) => (
-        <article class="program-card">
-          <div class="card-header-visual">
-            <span class="category-badge">{cardBadges[item.data.id] || "Peminatan"}</span>
-            <span class="grade-pill">{item.data.targetGrade}</span>
-          </div>
+        <article class="program-card" data-reveal>
+          <p class="card-label">{cardLabels[item.data.id] || "Peminatan"}</p>
+          <span class="card-grade num">{item.data.targetGrade}</span>
 
-          <div class="card-body">
-            <span class="subtitle-text">{item.data.subtitle}</span>
-            <h3 class="card-title">{item.data.title}</h3>
-            <p class="card-desc">{item.data.description}</p>
+          <h3 class="card-title">{item.data.title}</h3>
+          <p class="card-desc">{item.data.description}</p>
 
-            <div class="divider-hairline"></div>
-
-            <ul class="points-list">
-              {item.data.curriculumPoints.map((point) => (
-                <li>
-                  <span class="point-icon">&bull;</span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul class="points-list">
+            {item.data.curriculumPoints.map((point) => (
+              <li>
+                <span class="point-mark" aria-hidden="true"></span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
 
           <div class="card-footer">
-            <a href="/#chatbot" class="card-btn-pill">
-              <span>Konsultasi Kurikulum</span>
-              <span class="arrow-ico">&rarr;</span>
+            <a href="/#chatbot" class="card-link">
+              Tanya SmansaBot AI
+              <span class="arrow-ico" aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </article>
@@ -60,140 +53,107 @@ const cardBadges: Record<string, string> = {
 
 <style>
   .programs-section {
-    padding: 70px 0 90px;
-    background-color: var(--color-bg);
+    padding-top: clamp(56px, 8vw, 88px);
+    padding-bottom: clamp(56px, 8vw, 88px);
+    border-top: 1px solid var(--hairline);
   }
 
   .section-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 44px;
-    gap: 24px;
+    margin-bottom: clamp(28px, 4vw, 44px);
+    gap: 20px;
     flex-wrap: wrap;
   }
 
-  .section-tag {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-accent-coral);
-    margin-bottom: 8px;
-    display: block;
-  }
-
   .section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.8vw, 2.7rem);
-    color: var(--color-text-primary);
-    max-width: 660px;
-    line-height: 1.2;
+    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+    font-weight: 500;
+    max-width: 24ch;
   }
 
   .programs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
   }
 
   .program-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 32px 28px;
+    background: var(--surface);
+    padding: clamp(24px, 3vw, 32px);
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    transition: background 0.2s ease;
   }
 
   .program-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-accent-coral);
-    box-shadow: var(--shadow-card);
+    background: var(--paper-2);
   }
 
-  .card-header-visual {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .category-badge {
+  .card-label {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-accent-coral);
-  }
-
-  .grade-pill {
-    background-color: var(--color-surface-muted);
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    color: var(--color-text-secondary);
-    border: 1px solid var(--color-border);
-  }
-
-  .subtitle-text {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
+    font-size: 11px;
     font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .card-grade {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 11px;
     letter-spacing: 0.04em;
-    display: block;
-    margin-bottom: 6px;
+    padding: 3px 8px;
+    border: 1px solid var(--hairline-2);
+    border-radius: var(--r-sm);
+    color: var(--ink-3);
+    margin-bottom: 18px;
   }
 
   .card-title {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    color: var(--color-text-primary);
+    font-size: 1.3125rem;
+    font-weight: 500;
     margin-bottom: 12px;
     line-height: 1.25;
   }
 
   .card-desc {
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    color: var(--ink-2);
     margin-bottom: 20px;
     line-height: 1.6;
   }
 
-  .divider-hairline {
-    width: 100%;
-    height: 1px;
-    background-color: var(--color-border);
-    margin-bottom: 20px;
-  }
-
   .points-list {
     list-style: none;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    font-size: 0.88rem;
-    color: var(--color-text-primary);
+    gap: 9px;
+    font-size: 0.9062rem;
+    color: var(--ink-2);
   }
 
   .points-list li {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    line-height: 1.45;
+    line-height: 1.5;
   }
 
-  .point-icon {
-    color: var(--color-accent-coral);
-    font-weight: 700;
+  .point-mark {
+    width: 5px;
+    height: 5px;
+    margin-top: 8px;
+    border-radius: 50%;
+    background: var(--accent);
     flex-shrink: 0;
   }
 
@@ -201,33 +161,32 @@ const cardBadges: Record<string, string> = {
     margin-top: auto;
   }
 
-  .card-btn-pill {
+  .card-link {
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px 18px;
-    background-color: var(--color-surface-muted);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-pill);
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    transition: all 0.2s ease;
-    text-decoration: none;
+    gap: 6px;
+    font-size: 0.9062rem;
+    font-weight: 500;
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline-2);
+    padding-bottom: 2px;
+    transition: color 0.18s ease, border-color 0.18s ease;
   }
 
-  .card-btn-pill:hover {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg);
-    border-color: var(--color-text-primary);
+  .card-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   .arrow-ico {
-    font-size: 1rem;
+    transition: transform 0.18s ease;
   }
 
-  @media (max-width: 960px) {
+  .card-link:hover .arrow-ico {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 900px) {
     .programs-grid {
       grid-template-columns: 1fr;
     }

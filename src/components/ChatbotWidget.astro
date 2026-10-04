@@ -11,15 +11,15 @@ const knowledgeBase = faqList.map((item) => ({
 }));
 ---
 
-<section class="chatbot-section" id="chatbot">
+<section class="chatbot-section sec" id="chatbot">
   <div class="container">
-    <div class="chatbot-header text-center">
-      <div class="ai-status-badge">
-        <span class="status-pulse"></span> SmansaBot AI • Layanan Informasi 24 Jam
-      </div>
-      <h2 class="chatbot-title">Asisten Virtual Cerdas SMAN 1 Klaten</h2>
+    <div class="chatbot-header">
+      <p class="lbl">SmansaBot AI</p>
+      <h2 class="chatbot-title">Tanya seputar sekolah di sini</h2>
       <p class="chatbot-subtitle">
-        Dapatkan penjelasan cepat dan akurat seputar PPDB 2026, profil sekolah, kurikulum merdeka, sarana laboratorium, dan 23 ekstrakurikuler kesiswaan.
+        Asisten informasi SMAN 1 Klaten menjawab pertanyaan tentang PPDB 2026, profil sekolah,
+        kurikulum, fasilitas, ekstrakurikuler, dan berita terbaru. Jawaban bekerja sepenuhnya di
+        peramban Anda tanpa mengirim data ke server lain.
       </p>
     </div>
 
@@ -29,19 +29,19 @@ const knowledgeBase = faqList.map((item) => ({
         <div class="window-header">
           <div class="bot-info">
             <div class="bot-avatar-circle">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                 <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
-                <rect x="4" y="8" width="16" height="12" rx="4"/>
+                <rect x="4" y="8" width="16" height="12" rx="3"/>
                 <circle cx="9" cy="14" r="1.5" fill="currentColor"/>
                 <circle cx="15" cy="14" r="1.5" fill="currentColor"/>
               </svg>
             </div>
             <div>
               <span class="bot-name">SmansaBot AI</span>
-              <span class="bot-role">Asisten Resmi SMAN 1 Klaten</span>
+              <span class="bot-role">Asisten informasi SMAN 1 Klaten</span>
             </div>
           </div>
-          <span class="engine-badge">Model FAQ Interaktif</span>
+          <span class="engine-badge">Basis data FAQ lokal</span>
         </div>
 
         <!-- Chat History -->
@@ -56,28 +56,27 @@ const knowledgeBase = faqList.map((item) => ({
 
         <!-- Quick Question Suggestions -->
         <div class="suggestions-wrapper">
-          <span class="sug-label">Topik Populer:</span>
+          <span class="sug-label">Topik populer</span>
           <div class="suggestions-pills" id="suggestions-pills">
             <button type="button" class="pill-btn" data-query="ppdb">Jalur PPDB 2026</button>
-            <button type="button" class="pill-btn" data-query="fasilitas">Fasilitas Laboratorium</button>
-            <button type="button" class="pill-btn" data-query="ekskul">23 Ekstrakurikuler</button>
-            <button type="button" class="pill-btn" data-query="profil">Akreditasi & Sejarah</button>
-            <button type="button" class="pill-btn" data-query="prestasi">Serapan Alumni PTN</button>
+            <button type="button" class="pill-btn" data-query="direktori">Pimpinan sekolah</button>
+            <button type="button" class="pill-btn" data-query="ekskul">23 ekstrakurikuler</button>
+            <button type="button" class="pill-btn" data-query="profil">Akreditasi dan sejarah</button>
+            <button type="button" class="pill-btn" data-query="berita">Berita terbaru</button>
           </div>
         </div>
 
         <!-- Chat Input Form -->
         <form class="chat-input-bar" id="chat-form">
-          <input 
-            type="text" 
-            id="chat-input" 
-            placeholder="Tanyakan sesuatu (misal: syarat PPDB, fasilitas lab, ekstrakurikuler)..." 
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Ketik pertanyaan, misalnya syarat PPDB atau fasilitas sekolah"
             autocomplete="off"
-            required 
+            required
           />
           <button type="submit" class="btn btn-primary btn-send-minimal" id="chat-send-btn">
             <span>Kirim</span>
-            <span>&rarr;</span>
           </button>
         </form>
       </div>
@@ -195,74 +194,49 @@ const knowledgeBase = faqList.map((item) => ({
 
 <style>
   .chatbot-section {
-    padding: 70px 0 90px;
-    background-color: var(--color-bg);
+    padding-top: clamp(56px, 8vw, 88px);
+    padding-bottom: clamp(56px, 8vw, 88px);
+    border-top: 1px solid var(--hairline);
   }
-
-  .text-center { text-align: center; }
 
   .chatbot-header {
-    max-width: 740px;
-    margin: 0 auto 40px;
-  }
-
-  .ai-status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    padding: 6px 16px;
-    border-radius: var(--radius-pill);
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    font-weight: 700;
-    color: var(--color-text-secondary);
-    margin-bottom: 16px;
-  }
-
-  .status-pulse {
-    width: 6px;
-    height: 6px;
-    background-color: var(--color-accent-green);
-    border-radius: 50%;
+    max-width: 560px;
+    margin-bottom: clamp(28px, 4vw, 44px);
   }
 
   .chatbot-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.8vw, 2.7rem);
-    color: var(--color-text-primary);
-    margin-bottom: 12px;
+    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+    font-weight: 500;
+    margin-bottom: 14px;
   }
 
   .chatbot-subtitle {
-    font-size: 1.02rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
+    font-size: 1rem;
+    color: var(--ink-2);
+    line-height: 1.65;
   }
 
   .chat-container {
-    max-width: 840px;
-    margin: 0 auto;
+    max-width: 760px;
   }
 
   .chat-window {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    background-color: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
     overflow: hidden;
-    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
   }
 
   .window-header {
-    background-color: var(--color-dark-ribbon);
-    color: var(--color-dark-ribbon-text);
-    padding: 16px 24px;
+    background-color: var(--dark);
+    color: var(--dark-ink);
+    padding: 14px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
   }
 
   .bot-info {
@@ -272,54 +246,57 @@ const knowledgeBase = faqList.map((item) => ({
   }
 
   .bot-avatar-circle {
-    background-color: rgba(255, 255, 255, 0.12);
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
+    background-color: rgba(255, 255, 255, 0.09);
+    border-radius: var(--r-sm);
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-accent-coral);
+    color: #E8B4A6;
   }
 
   .bot-name {
     display: block;
-    font-family: var(--font-serif);
-    font-weight: 700;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
     color: #FFFFFF;
+    line-height: 1.3;
   }
 
   .bot-role {
     display: block;
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     color: #A99E96;
+    line-height: 1.3;
   }
 
   .engine-badge {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #E8E1D7;
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--dark-ink);
     padding: 4px 10px;
-    border-radius: var(--radius-pill);
+    border-radius: var(--r-sm);
+    white-space: nowrap;
   }
 
   .chat-messages {
-    padding: 24px;
+    padding: 20px;
     min-height: 260px;
-    max-height: 380px;
+    max-height: 400px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    background-color: var(--color-surface-muted);
+    gap: 14px;
+    background-color: var(--paper);
   }
 
   .message {
     display: flex;
     flex-direction: column;
-    max-width: 80%;
+    max-width: 82%;
   }
 
   .msg-bot {
@@ -331,27 +308,27 @@ const knowledgeBase = faqList.map((item) => ({
   }
 
   .msg-bubble {
-    padding: 12px 18px;
-    border-radius: var(--radius-md);
-    font-size: 0.92rem;
+    padding: 11px 16px;
+    border-radius: var(--r-sm);
+    font-size: 0.9375rem;
     line-height: 1.55;
   }
 
   .msg-bot .msg-bubble {
-    background-color: var(--color-surface);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-subtle);
+    background-color: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--hairline);
   }
 
   .msg-user .msg-bubble {
-    background-color: var(--color-accent-coral);
+    background-color: var(--accent);
     color: #FFFFFF;
   }
 
   .msg-time {
-    font-size: 0.7rem;
-    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--ink-3);
     margin-top: 4px;
     padding: 0 2px;
   }
@@ -361,21 +338,21 @@ const knowledgeBase = faqList.map((item) => ({
   }
 
   .suggestions-wrapper {
-    padding: 12px 24px;
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
+    padding: 12px 20px;
+    background-color: var(--surface);
+    border-top: 1px solid var(--hairline);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
   }
 
   .sug-label {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-text-muted);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: var(--ink-3);
   }
 
   .suggestions-pills {
@@ -385,27 +362,27 @@ const knowledgeBase = faqList.map((item) => ({
   }
 
   .pill-btn {
-    background-color: var(--color-surface-muted);
-    border: 1px solid var(--color-border);
-    color: var(--color-text-secondary);
-    font-size: 0.78rem;
-    font-weight: 600;
+    background-color: var(--paper);
+    border: 1px solid var(--hairline-2);
+    color: var(--ink-2);
+    font-size: 0.8125rem;
+    font-weight: 500;
     padding: 5px 12px;
-    border-radius: var(--radius-pill);
+    border-radius: var(--r-sm);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
   }
 
   .pill-btn:hover {
-    border-color: var(--color-accent-coral);
-    color: var(--color-accent-coral);
-    background-color: var(--color-surface);
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: var(--accent-soft);
   }
 
   .chat-input-bar {
-    padding: 14px 20px;
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
+    padding: 12px 20px;
+    background-color: var(--surface);
+    border-top: 1px solid var(--hairline);
     display: flex;
     gap: 10px;
   }
@@ -413,57 +390,56 @@ const knowledgeBase = faqList.map((item) => ({
   .chat-input-bar input {
     flex: 1;
     font-family: var(--font-sans);
-    font-size: 0.92rem;
-    padding: 10px 16px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-pill);
-    outline: none;
-    background-color: var(--color-bg);
-    color: var(--color-text-primary);
+    font-size: 0.9375rem;
+    padding: 10px 14px;
+    border: 1px solid var(--hairline-2);
+    border-radius: var(--r-sm);
+    background-color: var(--paper);
+    color: var(--ink);
+  }
+
+  .chat-input-bar input::placeholder {
+    color: var(--ink-3);
   }
 
   .chat-input-bar input:focus {
-    border-color: var(--color-accent-coral);
+    border-color: var(--accent);
   }
 
   .btn-send-minimal {
     padding: 10px 20px;
-    font-size: 0.88rem;
-    border-radius: var(--radius-pill);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    font-size: 0.875rem;
+    border-radius: var(--r-sm);
   }
 
   .floating-chatbot-launcher {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    background-color: var(--color-dark-ribbon);
-    color: var(--color-dark-ribbon-text);
-    padding: 10px 18px;
-    border-radius: var(--radius-pill);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    background-color: var(--dark);
+    color: var(--dark-ink);
+    padding: 10px 16px;
+    border-radius: var(--r-sm);
+    box-shadow: var(--shadow-2);
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    z-index: 99;
-    font-weight: 600;
-    font-size: 0.84rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.2s ease;
+    z-index: 60;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    transition: background 0.2s ease;
   }
 
   .floating-chatbot-launcher:hover {
-    background-color: #000000;
-    transform: translateY(-2px);
+    background-color: #241D19;
   }
 
   .launcher-svg {
     display: flex;
     align-items: center;
-    color: var(--color-accent-coral);
+    color: #E8B4A6;
   }
 
   @media (max-width: 600px) {
@@ -476,7 +452,7 @@ const knowledgeBase = faqList.map((item) => ({
     }
     .floating-chatbot-launcher {
       padding: 12px;
-      border-radius: 50%;
+      border-radius: var(--r-sm);
     }
   }
 </style>

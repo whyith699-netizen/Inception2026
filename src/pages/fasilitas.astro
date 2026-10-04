@@ -3,61 +3,90 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ValueProp from '../components/ValueProp.astro';
+import { Image } from 'astro:assets';
+import Smansa1 from '../assets/school/Smansa1.jpg';
+import Smansa2 from '../assets/school/Smansa2.jpg';
+import Smansa3 from '../assets/school/Smansa3.jpg';
+import Smansa4 from '../assets/school/Smansa4.jpg';
+import Smansa5 from '../assets/school/Smansa5.jpg';
 
 const campusGallery = [
-  { img: "/images/school/Smansa1.jpg", title: "Gerbang & Gedung Cagar Budaya", desc: "Arsitektur ikonik SMAN 1 Klaten yang megah dan penuh nilai historis sejak 1957." },
-  { img: "/images/school/Smansa2.jpg", title: "Halaman Dalam & Lapangan Terbuka", desc: "Pusat aktivitas upacara, apel kesiswaan, dan pembinaan olahraga terbuka." },
-  { img: "/images/school/Smansa3.jpg", title: "Kompleks Ruang Kelas Bertingkat", desc: "Ruang belajar berpendingin ruangan dengan ventilasi silang asri dan proyektor digital." },
-  { img: "/images/school/Smansa4.jpg", title: "Koridor Laboratorium Sains", desc: "Akses penghubung menuju laboratorium fisika, kimia, biologi, dan komputer." },
-  { img: "/images/school/Smansa5.jpg", title: "Taman Kampus & Area Diskusi Hijau", desc: "Ruang terbuka hijau dan gazebo literasi siswa di sela jam istirahat pembelajaran." }
+  {
+    image: Smansa1,
+    title: "Gerbang dan gedung utama",
+    desc: "Arsitektur kampus bersejarah yang menjadi ciri SMAN 1 Klaten sejak 1957."
+  },
+  {
+    image: Smansa2,
+    title: "Halaman dalam dan lapangan",
+    desc: "Pusat upacara, apel kesiswaan, dan pembinaan olahraga terbuka."
+  },
+  {
+    image: Smansa3,
+    title: "Kompleks ruang kelas",
+    desc: "Ruang belajar berventilasi silang dengan proyektor digital."
+  },
+  {
+    image: Smansa4,
+    title: "Koridor laboratorium",
+    desc: "Akses menuju laboratorium fisika, kimia, biologi, dan komputer."
+  },
+  {
+    image: Smansa5,
+    title: "Taman kampus dan area diskusi",
+    desc: "Ruang terbuka hijau untuk diskusi siswa di sela jam belajar."
+  }
 ];
 
 const facilities = [
-  { name: "Laboratorium Sains Terpadu", desc: "Lab Fisika, Kimia, dan Biologi dengan instrumen analitis standar penelitian nasional." },
-  { name: "3 Laboratorium Komputer", desc: "Dilengkapi 120+ unit PC berkecepatan tinggi untuk simulasi komputasi dan asesmen digital." },
-  { name: "Perpustakaan Graha Pustaka & e-Perpus", desc: "Koleksi ribuan buku fisik dan portal perpustakaan digital e-Perpus terakreditasi A nasional." },
-  { name: "Gelanggang Olahraga (GOR) Indoor", desc: "Lapangan indoor serbaguna untuk bola basket standar DBL, voli, dan bulutangkis." },
-  { name: "Sanggar Karawitan & Seni Peran", desc: "Ruang akustik berstandar pelestarian gamelan gaya Surakarta dan pementasan teater TSL." },
-  { name: "Masjid Kampus & Sarana Ibadah", desc: "Sarana pembinaan spiritual yang luas, bersih, dan representatif bagi civitas akademika." }
+  { name: "Laboratorium sains terpadu", desc: "Lab fisika, kimia, dan biologi dengan instrumen analitis untuk praktikum dan riset siswa." },
+  { name: "Tiga laboratorium komputer", desc: "Digunakan untuk asesmen digital, praktikum komputasi, dan pembelajaran hibrida." },
+  { name: "Perpustakaan Graha Pustaka dan e-Perpus", desc: "Koleksi buku fisik dan akses perpustakaan digital melalui portal e-Perpus." },
+  { name: "Gelanggang olahraga dalam ruangan", desc: "Lapangan serbaguna untuk basket, voli, bulutangkis, dan futsal." },
+  { name: "Sanggar karawitan dan seni peran", desc: "Ruang latihan gamelan serta pementasan teater dan tari." },
+  { name: "Masjid kampus dan sarana ibadah", desc: "Sarana pembinaan rohani yang digunakan seluruh civitas akademika." }
 ];
 ---
 
 <BaseLayout
-  title="Fasilitas & Galeri Kampus 13 | SMA Negeri 1 Klaten"
-  description="Dokumentasi fasilitas laboratorium riset, 3 lab komputer, perpustakaan digital e-Perpus, dan sarana olahraga di SMA Negeri 1 Klaten."
+  title="Fasilitas dan Galeri Kampus | SMA Negeri 1 Klaten"
+  description="Dokumentasi fasilitas laboratorium, perpustakaan digital e-Perpus, dan sarana olahraga SMA Negeri 1 Klaten di Kampus 13."
 >
   <Header />
 
-  <main class="facility-page">
+  <main id="main-content">
     <section class="facility-hero">
-      <div class="container text-center">
-        <span class="page-tag">Sarana & Prasarana Kampus 13</span>
-        <h1 class="page-title">Infrastruktur Kampus Pendukung Prestasi</h1>
+      <div class="container">
+        <p class="lbl">Sarana dan prasarana</p>
+        <h1 class="page-title">Infrastruktur kampus di Jalan Merbabu 13</h1>
         <p class="page-lead">
-          Lingkungan belajar yang asri, modern, dan cagar sejarah di Jl. Merbabu No. 13 Klaten untuk menjamin kenyamanan riset, akademik, dan kreativitas siswa.
+          Lingkungan belajar asri pada kawasan cagar budaya yang mendukung
+          kegiatan akademik, riset, olahraga, dan kesenian siswa.
         </p>
       </div>
     </section>
 
-    <!-- Galeri Foto Kampus Nyata -->
-    <section class="campus-photo-section">
+    <section class="sec">
       <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="sub-badge">Footage Resmi Kampus</span>
-          <h2 class="section-title">Dokumentasi Lingkungan SMAN 1 Klaten</h2>
-        </div>
-
+        <h2 class="section-heading">Dokumentasi kampus</h2>
         <div class="campus-gallery-grid">
-          {campusGallery.map((item) => (
-            <div class="gallery-card">
-              <div class="gallery-img-box">
-                <img src={item.img} alt={item.title} class="gallery-photo" loading="lazy" />
-              </div>
-              <div class="gallery-body">
+          {campusGallery.map((item, idx) => (
+            <figure class="gallery-card" data-reveal>
+              <Image
+                src={item.image}
+                alt={item.title}
+                widths={[480, 720]}
+                sizes="(max-width: 700px) 100vw, 380px"
+                width={720}
+                height={480}
+                loading={idx < 2 ? "eager" : "lazy"}
+                class="gallery-photo"
+              />
+              <figcaption class="gallery-body">
                 <h3 class="gallery-title">{item.title}</h3>
                 <p class="gallery-desc">{item.desc}</p>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>
@@ -65,19 +94,15 @@ const facilities = [
 
     <ValueProp />
 
-    <section class="facility-grid-section">
+    <section class="sec">
       <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="sub-badge">Katalog Sarana</span>
-          <h2 class="section-title">Daftar Fasilitas Utama</h2>
-        </div>
-
+        <h2 class="section-heading">Daftar fasilitas utama</h2>
         <div class="facilities-grid">
           {facilities.map((f) => (
-            <div class="facility-item">
+            <article class="facility-item" data-reveal>
               <h3 class="fac-name">{f.name}</h3>
               <p class="fac-desc">{f.desc}</p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
@@ -88,163 +113,111 @@ const facilities = [
 </BaseLayout>
 
 <style>
-  .facility-page {
-    background-color: var(--color-bg);
-  }
-
   .facility-hero {
-    background-color: var(--color-surface);
-    padding: 70px 0 50px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .text-center { text-align: center; }
-
-  .page-tag {
-    font-size: 0.74rem;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent-coral);
-    letter-spacing: 0.08em;
+    padding: clamp(40px, 6vw, 72px) 0 clamp(32px, 5vw, 48px);
+    border-top: 0;
   }
 
   .page-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    color: var(--color-text-primary);
-    margin: 12px 0 16px;
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 18px;
+    max-width: 24ch;
   }
 
   .page-lead {
-    font-size: 1.05rem;
-    color: var(--color-text-secondary);
-    max-width: 680px;
-    margin: 0 auto;
-    line-height: 1.6;
+    font-size: 1.0625rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    max-width: 60ch;
   }
 
-  /* Real Campus Photo Gallery */
-  .campus-photo-section {
-    padding: 60px 0;
-  }
-
-  .section-title-wrap {
-    margin-bottom: 40px;
-  }
-
-  .sub-badge {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-accent-coral);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: 2.1rem;
-    color: var(--color-text-primary);
-    margin-top: 6px;
+  .section-heading {
+    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+    font-weight: 500;
+    margin-bottom: clamp(24px, 3vw, 36px);
   }
 
   .campus-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: clamp(12px, 2vw, 20px);
   }
 
   .gallery-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
-  .gallery-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--color-accent-coral);
-    box-shadow: var(--shadow-card);
-  }
-
-  .gallery-img-box {
-    width: 100%;
-    height: 210px;
-    overflow: hidden;
-    background-color: var(--color-dark-ribbon);
+  .gallery-card:nth-child(1),
+  .gallery-card:nth-child(2) {
+    grid-column: span 3;
   }
 
   .gallery-photo {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-
-  .gallery-card:hover .gallery-photo {
-    transform: scale(1.03);
-  }
-
-  .gallery-body {
-    padding: 20px 22px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    background: var(--surface);
   }
 
   .gallery-title {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 4px;
   }
 
   .gallery-desc {
-    font-size: 0.86rem;
-    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    color: var(--ink-2);
     line-height: 1.55;
-  }
-
-  /* Facility Items */
-  .facility-grid-section {
-    padding: 40px 0 80px;
   }
 
   .facilities-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
   }
 
   .facility-item {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 26px;
-    box-shadow: var(--shadow-subtle);
+    background: var(--surface);
+    padding: 22px;
+    transition: background 0.2s ease;
+  }
+
+  .facility-item:hover {
+    background: var(--paper-2);
   }
 
   .fac-name {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 6px;
   }
 
   .fac-desc {
-    font-size: 0.88rem;
-    color: var(--color-text-secondary);
-    line-height: 1.55;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    line-height: 1.6;
   }
 
   @media (max-width: 900px) {
+    .campus-gallery-grid,
     .facilities-grid {
       grid-template-columns: 1fr;
     }
-    .campus-gallery-grid {
-      grid-template-columns: 1fr;
+    .gallery-card,
+    .gallery-card:nth-child(1),
+    .gallery-card:nth-child(2) {
+      grid-column: span 1;
     }
   }
 </style>

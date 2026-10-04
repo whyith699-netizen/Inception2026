@@ -12,8 +12,8 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="SMA Negeri 1 Klaten (Padmawijaya) | Pusat Rujukan Akademik & Riset"
-  description="Website resmi SMA Negeri 1 Klaten (Padmawijaya / Kampus 13). Berdiri sejak 5 November 1957, terakreditasi A Nilai 98 BAN-SM, membina 23 ekstrakurikuler, dan asisten digital SmansaBot AI."
+  title="SMA Negeri 1 Klaten (Padmawijaya) | Sekolah Rujukan Klaten"
+  description="Website resmi SMA Negeri 1 Klaten (Padmawijaya / Kampus 13). Berdiri sejak 5 November 1957, terakreditasi A dengan nilai 98 BAN-SM, membina 23 ekstrakurikuler, direktori guru, berita sekolah, dan asisten digital SmansaBot AI."
 >
   <Header />
   <main id="main-content">
@@ -27,3 +27,27 @@ import Footer from '../components/Footer.astro';
   </main>
   <Footer />
 </BaseLayout>
+
+<script>
+  // Scroll reveal: IntersectionObserver, hanya transform & opacity
+  const targets = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach((el) => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.05 }
+    );
+    targets.forEach((el, i) => {
+      (el as HTMLElement).style.transitionDelay = `${Math.min(i, 6) * 60}ms`;
+      io.observe(el);
+    });
+  }
+</script>

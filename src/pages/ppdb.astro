@@ -3,21 +3,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import EventBanner from '../components/EventBanner.astro';
+
+const quotas = [
+  { pct: "55%", title: "Jalur zonasi", desc: "Berdasarkan jarak domisili pada kartu keluarga ke lokasi sekolah. Kartu keluarga harus diterbitkan minimal satu tahun sebelum pendaftaran." },
+  { pct: "20%", title: "Jalur afirmasi", desc: "Dipersembahkan bagi calon peserta didik dari keluarga ekonomi kurang mampu yang terdaftar pada DTKS dan anak panti asuhan." },
+  { pct: "20%", title: "Jalur prestasi", desc: "Berdasarkan nilai rapor lima semester terakhir dan piagam kejuaraan akademik maupun nonakademik yang berjenjang resmi." },
+  { pct: "5%", title: "Jalur mutasi orang tua", desc: "Bagi calon siswa yang orang tuanya mengalami perpindahan tugas dinas atau anak tenaga pendidik di sekolah ini." }
+];
+
+const requirements = [
+  "Fotokopi kartu keluarga",
+  "Fotokopi akta kelahiran",
+  "Fotokopi ijazah atau surat keterangan lulus",
+  "Fotokopi rapor lima semester terakhir",
+  "Piagam prestasi bagi pendaftar jalur prestasi",
+  "Dokumen pendukung DTKS bagi pendaftar jalur afirmasi"
+];
 ---
 
 <BaseLayout
-  title="Informasi Resmi PPDB 2026 | SMA Negeri 1 Klaten"
-  description="Petunjuk teknis dan panduan pendaftaran peserta didik baru (PPDB) SMA Negeri 1 Klaten Tahun Ajaran 2026/2027."
+  title="Informasi PPDB 2026 | SMA Negeri 1 Klaten"
+  description="Panduan pendaftaran peserta didik baru SMA Negeri 1 Klaten tahun ajaran 2026/2027: kuota jalur seleksi, berkas yang disiapkan, dan jadwal layanan."
 >
   <Header />
 
-  <main class="ppdb-page">
+  <main id="main-content">
     <section class="ppdb-hero">
-      <div class="container text-center">
-        <span class="page-tag">Penerimaan Siswa Baru</span>
-        <h1 class="page-title">Petunjuk Teknis PPDB Tahun Ajaran 2026/2027</h1>
+      <div class="container">
+        <p class="lbl">Penerimaan siswa baru</p>
+        <h1 class="page-title">Petunjuk teknis PPDB 2026/2027</h1>
         <p class="page-lead">
-          Penerimaan terpadu yang transparan, akuntabel, dan bebas pungutan melalui sistem resmi Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah.
+          Penerimaan peserta didik baru berjalan melalui sistem resmi Dinas
+          Pendidikan dan Kebudayaan Provinsi Jawa Tengah. Seluruh tahapan
+          diverifikasi sekolah tanpa pungutan biaya.
         </p>
       </div>
     </section>
@@ -26,38 +44,40 @@ import EventBanner from '../components/EventBanner.astro';
 
     <section class="quota-section">
       <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="sub-badge">Proporsi Seleksi</span>
-          <h2 class="section-title">Pembagian Kuota Jalur Seleksi</h2>
-        </div>
-
+        <h2 class="section-heading">Pembagian kuota jalur seleksi</h2>
         <div class="quota-grid">
-          <div class="quota-card">
-            <span class="quota-pct">55%</span>
-            <h3 class="quota-title">Jalur Zonasi</h3>
-            <p class="quota-desc">Berdasarkan jarak domisili kartu keluarga ke lokasi sekolah (minimal KK diterbitkan 1 tahun sebelum pendaftaran).</p>
-          </div>
-          <div class="quota-card">
-            <span class="quota-pct">20%</span>
-            <h3 class="quota-title">Jalur Afirmasi</h3>
-            <p class="quota-desc">Diperuntukkan bagi calon peserta didik dari keluarga ekonomi kurang mampu terdaftar pada DTKS serta anak panti.</p>
-          </div>
-          <div class="quota-card">
-            <span class="quota-pct">20%</span>
-            <h3 class="quota-title">Jalur Prestasi</h3>
-            <p class="quota-desc">Berdasarkan nilai rapor SMP 5 semester dan piagam kejuaraan akademik maupun non-akademik berjenjang resmi.</p>
-          </div>
-          <div class="quota-card">
-            <span class="quota-pct">5%</span>
-            <h3 class="quota-title">Jalur Mutasi Orang Tua</h3>
-            <p class="quota-desc">Bagi calon siswa yang orang tuanya mengalami perpindahan tugas dinas resmi atau anak kandung guru di SMAN 1 Klaten.</p>
-          </div>
+          {quotas.map((q) => (
+            <article class="quota-card" data-reveal>
+              <span class="quota-pct num">{q.pct}</span>
+              <h3 class="quota-title">{q.title}</h3>
+              <p class="quota-desc">{q.desc}</p>
+            </article>
+          ))}
         </div>
+      </div>
+    </section>
 
-        <div class="ppdb-cta-box text-center">
-          <h3 class="cta-title">Butuh Panduan Memilih Jalur?</h3>
-          <p class="cta-desc">Tanyakan estimasi zonasi, konversi piagam prestasi, atau kelengkapan berkas langsung ke asisten AI sekolah.</p>
-          <a href="/#chatbot" class="btn btn-primary btn-arrow">Konsultasi dengan SmansaBot AI</a>
+    <section class="req-section">
+      <div class="container">
+        <h2 class="section-heading">Berkas yang disiapkan</h2>
+        <ul class="req-list">
+          {requirements.map((r) => (
+            <li class="req-item" data-reveal>
+              <span class="req-mark" aria-hidden="true"></span>
+              <span>{r}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="ppdb-cta">
+          <div>
+            <h3 class="cta-title">Perlu bantuan memilih jalur?</h3>
+            <p class="cta-desc">
+              Tanyakan estimasi zonasi, ketentuan piagam prestasi, atau kelengkapan
+              berkas melalui asisten informasi sekolah.
+            </p>
+          </div>
+          <a href="/#chatbot" class="btn btn-primary">Tanya SmansaBot AI</a>
         </div>
       </div>
     </section>
@@ -67,143 +87,137 @@ import EventBanner from '../components/EventBanner.astro';
 </BaseLayout>
 
 <style>
-  .ppdb-page {
-    background-color: var(--color-bg);
-  }
-
   .ppdb-hero {
-    background-color: var(--color-surface);
-    padding: 70px 0 50px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .text-center { text-align: center; }
-
-  .page-tag {
-    font-size: 0.74rem;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent-coral);
-    letter-spacing: 0.08em;
+    padding: clamp(40px, 6vw, 72px) 0 clamp(24px, 3vw, 36px);
+    border-top: 0;
   }
 
   .page-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    color: var(--color-text-primary);
-    margin: 12px 0 16px;
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 18px;
+    max-width: 24ch;
   }
 
   .page-lead {
-    font-size: 1.05rem;
-    color: var(--color-text-secondary);
-    max-width: 680px;
-    margin: 0 auto;
-    line-height: 1.6;
+    font-size: 1.0625rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    max-width: 62ch;
   }
 
-  .quota-section {
-    padding: 60px 0 90px;
+  .section-heading {
+    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+    font-weight: 500;
+    margin-bottom: clamp(24px, 3vw, 36px);
   }
 
-  .section-title-wrap {
-    margin-bottom: 40px;
-  }
-
-  .sub-badge {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-accent-coral);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: 2.1rem;
-    color: var(--color-text-primary);
-    margin-top: 6px;
+  .quota-section,
+  .req-section {
+    padding-top: clamp(48px, 6vw, 72px);
+    padding-bottom: clamp(48px, 6vw, 72px);
   }
 
   .quota-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-bottom: 50px;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
   }
 
   .quota-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 32px 20px;
-    text-align: center;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    background: var(--surface);
+    padding: 24px;
+    transition: background 0.2s ease;
   }
 
   .quota-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--color-accent-coral);
-    box-shadow: var(--shadow-card);
+    background: var(--paper-2);
   }
 
   .quota-pct {
     font-family: var(--font-serif);
-    font-size: 2.6rem;
-    font-weight: 700;
-    color: var(--color-accent-coral);
+    font-size: 2rem;
+    font-weight: 500;
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
+    color: var(--ink);
   }
 
   .quota-title {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-weight: 500;
     margin-bottom: 8px;
   }
 
   .quota-desc {
-    font-size: 0.86rem;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    line-height: 1.6;
   }
 
-  .ppdb-cta-box {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    max-width: 680px;
-    margin: 0 auto;
-    box-shadow: var(--shadow-subtle);
+  .req-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    margin-bottom: clamp(24px, 4vw, 40px);
+  }
+
+  .req-item {
+    background: var(--surface);
+    padding: 18px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+  }
+
+  .req-mark {
+    width: 5px;
+    height: 5px;
+    margin-top: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .ppdb-cta {
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    padding: clamp(22px, 3vw, 32px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
   }
 
   .cta-title {
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
-    color: var(--color-text-primary);
+    font-size: 1.25rem;
+    font-weight: 500;
     margin-bottom: 8px;
   }
 
   .cta-desc {
-    font-size: 0.92rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 20px;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+    line-height: 1.65;
+    max-width: 52ch;
   }
 
   @media (max-width: 900px) {
-    .quota-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 540px) {
-    .quota-grid {
+    .quota-grid,
+    .req-list {
       grid-template-columns: 1fr;
     }
   }

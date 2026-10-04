@@ -1,0 +1,103 @@
+[
+  {
+    "category": "Pimpinan Sekolah",
+    "people": [
+      {
+        "name": "Tantri Ambarsari, S.Pd., M.Eng.",
+        "role": "Kepala Sekolah",
+        "detail": "Membawahi 33 rombongan belajar, program hybrid learning, dan seluruh program ekstrakurikuler kesiswaan.",
+        "photo": "/images/school/kepsek-tantri-ambarsari.png"
+      },
+      {
+        "name": "FX. Febriyanto Adi Nugroho, S.Si.",
+        "role": "Wakasek Bidang Kurikulum",
+        "detail": "Penanggung jawab kurikulum merdeka, penilaian hasil belajar, dan kalender akademik sekolah."
+      },
+      {
+        "name": "Bambang Budianto, S.Pd.",
+        "role": "Wakasek Bidang Kesiswaan",
+        "detail": "Pembinaan karakter siswa, pengelolaan 23 ekstrakurikuler, dan pendampingan lomba akademik."
+      },
+      {
+        "name": "Agus Purnama, S.Pd.",
+        "role": "Wakasek Bidang Sarana & Prasarana",
+        "detail": "Pengelolaan laboratorium riset, Perpustakaan Graha Pustaka, dan pemeliharaan gedung kampus 13."
+      },
+      {
+        "name": "Resmiyati, S.Pd., M.Pd.",
+        "role": "Wakasek Bidang Hubungan Masyarakat",
+        "detail": "Koordinasi komunitas alumni KAPASSKA, program kerja sama, dan publikasi sekolah."
+      },
+      {
+        "name": "Drs. Sumargana, M.S.",
+        "role": "Ketua Komite Sekolah",
+        "detail": "Penasehat kepala sekolah dalam pengawasan mutu, anggaran BOS, dan perencanaan program sekolah."
+      }
+    ]
+  },
+  {
+    "category": "Guru Bidang Studi Sains & Riset",
+    "people": [
+      {
+        "name": "Tim Guru Matematika",
+        "role": "Matematika",
+        "detail": "Pembina kelas riset, olimpiade matematika, dan persiapan ujian masuk perguruan tinggi negeri."
+      },
+      {
+        "name": "Tim Guru Fisika",
+        "role": "Fisika",
+        "detail": "Pembina OSN Fisika, laboratorium fisika, dan proyek sains siswa."
+      },
+      {
+        "name": "Tim Guru Kimia",
+        "role": "Kimia",
+        "detail": "Pembina olimpiade kimia, praktikum laboratorium, dan riset lingkungan."
+      },
+      {
+        "name": "Tim Guru Biologi",
+        "role": "Biologi",
+        "detail": "Pembina OSN Biologi, klub riset hayati, dan penelitian kebumian."
+      }
+    ]
+  },
+  {
+    "category": "Guru Bidang Studi Sosial & Bahasa",
+    "people": [
+      {
+        "name": "Tim Guru Sejarah & Sosiologi",
+        "role": "Sejarah, Sosiologi, Geografi",
+        "detail": "Pembina riset sosial, debat kebangsaan, dan studi kebumian masyarakat Klaten."
+      },
+      {
+        "name": "Tim Guru Ekonomi & Kewirausahaan",
+        "role": "Ekonomi, Akuntansi",
+        "detail": "Pembina studi ekonomi kreatif, koperasi siswa, dan program wirausaha muda."
+      },
+      {
+        "name": "Tim Guru Bahasa",
+        "role": "Bahasa Indonesia, Bahasa Inggris, Sastra",
+        "detail": "Pembina FLS2N, teater, karawitan, dan pendampingan akademik masuk perguruan tinggi."
+      }
+    ]
+  },
+  {
+    "category": "Tenaga Kependidikan & Administrasi",
+    "people": [
+      {
+        "name": "Staf Sekretariat & Tata Usaha",
+        "role": "Administrasi sekolah",
+        "detail": "Pelayanan administrasi PPDB, arsip siswa, surat menyurat, dan kepegawaian."
+      },
+      {
+        "name": "Staf Perpustakaan Graha Pustaka",
+        "role": "Tata usaha perpustakaan",
+        "detail": "Pengelolaan koleksi, layanan e-Perpus, dan pendampingan literasi siswa."
+      },
+      {
+        "name": "Staf Laboratorium & Multimedia",
+        "role": "Teknisi laboratorium",
+        "detail": "Pemeliharaan alat laboratorium, dukungan praktikum, dan fasilitas digital sekolah."
+      }
+    ]
+  }
+]

@@ -3,33 +3,38 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.replace(/\/$/, "");
 
 const navLinks = [
-  { href: "/", label: "Beranda" },
-  { href: "/profil", label: "Profil & Sejarah" },
-  { href: "/program", label: "Akademik & Ekskul" },
-  { href: "/fasilitas", label: "Fasilitas" },
-  { href: "/prestasi", label: "Prestasi & Alumni" },
-  { href: "/ppdb", label: "PPDB 2026" },
-  { href: "/kontak", label: "Kontak" }
+  { href: "/profil", label: "Profil" },
+  { href: "/program", label: "Akademik" },
+  { href: "/direktori", label: "Direktori" },
+  { href: "/berita", label: "Berita" },
+  { href: "/ppdb", label: "PPDB 2026" }
 ];
 ---
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="/" class="brand-link" aria-label="Beranda SMAN 1 Klaten">
-      <img src="/images/school/logo.png" alt="Logo SMAN 1 Klaten" class="brand-logo-img" width="34" height="34" />
+    <a href="/" class="brand-link" aria-label="Kembali ke beranda">
+      <img
+        src="/images/school/logo.png"
+        alt="Lambang SMA Negeri 1 Klaten"
+        class="brand-logo-img"
+        width="34"
+        height="34"
+        loading="eager"
+      />
       <div class="brand-text">
         <span class="school-name">SMAN 1 KLATEN</span>
-        <span class="school-alias">PADMAWIJAYA • KAMPUS 13</span>
+        <span class="school-alias">Padmawijaya &middot; Kampus 13</span>
       </div>
     </a>
 
-    <nav class="main-nav" aria-label="Navigasi Utama">
+    <nav class="main-nav" aria-label="Navigasi utama">
       <ul class="nav-list">
         {navLinks.map((link) => {
           const isActive = currentPath === link.href.replace(/\/$/, "");
           return (
             <li>
-              <a href={link.href} class={`nav-item ${isActive ? 'active' : ''}`}>
+              <a href={link.href} class:list={["nav-item", { active: isActive }]}>
                 {link.label}
               </a>
             </li>
@@ -39,8 +44,8 @@ const navLinks = [
     </nav>
 
     <div class="header-action">
-      <a href="/#chatbot" class="btn-chat-link" id="header-chatbot-btn">
-        <span class="chat-dot"></span> SmansaBot AI
+      <a href="/#chatbot" class="btn-chat-link">
+        <span class="chat-dot" aria-hidden="true"></span> SmansaBot AI
       </a>
     </div>
   </div>
@@ -48,33 +53,33 @@ const navLinks = [
 
 <style>
   .site-header {
-    background-color: rgba(250, 248, 245, 0.92);
-    height: 68px;
+    height: 60px;
     display: flex;
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 40;
+    background-color: rgba(250, 248, 245, 0.93);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--color-border);
-    backdrop-filter: blur(12px);
   }
 
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 32px;
   }
 
   .brand-link {
     display: flex;
     align-items: center;
-    gap: 12px;
-    text-decoration: none;
+    gap: 10px;
   }
 
   .brand-logo-img {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
   }
 
@@ -85,72 +90,83 @@ const navLinks = [
   }
 
   .school-name {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     color: var(--color-text-primary);
   }
 
   .school-alias {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 600;
+    font-size: 0.625rem;
+    font-weight: 400;
     color: var(--color-text-muted);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .nav-list {
     display: flex;
     list-style: none;
-    gap: 24px;
+    gap: 26px;
   }
 
   .nav-item {
-    font-size: 0.88rem;
+    font-size: 0.9375rem;
     font-weight: 500;
     color: var(--color-text-secondary);
-    transition: color 0.15s ease;
-    padding: 6px 0;
+    padding: 4px 0;
     position: relative;
-    text-decoration: none;
+    transition: color 0.18s ease;
   }
 
-  .nav-item:hover, .nav-item.active {
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.22s ease;
+  }
+
+  .nav-item:hover {
     color: var(--color-text-primary);
-    font-weight: 600;
+  }
+
+  .nav-item:hover::after {
+    transform: scaleX(1);
+  }
+
+  .nav-item.active {
+    color: var(--color-text-primary);
   }
 
   .nav-item.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-accent-coral);
-    border-radius: 2px;
+    background: var(--color-accent-coral);
+    transform: scaleX(1);
   }
 
   .btn-chat-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.82rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 500;
     color: var(--color-text-primary);
-    border: 1px solid var(--color-border);
-    background-color: var(--color-surface);
-    padding: 7px 16px;
-    border-radius: var(--radius-pill);
-    text-decoration: none;
-    transition: all 0.2s ease;
+    border: 1px solid var(--color-border-hover);
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    transition: border-color 0.18s ease, background 0.18s ease;
   }
 
   .btn-chat-link:hover {
-    border-color: var(--color-accent-coral);
-    color: var(--color-accent-coral);
-    box-shadow: var(--shadow-subtle);
+    border-color: var(--color-text-muted);
+    background-color: var(--color-surface-muted);
   }
 
   .chat-dot {
@@ -160,7 +176,7 @@ const navLinks = [
     border-radius: 50%;
   }
 
-  @media (max-width: 980px) {
+  @media (max-width: 900px) {
     .nav-list {
       display: none;
     }

@@ -8,29 +8,26 @@ import EkstrakurikulerGrid from '../components/EkstrakurikulerGrid.astro';
 ---
 
 <BaseLayout
-  title="Program Akademik & 23 Ekstrakurikuler | SMA Negeri 1 Klaten"
-  description="Struktur Kurikulum Merdeka, peminatan riset sains, kebumian, bahasa global, dan katalog lengkap 23 ekstrakurikuler resmi SMAN 1 Klaten."
+  title="Akademik dan Ekstrakurikuler | SMA Negeri 1 Klaten"
+  description="Struktur Kurikulum Merdeka, tiga pilar peminatan, empat bidang pengembangan siswa, dan katalog 23 ekstrakurikuler resmi SMAN 1 Klaten."
 >
   <Header />
 
-  <main>
+  <main id="main-content">
     <section class="program-hero">
-      <div class="container text-center">
-        <span class="page-tag">Struktur Akademik & Kesiswaan</span>
-        <h1 class="page-title">Kurikulum Merdeka & Ekosistem Minat Bakat</h1>
+      <div class="container">
+        <p class="lbl">Akademik dan kesiswaan</p>
+        <h1 class="page-title">Kurikulum Merdeka dan ekosistem minat bakat</h1>
         <p class="page-lead">
-          Pembelajaran yang menghargai keunikan potensi setiap peserta didik melalui fase eksplorasi, pendalaman rumpun disiplin ilmu, dan pembinaan 23 organisasi ekstrakurikuler resmi.
+          Pembelajaran yang menghargai keunikan potensi setiap peserta didik melalui
+          fase eksplorasi, pendalaman rumpun disiplin ilmu, dan pembinaan 23
+          ekstrakurikuler resmi.
         </p>
       </div>
     </section>
 
-    <!-- Program Unggulan Akademik -->
     <Programs />
-
-    <!-- 4 Pilar Kurikulum & Olimpiade -->
     <Curriculum />
-
-    <!-- 23 Ekstrakurikuler Resmi Lengkap -->
     <EkstrakurikulerGrid />
   </main>
 
@@ -39,28 +36,21 @@ import EkstrakurikulerGrid from '../components/EkstrakurikulerGrid.astro';
 
 <style>
   .program-hero {
-    background-color: var(--color-surface-muted);
-    padding: 60px 0;
-    border-bottom: 1px solid var(--color-border);
+    padding: clamp(40px, 6vw, 72px) 0 clamp(32px, 5vw, 48px);
+    border-top: 0;
   }
-  .text-center { text-align: center; }
-  .page-tag {
-    font-size: 0.82rem;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent-coral);
-    letter-spacing: 0.08em;
-  }
+
   .page-title {
-    font-size: clamp(2rem, 3.8vw, 3rem);
-    margin: 12px 0 16px;
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 18px;
+    max-width: 24ch;
   }
+
   .page-lead {
-    font-size: 1.05rem;
-    color: var(--color-text-secondary);
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
+    font-size: 1.0625rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    max-width: 60ch;
   }
 </style>

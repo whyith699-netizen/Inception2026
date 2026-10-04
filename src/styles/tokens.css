@@ -1,44 +1,56 @@
 :root {
-  /* Colors - Padmawijaya Academic Editorial */
-  --color-bg: #FAF8F5;
-  --color-text-primary: #1A1412;
-  --color-text-secondary: #554B45;
-  --color-text-muted: #827770;
-  
-  --color-accent-coral: #C84B31;       /* Terracotta Red (Bunga Padma) */
-  --color-accent-coral-hover: #B23F27;
-  --color-accent-gold: #B8902D;        /* Noble Gold (Akreditasi & Prestasi) */
-  --color-accent-green: #2B5B49;       /* Deep Forest Green */
-  --color-accent-yellow: #C59B27;
-  --color-accent-blue: #2E5B82;
+  /* Padmawijaya Academic Editorial — satu aksen, satu keluarga gray hangat */
+  --paper: #FAF8F5;
+  --paper-2: #F3EFE9;
+  --surface: #FFFFFF;
+  --ink: #161210;
+  --ink-2: #4A423C;
+  --ink-3: #746A63;
+  --accent: #B5472F;
+  --accent-ink: #96371F;
+  --accent-soft: #F6E9E4;
+  --hairline: #E8E1D7;
+  --hairline-2: #D8CFC4;
+  --dark: #1B1613;
+  --dark-ink: #EFEAE3;
 
-  --color-surface: #FFFFFF;
-  --color-surface-muted: #F3EFE9;
-  --color-border: #E8E1D7;
-  --color-border-hover: #C5BCB2;
-  
-  --color-dark-ribbon: #181311;
-  --color-dark-ribbon-text: #FAF8F5;
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, monospace;
 
-  /* Typography */
-  --font-serif: 'Fraunces', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+  --shadow-1: 0 1px 2px rgba(22, 18, 16, 0.04);
+  --shadow-2: 0 2px 8px rgba(22, 18, 16, 0.04);
+  --max-w: 1160px;
+}
 
-  /* Spacing & Radii (Crisp & Minimal) */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+/* aliases backward-compat untuk class lama */
+:root {
+  --color-bg: var(--paper);
+  --color-text-primary: var(--ink);
+  --color-text-secondary: var(--ink-2);
+  --color-text-muted: var(--ink-3);
+  --color-accent-coral: var(--accent);
+  --color-accent-coral-hover: var(--accent-ink);
+  --color-accent-gold: #96751F;
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--paper-2);
+  --color-border: var(--hairline);
+  --color-border-hover: var(--hairline-2);
+  --color-dark-ribbon: var(--dark);
+  --color-dark-ribbon-text: var(--dark-ink);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r-md);
+  --radius-lg: var(--r-lg);
   --radius-pill: 9999px;
-
-  /* Shadows (Subtle, No AI-slop Glows) */
-  --shadow-subtle: 0 1px 3px rgba(26, 20, 18, 0.04);
-  --shadow-card: 0 4px 12px rgba(26, 20, 18, 0.05);
-  --shadow-hover: 0 10px 24px rgba(26, 20, 18, 0.08);
-
-  /* Layout */
-  --max-width: 1200px;
-  --section-spacing: 80px;
+  --shadow-subtle: var(--shadow-1);
+  --shadow-card: var(--shadow-1);
+  --shadow-hover: var(--shadow-2);
+  --max-width: var(--max-w);
+  --section-spacing: 96px;
 }

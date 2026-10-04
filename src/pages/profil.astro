@@ -3,202 +3,198 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const leadershipTeam = [
-  { role: "Kepala Sekolah", name: "Tantri Ambarsari, S.Pd., M.Eng.", period: "2023 – Sekarang" },
-  { role: "Wakasek Kurikulum", name: "FX. Febriyanto Adi Nugroho, S.Si.", period: "T.A. 2024/2025" },
-  { role: "Wakasek Kesiswaan", name: "Bambang Budianto, S.Pd.", period: "T.A. 2024/2025" },
-  { role: "Wakasek Sarana Prasarana", name: "Agus Purnama, S.Pd.", period: "T.A. 2024/2025" },
-  { role: "Wakasek Hubungan Masyarakat", name: "Resmiyati, S.Pd., M.Pd.", period: "T.A. 2024/2025" },
-  { role: "Ketua Komite Sekolah", name: "Drs. Sumargana, M.S.", period: "Komite SMANSA" }
+const timelineMilestones = [
+  { year: "1957", title: "Pendirian SMA Persiapan Klaten", desc: "Didirikan 5 November 1957 dengan 253 siswa dan ditetapkan sebagai SMA Negeri Klaten melalui SK Menteri PP dan K Nomor 5620/B/57." },
+  { year: "1960", title: "Predikat SMA Negeri ABC", desc: "Status SMA Negeri ABC dengan peminatan budaya, sosial, dan ilmu alam." },
+  { year: "1965", title: "Pemekaran sekolah", desc: "SMA Negeri ABC dimekarkan menjadi SMA Negeri 1 Klaten dan SMA Negeri 2 Klaten." },
+  { year: "1994", title: "Sekolah unggulan Jawa Tengah", desc: "Ditetapkan sebagai sekolah unggulan percontohan tingkat karesidenan dan provinsi." },
+  { year: "2003", title: "Perintis program akselerasi", desc: "Membuka kelas akselerasi perdana dan menerapkan Kurikulum Berbasis Kompetensi." },
+  { year: "2021", title: "Akreditasi A dengan nilai 98", desc: "BAN-SM memberikan nilai 98 dan peringkat unggul, kemudian dilanjutkan penerapan Kurikulum Merdeka." }
 ];
 
-const timelineMilestones = [
-  { year: "1957", title: "Pendirian SMA Persiapan Klaten", desc: "Didirikan 5 November 1957 dengan 253 siswa, kemudian ditetapkan sebagai SMA Negeri Klaten melalui SK Menteri PP dan K No. 5620/B/57." },
-  { year: "1960", title: "Predikat SMA Negeri ABC", desc: "Pemerintah menganugerahkan status SMA Negeri ABC dengan peminatan budaya, sosial, dan paspal (pasti alam)." },
-  { year: "1965", title: "Pemekaran Sekolah", desc: "SMA Negeri ABC resmi dimekarkan menjadi dua institusi mandiri: SMA Negeri 1 Klaten dan SMA Negeri 2 Klaten." },
-  { year: "1994", title: "Penunjukan SMU Plus Unggulan", desc: "Ditetapkan Kanwil Depdikbud Jawa Tengah sebagai sekolah unggulan percontohan di tingkat karesidenan dan provinsi." },
-  { year: "2003", title: "Perintis Program Akselerasi", desc: "Membuka kelas akselerasi perdana dan menerapkan Kurikulum Berbasis Kompetensi (KBK) berstandar nasional." },
-  { year: "2021 - Kini", title: "Akreditasi A Nilai 98 & Era Merdeka", desc: "Memperoleh sertifikasi BAN-SM Nilai 98 (Unggul) dan memelopori integrasi Kurikulum Merdeka riset terpadu." }
+const legalRows = [
+  ["Nama resmi", "SMA Negeri 1 Klaten"],
+  ["Sebutan akrab", "SMANSA, Padmawijaya, Kampus 13"],
+  ["NPSN", "20309676"],
+  ["NSS", "301046002001"],
+  ["Tanggal berdiri", "5 November 1957, SK 5620/B/57"],
+  ["Akreditasi", "A dengan nilai 98, BAN-SM 2021"],
+  ["Rombongan belajar", "33 rombel kelas X sampai XII"],
+  ["Organisasi alumni", "KAPASSKA"],
+  ["Alamat", "Jl. Merbabu No. 13, Klaten Selatan 57423"],
+  ["Telepon", "(0272) 321150"]
 ];
 ---
 
 <BaseLayout
-  title="Profil, Sejarah & Filosofi Padmawijaya | SMAN 1 Klaten"
-  description="Sejarah berdirinya SMA Negeri 1 Klaten (5 Nov 1957), filosofi nama Padmawijaya, maskot Chiku, pimpinan sekolah, dan legalitas NPSN 20309676 Akreditasi Nilai 98."
+  title="Profil dan Sejarah | SMA Negeri 1 Klaten"
+  description="Sejarah berdirinya SMA Negeri 1 Klaten pada 5 November 1957, filosofi Padmawijaya, maskot Chiku, ketua pimpinan sekolah, dan identitas legal kampus."
 >
   <Header />
 
-  <main class="page-container">
-    <!-- Clean Minimalist Page Header -->
+  <main id="main-content">
     <section class="page-header">
-      <div class="container text-center">
-        <span class="page-tag">Sejarah & Identitas Institusi</span>
+      <div class="container">
+        <p class="lbl">Sejarah dan identitas institusi</p>
         <h1 class="page-title">Profil SMA Negeri 1 Klaten</h1>
         <p class="page-lead">
-          Perjalanan dedikasi panjang sejak 5 November 1957 di Kampus 13 Klaten dalam membentuk insan berbudi luhur, berkarakter suci, dan berjaya di gelanggang dunia.
+          Lebih dari enam dekade berdiri di Kampus 13 Klaten, sekolah ini dibina
+          untuk mencetak lulusan yang berakar pada budaya Jawa, luwes dalam sains,
+          dan siap bersaing di tingkat nasional.
         </p>
       </div>
     </section>
 
-    <!-- Filosofi Padmawijaya & Maskot Chiku -->
-    <section class="philosophy-section">
+    <section class="sec">
       <div class="container">
         <div class="philosophy-grid">
-          <div class="phil-card">
-            <span class="phil-label">Makna Semboyan & Julukan</span>
-            <h2 class="phil-title">Nama Kehormatan "Padmawijaya"</h2>
+          <article class="phil-card" data-reveal>
+            <p class="card-label">Makna nama</p>
+            <h2 class="phil-title">Nama kehormatan Padmawijaya</h2>
             <p class="phil-desc">
-              Berasal dari bahasa Sanskerta: <strong>Padma</strong> (पद्म) yang berarti <em>bunga teratai merah</em> dan <strong>Wijaya</strong> yang bermakna <em>kejayaan atau kemenangan</em>. Dalam tradisi kebudayaan Jawa luhur, Teratai melambangkan kesucian moral dan keanggunan akal budi—mampu tumbuh dan mekar indah melampaui lumpur tanpa sedikit pun ternoda oleh keburukan di sekelilingnya.
+              Padmawijaya berasal dari bahasa Sanskerta: <em>padma</em> berarti bunga
+              teratai merah, dan <em>wijaya</em> berarti kejayaan. Teratai dipilih
+              karena dapat mekar indah di atas lumpur tanpa ternoda, lambang moral
+              yang bersih dan akal budi yang luhur.
             </p>
-          </div>
+          </article>
 
-          <div class="phil-card">
-            <span class="phil-label">Simbol Kecendekiaan</span>
-            <h2 class="phil-title">Maskot Resmi "Chiku"</h2>
+          <article class="phil-card" data-reveal>
+            <p class="card-label">Maskot sekolah</p>
+            <h2 class="phil-title">Chiku si burung hantu</h2>
             <p class="phil-desc">
-              Maskot resmi SMAN 1 Klaten adalah <strong>Chiku si burung hantu</strong>. Burung hantu dipilih sebagai lambang ketajaman intuisi nalar, kedalaman ilmu pengetahuan, ketenangan berpikir, serta kebijaksanaan dalam memandang masa depan peradaban.
+              Burung hantu melambangkan ketenangan berpikir, ketajaman nalar, dan
+              kedalaman ilmu. Sosok Chiku menjadi penanda identitas civitas
+              akademika Padmawijaya dalam setiap kegiatan sekolah.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Sambutan Kepala Sekolah -->
-    <section class="principal-section">
+    <section class="sec">
       <div class="container">
+        <h2 class="section-heading">Sambutan kepala sekolah</h2>
         <div class="principal-card">
-          <div class="principal-photo-col">
-            <div class="photo-frame">
-              <img 
-                src="/images/school/salamkepsek.jpg" 
-                alt="Tantri Ambarsari, S.Pd., M.Eng." 
-                class="principal-photo" 
-                width="320"
-                height="400"
-              />
-            </div>
-            <div class="photo-label">
+          <figure class="principal-photo-col">
+            <img
+              src="/images/school/salamkepsek.jpg"
+              alt="Tantri Ambarsari, S.Pd., M.Eng., Kepala Sekolah SMAN 1 Klaten"
+              class="principal-photo"
+              width="320"
+              height="400"
+              loading="lazy"
+            />
+            <figcaption class="photo-label">
               <strong>Tantri Ambarsari, S.Pd., M.Eng.</strong>
-              <span>Kepala Sekolah SMAN 1 Klaten</span>
-            </div>
-          </div>
-
+              <span>Kepala Sekolah bidang kesiswaan dan kurikulum</span>
+            </figcaption>
+          </figure>
           <div class="principal-text-col">
-            <span class="meta-tag">Amanat Kepemimpinan</span>
-            <h2 class="principal-title">Meneguhkan Karakter Luhur di Tengah Kemajuan Teknologi</h2>
-            <div class="principal-content">
-              <p>
-                <strong>Assalamu’alaikum Warahmatullahi Wabarakatuh, Salam Sejahtera bagi Kita Semua.</strong>
-              </p>
-              <p>
-                SMA Negeri 1 Klaten telah menapaki lebih dari enam dekade pengabdian mencetak generasi pemimpin bangsa. Di era kecerdasan artifisial dan transformasi serba cepat saat ini, kami memegang teguh prinsip bahwa kemajuan teknologi harus selalu dipandu oleh keteguhan integritas budi pekerti dan etika lingkungan.
-              </p>
-              <p>
-                Melalui ekosistem Kurikulum Merdeka, pembinaan 23 ekstrakurikuler, dan fasilitas riset modern di Kampus 13, kami berkomitmen melahirkan lulusan yang cerdas bernalar, berwawasan global, dan menjunjung tinggi kehormatan almamater Padmawijaya.
-              </p>
-              <div class="motto-box">
-                <em>"SMA Negeri 1 Klaten: Berkarakter Hebat Jaya!"</em>
-              </div>
-            </div>
+            <p class="principal-quote">
+              Assalamualaikum warahmatullahi wabarakatuh, salam sejahtera untuk kita semua.
+            </p>
+            <p>
+              SMA Negeri 1 Klaten telah menapaki lebih dari enam dekade pengabdian
+              mencetak generasi pemimpin bangsa. Kami memegang prinsip bahwa
+              kemajuan teknologi harus dipandu oleh keteguhan integritas budi
+              pekerti dan tanggung jawab terhadap lingkungan.
+            </p>
+            <p>
+              Melalui Kurikulum Merdeka, 23 ekstrakurikuler, dan fasilitas riset di
+              Kampus 13, sekolah berkomitmen melahirkan lulusan yang cerdas
+              bernalar, berwawasan luas, dan menjunjung tinggi kehormatan almamater
+              Padmawijaya.
+            </p>
+            <p class="motto">Berkarakter, Hebat, Jaya</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Linimasa Sejarah Sejak 1957 -->
-    <section class="timeline-section" id="sejarah">
+    <section class="sec" id="sejarah">
       <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="meta-tag">Arsip & Rekam Jejak</span>
-          <h2 class="section-heading">Milestone Sejarah SMA Negeri 1 Klaten</h2>
-        </div>
-
+        <h2 class="section-heading">Linimasa sejarah</h2>
         <div class="timeline-list">
           {timelineMilestones.map((item) => (
-            <div class="timeline-row">
-              <div class="timeline-year-col">
-                <span class="year-text">{item.year}</span>
-              </div>
+            <article class="timeline-row" data-reveal>
+              <span class="year-text num">{item.year}</span>
               <div class="timeline-content-col">
                 <h3 class="milestone-title">{item.title}</h3>
                 <p class="milestone-desc">{item.desc}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        <!-- Arsip Foto Historis -->
         <div class="history-photos-grid">
-          <div class="photo-card">
-            <div class="photo-wrap">
-              <img src="/images/school/history-foto1.jpg" alt="Arsip Pendirian SMAN 1 Klaten 1957" class="hist-img" loading="lazy" />
-            </div>
-            <div class="photo-caption">
-              <strong>Arsip Pendirian 1957</strong>
-              <span>Gedung awal SMA Persiapan Klaten di Jl. Merbabu No. 13</span>
-            </div>
-          </div>
+          <figure class="photo-card" data-reveal>
+            <img
+              src="/images/school/history-foto1.jpg"
+              alt="Arsip pendirian SMA Persiapan Klaten tahun 1957"
+              class="hist-img"
+              width="600"
+              height="400"
+              loading="lazy"
+            />
+            <figcaption class="photo-caption">
+              <strong>Arsip pendirian 1957</strong>
+              <span>Gedung awal SMA Persiapan Klaten di Jalan Merbabu Nomor 13</span>
+            </figcaption>
+          </figure>
 
-          <div class="photo-card">
-            <div class="photo-wrap">
-              <img src="/images/school/history-foto2a.jpg" alt="Generasi Perintis Pendidik SMANSA" class="hist-img" loading="lazy" />
-            </div>
-            <div class="photo-caption">
-              <strong>Generasi Pengajar Perintis</strong>
-              <span>Pondasi etos akademik dan kedisiplinan intelektual</span>
-            </div>
-          </div>
+          <figure class="photo-card" data-reveal>
+            <img
+              src="/images/school/history-foto2a.jpg"
+              alt="Generasi pengajar perintis SMAN 1 Klaten"
+              class="hist-img"
+              width="600"
+              height="400"
+              loading="lazy"
+            />
+            <figcaption class="photo-caption">
+              <strong>Generasi pengajar perintis</strong>
+              <span>Pondasi etos akademik dan kedisiplinan intelektual sekolah</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- Dewan Pimpinan & Tenaga Kependidikan -->
-    <section class="leadership-section">
+    <section class="sec">
       <div class="container">
-        <div class="section-title-wrap text-center">
-          <span class="meta-tag">Manajemen Sekolah</span>
-          <h2 class="section-heading">Struktur Kepemimpinan SMAN 1 Klaten</h2>
-        </div>
-
-        <div class="leadership-grid">
-          {leadershipTeam.map((lead) => (
-            <div class="lead-card">
-              <span class="lead-role">{lead.role}</span>
-              <h3 class="lead-name">{lead.name}</h3>
-              <span class="lead-period">{lead.period}</span>
-            </div>
-          ))}
-        </div>
-
-        <div class="faculty-banner">
-          <div class="faculty-img-container">
-            <img src="/images/school/smansafullteam.jpeg" alt="Dewan Pengajar dan Tenaga Kependidikan SMAN 1 Klaten" class="faculty-img" loading="lazy" />
-          </div>
-          <div class="faculty-meta">
-            <h3>Dewan Pendidik dan Tenaga Kependidikan SMAN 1 Klaten</h3>
-            <p>Didukung oleh 80+ tenaga pendidik profesional bersertifikasi pendidik, berlatar belakang Magister (S2) dan Sarjana (S1) lulusan universitas terkemuka.</p>
-          </div>
-        </div>
+        <h2 class="section-heading">Dewan pendidik dan tenaga kependidikan</h2>
+        <figure class="faculty-banner">
+          <img
+            src="/images/school/smansafullteam.jpeg"
+            alt="Dewan pengajar dan tenaga kependidikan SMAN 1 Klaten berfoto bersama"
+            class="faculty-img"
+            width="1280"
+            height="720"
+            loading="lazy"
+          />
+          <figcaption class="faculty-meta">
+            Dewan pendidik sekolah meningkatan mutu pembelajaran melalui kelas riset,
+            pendampingan ekstrakurikuler, dan literasi digital bagi seluruh siswa.
+            Daftar lengkap pimpinan dan bidang studi tersedia di halaman
+            <a class="inline-link" href="/direktori">Direktori</a>.
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- Tabel Identitas Legal & KAPASSKA -->
-    <section class="legal-section">
+    <section class="sec">
       <div class="container">
+        <h2 class="section-heading">Identitas legalitas institusi</h2>
         <div class="legal-card">
-          <h3 class="legal-title">Identitas Legalitas Institusi</h3>
-          <div class="legal-grid">
-            <div class="legal-item"><span class="lbl">Nama Resmi</span><span class="val">SMA Negeri 1 Klaten</span></div>
-            <div class="legal-item"><span class="lbl">Sebutan Akrab</span><span class="val">SMANSA, Padmawijaya, Kampus 13</span></div>
-            <div class="legal-item"><span class="lbl">NPSN Resmi</span><span class="val">20309676</span></div>
-            <div class="legal-item"><span class="lbl">NSS</span><span class="val">301046002001</span></div>
-            <div class="legal-item"><span class="lbl">Tanggal Pendirian</span><span class="val">5 November 1957 (SK 5620/B/57)</span></div>
-            <div class="legal-item"><span class="lbl">Peringkat Akreditasi</span><span class="val">Akreditasi A • Nilai 98 (BAN-SM 2021)</span></div>
-            <div class="legal-item"><span class="lbl">Jumlah Rombel</span><span class="val">33 Rombel (X, XI, XII Rombel A s.d. K)</span></div>
-            <div class="legal-item"><span class="lbl">Organisasi Alumni</span><span class="val">KAPASSKA (Keluarga Alumni Padmawijaya)</span></div>
-            <div class="legal-item"><span class="lbl">Alamat Lengkap</span><span class="val">Jl. Merbabu No. 13, Klaten Selatan, Klaten 57423</span></div>
-            <div class="legal-item"><span class="lbl">Telepon Kantor</span><span class="val">(0272) 321150</span></div>
-          </div>
+          <dl class="legal-grid">
+            {legalRows.map(([label, value]) => (
+              <div class="legal-item">
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>
@@ -208,434 +204,284 @@ const timelineMilestones = [
 </BaseLayout>
 
 <style>
-  .page-container {
-    padding-bottom: 90px;
-    background-color: var(--color-bg);
-  }
-
-  .text-center { text-align: center; }
-
   .page-header {
-    padding: 70px 0 50px;
-    background-color: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .page-tag {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent-coral);
-    letter-spacing: 0.08em;
+    padding: clamp(40px, 6vw, 72px) 0 clamp(28px, 4vw, 44px);
+    border-top: 0;
   }
 
   .page-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    color: var(--color-text-primary);
-    margin: 12px 0 16px;
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 18px;
+    max-width: 24ch;
   }
 
   .page-lead {
-    font-size: 1.05rem;
-    color: var(--color-text-secondary);
-    max-width: 720px;
-    margin: 0 auto;
-    line-height: 1.6;
+    font-size: 1.0625rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    max-width: 62ch;
   }
 
-  /* Philosophy Cards */
-  .philosophy-section {
-    padding: 60px 0 40px;
+  .section-heading {
+    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+    font-weight: 500;
+    margin-bottom: clamp(24px, 3vw, 36px);
+  }
+
+  .card-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
   }
 
   .philosophy-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
   }
 
   .phil-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 32px;
-    box-shadow: var(--shadow-subtle);
-  }
-
-  .phil-label {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-accent-coral);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    display: block;
-    margin-bottom: 8px;
+    background: var(--surface);
+    padding: clamp(22px, 3vw, 32px);
   }
 
   .phil-title {
-    font-family: var(--font-serif);
-    font-size: 1.45rem;
-    color: var(--color-text-primary);
-    margin-bottom: 14px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.3;
   }
 
   .phil-desc {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    line-height: 1.65;
-  }
-
-  /* Principal Greeting Section */
-  .principal-section {
-    padding: 40px 0 60px;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+    line-height: 1.7;
   }
 
   .principal-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: 44px;
     display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 48px;
-    align-items: center;
-    box-shadow: var(--shadow-card);
+    grid-template-columns: 280px 1fr;
+    gap: clamp(24px, 4vw, 48px);
+    align-items: start;
   }
 
-  .photo-frame {
-    width: 100%;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    background-color: var(--color-dark-ribbon);
-    margin-bottom: 12px;
+  .principal-photo-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .principal-photo {
     width: 100%;
-    height: auto;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
-    display: block;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
   }
 
   .photo-label {
-    text-align: center;
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
 
   .photo-label strong {
-    font-family: var(--font-serif);
-    font-size: 0.95rem;
-    color: var(--color-text-primary);
+    font-size: 0.9375rem;
+    color: var(--ink);
   }
 
   .photo-label span {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+    color: var(--ink-3);
   }
 
-  .meta-tag {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-accent-coral);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .principal-title {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    color: var(--color-text-primary);
-    line-height: 1.25;
-    margin: 8px 0 16px;
-  }
-
-  .principal-content {
+  .principal-text-col {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    font-size: 0.95rem;
-    line-height: 1.65;
-    color: var(--color-text-secondary);
+    gap: 16px;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink-2);
   }
 
-  .motto-box {
-    background-color: var(--color-surface-muted);
-    border-left: 3px solid var(--color-accent-coral);
-    padding: 12px 18px;
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    font-weight: 600;
-    color: var(--color-accent-coral);
-  }
-
-  /* Timeline */
-  .timeline-section {
-    padding: 60px 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .section-title-wrap {
-    margin-bottom: 44px;
-  }
-
-  .section-heading {
+  .principal-quote {
     font-family: var(--font-serif);
-    font-size: 2.1rem;
-    color: var(--color-text-primary);
-    margin-top: 6px;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  .motto {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 
   .timeline-list {
     display: flex;
     flex-direction: column;
-    border-left: 2px solid var(--color-border);
-    margin-left: 120px;
-    margin-bottom: 60px;
+    border-left: 1px solid var(--hairline-2);
+    margin-bottom: clamp(32px, 5vw, 48px);
   }
 
   .timeline-row {
     display: flex;
+    gap: clamp(16px, 3vw, 32px);
+    padding: 0 0 24px 24px;
     position: relative;
-    padding-left: 32px;
-    padding-bottom: 36px;
-  }
-
-  .timeline-year-col {
-    position: absolute;
-    left: -120px;
-    top: -2px;
-    width: 100px;
-    text-align: right;
-  }
-
-  .year-text {
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--color-accent-coral);
   }
 
   .timeline-row::before {
     content: '';
     position: absolute;
-    left: -7px;
-    top: 4px;
-    width: 12px;
-    height: 12px;
+    left: -4px;
+    top: 7px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    background-color: var(--color-surface);
-    border: 3px solid var(--color-accent-coral);
+    background: var(--accent);
+  }
+
+  .year-text {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 44px;
+    padding-top: 2px;
   }
 
   .milestone-title {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    color: var(--color-text-primary);
+    font-size: 1.0625rem;
+    font-weight: 500;
     margin-bottom: 6px;
   }
 
   .milestone-desc {
-    font-size: 0.92rem;
-    color: var(--color-text-secondary);
-    line-height: 1.55;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+    line-height: 1.65;
+    max-width: 62ch;
   }
 
   .history-photos-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: clamp(16px, 3vw, 32px);
   }
 
   .photo-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-
-  .photo-wrap {
-    width: 100%;
-    height: 240px;
-    overflow: hidden;
-    background-color: var(--color-dark-ribbon);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .hist-img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
   }
 
   .photo-caption {
-    padding: 16px 20px;
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
 
   .photo-caption strong {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    color: var(--color-text-primary);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--ink);
   }
 
   .photo-caption span {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-  }
-
-  /* Leadership Grid */
-  .leadership-section {
-    padding: 60px 0;
-    border-top: 1px solid var(--color-border);
-  }
-
-  .leadership-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 48px;
-  }
-
-  .lead-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .lead-role {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-accent-coral);
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-
-  .lead-name {
-    font-family: var(--font-serif);
-    font-size: 1.12rem;
-    color: var(--color-text-primary);
-    margin-bottom: 4px;
-  }
-
-  .lead-period {
-    font-size: 0.78rem;
-    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+    color: var(--ink-3);
   }
 
   .faculty-banner {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-  }
-
-  .faculty-img-container {
-    width: 100%;
-    max-height: 440px;
-    overflow: hidden;
-    background-color: var(--color-dark-ribbon);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .faculty-img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
   }
 
   .faculty-meta {
-    padding: 24px 32px;
-    text-align: center;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    max-width: 64ch;
   }
 
-  .faculty-meta h3 {
-    font-family: var(--font-serif);
-    font-size: 1.3rem;
-    margin-bottom: 6px;
+  .inline-link {
+    color: var(--accent);
+    border-bottom: 1px solid var(--hairline-2);
   }
 
-  .faculty-meta p {
-    font-size: 0.92rem;
-    color: var(--color-text-secondary);
-  }
-
-  /* Legal Section */
-  .legal-section {
-    padding: 40px 0;
+  .inline-link:hover {
+    border-color: var(--accent);
   }
 
   .legal-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: 36px;
-  }
-
-  .legal-title {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    margin-bottom: 24px;
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    padding: clamp(22px, 3vw, 32px);
   }
 
   .legal-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px 40px;
+    gap: 0 clamp(24px, 4vw, 48px);
   }
 
   .legal-item {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 0.88rem;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--hairline);
+    font-size: 0.875rem;
   }
 
-  .legal-item .lbl {
-    color: var(--color-text-muted);
+  .legal-item dt {
+    color: var(--ink-3);
   }
 
-  .legal-item .val {
-    font-weight: 600;
-    color: var(--color-text-primary);
+  .legal-item dd {
+    color: var(--ink);
     text-align: right;
+    font-weight: 500;
   }
 
   @media (max-width: 900px) {
-    .philosophy-grid {
-      grid-template-columns: 1fr;
-    }
-    .principal-card {
-      grid-template-columns: 1fr;
-      padding: 28px;
-    }
-    .timeline-list {
-      margin-left: 20px;
-    }
-    .timeline-year-col {
-      position: static;
-      text-align: left;
-      margin-bottom: 4px;
-    }
-    .timeline-row {
-      flex-direction: column;
-    }
-    .leadership-grid {
-      grid-template-columns: 1fr;
-    }
+    .philosophy-grid,
+    .history-photos-grid,
     .legal-grid {
       grid-template-columns: 1fr;
     }
-    .history-photos-grid {
+    .principal-card {
       grid-template-columns: 1fr;
     }
   }

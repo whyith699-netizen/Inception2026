@@ -5,82 +5,81 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="Kontak & Lokasi Kampus 13 | SMA Negeri 1 Klaten"
-  description="Sekretariat, alamat resmi Jl. Merbabu No. 13 Klaten Selatan 57423, telepon (0272) 321150, dan jam pelayanan publik SMAN 1 Klaten."
+  title="Kontak dan Lokasi | SMA Negeri 1 Klaten"
+  description="Sekretariat SMA Negeri 1 Klaten di Jalan Merbabu Nomor 13 Klaten Selatan, telepon (0272) 321150, portal daring, dan jam pelayanan tata usaha."
 >
   <Header />
 
-  <main class="contact-page">
+  <main id="main-content">
     <section class="contact-hero">
-      <div class="container text-center">
-        <span class="page-tag">Sekretariat & Pelayanan Informasi</span>
+      <div class="container">
+        <p class="lbl">Sekretariat dan layanan informasi</p>
         <h1 class="page-title">Hubungi SMA Negeri 1 Klaten</h1>
         <p class="page-lead">
-          Pintu komunikasi terbuka untuk pertanyaan akademik, legalitas kesiswaan, kemitraan institusi, dan konsultasi pendaftaran peserta didik baru.
+          Saluran komunikasi sekolah untuk pertanyaan akademik, layanan kesiswaan,
+          kemitraan institusi, dan konsultasi pendaftaran peserta didik baru.
         </p>
       </div>
     </section>
 
     <section class="contact-body">
       <div class="container grid-contact">
-        <!-- Informasi Kontak Langsung -->
         <div class="contact-info-card">
-          <h2 class="card-heading">Saluran Resmi Sekolah</h2>
-          
+          <h2 class="card-heading">Saluran resmi sekolah</h2>
+
           <div class="info-group">
-            <span class="group-title">Alamat Kampus Utama</span>
-            <p>Jl. Merbabu No. 13, RT 1 / RW 1, Kec. Klaten Selatan, Kab. Klaten, Jawa Tengah 57423</p>
+            <span class="group-title">Alamat kampus utama</span>
+            <p>Jalan Merbabu Nomor 13, Klaten Selatan, Kabupaten Klaten, Jawa Tengah 57423</p>
           </div>
 
           <div class="info-group">
-            <span class="group-title">Telepon Kantor</span>
-            <p>(0272) 321150</p>
+            <span class="group-title">Telepon kantor</span>
+            <p class="num">(0272) 321150</p>
           </div>
 
           <div class="info-group">
-            <span class="group-title">Surat Elektronik (Surel)</span>
-            <p>info@sma1klaten.sch.id</p>
+            <span class="group-title">Portal layanan daring</span>
+            <p>
+              <a class="inline-link" href="http://elearning.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">elearning.sma1klaten.sch.id</a>
+            </p>
+            <p>
+              <a class="inline-link" href="https://eperpus.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">eperpus.sma1klaten.sch.id</a>
+            </p>
           </div>
 
           <div class="info-group">
-            <span class="group-title">Portal Layanan Daring</span>
-            <p>e-Learning: <a href="http://elearning.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">elearning.sma1klaten.sch.id &rarr;</a></p>
-            <p>e-Perpus: <a href="https://eperpus.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">eperpus.sma1klaten.sch.id &rarr;</a></p>
-          </div>
-
-          <div class="info-group">
-            <span class="group-title">Jam Pelayanan Tata Usaha</span>
-            <p>Senin – Kamis: 07:00 – 15:30 WIB</p>
-            <p>Jumat: 07:00 – 14:00 WIB</p>
+            <span class="group-title">Jam pelayanan tata usaha</span>
+            <p>Senin sampai Kamis, 07.00 hingga 15.30 WIB</p>
+            <p>Jumat, 07.00 hingga 14.00 WIB</p>
           </div>
         </div>
 
-        <!-- Formulir Pesan & Aspirasi -->
         <div class="contact-form-card">
-          <h2 class="card-heading">Kirim Pesan ke Tata Usaha</h2>
-          <form class="contact-form" onsubmit="event.preventDefault(); alert('Terima kasih. Pesan Anda telah tercatat pada sekretariat SMA Negeri 1 Klaten.');">
+          <h2 class="card-heading">Kirim pesan ke tata usaha</h2>
+          <form class="contact-form" id="contact-form">
             <div class="form-group">
-              <label for="name">Nama Lengkap</label>
-              <input type="text" id="name" required placeholder="Contoh: Budi Santoso" />
+              <label for="name">Nama lengkap</label>
+              <input type="text" id="name" name="name" required placeholder="Nama pengirim" />
             </div>
             <div class="form-group">
-              <label for="email">Alamat Email / Nomor Kontak</label>
-              <input type="text" id="email" required placeholder="nama@email.com atau 0812xxx" />
+              <label for="email">Email atau nomor kontak</label>
+              <input type="text" id="email" name="email" required placeholder="nama@email.com" />
             </div>
             <div class="form-group">
-              <label for="category">Keperluan Layanan</label>
-              <select id="category">
+              <label for="category">Keperluan layanan</label>
+              <select id="category" name="category">
                 <option value="ppdb">Informasi PPDB 2026</option>
-                <option value="akademik">Kurikulum & Peminatan Siswa</option>
-                <option value="legalisir">Legalisir Ijazah & Layanan Alumni</option>
-                <option value="kemitraan">Kemitraan & Penelitian</option>
+                <option value="akademik">Kurikulum dan peminatan siswa</option>
+                <option value="legalisir">Legalisir ijazah dan layanan alumni</option>
+                <option value="kemitraan">Kemitraan dan penelitian</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="msg">Isi Pesan / Pertanyaan</label>
-              <textarea id="msg" rows="4" required placeholder="Tuliskan perihal atau pertanyaan Anda secara rinci..."></textarea>
+              <label for="msg">Isi pesan</label>
+              <textarea id="msg" name="msg" rows="5" required placeholder="Tuliskan pertanyaan atau keperluan Anda"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-arrow">Kirim Pesan Resmi</button>
+            <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+            <button type="submit" class="btn btn-primary">Kirim pesan</button>
           </form>
         </div>
       </div>
@@ -91,97 +90,86 @@ import Footer from '../components/Footer.astro';
 </BaseLayout>
 
 <style>
-  .contact-page {
-    background-color: var(--color-bg);
-  }
-
   .contact-hero {
-    background-color: var(--color-surface);
-    padding: 70px 0 50px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .text-center { text-align: center; }
-
-  .page-tag {
-    font-size: 0.74rem;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent-coral);
-    letter-spacing: 0.08em;
+    padding: clamp(40px, 6vw, 72px) 0 clamp(24px, 3vw, 36px);
+    border-top: 0;
   }
 
   .page-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    color: var(--color-text-primary);
-    margin: 12px 0 16px;
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 18px;
+    max-width: 22ch;
   }
 
   .page-lead {
-    font-size: 1.05rem;
-    color: var(--color-text-secondary);
-    max-width: 680px;
-    margin: 0 auto;
-    line-height: 1.6;
+    font-size: 1.0625rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    max-width: 60ch;
   }
 
   .contact-body {
-    padding: 60px 0 90px;
+    padding-top: clamp(40px, 6vw, 64px);
+    padding-bottom: clamp(56px, 8vw, 88px);
   }
 
   .grid-contact {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
   }
 
-  .contact-info-card, .contact-form-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 36px;
-    box-shadow: var(--shadow-subtle);
+  .contact-info-card,
+  .contact-form-card {
+    background: var(--surface);
+    padding: clamp(22px, 3vw, 32px);
   }
 
   .card-heading {
-    font-family: var(--font-serif);
-    font-size: 1.45rem;
-    color: var(--color-text-primary);
+    font-size: 1.25rem;
+    font-weight: 500;
     margin-bottom: 24px;
   }
 
   .info-group {
-    margin-bottom: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--hairline);
+    margin-bottom: 16px;
   }
 
   .group-title {
-    font-size: 0.72rem;
     font-family: var(--font-mono);
-    font-weight: 700;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-accent-coral);
-    letter-spacing: 0.05em;
+    color: var(--ink-3);
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .info-group p {
-    font-size: 0.92rem;
-    color: var(--color-text-secondary);
-    line-height: 1.55;
-    margin-bottom: 4px;
+    font-size: 0.9375rem;
+    color: var(--ink-2);
+    line-height: 1.6;
   }
 
-  .info-group a {
-    color: var(--color-accent-coral);
-    text-decoration: none;
-    font-weight: 600;
+  .info-group p + p {
+    margin-top: 2px;
   }
 
-  .info-group a:hover {
-    text-decoration: underline;
+  .inline-link {
+    color: var(--accent);
+    border-bottom: 1px solid var(--hairline-2);
+  }
+
+  .inline-link:hover {
+    border-color: var(--accent);
   }
 
   .contact-form {
@@ -197,26 +185,40 @@ import Footer from '../components/Footer.astro';
   }
 
   .form-group label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink);
   }
 
-  .form-group input, .form-group select, .form-group textarea {
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
     font-family: var(--font-sans);
-    font-size: 0.92rem;
-    padding: 10px 14px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    background-color: var(--color-surface-muted);
-    color: var(--color-text-primary);
-    transition: border-color 0.2s ease;
+    font-size: 0.9375rem;
+    padding: 10px 12px;
+    border: 1px solid var(--hairline-2);
+    border-radius: var(--r-sm);
+    background: var(--paper);
+    color: var(--ink);
   }
 
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--ink-3);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
     outline: none;
-    border-color: var(--color-accent-coral);
-    background-color: var(--color-surface);
+    border-color: var(--accent);
+    background: var(--surface);
+  }
+
+  .form-note {
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    min-height: 1.25rem;
   }
 
   @media (max-width: 860px) {
@@ -225,3 +227,16 @@ import Footer from '../components/Footer.astro';
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const note = document.getElementById('form-note');
+  if (form && note) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      note.textContent = form.checkValidity()
+        ? 'Pesan tercatat di peramban Anda. Untuk balasan langsung, hubungi sekretariat di (0272) 321150 pada jam kerja.'
+        : 'Lengkapi nama, kontak, dan isi pesan sebelum mengirim.';
+    });
+  }
+</script>

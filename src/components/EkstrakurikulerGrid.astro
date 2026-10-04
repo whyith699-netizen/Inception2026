@@ -4,24 +4,31 @@ import { getEntry } from 'astro:content';
 const ekstraData = await getEntry('ekstrakurikuler', 'daftar');
 const list = ekstraData?.data?.items || [];
 
-const categories = ["Semua", "Kepemimpinan & Organisasi", "Sains & Riset", "Seni & Budaya", "Olahraga", "Kerohanian"];
+const categories = [
+  "Semua",
+  "Kepemimpinan & Organisasi",
+  "Sains & Riset",
+  "Seni & Budaya",
+  "Olahraga",
+  "Kerohanian"
+];
 ---
 
-<section class="ekskul-gallery-section" id="ekstrakurikuler-resmi">
+<section class="ekskul-gallery-section sec" id="ekstrakurikuler-resmi">
   <div class="container">
-    <div class="section-header text-center">
-      <span class="section-badge">Pengembangan Karakter & Bakat</span>
-      <h2 class="section-title">23 Ekstrakurikuler Resmi SMAN 1 Klaten</h2>
+    <div class="section-header">
+      <p class="lbl">Pengembangan karakter dan bakat</p>
+      <h2 class="section-title">23 ekstrakurikuler resmi</h2>
       <p class="section-desc">
-        Wadah pembinaan kepemimpinan, penalaran ilmiah, kreasi seni, ketangkasan raga, dan keteguhan rohani civitas akademika Padmawijaya.
+        Wadah pembinaan kepemimpinan, penalaran ilmiah, kreasi seni,
+        ketangkasan raga, dan keteguhan rohani civitas akademika Padmawijaya.
       </p>
 
-      <!-- Minimal Filter Buttons -->
       <div class="filter-group" id="ekskul-filters">
         {categories.map((cat, idx) => (
-          <button 
-            type="button" 
-            class={`filter-btn ${idx === 0 ? 'active' : ''}`} 
+          <button
+            type="button"
+            class:list={["filter-btn", { active: idx === 0 }]}
             data-filter={cat === 'Semua' ? 'all' : cat}
           >
             {cat}
@@ -32,25 +39,21 @@ const categories = ["Semua", "Kepemimpinan & Organisasi", "Sains & Riset", "Seni
 
     <div class="ekskul-grid" id="ekskul-items-container">
       {list.map((item) => (
-        <div class="ekskul-card" data-category={item.category}>
-          <div class="card-top">
-            <div class="ekskul-logo-box">
-              <img 
-                src={item.logo} 
-                alt={`Logo ${item.name}`} 
-                class="ekskul-logo-img" 
-                loading="lazy" 
-                width="64" 
-                height="64" 
-              />
-            </div>
-            <span class="ekskul-badge">{item.category}</span>
+        <article class="ekskul-card" data-category={item.category} data-reveal>
+          <div class="ekskul-logo-box">
+            <img
+              src={item.logo}
+              alt={`Logo ${item.name}`}
+              class="ekskul-logo-img"
+              loading="lazy"
+              width="64"
+              height="64"
+            />
           </div>
-          <div class="ekskul-content">
-            <h3 class="ekskul-name">{item.name}</h3>
-            <p class="ekskul-desc">{item.desc}</p>
-          </div>
-        </div>
+          <h3 class="ekskul-name">{item.name}</h3>
+          <p class="ekskul-cat">{item.category}</p>
+          <p class="ekskul-desc">{item.desc}</p>
+        </article>
       ))}
     </div>
   </div>
@@ -68,11 +71,7 @@ const categories = ["Semua", "Kepemimpinan & Organisasi", "Sains & Riset", "Seni
       const filter = btn.getAttribute('data-filter');
       cards.forEach((card) => {
         const cat = card.getAttribute('data-category');
-        if (filter === 'all' || cat === filter) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = filter === 'all' || cat === filter ? 'flex' : 'none';
       });
     });
   });
@@ -80,114 +79,87 @@ const categories = ["Semua", "Kepemimpinan & Organisasi", "Sains & Riset", "Seni
 
 <style>
   .ekskul-gallery-section {
-    padding: 70px 0 90px;
-    background-color: var(--color-bg);
+    padding-top: clamp(56px, 8vw, 88px);
+    padding-bottom: clamp(56px, 8vw, 88px);
+    border-top: 1px solid var(--hairline);
   }
-
-  .text-center { text-align: center; }
 
   .section-header {
-    max-width: 780px;
-    margin: 0 auto 44px;
-  }
-
-  .section-badge {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent-coral);
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
+    max-width: 620px;
+    margin-bottom: clamp(28px, 4vw, 44px);
   }
 
   .section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.8vw, 2.7rem);
-    color: var(--color-text-primary);
-    margin-bottom: 12px;
+    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+    font-weight: 500;
+    margin-bottom: 14px;
   }
 
   .section-desc {
-    font-size: 1.02rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin-bottom: 28px;
+    font-size: 1rem;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin-bottom: 24px;
   }
 
-  /* Minimal Filter Tabs */
   .filter-group {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
   }
 
   .filter-btn {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    color: var(--color-text-secondary);
-    font-size: 0.82rem;
-    font-weight: 600;
-    padding: 7px 16px;
-    border-radius: var(--radius-pill);
+    background: var(--paper);
+    border: 1px solid var(--hairline-2);
+    color: var(--ink-2);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: var(--r-sm);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
   }
 
   .filter-btn:hover {
-    border-color: var(--color-accent-coral);
-    color: var(--color-accent-coral);
+    color: var(--accent);
+    border-color: var(--accent);
   }
 
   .filter-btn.active {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg);
-    border-color: var(--color-text-primary);
+    color: #FFFFFF;
+    background: var(--accent);
+    border-color: var(--accent);
   }
 
-  /* Grid Layout */
   .ekskul-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
   }
 
   .ekskul-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    background: var(--surface);
     padding: 22px;
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    transition: background 0.2s ease;
   }
 
   .ekskul-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--color-accent-coral);
-    box-shadow: var(--shadow-card);
-  }
-
-  .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 14px;
+    background: var(--paper-2);
   }
 
   .ekskul-logo-box {
-    width: 64px;
-    height: 64px;
-    background-color: var(--color-surface-muted);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6px;
   }
 
   .ekskul-logo-img {
@@ -196,29 +168,42 @@ const categories = ["Semua", "Kepemimpinan & Organisasi", "Sains & Riset", "Seni
     object-fit: contain;
   }
 
-  .ekskul-badge {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent-coral);
-    background-color: var(--color-surface-muted);
-    padding: 4px 10px;
-    border-radius: var(--radius-pill);
-    border: 1px solid var(--color-border);
+  .ekskul-name {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    margin-bottom: 2px;
   }
 
-  .ekskul-name {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 6px;
+  .ekskul-cat {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
   }
 
   .ekskul-desc {
-    font-size: 0.86rem;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .ekskul-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .ekskul-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 460px) {
+    .ekskul-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

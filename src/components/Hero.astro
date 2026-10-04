@@ -1,264 +1,124 @@
 ---
+import { Image } from 'astro:assets';
+import Smansa1 from '../assets/school/Smansa1.jpg';
 ---
 
 <section class="hero-section" id="beranda-hero">
   <div class="container hero-container">
-    <div class="heritage-badge">
-      <span class="badge-dot"></span>
-      <span class="heritage-text">KAMPUS 13 &bull; PADMAWIJAYA &bull; BERDIRI 5 NOVEMBER 1957</span>
-    </div>
+    <p class="lbl hero-lbl">Sekolah Menengah Atas Negeri 1 Klaten</p>
 
     <h1 class="hero-headline">
-      Keluhuran Budi Pekerti, Nalar Keilmuan, dan Kejayaan Padmawijaya.
+      Membina generasi berkarakter, kritis, dan berdaya jaya sejak 1957.
     </h1>
 
     <p class="hero-desc">
-      Sekolah Menengah Atas Negeri 1 Klaten adalah institusi pendidikan rujukan tertua di Klaten. Menyelenggarakan Kurikulum Merdeka riset terpadu, pembinaan 23 ekstrakurikuler kesiswaan, dan pendampingan cerdas SmansaBot AI.
+      SMA Negeri 1 Klaten menjalankan Kurikulum Merdeka berbasis riset dengan 33 rombongan
+      belajar, 23 ekstrakurikuler kesiswaan, serta pendampingan akademik melalui asisten
+      digital SmansaBot AI.
     </p>
 
-    <div class="trust-credential-bar">
-      <div class="cred-item">
-        <span class="cred-dot"></span>
-        <span>Akreditasi A • Nilai <strong>98</strong> BAN-SM</span>
-      </div>
-      <div class="cred-divider"></div>
-      <div class="cred-item">
-        <span class="cred-dot"></span>
-        <span><strong>94.8%</strong> Lulusan Diterima PTN Unggulan</span>
-      </div>
-      <div class="cred-divider"></div>
-      <div class="cred-item">
-        <span class="cred-dot"></span>
-        <span><strong>33 Rombel</strong> (~1.190 Peserta Didik)</span>
-      </div>
-      <div class="cred-divider"></div>
-      <div class="cred-item">
-        <span class="cred-dot"></span>
-        <span>NPSN Resmi: <strong>20309676</strong></span>
-      </div>
-    </div>
-
     <div class="hero-actions">
-      <a href="/#chatbot" class="btn btn-primary btn-arrow" id="hero-open-ai">Konsultasi SmansaBot AI</a>
-      <a href="/profil" class="btn btn-outline">Sejarah & Profil Padmawijaya</a>
+      <a href="/ppdb" class="btn btn-primary">Lihat alur PPDB 2026</a>
+      <a href="/profil" class="btn-text">Sejarah sekolah dari 1957 hingga kini</a>
     </div>
 
-    <!-- Cinematic Minimalist Architecture Showcase -->
-    <div class="hero-showcase">
-      <div class="showcase-card">
-        <div class="showcase-img-wrap">
-          <img 
-            src="/images/school/Smansa1.jpg" 
-            alt="Gedung Utama SMA Negeri 1 Klaten" 
-            class="showcase-photo"
-            loading="eager"
-            width="1140"
-            height="520"
-          />
-        </div>
-        <div class="showcase-bar">
-          <div class="showcase-info">
-            <h2 class="showcase-title">Gedung Utama Kampus 13</h2>
-            <span class="showcase-loc">Jl. Merbabu No. 13, Klaten Selatan, Jawa Tengah 57423</span>
-          </div>
-          <div class="showcase-status">
-            <span class="status-pill">Pusat Rujukan Akademik Sejak 1957</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <figure class="hero-figure">
+      <Image
+        src={Smansa1}
+        alt="Gedung utama SMA Negeri 1 Klaten di Jalan Merbabu Nomor 13, Klaten Selatan"
+        widths={[640, 1024, 1400]}
+        sizes="(max-width: 900px) 100vw, 1120px"
+        width={1400}
+        height={740}
+        loading="eager"
+        class="hero-photo"
+      />
+      <figcaption class="hero-caption">
+        <span>Gedung utama Kampus 13</span>
+        <span class="hero-caption-sep" aria-hidden="true"></span>
+        <span>Jl. Merbabu No. 13, Klaten, Jawa Tengah 57423</span>
+        <span class="hero-caption-sep" aria-hidden="true"></span>
+        <span class="num">NPSN 20309676</span>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
 <style>
   .hero-section {
-    padding: 70px 0 50px;
-    background-color: var(--color-bg);
+    padding: clamp(48px, 7vw, 84px) 0 clamp(40px, 5vw, 64px);
+    background-color: var(--paper);
   }
 
   .hero-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
   }
 
-  .heritage-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    padding: 6px 18px;
-    border-radius: var(--radius-pill);
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-subtle);
-  }
-
-  .badge-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--color-accent-coral);
-    border-radius: 50%;
-  }
-
-  .heritage-text {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--color-text-secondary);
+  .hero-lbl {
+    margin-bottom: 18px;
   }
 
   .hero-headline {
-    font-family: var(--font-serif);
-    font-size: clamp(2.3rem, 4.4vw, 3.8rem);
-    font-weight: 700;
-    line-height: 1.16;
-    letter-spacing: -0.03em;
-    color: var(--color-text-primary);
-    max-width: 900px;
-    margin-bottom: 20px;
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    max-width: 20ch;
+    margin-bottom: 22px;
   }
 
   .hero-desc {
-    font-size: 1.08rem;
-    line-height: 1.65;
-    color: var(--color-text-secondary);
-    max-width: 740px;
-    margin-bottom: 30px;
-  }
-
-  /* Minimalist Credential Bar */
-  .trust-credential-bar {
-    display: inline-flex;
-    align-items: center;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-pill);
-    padding: 8px 24px;
-    gap: 16px;
-    margin-bottom: 36px;
-    box-shadow: var(--shadow-subtle);
-    font-size: 0.82rem;
-    color: var(--color-text-secondary);
-  }
-
-  .cred-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .cred-dot {
-    width: 4px;
-    height: 4px;
-    background-color: var(--color-accent-coral);
-    border-radius: 50%;
-  }
-
-  .cred-divider {
-    width: 1px;
-    height: 14px;
-    background-color: var(--color-border);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin-bottom: 32px;
   }
 
   .hero-actions {
     display: flex;
-    gap: 16px;
-    justify-content: center;
+    align-items: center;
+    gap: 24px;
     flex-wrap: wrap;
-    margin-bottom: 50px;
+    margin-bottom: clamp(36px, 5vw, 56px);
   }
 
-  /* Clean Panoramic Showcase */
-  .hero-showcase {
+  .hero-figure {
     width: 100%;
-    max-width: 1120px;
-  }
-
-  .showcase-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
     overflow: hidden;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background: var(--surface);
   }
 
-  .showcase-card:hover {
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-4px);
-  }
-
-  .showcase-img-wrap {
+  .hero-photo {
     width: 100%;
-    height: clamp(280px, 42vw, 480px);
-    overflow: hidden;
-    background-color: var(--color-dark-ribbon);
-    position: relative;
-  }
-
-  .showcase-photo {
-    width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
-    transition: transform 0.6s ease;
   }
 
-  .showcase-card:hover .showcase-photo {
-    transform: scale(1.02);
-  }
-
-  .showcase-bar {
-    padding: 18px 28px;
+  .hero-caption {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
-    text-align: left;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 14px 18px;
+    border-top: 1px solid var(--hairline);
+    font-size: 0.8125rem;
+    color: var(--ink-3);
   }
 
-  .showcase-title {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 2px;
+  .hero-caption-sep {
+    width: 1px;
+    height: 12px;
+    background: var(--hairline-2);
   }
 
-  .showcase-loc {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-  }
-
-  .status-pill {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-text-secondary);
-    background-color: var(--color-surface-muted);
-    border: 1px solid var(--color-border);
-    padding: 5px 12px;
-    border-radius: var(--radius-pill);
-    letter-spacing: 0.04em;
-  }
-
-  @media (max-width: 900px) {
-    .trust-credential-bar {
-      flex-direction: column;
-      border-radius: var(--radius-lg);
-      padding: 14px 20px;
-      gap: 10px;
-    }
-    .cred-divider {
+  @media (max-width: 640px) {
+    .hero-caption-sep {
       display: none;
-    }
-    .showcase-bar {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 12px;
     }
   }
 </style>

@@ -8,7 +8,6 @@ const programsCollection = defineCollection({
     title: z.string(),
     subtitle: z.string(),
     targetGrade: z.string(),
-    accentColor: z.enum(['coral', 'green', 'blue', 'yellow']),
     description: z.string(),
     curriculumPoints: z.array(z.string()),
     order: z.number()
@@ -65,10 +64,40 @@ const alumniCollection = defineCollection({
   })
 });
 
+const direktoriCollection = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/direktori' }),
+  schema: z.array(z.object({
+    category: z.string(),
+    people: z.array(z.object({
+      name: z.string(),
+      role: z.string(),
+      detail: z.string().optional(),
+      photo: z.string().optional(),
+      email: z.string().optional()
+    }))
+  }))
+});
+
+const beritaCollection = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/berita' }),
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    date: z.coerce.date(),
+    category: z.enum(['Berita', 'Pengumuman', 'Prestasi', 'Kegiatan', 'Informasi']),
+    excerpt: z.string(),
+    body: z.array(z.string()),
+    image: z.string(),
+    author: z.string().optional()
+  })
+});
+
 export const collections = {
   programs: programsCollection,
   events: eventsCollection,
   faq: faqCollection,
   ekstrakurikuler: ekstraCollection,
-  alumni: alumniCollection
+  alumni: alumniCollection,
+  direktori: direktoriCollection,
+  berita: beritaCollection
 };

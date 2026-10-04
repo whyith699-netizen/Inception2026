@@ -6,57 +6,52 @@ import Metrics from '../components/Metrics.astro';
 import AlumniSection from '../components/AlumniSection.astro';
 
 const achievements = [
-  { year: "2025", title: "Medali Emas Olimpiade Sains Nasional (OSN) Astronomi", level: "Tingkat Nasional", desc: "Pusat Prestasi Nasional Kemendikbudristek RI." },
-  { year: "2025", title: "Medali Perak OSN Bidang Matematika", level: "Tingkat Nasional", desc: "Kompetisi Sains Siswa SMA Nasional." },
-  { year: "2024", title: "Juara 1 FLS2N Seni Kriya & Karawitan Tradisional", level: "Tingkat Provinsi Jawa Tengah", desc: "Apresiasi pelestarian seni dan kebudayaan luhur nusantara." },
-  { year: "2024", title: "Champion DBL Central Java Series", level: "Regional Jawa Tengah", desc: "Ajang kejuaraan bola basket antarpelajar bergengsi." }
+  { year: "2025", title: "Medali perak OSN Fisika tingkat provinsi", level: "Jawa Tengah", desc: "Diraih setelah seleksi internal yang diikuti 78 siswa dari enam kelompok riset." },
+  { year: "2025", title: "Juara umum O2SN futsal Kabupaten Klaten", level: "Kabupaten", desc: "Tim futsal putra sekolah mempertahankan gelar juara antarpelajar." },
+  { year: "2024", title: "Juara FLS2N seni karawitan dan kriya", level: "Provinsi Jawa Tengah", desc: "Penghargaan atas pelestarian seni tradisi sekolah." },
+  { year: "2024", title: "Juara seri basket antarpelajar Jawa Tengah", level: "Regional", desc: "Kiprah tim basket sekolah pada kejuaraan antarpelajar." }
 ];
 ---
 
 <BaseLayout
-  title="Prestasi & Alumni KAPASSKA | SMA Negeri 1 Klaten"
-  description="Rekam jejak kejuaraan Olimpiade Sains Nasional (OSN), serapan lulusan 94.8% ke PTN, dan direktori alumni KAPASSKA SMAN 1 Klaten."
+  title="Prestasi dan Alumni | SMA Negeri 1 Klaten"
+  description="Rekam jejak kompetisi sains dan olahraga, serapan lulusan ke perguruan tinggi, dan direktori alumni KAPASSKA SMAN 1 Klaten."
 >
   <Header />
 
-  <main class="prestasi-page">
+  <main id="main-content">
     <section class="prestasi-hero">
-      <div class="container text-center">
-        <span class="page-tag">Rekam Jejak Kejuaraan</span>
-        <h1 class="page-title">Prestasi Gemilang & Jejak Alumni Bangsa</h1>
+      <div class="container">
+        <p class="lbl">Rekam jejak</p>
+        <h1 class="page-title">Prestasi siswa dan jejak alumni</h1>
         <p class="page-lead">
-          Tradisi keunggulan akademik yang dipupuk berkesinambungan melalui riset ilmiah, dedikasi pembina ekstrakurikuler, dan etos juang Padmawijaya.
+          Tradisi keunggulan akademik yang dibina secara berkelanjutan melalui
+          kelas riset, pendampingan ekstrakurikuler, dan penguatan etos belajar
+          civitas Padmawijaya.
         </p>
       </div>
     </section>
 
-    <!-- Pita Metrik Statistik -->
     <Metrics />
 
-    <!-- Daftar Kejuaraan -->
     <section class="achievements-section">
       <div class="container">
-        <div class="section-heading-wrap text-center">
-          <span class="meta-tag">Kompetisi & Penghargaan</span>
-          <h2 class="section-heading">Capaian Kejuaraan Terkini</h2>
-        </div>
-
+        <h2 class="section-heading">Capaian kompetisi terkini</h2>
         <div class="achievements-grid">
           {achievements.map((item) => (
-            <div class="achievement-card">
+            <article class="achievement-card" data-reveal>
               <div class="card-meta">
-                <span class="year-badge">{item.year}</span>
+                <span class="year-badge num">{item.year}</span>
                 <span class="level-badge">{item.level}</span>
               </div>
               <h3 class="ach-title">{item.title}</h3>
               <p class="ach-desc">{item.desc}</p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Bagian Alumni Menyapa Tokoh Nyata SMANSA & KAPASSKA -->
     <AlumniSection />
   </main>
 
@@ -64,129 +59,91 @@ const achievements = [
 </BaseLayout>
 
 <style>
-  .prestasi-page {
-    background-color: var(--color-bg);
-  }
-
   .prestasi-hero {
-    background-color: var(--color-surface);
-    padding: 70px 0 50px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .text-center { text-align: center; }
-
-  .page-tag {
-    font-size: 0.74rem;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--color-accent-coral);
-    letter-spacing: 0.08em;
+    padding: clamp(40px, 6vw, 72px) 0 clamp(32px, 5vw, 48px);
+    border-top: 0;
   }
 
   .page-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.2rem, 4vw, 3.2rem);
-    color: var(--color-text-primary);
-    margin: 12px 0 16px;
+    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 18px;
+    max-width: 22ch;
   }
 
   .page-lead {
-    font-size: 1.05rem;
-    color: var(--color-text-secondary);
-    max-width: 680px;
-    margin: 0 auto;
-    line-height: 1.6;
+    font-size: 1.0625rem;
+    color: var(--ink-2);
+    line-height: 1.7;
+    max-width: 60ch;
   }
 
   .achievements-section {
-    padding: 60px 0 80px;
-  }
-
-  .section-heading-wrap {
-    margin-bottom: 40px;
-  }
-
-  .meta-tag {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-accent-coral);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    padding-top: clamp(48px, 6vw, 72px);
+    padding-bottom: clamp(48px, 6vw, 72px);
   }
 
   .section-heading {
-    font-family: var(--font-serif);
-    font-size: 2.1rem;
-    color: var(--color-text-primary);
-    margin-top: 6px;
+    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+    font-weight: 500;
+    margin-bottom: clamp(24px, 3vw, 36px);
   }
 
   .achievements-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
   }
 
   .achievement-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 28px;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    background: var(--surface);
+    padding: 24px;
+    transition: background 0.2s ease;
   }
 
   .achievement-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--color-accent-coral);
-    box-shadow: var(--shadow-card);
+    background: var(--paper-2);
   }
 
   .card-meta {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 14px;
   }
 
   .year-badge {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg);
     font-family: var(--font-mono);
-    font-size: 0.74rem;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    color: var(--ink-3);
   }
 
   .level-badge {
-    background-color: var(--color-surface-muted);
-    border: 1px solid var(--color-border);
-    font-size: 0.74rem;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
   }
 
   .ach-title {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
+    font-size: 1.125rem;
+    font-weight: 500;
     margin-bottom: 8px;
     line-height: 1.35;
   }
 
   .ach-desc {
-    font-size: 0.88rem;
-    color: var(--color-text-secondary);
-    line-height: 1.55;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    line-height: 1.6;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     .achievements-grid {
       grid-template-columns: 1fr;
     }

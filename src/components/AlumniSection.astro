@@ -5,36 +5,35 @@ const alumniData = await getEntry('alumni', 'tokoh');
 const list = alumniData?.data?.items || [];
 ---
 
-<section class="alumni-section" id="alumni-menyapa">
+<section class="alumni-section sec" id="alumni-menyapa">
   <div class="container">
-    <div class="section-header text-center">
-      <div class="kapasska-pill">
-        <span class="pill-dot"></span> KAPASSKA (Keluarga Alumni Padmawijaya)
-      </div>
-      <h2 class="section-title">Inspirasi Para Tokoh Bangsa Alumnus SMANSA</h2>
+    <div class="section-header">
+      <p class="lbl">KAPASSKA &middot; Keluarga Alumni Padmawijaya</p>
+      <h2 class="section-title">Alumni yang berkarya di tingkat nasional</h2>
       <p class="section-desc">
-        Dari pimpinan perguruan tinggi terbaik Indonesia (UGM, Undip, UNS, ITB), perbankan nasional, kedokteran saraf, hingga korps diplomatik dunia.
+        Lulusan SMAN 1 Klaten yang memimpin perguruan tinggi, lembaga negara,
+        perbankan nasional, kedokteran saraf, hingga korps diplomatik Indonesia.
       </p>
     </div>
 
     <div class="alumni-grid">
       {list.map((alumnus) => (
-        <div class="alumni-card">
+        <article class="alumni-card" data-reveal>
           <div class="alumni-avatar-wrap">
-            <img 
-              src={alumnus.image} 
-              alt={`Foto ${alumnus.name}`} 
-              class="alumni-img" 
-              loading="lazy" 
-              width="88" 
-              height="88" 
+            <img
+              src={alumnus.image}
+              alt={`Potret ${alumnus.name}`}
+              class="alumni-img"
+              loading="lazy"
+              width="96"
+              height="96"
             />
           </div>
           <div class="alumni-info">
             <h3 class="alumni-name">{alumnus.name}</h3>
             <p class="alumni-role">{alumnus.designation}</p>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </div>
@@ -42,87 +41,57 @@ const list = alumniData?.data?.items || [];
 
 <style>
   .alumni-section {
-    padding: 70px 0 90px;
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
+    padding-top: clamp(56px, 8vw, 88px);
+    padding-bottom: clamp(56px, 8vw, 88px);
+    border-top: 1px solid var(--hairline);
   }
-
-  .text-center { text-align: center; }
 
   .section-header {
-    max-width: 740px;
-    margin: 0 auto 48px;
-  }
-
-  .kapasska-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: var(--color-surface-muted);
-    border: 1px solid var(--color-border);
-    padding: 6px 16px;
-    border-radius: var(--radius-pill);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--color-accent-coral);
-    margin-bottom: 14px;
-    letter-spacing: 0.05em;
-  }
-
-  .pill-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--color-accent-coral);
-    border-radius: 50%;
+    max-width: 600px;
+    margin-bottom: clamp(28px, 4vw, 44px);
   }
 
   .section-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.8vw, 2.7rem);
-    color: var(--color-text-primary);
-    margin-bottom: 12px;
+    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+    font-weight: 500;
+    margin-bottom: 14px;
   }
 
   .section-desc {
-    font-size: 1.02rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
+    font-size: 1rem;
+    color: var(--ink-2);
+    line-height: 1.65;
   }
 
   .alumni-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--r-md);
+    overflow: hidden;
   }
 
   .alumni-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    background: var(--surface);
     padding: 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow: var(--shadow-subtle);
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    gap: 16px;
+    transition: background 0.2s ease;
   }
 
   .alumni-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--color-accent-coral);
-    box-shadow: var(--shadow-card);
+    background: var(--paper-2);
   }
 
   .alumni-avatar-wrap {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    border-radius: var(--r-sm);
     overflow: hidden;
-    margin-bottom: 16px;
-    border: 2px solid var(--color-border);
-    background-color: var(--color-dark-ribbon);
+    background: var(--paper-2);
   }
 
   .alumni-img {
@@ -132,18 +101,16 @@ const list = alumniData?.data?.items || [];
   }
 
   .alumni-name {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
+    font-size: 1.0625rem;
+    font-weight: 500;
     margin-bottom: 6px;
-    line-height: 1.3;
+    line-height: 1.35;
   }
 
   .alumni-role {
-    font-size: 0.84rem;
-    color: var(--color-text-secondary);
-    line-height: 1.5;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    line-height: 1.55;
   }
 
   @media (max-width: 900px) {
@@ -152,7 +119,7 @@ const list = alumniData?.data?.items || [];
     }
   }
 
-  @media (max-width: 580px) {
+  @media (max-width: 560px) {
     .alumni-grid {
       grid-template-columns: 1fr;
     }
