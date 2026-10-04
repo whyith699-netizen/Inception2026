@@ -250,21 +250,46 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
               }}
             >
               <div>
-                {person.photo && (
-                  <img
-                    src={person.photo}
-                    alt={`Potret ${person.name}`}
-                    style={{
-                      width: '100%',
-                      height: '200px',
-                      objectFit: 'cover',
-                      borderRadius: 'var(--r-sm)',
-                      marginBottom: '16px',
-                      background: 'var(--paper-2)',
-                    }}
-                    loading="lazy"
-                  />
-                )}
+                <div
+                  style={{
+                    width: '100%',
+                    aspectRatio: '3 / 4',
+                    maxHeight: '320px',
+                    borderRadius: 'var(--r-sm)',
+                    marginBottom: '16px',
+                    overflow: 'hidden',
+                    background: 'var(--paper-2)',
+                    border: '1px solid var(--hairline)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {person.photo ? (
+                    <img
+                      src={person.photo}
+                      alt={`Potret ${person.name}`}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center 15%',
+                        display: 'block',
+                      }}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-serif)',
+                        fontSize: '2rem',
+                        color: 'var(--ink-3)',
+                      }}
+                    >
+                      {person.name.charAt(0)}
+                    </span>
+                  )}
+                </div>
                 <span
                   style={{
                     fontSize: '0.6875rem',
