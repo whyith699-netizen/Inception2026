@@ -5,12 +5,12 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="Kontak & Lokasi Kampus | SMA Negeri 1 Klaten"
+  title="Kontak & Lokasi Kampus 13 | SMA Negeri 1 Klaten"
   description="Sekretariat, alamat resmi Jl. Merbabu No. 13 Klaten Selatan 57423, telepon (0272) 321150, dan jam pelayanan publik SMAN 1 Klaten."
 >
   <Header />
 
-  <main>
+  <main class="contact-page">
     <section class="contact-hero">
       <div class="container text-center">
         <span class="page-tag">Sekretariat & Pelayanan Informasi</span>
@@ -25,7 +25,7 @@ import Footer from '../components/Footer.astro';
       <div class="container grid-contact">
         <!-- Informasi Kontak Langsung -->
         <div class="contact-info-card">
-          <h2>Saluran Resmi Sekolah</h2>
+          <h2 class="card-heading">Saluran Resmi Sekolah</h2>
           
           <div class="info-group">
             <span class="group-title">Alamat Kampus Utama</span>
@@ -44,20 +44,20 @@ import Footer from '../components/Footer.astro';
 
           <div class="info-group">
             <span class="group-title">Portal Layanan Daring</span>
-            <p>e-Learning: <a href="http://elearning.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">elearning.sma1klaten.sch.id ↗</a></p>
-            <p>e-Perpus: <a href="https://eperpus.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">eperpus.sma1klaten.sch.id ↗</a></p>
+            <p>e-Learning: <a href="http://elearning.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">elearning.sma1klaten.sch.id &rarr;</a></p>
+            <p>e-Perpus: <a href="https://eperpus.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">eperpus.sma1klaten.sch.id &rarr;</a></p>
           </div>
 
           <div class="info-group">
             <span class="group-title">Jam Pelayanan Tata Usaha</span>
-            <p>Senin - Kamis: 07:00 - 15:30 WIB</p>
-            <p>Jumat: 07:00 - 14:00 WIB</p>
+            <p>Senin – Kamis: 07:00 – 15:30 WIB</p>
+            <p>Jumat: 07:00 – 14:00 WIB</p>
           </div>
         </div>
 
         <!-- Formulir Pesan & Aspirasi -->
         <div class="contact-form-card">
-          <h2>Kirim Pesan ke Tata Usaha</h2>
+          <h2 class="card-heading">Kirim Pesan ke Tata Usaha</h2>
           <form class="contact-form" onsubmit="event.preventDefault(); alert('Terima kasih. Pesan Anda telah tercatat pada sekretariat SMA Negeri 1 Klaten.');">
             <div class="form-group">
               <label for="name">Nama Lengkap</label>
@@ -91,24 +91,34 @@ import Footer from '../components/Footer.astro';
 </BaseLayout>
 
 <style>
+  .contact-page {
+    background-color: var(--color-bg);
+  }
+
   .contact-hero {
-    background-color: var(--color-surface-muted);
-    padding: 60px 0;
+    background-color: var(--color-surface);
+    padding: 70px 0 50px;
     border-bottom: 1px solid var(--color-border);
   }
+
   .text-center { text-align: center; }
+
   .page-tag {
-    font-size: 0.82rem;
+    font-size: 0.74rem;
     font-family: var(--font-mono);
     font-weight: 700;
     text-transform: uppercase;
     color: var(--color-accent-coral);
     letter-spacing: 0.08em;
   }
+
   .page-title {
-    font-size: clamp(2rem, 3.8vw, 3rem);
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: var(--color-text-primary);
     margin: 12px 0 16px;
   }
+
   .page-lead {
     font-size: 1.05rem;
     color: var(--color-text-secondary);
@@ -116,31 +126,38 @@ import Footer from '../components/Footer.astro';
     margin: 0 auto;
     line-height: 1.6;
   }
+
   .contact-body {
-    padding: 70px 0 90px;
+    padding: 60px 0 90px;
   }
+
   .grid-contact {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 48px;
+    gap: 40px;
   }
+
   .contact-info-card, .contact-form-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: 40px;
-    box-shadow: 0 4px 16px rgba(34, 22, 16, 0.04);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: var(--shadow-subtle);
   }
-  .contact-info-card h2, .contact-form-card h2 {
-    font-size: 1.6rem;
-    margin-bottom: 24px;
+
+  .card-heading {
     font-family: var(--font-serif);
+    font-size: 1.45rem;
+    color: var(--color-text-primary);
+    margin-bottom: 24px;
   }
+
   .info-group {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
+
   .group-title {
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-family: var(--font-mono);
     font-weight: 700;
     text-transform: uppercase;
@@ -149,44 +166,59 @@ import Footer from '../components/Footer.astro';
     display: block;
     margin-bottom: 4px;
   }
+
   .info-group p {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     color: var(--color-text-secondary);
     line-height: 1.55;
     margin-bottom: 4px;
   }
+
   .info-group a {
     color: var(--color-accent-coral);
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: 600;
   }
+
+  .info-group a:hover {
+    text-decoration: underline;
+  }
+
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
   }
+
   .form-group {
     display: flex;
     flex-direction: column;
     gap: 6px;
   }
+
   .form-group label {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 600;
-  }
-  .form-group input, .form-group select, .form-group textarea {
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    padding: 12px 16px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background-color: #FBF8F2;
     color: var(--color-text-primary);
   }
+
+  .form-group input, .form-group select, .form-group textarea {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface-muted);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s ease;
+  }
+
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     outline: none;
     border-color: var(--color-accent-coral);
+    background-color: var(--color-surface);
   }
+
   @media (max-width: 860px) {
     .grid-contact {
       grid-template-columns: 1fr;

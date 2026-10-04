@@ -5,9 +5,9 @@ const programs = await getCollection('programs');
 programs.sort((a, b) => a.data.order - b.data.order);
 
 const cardBadges: Record<string, string> = {
-  "mipa-riset": "Riset & Inovasi",
-  "ips-kreatif": "Geopolitik & Bisnis",
-  "bahasa-global": "Diplomasi Internasional"
+  "mipa-riset": "Riset & Sains Terapan",
+  "ips-kreatif": "Sosial & Ekonomi Modern",
+  "bahasa-global": "Diplomasi & Budaya"
 };
 ---
 
@@ -15,15 +15,15 @@ const cardBadges: Record<string, string> = {
   <div class="container">
     <div class="section-header">
       <div>
-        <span class="section-tag">Kurikulum Merdeka & Peminatan</span>
-        <h2 class="section-title">Program Akademik Berbasis Nalar Kritis & Riset</h2>
+        <span class="section-tag">Kurikulum Merdeka Riset</span>
+        <h2 class="section-title">Peminatan Akademik Berbasis Nalar Kritis</h2>
       </div>
-      <a href="/#chatbot" class="btn btn-outline btn-arrow">Konsultasi Peminatan</a>
+      <a href="/program" class="btn btn-outline btn-arrow">Detail Silabus & Jurusan</a>
     </div>
 
     <div class="programs-grid">
       {programs.map((item) => (
-        <article class={`program-card card-${item.data.accentColor}`}>
+        <article class="program-card">
           <div class="card-header-visual">
             <span class="category-badge">{cardBadges[item.data.id] || "Peminatan"}</span>
             <span class="grade-pill">{item.data.targetGrade}</span>
@@ -39,7 +39,7 @@ const cardBadges: Record<string, string> = {
             <ul class="points-list">
               {item.data.curriculumPoints.map((point) => (
                 <li>
-                  <span class="point-icon">✓</span>
+                  <span class="point-icon">&bull;</span>
                   <span>{point}</span>
                 </li>
               ))}
@@ -48,8 +48,8 @@ const cardBadges: Record<string, string> = {
 
           <div class="card-footer">
             <a href="/#chatbot" class="card-btn-pill">
-              <span>Konsultasi Silabus</span>
-              <span class="arrow-ico">↗</span>
+              <span>Konsultasi Kurikulum</span>
+              <span class="arrow-ico">&rarr;</span>
             </a>
           </div>
         </article>
@@ -60,7 +60,8 @@ const cardBadges: Record<string, string> = {
 
 <style>
   .programs-section {
-    padding: var(--section-spacing) 0;
+    padding: 70px 0 90px;
+    background-color: var(--color-bg);
   }
 
   .section-header {
@@ -73,7 +74,8 @@ const cardBadges: Record<string, string> = {
   }
 
   .section-tag {
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -83,7 +85,9 @@ const cardBadges: Record<string, string> = {
   }
 
   .section-title {
-    font-size: clamp(1.85rem, 3.5vw, 2.8rem);
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.8vw, 2.7rem);
+    color: var(--color-text-primary);
     max-width: 660px;
     line-height: 1.2;
   }
@@ -95,34 +99,20 @@ const cardBadges: Record<string, string> = {
   }
 
   .program-card {
-    border-radius: var(--radius-xl);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
     padding: 32px 28px;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--color-border);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
   .program-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px rgba(34, 22, 16, 0.08);
-  }
-
-  .card-coral {
-    background-color: #FDF1ED;
-    border-top: 4px solid var(--color-accent-coral);
-  }
-
-  .card-green {
-    background-color: #EDF7F0;
-    border-top: 4px solid var(--color-accent-green);
-  }
-
-  .card-blue {
-    background-color: #EEF4F9;
-    border-top: 4px solid var(--color-accent-blue);
+    transform: translateY(-4px);
+    border-color: var(--color-accent-coral);
+    box-shadow: var(--shadow-card);
   }
 
   .card-header-visual {
@@ -133,27 +123,28 @@ const cardBadges: Record<string, string> = {
   }
 
   .category-badge {
-    font-size: 0.76rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-text-primary);
-  }
-
-  .grade-pill {
-    background-color: var(--color-surface);
     font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 700;
-    padding: 4px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-accent-coral);
+  }
+
+  .grade-pill {
+    background-color: var(--color-surface-muted);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
     border-radius: var(--radius-pill);
     color: var(--color-text-secondary);
     border: 1px solid var(--color-border);
   }
 
   .subtitle-text {
-    font-size: 0.8rem;
-    color: var(--color-text-secondary);
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -162,13 +153,15 @@ const cardBadges: Record<string, string> = {
   }
 
   .card-title {
-    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--color-text-primary);
     margin-bottom: 12px;
     line-height: 1.25;
   }
 
   .card-desc {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--color-text-secondary);
     margin-bottom: 20px;
     line-height: 1.6;
@@ -177,7 +170,7 @@ const cardBadges: Record<string, string> = {
   .divider-hairline {
     width: 100%;
     height: 1px;
-    background-color: rgba(34, 22, 16, 0.08);
+    background-color: var(--color-border);
     margin-bottom: 20px;
   }
 
@@ -186,7 +179,7 @@ const cardBadges: Record<string, string> = {
     margin-bottom: 28px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     font-size: 0.88rem;
     color: var(--color-text-primary);
   }
@@ -199,18 +192,9 @@ const cardBadges: Record<string, string> = {
   }
 
   .point-icon {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: rgba(34, 22, 16, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
     color: var(--color-accent-coral);
+    font-weight: 700;
     flex-shrink: 0;
-    margin-top: 2px;
   }
 
   .card-footer {
@@ -223,22 +207,24 @@ const cardBadges: Record<string, string> = {
     justify-content: space-between;
     width: 100%;
     padding: 10px 18px;
-    background-color: var(--color-surface);
+    background-color: var(--color-surface-muted);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-pill);
-    font-size: 0.88rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 600;
     color: var(--color-text-primary);
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: all 0.2s ease;
+    text-decoration: none;
   }
 
   .card-btn-pill:hover {
     background-color: var(--color-text-primary);
     color: var(--color-bg);
+    border-color: var(--color-text-primary);
   }
 
   .arrow-ico {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 960px) {

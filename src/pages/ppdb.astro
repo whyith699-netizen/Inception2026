@@ -11,13 +11,13 @@ import EventBanner from '../components/EventBanner.astro';
 >
   <Header />
 
-  <main>
+  <main class="ppdb-page">
     <section class="ppdb-hero">
       <div class="container text-center">
         <span class="page-tag">Penerimaan Siswa Baru</span>
         <h1 class="page-title">Petunjuk Teknis PPDB Tahun Ajaran 2026/2027</h1>
         <p class="page-lead">
-          Pendaftaran terpadu secara transparan, akuntabel, dan bebas pungutan melalui sistem resmi Dinas Pendidikan Jawa Tengah.
+          Penerimaan terpadu yang transparan, akuntabel, dan bebas pungutan melalui sistem resmi Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah.
         </p>
       </div>
     </section>
@@ -26,34 +26,38 @@ import EventBanner from '../components/EventBanner.astro';
 
     <section class="quota-section">
       <div class="container">
-        <h2 class="section-title text-center" style="margin-bottom: 40px;">Pembagian Kuota Jalur Seleksi</h2>
+        <div class="section-title-wrap text-center">
+          <span class="sub-badge">Proporsi Seleksi</span>
+          <h2 class="section-title">Pembagian Kuota Jalur Seleksi</h2>
+        </div>
+
         <div class="quota-grid">
           <div class="quota-card">
             <span class="quota-pct">55%</span>
-            <h3>Jalur Zonasi</h3>
-            <p>Berdasarkan jarak domisili kartu keluarga ke lokasi sekolah (minimal KK diterbitkan 1 tahun sebelum pendaftaran).</p>
+            <h3 class="quota-title">Jalur Zonasi</h3>
+            <p class="quota-desc">Berdasarkan jarak domisili kartu keluarga ke lokasi sekolah (minimal KK diterbitkan 1 tahun sebelum pendaftaran).</p>
           </div>
           <div class="quota-card">
             <span class="quota-pct">20%</span>
-            <h3>Jalur Afirmasi</h3>
-            <p>Diperuntukkan bagi calon peserta didik dari keluarga ekonomi kurang mampu terdaftar pada DTKS serta anak panti.</p>
+            <h3 class="quota-title">Jalur Afirmasi</h3>
+            <p class="quota-desc">Diperuntukkan bagi calon peserta didik dari keluarga ekonomi kurang mampu terdaftar pada DTKS serta anak panti.</p>
           </div>
           <div class="quota-card">
             <span class="quota-pct">20%</span>
-            <h3>Jalur Prestasi</h3>
-            <p>Berdasarkan nilai rapor SMP 5 semester dan piagam kejuaraan akademik maupun non-akademik berjenjang resmi.</p>
+            <h3 class="quota-title">Jalur Prestasi</h3>
+            <p class="quota-desc">Berdasarkan nilai rapor SMP 5 semester dan piagam kejuaraan akademik maupun non-akademik berjenjang resmi.</p>
           </div>
           <div class="quota-card">
             <span class="quota-pct">5%</span>
-            <h3>Jalur Mutasi Orang Tua</h3>
-            <p>Bagi calon siswa yang orang tuanya mengalami perpindahan tugas dinas resmi atau anak kandung guru di SMAN 1 Klaten.</p>
+            <h3 class="quota-title">Jalur Mutasi Orang Tua</h3>
+            <p class="quota-desc">Bagi calon siswa yang orang tuanya mengalami perpindahan tugas dinas resmi atau anak kandung guru di SMAN 1 Klaten.</p>
           </div>
         </div>
 
-        <div class="ppdb-cta-box text-center" style="margin-top: 50px;">
-          <h3>Butuh Bantuan Memilih Jalur?</h3>
-          <p>Tanyakan perhitungan nilai, batas wilayah zonasi, atau berkas persyaratan langsung ke SmansaBot AI.</p>
-          <a href="/#chatbot" class="btn btn-primary btn-arrow" style="margin-top: 16px;">Buka Konsultasi SmansaBot AI</a>
+        <div class="ppdb-cta-box text-center">
+          <h3 class="cta-title">Butuh Panduan Memilih Jalur?</h3>
+          <p class="cta-desc">Tanyakan estimasi zonasi, konversi piagam prestasi, atau kelengkapan berkas langsung ke asisten AI sekolah.</p>
+          <a href="/#chatbot" class="btn btn-primary btn-arrow">Konsultasi dengan SmansaBot AI</a>
         </div>
       </div>
     </section>
@@ -63,76 +67,142 @@ import EventBanner from '../components/EventBanner.astro';
 </BaseLayout>
 
 <style>
+  .ppdb-page {
+    background-color: var(--color-bg);
+  }
+
   .ppdb-hero {
-    background-color: var(--color-surface-muted);
-    padding: 60px 0;
+    background-color: var(--color-surface);
+    padding: 70px 0 50px;
     border-bottom: 1px solid var(--color-border);
   }
+
   .text-center { text-align: center; }
+
   .page-tag {
-    font-size: 0.85rem;
+    font-size: 0.74rem;
+    font-family: var(--font-mono);
     font-weight: 700;
     text-transform: uppercase;
     color: var(--color-accent-coral);
     letter-spacing: 0.08em;
   }
+
   .page-title {
-    font-size: clamp(2rem, 3.8vw, 3rem);
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: var(--color-text-primary);
     margin: 12px 0 16px;
   }
+
   .page-lead {
     font-size: 1.05rem;
     color: var(--color-text-secondary);
     max-width: 680px;
     margin: 0 auto;
+    line-height: 1.6;
   }
+
   .quota-section {
     padding: 60px 0 90px;
   }
+
+  .section-title-wrap {
+    margin-bottom: 40px;
+  }
+
+  .sub-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-accent-coral);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 2.1rem;
+    color: var(--color-text-primary);
+    margin-top: 6px;
+  }
+
   .quota-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
+    margin-bottom: 50px;
   }
+
   .quota-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: 32px 24px;
+    border-radius: var(--radius-md);
+    padding: 32px 20px;
     text-align: center;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
+
+  .quota-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-accent-coral);
+    box-shadow: var(--shadow-card);
+  }
+
   .quota-pct {
     font-family: var(--font-serif);
-    font-size: 2.8rem;
-    font-weight: 800;
+    font-size: 2.6rem;
+    font-weight: 700;
     color: var(--color-accent-coral);
     display: block;
+    margin-bottom: 6px;
+  }
+
+  .quota-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
     margin-bottom: 8px;
   }
-  .quota-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-  }
-  .quota-card p {
-    font-size: 0.88rem;
+
+  .quota-desc {
+    font-size: 0.86rem;
     color: var(--color-text-secondary);
     line-height: 1.5;
   }
+
   .ppdb-cta-box {
-    background-color: #FAF4EB;
+    background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     padding: 40px;
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 680px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-subtle);
   }
+
+  .cta-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+  }
+
+  .cta-desc {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+  }
+
   @media (max-width: 900px) {
     .quota-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  @media (max-width: 500px) {
+
+  @media (max-width: 540px) {
     .quota-grid {
       grid-template-columns: 1fr;
     }

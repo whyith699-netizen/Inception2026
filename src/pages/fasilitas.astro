@@ -13,9 +13,9 @@ const campusGallery = [
 ];
 
 const facilities = [
-  { name: "Laboratorium Sains Terpadu", desc: "Lab Fisika, Kimia, dan Biologi dengan instrumen analitis standar penelitian." },
+  { name: "Laboratorium Sains Terpadu", desc: "Lab Fisika, Kimia, dan Biologi dengan instrumen analitis standar penelitian nasional." },
   { name: "3 Laboratorium Komputer", desc: "Dilengkapi 120+ unit PC berkecepatan tinggi untuk simulasi komputasi dan asesmen digital." },
-  { name: "Perpustakaan Graha Pustaka & e-Perpus", desc: "Koleksi ribuan buku fisik dan akses e-library digital terakreditasi (eperpus.sma1klaten.sch.id)." },
+  { name: "Perpustakaan Graha Pustaka & e-Perpus", desc: "Koleksi ribuan buku fisik dan portal perpustakaan digital e-Perpus terakreditasi A nasional." },
   { name: "Gelanggang Olahraga (GOR) Indoor", desc: "Lapangan indoor serbaguna untuk bola basket standar DBL, voli, dan bulutangkis." },
   { name: "Sanggar Karawitan & Seni Peran", desc: "Ruang akustik berstandar pelestarian gamelan gaya Surakarta dan pementasan teater TSL." },
   { name: "Masjid Kampus & Sarana Ibadah", desc: "Sarana pembinaan spiritual yang luas, bersih, dan representatif bagi civitas akademika." }
@@ -23,18 +23,18 @@ const facilities = [
 ---
 
 <BaseLayout
-  title="Fasilitas & Galeri Kampus | SMA Negeri 1 Klaten"
-  description="Dokumentasi fasilitas laboratorium riset, ruang komputer, perpustakaan digital e-Perpus, dan sarana olahraga di SMA Negeri 1 Klaten."
+  title="Fasilitas & Galeri Kampus 13 | SMA Negeri 1 Klaten"
+  description="Dokumentasi fasilitas laboratorium riset, 3 lab komputer, perpustakaan digital e-Perpus, dan sarana olahraga di SMA Negeri 1 Klaten."
 >
   <Header />
 
-  <main>
+  <main class="facility-page">
     <section class="facility-hero">
       <div class="container text-center">
-        <span class="page-tag">Sarana & Prasarana</span>
+        <span class="page-tag">Sarana & Prasarana Kampus 13</span>
         <h1 class="page-title">Infrastruktur Kampus Pendukung Prestasi</h1>
         <p class="page-lead">
-          Lingkungan belajar yang asri, modern, dan lengkap di Jl. Merbabu No. 13 Klaten untuk menjamin kenyamanan riset, akademik, dan kreativitas siswa.
+          Lingkungan belajar yang asri, modern, dan cagar sejarah di Jl. Merbabu No. 13 Klaten untuk menjamin kenyamanan riset, akademik, dan kreativitas siswa.
         </p>
       </div>
     </section>
@@ -43,7 +43,7 @@ const facilities = [
     <section class="campus-photo-section">
       <div class="container">
         <div class="section-title-wrap text-center">
-          <span class="sub-badge">Footage Resmi</span>
+          <span class="sub-badge">Footage Resmi Kampus</span>
           <h2 class="section-title">Dokumentasi Lingkungan SMAN 1 Klaten</h2>
         </div>
 
@@ -67,12 +67,16 @@ const facilities = [
 
     <section class="facility-grid-section">
       <div class="container">
-        <h2 class="section-title text-center" style="margin-bottom: 40px;">Daftar Fasilitas Utama</h2>
+        <div class="section-title-wrap text-center">
+          <span class="sub-badge">Katalog Sarana</span>
+          <h2 class="section-title">Daftar Fasilitas Utama</h2>
+        </div>
+
         <div class="facilities-grid">
           {facilities.map((f) => (
             <div class="facility-item">
-              <h3>{f.name}</h3>
-              <p>{f.desc}</p>
+              <h3 class="fac-name">{f.name}</h3>
+              <p class="fac-desc">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -84,24 +88,34 @@ const facilities = [
 </BaseLayout>
 
 <style>
+  .facility-page {
+    background-color: var(--color-bg);
+  }
+
   .facility-hero {
-    background-color: var(--color-surface-muted);
-    padding: 60px 0;
+    background-color: var(--color-surface);
+    padding: 70px 0 50px;
     border-bottom: 1px solid var(--color-border);
   }
+
   .text-center { text-align: center; }
+
   .page-tag {
-    font-size: 0.82rem;
+    font-size: 0.74rem;
     font-family: var(--font-mono);
     font-weight: 700;
     text-transform: uppercase;
     color: var(--color-accent-coral);
     letter-spacing: 0.08em;
   }
+
   .page-title {
-    font-size: clamp(2rem, 3.8vw, 3rem);
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    color: var(--color-text-primary);
     margin: 12px 0 16px;
   }
+
   .page-lead {
     font-size: 1.05rem;
     color: var(--color-text-secondary);
@@ -112,100 +126,124 @@ const facilities = [
 
   /* Real Campus Photo Gallery */
   .campus-photo-section {
-    padding: 70px 0 50px;
+    padding: 60px 0;
   }
+
   .section-title-wrap {
-    margin-bottom: 44px;
+    margin-bottom: 40px;
   }
+
   .sub-badge {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 700;
     color: var(--color-accent-coral);
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
+
   .section-title {
     font-family: var(--font-serif);
-    font-size: 2.2rem;
-    margin-top: 8px;
+    font-size: 2.1rem;
     color: var(--color-text-primary);
+    margin-top: 6px;
   }
 
   .campus-gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 32px;
+    gap: 24px;
   }
+
   .gallery-card {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(34, 22, 16, 0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
+
   .gallery-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 28px rgba(34, 22, 16, 0.08);
+    transform: translateY(-3px);
+    border-color: var(--color-accent-coral);
+    box-shadow: var(--shadow-card);
   }
+
   .gallery-img-box {
     width: 100%;
-    height: 220px;
+    height: 210px;
     overflow: hidden;
-    background-color: #221610;
+    background-color: var(--color-dark-ribbon);
   }
+
   .gallery-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease;
   }
+
   .gallery-card:hover .gallery-photo {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
+
   .gallery-body {
-    padding: 22px 24px;
+    padding: 20px 22px;
   }
+
   .gallery-title {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
     color: var(--color-text-primary);
+    margin-bottom: 6px;
   }
+
   .gallery-desc {
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     color: var(--color-text-secondary);
     line-height: 1.55;
   }
 
   /* Facility Items */
   .facility-grid-section {
-    padding: 60px 0 90px;
+    padding: 40px 0 80px;
   }
+
   .facilities-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 24px;
   }
+
   .facility-item {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: 32px;
+    border-radius: var(--radius-md);
+    padding: 26px;
+    box-shadow: var(--shadow-subtle);
   }
-  .facility-item h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
+
+  .fac-name {
     font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
   }
-  .facility-item p {
-    font-size: 0.92rem;
+
+  .fac-desc {
+    font-size: 0.88rem;
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.55;
   }
+
   @media (max-width: 900px) {
     .facilities-grid {
+      grid-template-columns: 1fr;
+    }
+    .campus-gallery-grid {
       grid-template-columns: 1fr;
     }
   }

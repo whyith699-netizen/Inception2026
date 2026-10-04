@@ -13,13 +13,13 @@ const knowledgeBase = faqList.map((item) => ({
 
 <section class="chatbot-section" id="chatbot">
   <div class="container">
-    <div class="chatbot-header">
+    <div class="chatbot-header text-center">
       <div class="ai-status-badge">
-        <span class="status-pulse"></span> SmansaBot AI Online • Layanan Interaktif 24/7
+        <span class="status-pulse"></span> SmansaBot AI • Layanan Informasi 24 Jam
       </div>
-      <h2 class="chatbot-title">Tanya Informasi Sekolah & PPDB Secara Langsung</h2>
+      <h2 class="chatbot-title">Asisten Virtual Cerdas SMAN 1 Klaten</h2>
       <p class="chatbot-subtitle">
-        Asisten kecerdasan buatan terintegrasi untuk membantu calon siswa, orang tua, dan masyarakat memperoleh jawaban cepat seputar SMA Negeri 1 Klaten.
+        Dapatkan penjelasan cepat dan akurat seputar PPDB 2026, profil sekolah, kurikulum merdeka, sarana laboratorium, dan 23 ekstrakurikuler kesiswaan.
       </p>
     </div>
 
@@ -28,29 +28,27 @@ const knowledgeBase = faqList.map((item) => ({
         <!-- Chat Header -->
         <div class="window-header">
           <div class="bot-info">
-            <div class="bot-avatar-svg">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="10" rx="2"/>
-                <circle cx="12" cy="5" r="2"/>
-                <path d="M12 7v4"/>
-                <line x1="8" y1="16" x2="8" y2="16"/>
-                <line x1="16" y1="16" x2="16" y2="16"/>
+            <div class="bot-avatar-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+                <rect x="4" y="8" width="16" height="12" rx="4"/>
+                <circle cx="9" cy="14" r="1.5" fill="currentColor"/>
+                <circle cx="15" cy="14" r="1.5" fill="currentColor"/>
               </svg>
             </div>
             <div>
-              <span class="bot-name">SmansaBot</span>
-              <span class="bot-role">Asisten Virtual SMAN 1 Klaten</span>
+              <span class="bot-name">SmansaBot AI</span>
+              <span class="bot-role">Asisten Resmi SMAN 1 Klaten</span>
             </div>
           </div>
-          <span class="engine-badge">Inception 2026 Model</span>
+          <span class="engine-badge">Model FAQ Interaktif</span>
         </div>
 
         <!-- Chat History -->
         <div class="chat-messages" id="chat-messages">
           <div class="message msg-bot">
             <div class="msg-bubble">
-              Halo! Saya <strong>SmansaBot</strong>, asisten informasi resmi SMA Negeri 1 Klaten. 
-              Ada yang bisa saya bantu seputar PPDB, kurikulum, fasilitas, atau ekstrakurikuler hari ini?
+              Salam sejahtera! Saya <strong>SmansaBot</strong>, asisten informasi resmi SMA Negeri 1 Klaten (Padmawijaya). Silakan pilih topik pertanyaan cepat di bawah atau ketik langsung pertanyaan Anda.
             </div>
             <span class="msg-time">Sekarang</span>
           </div>
@@ -58,13 +56,13 @@ const knowledgeBase = faqList.map((item) => ({
 
         <!-- Quick Question Suggestions -->
         <div class="suggestions-wrapper">
-          <span class="sug-label">Pertanyaan Cepat:</span>
+          <span class="sug-label">Topik Populer:</span>
           <div class="suggestions-pills" id="suggestions-pills">
-            <button class="pill-btn" data-query="ppdb">Jalur PPDB 2026</button>
-            <button class="pill-btn" data-query="fasilitas">Fasilitas Lab & Kampus</button>
-            <button class="pill-btn" data-query="ekskul">Pilihan Ekstrakurikuler</button>
-            <button class="pill-btn" data-query="profil">Visi & Akreditasi</button>
-            <button class="pill-btn" data-query="prestasi">Prestasi & Alumni PTN</button>
+            <button type="button" class="pill-btn" data-query="ppdb">Jalur PPDB 2026</button>
+            <button type="button" class="pill-btn" data-query="fasilitas">Fasilitas Laboratorium</button>
+            <button type="button" class="pill-btn" data-query="ekskul">23 Ekstrakurikuler</button>
+            <button type="button" class="pill-btn" data-query="profil">Akreditasi & Sejarah</button>
+            <button type="button" class="pill-btn" data-query="prestasi">Serapan Alumni PTN</button>
           </div>
         </div>
 
@@ -73,13 +71,13 @@ const knowledgeBase = faqList.map((item) => ({
           <input 
             type="text" 
             id="chat-input" 
-            placeholder="Ketik pertanyaan Anda (misal: syarat jalur prestasi, alamat sekolah)..." 
+            placeholder="Tanyakan sesuatu (misal: syarat PPDB, fasilitas lab, ekstrakurikuler)..." 
             autocomplete="off"
             required 
           />
-          <button type="submit" class="btn btn-primary btn-send-styled" id="chat-send-btn">
+          <button type="submit" class="btn btn-primary btn-send-minimal" id="chat-send-btn">
             <span>Kirim</span>
-            <span class="send-arrow">↗</span>
+            <span>&rarr;</span>
           </button>
         </form>
       </div>
@@ -90,7 +88,7 @@ const knowledgeBase = faqList.map((item) => ({
 <!-- Floating Chatbot Launcher -->
 <div class="floating-chatbot-launcher" id="floating-launcher" title="Buka SmansaBot AI">
   <span class="launcher-svg">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
     </svg>
   </span>
@@ -111,12 +109,7 @@ const knowledgeBase = faqList.map((item) => ({
       
       const bubble = document.createElement('div');
       bubble.className = 'msg-bubble';
-      // Safe rendering: textContent for user input to prevent XSS; controlled trusted text for bot
-      if (isUser) {
-        bubble.textContent = text;
-      } else {
-        bubble.textContent = text;
-      }
+      bubble.textContent = text;
       
       const time = document.createElement('span');
       time.className = 'msg-time';
@@ -136,13 +129,11 @@ const knowledgeBase = faqList.map((item) => ({
 
       for (const item of knowledgeBase) {
         let score = 0;
-        // Check keywords
         for (const kw of item.keywords) {
           if (q.includes(kw.toLowerCase())) {
             score += 3;
           }
         }
-        // Check category & question
         if (q.includes(item.category.toLowerCase())) score += 2;
         if (item.question.toLowerCase().includes(q)) score += 4;
 
@@ -156,18 +147,17 @@ const knowledgeBase = faqList.map((item) => ({
         return bestMatch.answer;
       }
 
-      return `Terima kasih atas pertanyaan Anda. Terkait "${query}", Anda dapat menghubungi Sekretariat SMAN 1 Klaten di Jl. Merbabu No. 13 atau melalui WhatsApp resmi +62 812-3456-7890. Silakan coba juga pertanyaan seputar PPDB, Fasilitas, Ekstrakurikuler, atau Prestasi.`;
+      return `Terima kasih atas pertanyaan Anda. Terkait "${query}", silakan hubungi Sekretariat SMA Negeri 1 Klaten di Jl. Merbabu No. 13 Klaten (0272) 321150 atau email info@sma1klaten.sch.id.`;
     }
 
     function handleUserInput(input) {
       if (!input.trim()) return;
       appendMessage(input, true);
 
-      // Simulate thoughtful instant response
       setTimeout(() => {
         const response = searchKnowledgeBase(input);
         appendMessage(response, false);
-      }, 250);
+      }, 200);
     }
 
     if (chatForm && chatInput) {
@@ -186,7 +176,7 @@ const knowledgeBase = faqList.map((item) => ({
         if (match) {
           handleUserInput(match.question);
         } else {
-          handleUserInput(pill.textContent);
+          handleUserInput(pill.textContent || '');
         }
       });
     });
@@ -205,13 +195,14 @@ const knowledgeBase = faqList.map((item) => ({
 
 <style>
   .chatbot-section {
-    padding: var(--section-spacing) 0;
+    padding: 70px 0 90px;
     background-color: var(--color-bg);
   }
 
+  .text-center { text-align: center; }
+
   .chatbot-header {
-    text-align: center;
-    max-width: 760px;
+    max-width: 740px;
     margin: 0 auto 40px;
   }
 
@@ -223,41 +214,44 @@ const knowledgeBase = faqList.map((item) => ({
     border: 1px solid var(--color-border);
     padding: 6px 16px;
     border-radius: var(--radius-pill);
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
     color: var(--color-text-secondary);
-    margin-bottom: 20px;
-  }
-
-  .status-pulse {
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-accent-green);
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px rgba(59, 168, 92, 0.2);
-  }
-
-  .chatbot-title {
-    font-size: clamp(2rem, 3.8vw, 3rem);
     margin-bottom: 16px;
   }
 
+  .status-pulse {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent-green);
+    border-radius: 50%;
+  }
+
+  .chatbot-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.8vw, 2.7rem);
+    color: var(--color-text-primary);
+    margin-bottom: 12px;
+  }
+
   .chatbot-subtitle {
-    font-size: 1rem;
+    font-size: 1.02rem;
     color: var(--color-text-secondary);
+    line-height: 1.6;
   }
 
   .chat-container {
-    max-width: 880px;
+    max-width: 840px;
     margin: 0 auto;
   }
 
   .chat-window {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(34, 22, 16, 0.05);
+    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
   }
@@ -277,52 +271,55 @@ const knowledgeBase = faqList.map((item) => ({
     gap: 12px;
   }
 
-  .bot-avatar-svg {
-    background-color: rgba(255, 255, 255, 0.15);
+  .bot-avatar-circle {
+    background-color: rgba(255, 255, 255, 0.12);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-accent-yellow);
+    color: var(--color-accent-coral);
   }
 
   .bot-name {
     display: block;
+    font-family: var(--font-serif);
     font-weight: 700;
     font-size: 1rem;
+    color: #FFFFFF;
   }
 
   .bot-role {
     display: block;
-    font-size: 0.75rem;
-    color: #C8BFB8;
+    font-size: 0.74rem;
+    color: #A99E96;
   }
 
   .engine-badge {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     background-color: rgba(255, 255, 255, 0.1);
+    color: #E8E1D7;
     padding: 4px 10px;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-pill);
   }
 
   .chat-messages {
-    padding: 28px 24px;
-    min-height: 280px;
-    max-height: 420px;
+    padding: 24px;
+    min-height: 260px;
+    max-height: 380px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 18px;
-    background-color: #FAF6F0;
+    gap: 16px;
+    background-color: var(--color-surface-muted);
   }
 
   .message {
     display: flex;
     flex-direction: column;
-    max-width: 82%;
+    max-width: 80%;
   }
 
   .msg-bot {
@@ -334,31 +331,29 @@ const knowledgeBase = faqList.map((item) => ({
   }
 
   .msg-bubble {
-    padding: 14px 20px;
-    border-radius: 18px;
-    font-size: 0.95rem;
-    line-height: 1.5;
+    padding: 12px 18px;
+    border-radius: var(--radius-md);
+    font-size: 0.92rem;
+    line-height: 1.55;
   }
 
   .msg-bot .msg-bubble {
-    background-color: #FFFFFF;
+    background-color: var(--color-surface);
     color: var(--color-text-primary);
-    border-top-left-radius: 4px;
     border: 1px solid var(--color-border);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    box-shadow: var(--shadow-subtle);
   }
 
   .msg-user .msg-bubble {
     background-color: var(--color-accent-coral);
     color: #FFFFFF;
-    border-top-right-radius: 4px;
   }
 
   .msg-time {
-    font-size: 0.72rem;
-    color: var(--color-text-secondary);
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
     margin-top: 4px;
-    padding: 0 4px;
+    padding: 0 2px;
   }
 
   .msg-user .msg-time {
@@ -367,7 +362,7 @@ const knowledgeBase = faqList.map((item) => ({
 
   .suggestions-wrapper {
     padding: 12px 24px;
-    background-color: #FFFFFF;
+    background-color: var(--color-surface);
     border-top: 1px solid var(--color-border);
     display: flex;
     align-items: center;
@@ -376,11 +371,11 @@ const knowledgeBase = faqList.map((item) => ({
   }
 
   .sug-label {
-    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
     font-weight: 700;
-    color: var(--color-text-secondary);
+    color: var(--color-text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 
   .suggestions-pills {
@@ -392,84 +387,83 @@ const knowledgeBase = faqList.map((item) => ({
   .pill-btn {
     background-color: var(--color-surface-muted);
     border: 1px solid var(--color-border);
-    color: var(--color-text-primary);
-    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    font-size: 0.78rem;
     font-weight: 600;
-    padding: 6px 12px;
+    padding: 5px 12px;
     border-radius: var(--radius-pill);
     cursor: pointer;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
+    transition: all 0.2s ease;
   }
 
   .pill-btn:hover {
-    background-color: #EFE4D6;
-    border-color: var(--color-text-secondary);
+    border-color: var(--color-accent-coral);
+    color: var(--color-accent-coral);
+    background-color: var(--color-surface);
   }
 
   .chat-input-bar {
-    padding: 16px 24px;
-    background-color: #FFFFFF;
+    padding: 14px 20px;
+    background-color: var(--color-surface);
     border-top: 1px solid var(--color-border);
     display: flex;
-    gap: 12px;
+    gap: 10px;
   }
 
   .chat-input-bar input {
     flex: 1;
     font-family: var(--font-sans);
-    font-size: 0.95rem;
-    padding: 12px 18px;
+    font-size: 0.92rem;
+    padding: 10px 16px;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-pill);
     outline: none;
-    background-color: #FBF8F2;
+    background-color: var(--color-bg);
     color: var(--color-text-primary);
-    transition: border-color 0.15s ease;
   }
 
   .chat-input-bar input:focus {
     border-color: var(--color-accent-coral);
   }
 
-  .btn-send-styled {
+  .btn-send-minimal {
+    padding: 10px 20px;
+    font-size: 0.88rem;
+    border-radius: var(--radius-pill);
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 12px 22px;
-  }
-
-  .send-arrow {
-    font-size: 1.1rem;
   }
 
   .floating-chatbot-launcher {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    background-color: var(--color-accent-coral);
-    color: #FFFFFF;
-    padding: 12px 20px;
+    background-color: var(--color-dark-ribbon);
+    color: var(--color-dark-ribbon-text);
+    padding: 10px 18px;
     border-radius: var(--radius-pill);
-    box-shadow: 0 4px 16px rgba(232, 90, 56, 0.35);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
     z-index: 99;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    font-weight: 600;
+    font-size: 0.84rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.2s ease;
   }
 
   .floating-chatbot-launcher:hover {
-    background-color: var(--color-accent-coral-hover);
+    background-color: #000000;
     transform: translateY(-2px);
   }
 
   .launcher-svg {
     display: flex;
     align-items: center;
-    justify-content: center;
+    color: var(--color-accent-coral);
   }
 
   @media (max-width: 600px) {
@@ -481,7 +475,7 @@ const knowledgeBase = faqList.map((item) => ({
       display: none;
     }
     .floating-chatbot-launcher {
-      padding: 14px;
+      padding: 12px;
       border-radius: 50%;
     }
   }

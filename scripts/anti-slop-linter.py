@@ -59,10 +59,10 @@ def check_banned_words(src_dir):
 
 def check_wcag_contrast():
     pairs = [
-        ("#221610", "#FBF8F2", "text-primary against bg", 4.5),
-        ("#5C4D44", "#FBF8F2", "text-secondary against bg", 4.5),
-        ("#E85A38", "#FFFFFF", "accent-coral against white button", 3.0),
-        ("#FBF8F2", "#221610", "footer text against dark ribbon", 4.5),
+        ("#1A1412", "#FAF8F5", "text-primary against bg", 4.5),
+        ("#554B45", "#FAF8F5", "text-secondary against bg", 4.5),
+        ("#C84B31", "#FFFFFF", "accent-coral against white button", 3.0),
+        ("#FAF8F5", "#181311", "footer text against dark ribbon", 4.5),
     ]
     failures = []
     for fg, bg, label, min_ratio in pairs:

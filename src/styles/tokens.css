@@ -1,30 +1,42 @@
 :root {
-  /* Colors */
-  --color-bg: #FBF8F2;
-  --color-text-primary: #221610;
-  --color-text-secondary: #5C4D44;
-  --color-accent-coral: #E85A38;
-  --color-accent-coral-hover: #D14929;
-  --color-accent-yellow: #F9BC2C;
-  --color-accent-green: #3BA85C;
-  --color-accent-blue: #3B88C8;
+  /* Colors - Padmawijaya Academic Editorial */
+  --color-bg: #FAF8F5;
+  --color-text-primary: #1A1412;
+  --color-text-secondary: #554B45;
+  --color-text-muted: #827770;
+  
+  --color-accent-coral: #C84B31;       /* Terracotta Red (Bunga Padma) */
+  --color-accent-coral-hover: #B23F27;
+  --color-accent-gold: #B8902D;        /* Noble Gold (Akreditasi & Prestasi) */
+  --color-accent-green: #2B5B49;       /* Deep Forest Green */
+  --color-accent-yellow: #C59B27;
+  --color-accent-blue: #2E5B82;
+
   --color-surface: #FFFFFF;
-  --color-surface-muted: #F3EDE2;
-  --color-border: #E5DACB;
-  --color-dark-ribbon: #221610;
-  --color-dark-ribbon-text: #FBF8F2;
+  --color-surface-muted: #F3EFE9;
+  --color-border: #E8E1D7;
+  --color-border-hover: #C5BCB2;
+  
+  --color-dark-ribbon: #181311;
+  --color-dark-ribbon-text: #FAF8F5;
 
   /* Typography */
   --font-serif: 'Fraunces', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'Space Mono', monospace;
 
-  /* Spacing & Radii */
-  --radius-sm: 8px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  /* Spacing & Radii (Crisp & Minimal) */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
   --radius-pill: 9999px;
+
+  /* Shadows (Subtle, No AI-slop Glows) */
+  --shadow-subtle: 0 1px 3px rgba(26, 20, 18, 0.04);
+  --shadow-card: 0 4px 12px rgba(26, 20, 18, 0.05);
+  --shadow-hover: 0 10px 24px rgba(26, 20, 18, 0.08);
 
   /* Layout */
   --max-width: 1200px;

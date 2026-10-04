@@ -1,101 +1,69 @@
 ---
-import EditorialDoodles from './vectors/EditorialDoodles.astro';
 ---
 
 <section class="hero-section" id="beranda-hero">
-  <!-- Hand-drawn SVG Floating Doodles -->
-  <div class="doodle doodle-balloon" aria-hidden="true">
-    <EditorialDoodles type="hot-air-balloon" />
-  </div>
-  <div class="doodle doodle-plane" aria-hidden="true">
-    <EditorialDoodles type="paper-plane" />
-  </div>
-  <div class="doodle doodle-star-1" aria-hidden="true">
-    <EditorialDoodles type="starburst" />
-  </div>
-  <div class="doodle doodle-star-2" aria-hidden="true">
-    <EditorialDoodles type="starburst" />
-  </div>
-
   <div class="container hero-container">
-    <div class="hero-badge animate-badge">
-      <span class="badge-dot"></span> SMA Negeri 1 Klaten • NPSN Resmi: 20309676 • Berdiri 1957
+    <div class="heritage-badge">
+      <span class="badge-dot"></span>
+      <span class="heritage-text">KAMPUS 13 &bull; PADMAWIJAYA &bull; BERDIRI 5 NOVEMBER 1957</span>
     </div>
 
-    <h1 class="hero-title animate-title">
-      Menempa Generasi Unggul, Berkarakter Luhur & 
-      <span class="highlight-wrapper">
-        <span class="highlight-text">Berprestasi Global</span>
-        <EditorialDoodles type="sketch-circle" class="title-sketch" />
-      </span>.
+    <h1 class="hero-headline">
+      Keluhuran Budi Pekerti, Nalar Keilmuan, dan Kejayaan Padmawijaya.
     </h1>
 
-    <p class="hero-lead animate-lead">
-      Pusat rujukan akademik terdepan di Jawa Tengah. Menyelenggarakan Kurikulum Merdeka berorientasi riset, pembinaan intensif 23 ekstrakurikuler, dan asisten virtual cerdas SmansaBot AI.
+    <p class="hero-desc">
+      Sekolah Menengah Atas Negeri 1 Klaten adalah institusi pendidikan rujukan tertua di Klaten. Menyelenggarakan Kurikulum Merdeka riset terpadu, pembinaan 23 ekstrakurikuler kesiswaan, dan pendampingan cerdas SmansaBot AI.
     </p>
 
-    <div class="hero-trust-bar animate-trust">
-      <div class="trust-item">
-        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Terakreditasi A (Unggul)</span>
+    <div class="trust-credential-bar">
+      <div class="cred-item">
+        <span class="cred-dot"></span>
+        <span>Akreditasi A • Nilai <strong>98</strong> BAN-SM</span>
       </div>
-      <div class="trust-item">
-        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>94.8% Lulusan ke PTN Favorit</span>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <span class="cred-dot"></span>
+        <span><strong>94.8%</strong> Lulusan Diterima PTN Unggulan</span>
       </div>
-      <div class="trust-item">
-        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>23 Ekstrakurikuler Aktif</span>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <span class="cred-dot"></span>
+        <span><strong>33 Rombel</strong> (~1.190 Peserta Didik)</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <span class="cred-dot"></span>
+        <span>NPSN Resmi: <strong>20309676</strong></span>
       </div>
     </div>
 
-    <div class="hero-cta-group animate-cta">
-      <a href="/#chatbot" class="btn btn-primary btn-arrow" id="hero-open-ai">Tanya SmansaBot AI</a>
-      <a href="/program" class="btn btn-outline">Eksplorasi Program & Ekskul</a>
+    <div class="hero-actions">
+      <a href="/#chatbot" class="btn btn-primary btn-arrow" id="hero-open-ai">Konsultasi SmansaBot AI</a>
+      <a href="/profil" class="btn btn-outline">Sejarah & Profil Padmawijaya</a>
     </div>
 
-    <!-- Asymmetric Editorial Visual Stage with Real Campus Photography -->
-    <div class="hero-visual-stage animate-stage">
-      <!-- Left Asymmetric Column: Front Gate & Main Building -->
-      <div class="stage-frame frame-left">
-        <div class="frame-tag-pill tag-yellow">Gedung Utama & Kampus Hijau</div>
-        <div class="photo-container">
+    <!-- Cinematic Minimalist Architecture Showcase -->
+    <div class="hero-showcase">
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
           <img 
             src="/images/school/Smansa1.jpg" 
             alt="Gedung Utama SMA Negeri 1 Klaten" 
-            class="campus-photo" 
+            class="showcase-photo"
             loading="eager"
-            width="460"
-            height="270"
+            width="1140"
+            height="520"
           />
         </div>
-        <div class="floating-badge badge-culture">
-          <span class="badge-title">Gedung Utama SMANSA</span>
-          <span class="badge-sub">Jl. Merbabu No. 13 Klaten (Est. 1957)</span>
-        </div>
-      </div>
-
-      <!-- Overlapping Center Accent Pill -->
-      <div class="stage-overlap-chip">
-        <span class="chip-star">✦</span> Berkarakter Hebat Jaya
-      </div>
-
-      <!-- Right Asymmetric Column: Sports Field, Labs & Courtyard -->
-      <div class="stage-frame frame-right">
-        <div class="frame-tag-pill tag-green">Lingkungan Riset & Lapangan Olahraga</div>
-        <div class="photo-container">
-          <img 
-            src="/images/school/Smansa2.jpg" 
-            alt="Halaman Dalam dan Fasilitas Olahraga SMA Negeri 1 Klaten" 
-            class="campus-photo" 
-            loading="eager"
-            width="460"
-            height="270"
-          />
-        </div>
-        <div class="floating-badge badge-science">
-          <span class="badge-title">Ekosistem Edukasi Modern</span>
-          <span class="badge-sub">Lab Sains Terpadu & Lapangan GOR Multi-Fungsi</span>
+        <div class="showcase-bar">
+          <div class="showcase-info">
+            <h2 class="showcase-title">Gedung Utama Kampus 13</h2>
+            <span class="showcase-loc">Jl. Merbabu No. 13, Klaten Selatan, Jawa Tengah 57423</span>
+          </div>
+          <div class="showcase-status">
+            <span class="status-pill">Pusat Rujukan Akademik Sejak 1957</span>
+          </div>
         </div>
       </div>
     </div>
@@ -104,56 +72,18 @@ import EditorialDoodles from './vectors/EditorialDoodles.astro';
 
 <style>
   .hero-section {
-    padding: 50px 0 30px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* SVG Floating Doodles */
-  .doodle {
-    position: absolute;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .doodle-balloon {
-    top: 6%;
-    left: 4%;
-    width: 65px;
-    animation: floatSlow 8s ease-in-out infinite;
-  }
-
-  .doodle-plane {
-    top: 14%;
-    right: 5%;
-    width: 60px;
-    animation: floatFast 6s ease-in-out infinite;
-  }
-
-  .doodle-star-1 {
-    bottom: 35%;
-    left: 3%;
-    width: 28px;
-    animation: pulseGlow 4s ease-in-out infinite;
-  }
-
-  .doodle-star-2 {
-    top: 32%;
-    right: 3%;
-    width: 24px;
-    animation: pulseGlow 5s ease-in-out infinite 1s;
+    padding: 70px 0 50px;
+    background-color: var(--color-bg);
   }
 
   .hero-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    z-index: 2;
+    text-align: center;
   }
 
-  .hero-badge {
+  .heritage-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -161,269 +91,174 @@ import EditorialDoodles from './vectors/EditorialDoodles.astro';
     border: 1px solid var(--color-border);
     padding: 6px 18px;
     border-radius: var(--radius-pill);
-    font-size: 0.82rem;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    color: var(--color-text-secondary);
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(34, 22, 16, 0.05);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-subtle);
   }
 
   .badge-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background-color: var(--color-accent-coral);
     border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(232, 90, 56, 0.2);
   }
 
-  .hero-title {
-    font-size: clamp(2.4rem, 4.8vw, 4.1rem);
-    max-width: 980px;
-    margin-bottom: 20px;
-    letter-spacing: -0.03em;
-    line-height: 1.18;
-  }
-
-  .highlight-wrapper {
-    position: relative;
-    display: inline-block;
-    color: var(--color-accent-coral);
-    font-style: italic;
-    white-space: nowrap;
-  }
-
-  .highlight-text {
-    position: relative;
-    z-index: 2;
-  }
-
-  .title-sketch {
-    position: absolute;
-    top: -15%;
-    left: -8%;
-    width: 116%;
-    height: 135%;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .hero-lead {
-    font-size: 1.1rem;
-    color: var(--color-text-secondary);
-    max-width: 720px;
-    margin-bottom: 28px;
-    line-height: 1.6;
-  }
-
-  .hero-trust-bar {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 36px;
-  }
-
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-  }
-
-  .check-icon {
-    color: var(--color-accent-green);
-  }
-
-  .hero-cta-group {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 44px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  /* Asymmetric Visual Stage */
-  .hero-visual-stage {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-    width: 100%;
-    max-width: 1060px;
-    margin-top: 10px;
-    position: relative;
-  }
-
-  .stage-frame {
-    position: relative;
-    border-radius: var(--radius-xl);
-    padding: 20px 20px 32px;
-    border: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: visible;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-  }
-
-  .frame-left {
-    background: linear-gradient(180deg, #FBF4E4 0%, #F5E8CE 100%);
-    border-top-left-radius: 60px;
-  }
-
-  .frame-right {
-    background: linear-gradient(180deg, #E6F3EA 0%, #D4EADB 100%);
-    border-top-right-radius: 60px;
-  }
-
-  .stage-frame:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 36px rgba(34, 22, 16, 0.08);
-  }
-
-  .frame-tag-pill {
-    align-self: flex-start;
+  .heritage-text {
+    font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 4px 14px;
-    border-radius: var(--radius-pill);
-    margin-bottom: 12px;
-    border: 1px solid rgba(34, 22, 16, 0.1);
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
   }
 
-  .tag-yellow {
-    background-color: var(--color-accent-yellow);
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.16;
+    letter-spacing: -0.03em;
     color: var(--color-text-primary);
+    max-width: 900px;
+    margin-bottom: 20px;
   }
 
-  .tag-green {
-    background-color: var(--color-accent-green);
-    color: #FFFFFF;
+  .hero-desc {
+    font-size: 1.08rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    max-width: 740px;
+    margin-bottom: 30px;
   }
 
-  .photo-container {
+  /* Minimalist Credential Bar */
+  .trust-credential-bar {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: 8px 24px;
+    gap: 16px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-subtle);
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+  }
+
+  .cred-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cred-dot {
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-accent-coral);
+    border-radius: 50%;
+  }
+
+  .cred-divider {
+    width: 1px;
+    height: 14px;
+    background-color: var(--color-border);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+
+  /* Clean Panoramic Showcase */
+  .hero-showcase {
     width: 100%;
-    height: 250px;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 8px 24px rgba(34, 22, 16, 0.1);
-    background-color: #221610;
+    max-width: 1120px;
   }
 
-  .campus-photo {
+  .showcase-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .showcase-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+  }
+
+  .showcase-img-wrap {
+    width: 100%;
+    height: clamp(280px, 42vw, 480px);
+    overflow: hidden;
+    background-color: var(--color-dark-ribbon);
+    position: relative;
+  }
+
+  .showcase-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
   }
 
-  .stage-frame:hover .campus-photo {
-    transform: scale(1.04);
+  .showcase-card:hover .showcase-photo {
+    transform: scale(1.02);
   }
 
-  /* Floating Badges Overlapping Frame */
-  .floating-badge {
-    position: absolute;
-    bottom: -16px;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    padding: 10px 18px;
-    border-radius: var(--radius-md);
-    box-shadow: 0 6px 20px rgba(34, 22, 16, 0.08);
+  .showcase-bar {
+    padding: 18px 28px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
     text-align: left;
-    z-index: 5;
   }
 
-  .badge-culture {
-    left: 24px;
-  }
-
-  .badge-science {
-    right: 24px;
-  }
-
-  .badge-title {
+  .showcase-title {
     font-family: var(--font-serif);
-    font-size: 0.95rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--color-text-primary);
+    margin-bottom: 2px;
   }
 
-  .badge-sub {
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-  }
-
-  /* Center Connector Chip */
-  .stage-overlap-chip {
-    position: absolute;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--color-text-primary);
-    color: var(--color-bg);
-    padding: 8px 20px;
-    border-radius: var(--radius-pill);
+  .showcase-loc {
     font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .status-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
     font-weight: 700;
-    z-index: 10;
-    white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    border: 2px solid var(--color-bg);
+    color: var(--color-text-secondary);
+    background-color: var(--color-surface-muted);
+    border: 1px solid var(--color-border);
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.04em;
   }
 
-  .chip-star {
-    color: var(--color-accent-yellow);
-    margin-right: 4px;
-  }
-
-  /* Motion Keyframes */
-  @keyframes floatSlow {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-14px) rotate(4deg); }
-  }
-
-  @keyframes floatFast {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(10px, -12px) rotate(-6deg); }
-  }
-
-  @keyframes pulseGlow {
-    0%, 100% { transform: scale(1); opacity: 0.7; }
-    50% { transform: scale(1.2); opacity: 1; }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .animate-badge { animation: fadeIn 0.6s ease both; }
-    .animate-title { animation: fadeIn 0.8s ease 0.1s both; }
-    .animate-lead  { animation: fadeIn 0.8s ease 0.2s both; }
-    .animate-trust { animation: fadeIn 0.8s ease 0.3s both; }
-    .animate-cta   { animation: fadeIn 0.8s ease 0.4s both; }
-    .animate-stage { animation: fadeIn 0.9s ease 0.5s both; }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 860px) {
-    .hero-visual-stage {
-      grid-template-columns: 1fr;
-      gap: 40px;
+  @media (max-width: 900px) {
+    .trust-credential-bar {
+      flex-direction: column;
+      border-radius: var(--radius-lg);
+      padding: 14px 20px;
+      gap: 10px;
     }
-    .stage-overlap-chip {
+    .cred-divider {
       display: none;
     }
-    .doodle {
-      display: none;
+    .showcase-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
     }
   }
 </style>

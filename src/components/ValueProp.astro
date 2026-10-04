@@ -3,42 +3,44 @@
 
 <section class="value-prop-section" id="fasilitas">
   <div class="container">
-    <div class="split-prop-wrapper">
-      <div class="split-prop-grid">
-        <!-- Left Yellow Card -->
-        <div class="prop-card prop-yellow">
-          <span class="prop-tag">Infrastruktur Riset & Literasi</span>
-          <h3 class="prop-title">Fasilitas Modern untuk Menopang Eksplorasi Sains</h3>
-          <p class="prop-desc">
-            Laboratorium terpadu (Fisika, Kimia, Biologi, 3 Lab Komputer), Perpustakaan Digital Graha Pustaka dengan koneksi gigabit fiber optic.
-          </p>
-          <div class="prop-cta">
-            <a href="/fasilitas" class="btn btn-outline btn-arrow">Katalog Sarana Lab</a>
-          </div>
-        </div>
+    <div class="section-title-wrap text-center">
+      <span class="meta-tag">Sarana & Prasarana Kampus 13</span>
+      <h2 class="section-heading">Fasilitas Penunjang Riset Sains & Budaya Luhur</h2>
+      <p class="section-desc">
+        Lingkungan belajar yang memadukan cagar sejarah, kenyamanan hijau, dan kelengkapan teknologi laboratorium berstandar nasional.
+      </p>
+    </div>
 
-        <!-- Overlapping Center Boundary-Breaking Badge (Pure SVG) -->
-        <div class="center-overlap-badge" aria-hidden="true">
-          <svg class="center-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="46" fill="#221610" stroke="#FFFFFF" stroke-width="4"/>
-            <!-- Crossed Compass & Laurel -->
-            <path d="M50 22V78M22 50H78" stroke="#F9BC2C" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="50" cy="50" r="14" fill="#E85A38"/>
-            <path d="M42 50L48 56L58 44" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="center-label">Unggul & Berkarakter</span>
+    <div class="prop-grid">
+      <!-- Pillar 1 -->
+      <div class="prop-card">
+        <div class="prop-header">
+          <span class="prop-pill">Sains & Riset Komputasi</span>
+          <h3 class="prop-title">Laboratorium Terpadu & Graha Pustaka</h3>
         </div>
+        <p class="prop-desc-text">
+          Tersedia 3 Laboratorium Komputer modern berkecepatan tinggi, Lab Kimia, Fisika, Biologi dengan peranti eksperimen lengkap, serta Perpustakaan Digital Graha Pustaka terakreditasi A nasional.
+        </p>
+        <div class="prop-footer">
+          <a href="/fasilitas" class="prop-link">
+            Jelajahi Sarana Akademik &rarr;
+          </a>
+        </div>
+      </div>
 
-        <!-- Right Coral Card -->
-        <div class="prop-card prop-coral">
-          <span class="prop-tag tag-white">Pengembangan Karakter Luhur</span>
-          <h3 class="prop-title title-white">Ruang Apresiasi Seni, Budaya & Olahraga Terbuka</h3>
-          <p class="prop-desc desc-white">
-            Gelanggang Olahraga indoor (GOR Smansa), Sanggar Karawitan berstandar keraton, panggung ekspresi kreasi siswa, dan 25+ ekstrakurikuler aktif.
-          </p>
-          <div class="prop-cta">
-            <a href="/program" class="btn btn-dark-pill btn-arrow">Pilihan Ekstrakurikuler</a>
-          </div>
+      <!-- Pillar 2 -->
+      <div class="prop-card">
+        <div class="prop-header">
+          <span class="prop-pill">Karakter & Seni Budaya</span>
+          <h3 class="prop-title">Sanggar Seni Karawitan & Gelanggang Olahraga</h3>
+        </div>
+        <p class="prop-desc-text">
+          Memadukan pelestarian tradisi gamelan karawitan Jawa gagrak Surakarta dengan sarana kebugaran modern GOR Indoor Smansa untuk kompetisi basket, bulutangkis, dan futsal.
+        </p>
+        <div class="prop-footer">
+          <a href="/program" class="prop-link">
+            Katalog 23 Ekstrakurikuler &rarr;
+          </a>
         </div>
       </div>
     </div>
@@ -47,142 +49,116 @@
 
 <style>
   .value-prop-section {
-    padding: var(--section-spacing) 0;
+    padding: 70px 0 90px;
+    background-color: var(--color-bg);
   }
 
-  .split-prop-wrapper {
-    position: relative;
+  .text-center { text-align: center; }
+
+  .section-title-wrap {
+    max-width: 740px;
+    margin: 0 auto 48px;
   }
 
-  .split-prop-grid {
+  .meta-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-accent-coral);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.8vw, 2.7rem);
+    color: var(--color-text-primary);
+    margin: 10px 0 12px;
+  }
+
+  .section-desc {
+    font-size: 1.02rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .prop-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-    position: relative;
   }
 
   .prop-card {
-    border-radius: var(--radius-xl);
-    padding: 52px 48px;
+    background-color: var(--color-surface);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 380px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
   .prop-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(34, 22, 16, 0.07);
+    border-color: var(--color-accent-coral);
+    box-shadow: var(--shadow-card);
   }
 
-  .prop-yellow {
-    background-color: #FDF3D6;
-    border-color: #F2E1B4;
+  .prop-header {
+    margin-bottom: 16px;
   }
 
-  .prop-coral {
-    background-color: var(--color-accent-coral);
-    border-color: #D94E2C;
-    color: #FFFFFF;
-  }
-
-  .prop-tag {
-    font-size: 0.8rem;
+  .prop-pill {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
     color: var(--color-accent-coral);
-    margin-bottom: 16px;
-    display: block;
-  }
-
-  .tag-white {
-    color: var(--color-accent-yellow);
+    background-color: var(--color-surface-muted);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-border);
+    display: inline-block;
+    margin-bottom: 12px;
   }
 
   .prop-title {
-    font-size: clamp(1.65rem, 2.5vw, 2.3rem);
-    margin-bottom: 16px;
-    line-height: 1.25;
-  }
-
-  .title-white {
-    color: #FFFFFF;
-  }
-
-  .prop-desc {
-    font-size: 0.96rem;
-    color: var(--color-text-secondary);
-    margin-bottom: 32px;
-    line-height: 1.6;
-    max-width: 440px;
-  }
-
-  .desc-white {
-    color: #FCE8E2;
-  }
-
-  .btn-dark-pill {
-    background-color: var(--color-dark-ribbon);
-    color: #FFFFFF;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 12px 28px;
-    border-radius: var(--radius-pill);
-    cursor: pointer;
-    transition: transform 0.15s ease, background-color 0.15s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .btn-dark-pill:hover {
-    background-color: #000000;
-  }
-
-  /* Center Overlapping Element */
-  .center-overlap-badge {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    z-index: 10;
-    pointer-events: none;
-  }
-
-  .center-svg {
-    width: 82px;
-    height: 82px;
-    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.18));
-  }
-
-  .center-label {
-    background-color: var(--color-surface);
-    color: var(--color-text-primary);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
     font-weight: 700;
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    border: 1px solid var(--color-border);
-    white-space: nowrap;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    color: var(--color-text-primary);
+    line-height: 1.3;
   }
 
-  @media (max-width: 900px) {
-    .split-prop-grid {
+  .prop-desc-text {
+    font-size: 0.94rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .prop-footer {
+    margin-top: auto;
+  }
+
+  .prop-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-accent-coral);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .prop-link:hover {
+    color: var(--color-accent-coral-hover);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 860px) {
+    .prop-grid {
       grid-template-columns: 1fr;
-    }
-    .center-overlap-badge {
-      display: none;
     }
   }
 </style>

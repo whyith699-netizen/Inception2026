@@ -3,44 +3,35 @@ const stats = [
   { 
     value: "1957", 
     label: "Tahun Berdiri", 
-    sub: "69 Tahun Dedikasi Akademik", 
-    accent: "coral",
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7L12 12L22 7L12 2Z"/><path d="M2 17L12 22L22 17"/><path d="M2 12L12 17L22 12"/></svg>` 
+    sub: "69 Tahun Dedikasi Pendidikan (Sejak 5 Nov 1957)" 
   },
   { 
-    value: "1.150+", 
+    value: "Nilai 98", 
+    label: "Akreditasi A BAN-SM", 
+    sub: "Peringkat Unggul (SK 1347/BAN-SM/SK/2021)" 
+  },
+  { 
+    value: "1.190+", 
     label: "Siswa Aktif", 
-    sub: "Komunitas Pembelajar Berprestasi", 
-    accent: "yellow",
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+    sub: "33 Rombongan Belajar (Kelas X-XII A s.d. K)" 
   },
   { 
     value: "94.8%", 
     label: "Lulusan di PTN", 
-    sub: "UGM, ITB, UI, UNAIR, ITS, UNDIP", 
-    accent: "green",
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`
+    sub: "Diterima UGM, ITB, UI, Undip, UNS & Luar Negeri" 
   }
 ];
 ---
 
 <section class="metrics-section">
   <div class="container">
-    <div class="metrics-ribbon">
+    <div class="metrics-grid">
       {stats.map((item, idx) => (
-        <>
-          <div class="metric-item">
-            <div class={`metric-icon-wrap icon-${item.accent}`} set:html={item.icon} />
-            <div class="metric-text">
-              <div class="value-row">
-                <span class="metric-value">{item.value}</span>
-                <span class="metric-tag">{item.label}</span>
-              </div>
-              <span class="metric-sub">{item.sub}</span>
-            </div>
-          </div>
-          {idx < stats.length - 1 && <div class="ribbon-divider" aria-hidden="true" />}
-        </>
+        <div class="metric-col">
+          <span class="metric-value">{item.value}</span>
+          <span class="metric-label">{item.label}</span>
+          <p class="metric-sub">{item.sub}</p>
+        </div>
       ))}
     </div>
   </div>
@@ -48,103 +39,75 @@ const stats = [
 
 <style>
   .metrics-section {
-    padding: 20px 0 60px;
-    position: relative;
-    z-index: 5;
+    padding: 30px 0 60px;
   }
 
-  .metrics-ribbon {
-    background-color: var(--color-dark-ribbon);
-    color: var(--color-dark-ribbon-text);
-    border-radius: var(--radius-pill);
-    padding: 20px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    box-shadow: 0 12px 32px rgba(34, 22, 16, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-subtle);
   }
 
-  .metric-item {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex: 1;
-  }
-
-  .metric-icon-wrap {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .icon-coral {
-    background-color: rgba(232, 90, 56, 0.2);
-    color: var(--color-accent-coral);
-  }
-
-  .icon-yellow {
-    background-color: rgba(249, 188, 44, 0.2);
-    color: var(--color-accent-yellow);
-  }
-
-  .icon-green {
-    background-color: rgba(59, 168, 92, 0.2);
-    color: var(--color-accent-green);
-  }
-
-  .metric-text {
+  .metric-col {
+    padding: 28px 24px;
     display: flex;
     flex-direction: column;
+    text-align: left;
+    border-right: 1px solid var(--color-border);
   }
 
-  .value-row {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
+  .metric-col:last-child {
+    border-right: none;
   }
 
   .metric-value {
     font-family: var(--font-serif);
-    font-size: 1.85rem;
+    font-size: 2rem;
     font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
     line-height: 1.1;
-    color: #FFFFFF;
+    margin-bottom: 6px;
   }
 
-  .metric-tag {
-    font-size: 0.85rem;
+  .metric-label {
+    font-size: 0.88rem;
     font-weight: 600;
-    color: #E5DACB;
+    color: var(--color-accent-coral);
+    margin-bottom: 4px;
   }
 
   .metric-sub {
-    font-size: 0.76rem;
-    color: #A99E96;
-    margin-top: 2px;
-  }
-
-  .ribbon-divider {
-    width: 1px;
-    height: 36px;
-    background-color: rgba(255, 255, 255, 0.15);
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
   }
 
   @media (max-width: 900px) {
-    .metrics-ribbon {
-      border-radius: var(--radius-xl);
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 28px;
-      gap: 20px;
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
-    .ribbon-divider {
-      display: none;
+    .metric-col:nth-child(2) {
+      border-right: none;
+    }
+    .metric-col:nth-child(1), .metric-col:nth-child(2) {
+      border-bottom: 1px solid var(--color-border);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .metrics-grid {
+      grid-template-columns: 1fr;
+    }
+    .metric-col {
+      border-right: none !important;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .metric-col:last-child {
+      border-bottom: none;
     }
   }
 </style>
