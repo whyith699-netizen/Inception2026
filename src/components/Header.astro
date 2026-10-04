@@ -1,0 +1,170 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.replace(/\/$/, "");
+
+const navLinks = [
+  { href: "/", label: "Beranda" },
+  { href: "/profil", label: "Profil" },
+  { href: "/program", label: "Program & Ekskul" },
+  { href: "/fasilitas", label: "Fasilitas" },
+  { href: "/prestasi", label: "Prestasi & Alumni" },
+  { href: "/ppdb", label: "PPDB 2026" },
+  { href: "/kontak", label: "Kontak" }
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand-group">
+      <a href="/" class="brand-link" aria-label="Beranda SMAN 1 Klaten">
+        <img src="/images/school/logo.png" alt="Logo SMAN 1 Klaten" class="school-logo-img" width="38" height="38" />
+        <div class="brand-text-block">
+          <span class="brand-logo">SMANSA<span class="dot">.</span></span>
+          <span class="brand-subtitle">SMA N 1 KLATEN</span>
+        </div>
+      </a>
+      <span class="team-badge" title="INCEPTION 2026 - RANDOM KID">
+        INCEPTION 2026
+      </span>
+    </div>
+
+    <nav class="main-nav" aria-label="Navigasi Utama">
+      <ul class="nav-list">
+        {navLinks.map((link) => {
+          const isActive = currentPath === link.href.replace(/\/$/, "");
+          return (
+            <li>
+              <a href={link.href} class={`nav-link ${isActive ? 'active' : ''}`}>
+                {link.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+
+    <div class="header-action">
+      <a href="/#chatbot" class="btn btn-outline" id="header-chatbot-btn">
+        <span class="ai-sparkle">✦</span> Tanya SmansaBot
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background-color: var(--color-bg);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(229, 218, 203, 0.6);
+    backdrop-filter: blur(10px);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .school-logo-img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  }
+
+  .brand-text-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .brand-logo {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+  }
+
+  .brand-logo .dot {
+    color: var(--color-accent-coral);
+  }
+
+  .brand-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .team-badge {
+    background-color: var(--color-surface-muted);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    transition: color 0.15s ease;
+    padding: 4px 0;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--color-accent-coral);
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent-coral);
+    border-radius: 2px;
+  }
+
+  .ai-sparkle {
+    color: var(--color-accent-coral);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 992px) {
+    .nav-list {
+      display: none;
+    }
+  }
+</style>

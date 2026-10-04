@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "targetGrade": {
+      "type": "string"
+    },
+    "accentColor": {
+      "type": "string",
+      "enum": [
+        "coral",
+        "green",
+        "blue",
+        "yellow"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "curriculumPoints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "order": {
+      "type": "number"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "subtitle",
+    "targetGrade",
+    "accentColor",
+    "description",
+    "curriculumPoints",
+    "order"
+  ]
+}

@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import EventBanner from '../components/EventBanner.astro';
+---
+
+<BaseLayout
+  title="Informasi Resmi PPDB 2026 | SMA Negeri 1 Klaten"
+  description="Petunjuk teknis dan panduan pendaftaran peserta didik baru (PPDB) SMA Negeri 1 Klaten Tahun Ajaran 2026/2027."
+>
+  <Header />
+
+  <main>
+    <section class="ppdb-hero">
+      <div class="container text-center">
+        <span class="page-tag">Penerimaan Siswa Baru</span>
+        <h1 class="page-title">Petunjuk Teknis PPDB Tahun Ajaran 2026/2027</h1>
+        <p class="page-lead">
+          Pendaftaran terpadu secara transparan, akuntabel, dan bebas pungutan melalui sistem resmi Dinas Pendidikan Jawa Tengah.
+        </p>
+      </div>
+    </section>
+
+    <EventBanner />
+
+    <section class="quota-section">
+      <div class="container">
+        <h2 class="section-title text-center" style="margin-bottom: 40px;">Pembagian Kuota Jalur Seleksi</h2>
+        <div class="quota-grid">
+          <div class="quota-card">
+            <span class="quota-pct">55%</span>
+            <h3>Jalur Zonasi</h3>
+            <p>Berdasarkan jarak domisili kartu keluarga ke lokasi sekolah (minimal KK diterbitkan 1 tahun sebelum pendaftaran).</p>
+          </div>
+          <div class="quota-card">
+            <span class="quota-pct">20%</span>
+            <h3>Jalur Afirmasi</h3>
+            <p>Diperuntukkan bagi calon peserta didik dari keluarga ekonomi kurang mampu terdaftar pada DTKS serta anak panti.</p>
+          </div>
+          <div class="quota-card">
+            <span class="quota-pct">20%</span>
+            <h3>Jalur Prestasi</h3>
+            <p>Berdasarkan nilai rapor SMP 5 semester dan piagam kejuaraan akademik maupun non-akademik berjenjang resmi.</p>
+          </div>
+          <div class="quota-card">
+            <span class="quota-pct">5%</span>
+            <h3>Jalur Mutasi Orang Tua</h3>
+            <p>Bagi calon siswa yang orang tuanya mengalami perpindahan tugas dinas resmi atau anak kandung guru di SMAN 1 Klaten.</p>
+          </div>
+        </div>
+
+        <div class="ppdb-cta-box text-center" style="margin-top: 50px;">
+          <h3>Butuh Bantuan Memilih Jalur?</h3>
+          <p>Tanyakan perhitungan nilai, batas wilayah zonasi, atau berkas persyaratan langsung ke SmansaBot AI.</p>
+          <a href="/#chatbot" class="btn btn-primary btn-arrow" style="margin-top: 16px;">Buka Konsultasi SmansaBot AI</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .ppdb-hero {
+    background-color: var(--color-surface-muted);
+    padding: 60px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .text-center { text-align: center; }
+  .page-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-coral);
+    letter-spacing: 0.08em;
+  }
+  .page-title {
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    margin: 12px 0 16px;
+  }
+  .page-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .quota-section {
+    padding: 60px 0 90px;
+  }
+  .quota-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .quota-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .quota-pct {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--color-accent-coral);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .quota-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  .quota-card p {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+  .ppdb-cta-box {
+    background-color: #FAF4EB;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 900px) {
+    .quota-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 500px) {
+    .quota-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

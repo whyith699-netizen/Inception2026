@@ -1,0 +1,313 @@
+---
+const currentYear = 2026;
+---
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-header">
+          <img src="/images/school/logo.png" alt="Logo SMAN 1 Klaten" class="footer-logo-img" width="46" height="46" />
+          <div>
+            <span class="footer-logo">SMANSA<span class="dot">.</span></span>
+            <span class="brand-motto">Berkarakter Hebat Jaya</span>
+          </div>
+        </div>
+        
+        <p class="brand-desc">
+          SMA Negeri 1 Klaten (SMANSA). Berdiri sejak 5 November 1957. Pusat rujukan akademik, keunggulan riset sains, dan pembinaan 23 ekstrakurikuler di Jawa Tengah.
+        </p>
+
+        <div class="school-badges">
+          <span class="school-code">NPSN Resmi: 20309676</span>
+          <span class="school-code">Akreditasi A (Unggul)</span>
+          <span class="school-code">Est. 1957</span>
+        </div>
+
+        <div class="team-credit-box">
+          <span class="credit-title">Dirancang oleh Tim RANDOM KID:</span>
+          <p class="credit-names">
+            Muhammad Agha Prabswara • Radithya Asadel Narendra • Jalu Budi Dhamarsakti
+          </p>
+          <span class="competition-tag">Karya Kompetisi INCEPTION 2026</span>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 class="col-title">Portal & Layanan Digital</h4>
+          <ul class="col-links">
+            <li><a href="http://elearning.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">e-Learning SMANSA ↗</a></li>
+            <li><a href="https://eperpus.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">e-Perpus Digital Graha Pustaka ↗</a></li>
+            <li><a href="/program#ekstrakurikuler-resmi">23 Ekstrakurikuler Resmi</a></li>
+            <li><a href="/#chatbot">Layanan Asisten SmansaBot AI</a></li>
+            <li><a href="/ppdb">Informasi & Alur PPDB 2026</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="col-title">Navigasi Utama</h4>
+          <ul class="col-links">
+            <li><a href="/profil">Profil & Sambutan Kepala Sekolah</a></li>
+            <li><a href="/profil#sejarah">Sejarah & Rekam Jejak 1957</a></li>
+            <li><a href="/program">Kurikulum & Peminatan</a></li>
+            <li><a href="/fasilitas">Sarana & Prasarana Kampus</a></li>
+            <li><a href="/prestasi#alumni-menyapa">Alumni Menyapa (Tokoh SMANSA)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="col-title">Sekretariat & Kontak</h4>
+          <p class="contact-text">Jl. Merbabu No. 13, RT 1 / RW 1, Kec. Klaten Selatan, Kab. Klaten, Jawa Tengah 57423</p>
+          <p class="contact-text">Telepon: (0272) 321150</p>
+          <p class="contact-text">Email: info@sma1klaten.sch.id</p>
+          
+          <div class="social-links-wrap">
+            <span class="social-label">Kanal Resmi:</span>
+            <div class="social-links">
+              <a href="https://www.instagram.com/sman1klaten_official/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram">Instagram</a>
+              <a href="https://www.youtube.com/channel/UC4WNENZW75-C3ENYdDx4TtA" target="_blank" rel="noopener noreferrer" class="social-btn" title="YouTube">YouTube</a>
+              <a href="https://www.facebook.com/SMANSAKLATEN/?locale=id_ID" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook">Facebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">© {currentYear} SMA Negeri 1 Klaten. Seluruh Hak Cipta Dilindungi Undang-Undang.</p>
+      <div class="legal-links">
+        <a href="/profil">Keterbukaan Informasi Publik</a>
+        <a href="/ppdb">Standar Pelayanan PPDB</a>
+        <a href="/kontak">Hubungi Tim</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-dark-ribbon);
+    color: var(--color-dark-ribbon-text);
+    padding: 72px 0 32px;
+    margin-top: auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.25fr 2fr;
+    gap: 60px;
+    margin-bottom: 50px;
+  }
+
+  .brand-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .footer-logo-img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+  }
+
+  .footer-logo {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+    line-height: 1;
+    color: #FFFFFF;
+  }
+
+  .footer-logo .dot {
+    color: var(--color-accent-coral);
+  }
+
+  .brand-motto {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-accent-yellow);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .brand-desc {
+    color: #B5AAA1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    max-width: 400px;
+  }
+
+  .school-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .school-code {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    color: #E5DACB;
+  }
+
+  .team-credit-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(229, 218, 203, 0.15);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    max-width: 400px;
+  }
+
+  .credit-title {
+    display: block;
+    font-size: 0.76rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-yellow);
+    margin-bottom: 4px;
+  }
+
+  .credit-names {
+    font-size: 0.8rem;
+    color: #D6CBC2;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  .competition-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-accent-coral);
+    font-weight: 700;
+  }
+
+  .footer-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .col-title {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 18px;
+    color: #FFFFFF;
+  }
+
+  .col-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .col-links a {
+    color: #A99E96;
+    font-size: 0.86rem;
+    transition: color 0.15s ease;
+    text-decoration: none;
+  }
+
+  .col-links a:hover {
+    color: #FFFFFF;
+  }
+
+  .contact-text {
+    color: #A99E96;
+    font-size: 0.86rem;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  .social-links-wrap {
+    margin-top: 16px;
+  }
+
+  .social-label {
+    display: block;
+    font-size: 0.76rem;
+    color: #8C827A;
+    font-family: var(--font-mono);
+    margin-bottom: 8px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .social-btn {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #E5DACB;
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+  }
+
+  .social-btn:hover {
+    background-color: var(--color-accent-coral);
+    color: #FFFFFF;
+    border-color: var(--color-accent-coral);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #8C827A;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .legal-links a {
+    color: #8C827A;
+    text-decoration: none;
+  }
+
+  .legal-links a:hover {
+    color: #FFFFFF;
+  }
+
+  @media (max-width: 900px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .footer-cols {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-cols {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,14 @@
+{
+  "id": "mipa-riset",
+  "title": "MIPA, Rekayasa & Kelas Riset Ilmiah",
+  "subtitle": "Natural Science & Innovation Hub",
+  "targetGrade": "Fase E & F (Kelas X - XII)",
+  "accentColor": "green",
+  "description": "Penguatan nalar deduktif matematika, sains murni (Fisika, Kimia, Biologi), metodologi penelitian ilmiah remaja, dan persiapan olimpiade sains nasional (OSN).",
+  "curriculumPoints": [
+    "Laboratorium Fisika, Kimia, dan Biologi berstandar analitis",
+    "Bimbingan intensif Karya Ilmiah Remaja (KIR) & publikasi riset",
+    "Modul olimpiade sains & penalaran komputasi"
+  ],
+  "order": 1
+}

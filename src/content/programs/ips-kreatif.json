@@ -1,0 +1,14 @@
+{
+  "id": "ips-kreatif",
+  "title": "Ilmu Sosial, Geopolitik & Ekonomi Kreatif",
+  "subtitle": "Social Dynamics & Economic Literacy",
+  "targetGrade": "Fase E & F (Kelas X - XII)",
+  "accentColor": "coral",
+  "description": "Pemahaman kritis sosiologi masyarakat, dinamika geopolitik, literasi keuangan terapan, kewirausahaan rintisan, dan analisis data kebijakan publik.",
+  "curriculumPoints": [
+    "Simulasi pasar modal, fintech, dan kewirausahaan siswa",
+    "Analisis studi lapangan sosiologi & geografi wilayah",
+    "Klub debat hukum, tata negara, dan isu publik"
+  ],
+  "order": 2
+}

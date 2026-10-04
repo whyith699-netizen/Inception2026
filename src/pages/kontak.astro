@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="Kontak & Lokasi Kampus | SMA Negeri 1 Klaten"
+  description="Sekretariat, alamat resmi Jl. Merbabu No. 13 Klaten Selatan 57423, telepon (0272) 321150, dan jam pelayanan publik SMAN 1 Klaten."
+>
+  <Header />
+
+  <main>
+    <section class="contact-hero">
+      <div class="container text-center">
+        <span class="page-tag">Sekretariat & Pelayanan Informasi</span>
+        <h1 class="page-title">Hubungi SMA Negeri 1 Klaten</h1>
+        <p class="page-lead">
+          Pintu komunikasi terbuka untuk pertanyaan akademik, legalitas kesiswaan, kemitraan institusi, dan konsultasi pendaftaran peserta didik baru.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-body">
+      <div class="container grid-contact">
+        <!-- Informasi Kontak Langsung -->
+        <div class="contact-info-card">
+          <h2>Saluran Resmi Sekolah</h2>
+          
+          <div class="info-group">
+            <span class="group-title">Alamat Kampus Utama</span>
+            <p>Jl. Merbabu No. 13, RT 1 / RW 1, Kec. Klaten Selatan, Kab. Klaten, Jawa Tengah 57423</p>
+          </div>
+
+          <div class="info-group">
+            <span class="group-title">Telepon Kantor</span>
+            <p>(0272) 321150</p>
+          </div>
+
+          <div class="info-group">
+            <span class="group-title">Surat Elektronik (Surel)</span>
+            <p>info@sma1klaten.sch.id</p>
+          </div>
+
+          <div class="info-group">
+            <span class="group-title">Portal Layanan Daring</span>
+            <p>e-Learning: <a href="http://elearning.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">elearning.sma1klaten.sch.id ↗</a></p>
+            <p>e-Perpus: <a href="https://eperpus.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">eperpus.sma1klaten.sch.id ↗</a></p>
+          </div>
+
+          <div class="info-group">
+            <span class="group-title">Jam Pelayanan Tata Usaha</span>
+            <p>Senin - Kamis: 07:00 - 15:30 WIB</p>
+            <p>Jumat: 07:00 - 14:00 WIB</p>
+          </div>
+        </div>
+
+        <!-- Formulir Pesan & Aspirasi -->
+        <div class="contact-form-card">
+          <h2>Kirim Pesan ke Tata Usaha</h2>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Terima kasih. Pesan Anda telah tercatat pada sekretariat SMA Negeri 1 Klaten.');">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" required placeholder="Contoh: Budi Santoso" />
+            </div>
+            <div class="form-group">
+              <label for="email">Alamat Email / Nomor Kontak</label>
+              <input type="text" id="email" required placeholder="nama@email.com atau 0812xxx" />
+            </div>
+            <div class="form-group">
+              <label for="category">Keperluan Layanan</label>
+              <select id="category">
+                <option value="ppdb">Informasi PPDB 2026</option>
+                <option value="akademik">Kurikulum & Peminatan Siswa</option>
+                <option value="legalisir">Legalisir Ijazah & Layanan Alumni</option>
+                <option value="kemitraan">Kemitraan & Penelitian</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="msg">Isi Pesan / Pertanyaan</label>
+              <textarea id="msg" rows="4" required placeholder="Tuliskan perihal atau pertanyaan Anda secara rinci..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-arrow">Kirim Pesan Resmi</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .contact-hero {
+    background-color: var(--color-surface-muted);
+    padding: 60px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .text-center { text-align: center; }
+  .page-tag {
+    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-coral);
+    letter-spacing: 0.08em;
+  }
+  .page-title {
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    margin: 12px 0 16px;
+  }
+  .page-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .contact-body {
+    padding: 70px 0 90px;
+  }
+  .grid-contact {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+  }
+  .contact-info-card, .contact-form-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    box-shadow: 0 4px 16px rgba(34, 22, 16, 0.04);
+  }
+  .contact-info-card h2, .contact-form-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+    font-family: var(--font-serif);
+  }
+  .info-group {
+    margin-bottom: 20px;
+  }
+  .group-title {
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-coral);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .info-group p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-bottom: 4px;
+  }
+  .info-group a {
+    color: var(--color-accent-coral);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .form-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: #FBF8F2;
+    color: var(--color-text-primary);
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent-coral);
+  }
+  @media (max-width: 860px) {
+    .grid-contact {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

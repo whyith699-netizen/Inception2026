@@ -1,0 +1,488 @@
+---
+import { getCollection } from 'astro:content';
+
+const faqList = await getCollection('faq');
+const knowledgeBase = faqList.map((item) => ({
+  id: item.data.id,
+  category: item.data.category,
+  keywords: item.data.keywords,
+  question: item.data.question,
+  answer: item.data.answer
+}));
+---
+
+<section class="chatbot-section" id="chatbot">
+  <div class="container">
+    <div class="chatbot-header">
+      <div class="ai-status-badge">
+        <span class="status-pulse"></span> SmansaBot AI Online • Layanan Interaktif 24/7
+      </div>
+      <h2 class="chatbot-title">Tanya Informasi Sekolah & PPDB Secara Langsung</h2>
+      <p class="chatbot-subtitle">
+        Asisten kecerdasan buatan terintegrasi untuk membantu calon siswa, orang tua, dan masyarakat memperoleh jawaban cepat seputar SMA Negeri 1 Klaten.
+      </p>
+    </div>
+
+    <div class="chat-container">
+      <div class="chat-window">
+        <!-- Chat Header -->
+        <div class="window-header">
+          <div class="bot-info">
+            <div class="bot-avatar-svg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="10" rx="2"/>
+                <circle cx="12" cy="5" r="2"/>
+                <path d="M12 7v4"/>
+                <line x1="8" y1="16" x2="8" y2="16"/>
+                <line x1="16" y1="16" x2="16" y2="16"/>
+              </svg>
+            </div>
+            <div>
+              <span class="bot-name">SmansaBot</span>
+              <span class="bot-role">Asisten Virtual SMAN 1 Klaten</span>
+            </div>
+          </div>
+          <span class="engine-badge">Inception 2026 Model</span>
+        </div>
+
+        <!-- Chat History -->
+        <div class="chat-messages" id="chat-messages">
+          <div class="message msg-bot">
+            <div class="msg-bubble">
+              Halo! Saya <strong>SmansaBot</strong>, asisten informasi resmi SMA Negeri 1 Klaten. 
+              Ada yang bisa saya bantu seputar PPDB, kurikulum, fasilitas, atau ekstrakurikuler hari ini?
+            </div>
+            <span class="msg-time">Sekarang</span>
+          </div>
+        </div>
+
+        <!-- Quick Question Suggestions -->
+        <div class="suggestions-wrapper">
+          <span class="sug-label">Pertanyaan Cepat:</span>
+          <div class="suggestions-pills" id="suggestions-pills">
+            <button class="pill-btn" data-query="ppdb">Jalur PPDB 2026</button>
+            <button class="pill-btn" data-query="fasilitas">Fasilitas Lab & Kampus</button>
+            <button class="pill-btn" data-query="ekskul">Pilihan Ekstrakurikuler</button>
+            <button class="pill-btn" data-query="profil">Visi & Akreditasi</button>
+            <button class="pill-btn" data-query="prestasi">Prestasi & Alumni PTN</button>
+          </div>
+        </div>
+
+        <!-- Chat Input Form -->
+        <form class="chat-input-bar" id="chat-form">
+          <input 
+            type="text" 
+            id="chat-input" 
+            placeholder="Ketik pertanyaan Anda (misal: syarat jalur prestasi, alamat sekolah)..." 
+            autocomplete="off"
+            required 
+          />
+          <button type="submit" class="btn btn-primary btn-send-styled" id="chat-send-btn">
+            <span>Kirim</span>
+            <span class="send-arrow">↗</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Floating Chatbot Launcher -->
+<div class="floating-chatbot-launcher" id="floating-launcher" title="Buka SmansaBot AI">
+  <span class="launcher-svg">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+  </span>
+  <span class="launcher-text">Tanya SmansaBot</span>
+</div>
+
+<script define:vars={{ knowledgeBase }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const messagesContainer = document.getElementById('chat-messages');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const suggestionPills = document.querySelectorAll('.pill-btn');
+    const floatingLauncher = document.getElementById('floating-launcher');
+
+    function appendMessage(text, isUser = false) {
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `message ${isUser ? 'msg-user' : 'msg-bot'}`;
+      
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      // Safe rendering: textContent for user input to prevent XSS; controlled trusted text for bot
+      if (isUser) {
+        bubble.textContent = text;
+      } else {
+        bubble.textContent = text;
+      }
+      
+      const time = document.createElement('span');
+      time.className = 'msg-time';
+      const now = new Date();
+      time.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+      
+      msgDiv.appendChild(bubble);
+      msgDiv.appendChild(time);
+      messagesContainer.appendChild(msgDiv);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function searchKnowledgeBase(query) {
+      const q = query.toLowerCase().trim();
+      let bestMatch = null;
+      let highestScore = 0;
+
+      for (const item of knowledgeBase) {
+        let score = 0;
+        // Check keywords
+        for (const kw of item.keywords) {
+          if (q.includes(kw.toLowerCase())) {
+            score += 3;
+          }
+        }
+        // Check category & question
+        if (q.includes(item.category.toLowerCase())) score += 2;
+        if (item.question.toLowerCase().includes(q)) score += 4;
+
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatch = item;
+        }
+      }
+
+      if (highestScore > 0 && bestMatch) {
+        return bestMatch.answer;
+      }
+
+      return `Terima kasih atas pertanyaan Anda. Terkait "${query}", Anda dapat menghubungi Sekretariat SMAN 1 Klaten di Jl. Merbabu No. 13 atau melalui WhatsApp resmi +62 812-3456-7890. Silakan coba juga pertanyaan seputar PPDB, Fasilitas, Ekstrakurikuler, atau Prestasi.`;
+    }
+
+    function handleUserInput(input) {
+      if (!input.trim()) return;
+      appendMessage(input, true);
+
+      // Simulate thoughtful instant response
+      setTimeout(() => {
+        const response = searchKnowledgeBase(input);
+        appendMessage(response, false);
+      }, 250);
+    }
+
+    if (chatForm && chatInput) {
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = chatInput.value;
+        chatInput.value = '';
+        handleUserInput(text);
+      });
+    }
+
+    suggestionPills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const queryKey = pill.getAttribute('data-query');
+        const match = knowledgeBase.find(k => k.id.includes(queryKey) || k.category.toLowerCase().includes(queryKey));
+        if (match) {
+          handleUserInput(match.question);
+        } else {
+          handleUserInput(pill.textContent);
+        }
+      });
+    });
+
+    if (floatingLauncher) {
+      floatingLauncher.addEventListener('click', () => {
+        const section = document.getElementById('chatbot');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+          if (chatInput) chatInput.focus();
+        }
+      });
+    }
+  });
+</script>
+
+<style>
+  .chatbot-section {
+    padding: var(--section-spacing) 0;
+    background-color: var(--color-bg);
+  }
+
+  .chatbot-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 40px;
+  }
+
+  .ai-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+  }
+
+  .status-pulse {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent-green);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(59, 168, 92, 0.2);
+  }
+
+  .chatbot-title {
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    margin-bottom: 16px;
+  }
+
+  .chatbot-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .chat-container {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .chat-window {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(34, 22, 16, 0.05);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .window-header {
+    background-color: var(--color-dark-ribbon);
+    color: var(--color-dark-ribbon-text);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .bot-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .bot-avatar-svg {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent-yellow);
+  }
+
+  .bot-name {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .bot-role {
+    display: block;
+    font-size: 0.75rem;
+    color: #C8BFB8;
+  }
+
+  .engine-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+  }
+
+  .chat-messages {
+    padding: 28px 24px;
+    min-height: 280px;
+    max-height: 420px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    background-color: #FAF6F0;
+  }
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    max-width: 82%;
+  }
+
+  .msg-bot {
+    align-self: flex-start;
+  }
+
+  .msg-user {
+    align-self: flex-end;
+  }
+
+  .msg-bubble {
+    padding: 14px 20px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .msg-bot .msg-bubble {
+    background-color: #FFFFFF;
+    color: var(--color-text-primary);
+    border-top-left-radius: 4px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  }
+
+  .msg-user .msg-bubble {
+    background-color: var(--color-accent-coral);
+    color: #FFFFFF;
+    border-top-right-radius: 4px;
+  }
+
+  .msg-time {
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+    padding: 0 4px;
+  }
+
+  .msg-user .msg-time {
+    align-self: flex-end;
+  }
+
+  .suggestions-wrapper {
+    padding: 12px 24px;
+    background-color: #FFFFFF;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .sug-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .suggestions-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pill-btn {
+    background-color: var(--color-surface-muted);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .pill-btn:hover {
+    background-color: #EFE4D6;
+    border-color: var(--color-text-secondary);
+  }
+
+  .chat-input-bar {
+    padding: 16px 24px;
+    background-color: #FFFFFF;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: 12px;
+  }
+
+  .chat-input-bar input {
+    flex: 1;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    padding: 12px 18px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    outline: none;
+    background-color: #FBF8F2;
+    color: var(--color-text-primary);
+    transition: border-color 0.15s ease;
+  }
+
+  .chat-input-bar input:focus {
+    border-color: var(--color-accent-coral);
+  }
+
+  .btn-send-styled {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 22px;
+  }
+
+  .send-arrow {
+    font-size: 1.1rem;
+  }
+
+  .floating-chatbot-launcher {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: var(--color-accent-coral);
+    color: #FFFFFF;
+    padding: 12px 20px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 16px rgba(232, 90, 56, 0.35);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    z-index: 99;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .floating-chatbot-launcher:hover {
+    background-color: var(--color-accent-coral-hover);
+    transform: translateY(-2px);
+  }
+
+  .launcher-svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    .suggestions-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .floating-chatbot-launcher .launcher-text {
+      display: none;
+    }
+    .floating-chatbot-launcher {
+      padding: 14px;
+      border-radius: 50%;
+    }
+  }
+</style>

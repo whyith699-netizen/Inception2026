@@ -1,0 +1,249 @@
+---
+import { getCollection } from 'astro:content';
+
+const programs = await getCollection('programs');
+programs.sort((a, b) => a.data.order - b.data.order);
+
+const cardBadges: Record<string, string> = {
+  "mipa-riset": "Riset & Inovasi",
+  "ips-kreatif": "Geopolitik & Bisnis",
+  "bahasa-global": "Diplomasi Internasional"
+};
+---
+
+<section class="programs-section" id="program">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">Kurikulum Merdeka & Peminatan</span>
+        <h2 class="section-title">Program Akademik Berbasis Nalar Kritis & Riset</h2>
+      </div>
+      <a href="/#chatbot" class="btn btn-outline btn-arrow">Konsultasi Peminatan</a>
+    </div>
+
+    <div class="programs-grid">
+      {programs.map((item) => (
+        <article class={`program-card card-${item.data.accentColor}`}>
+          <div class="card-header-visual">
+            <span class="category-badge">{cardBadges[item.data.id] || "Peminatan"}</span>
+            <span class="grade-pill">{item.data.targetGrade}</span>
+          </div>
+
+          <div class="card-body">
+            <span class="subtitle-text">{item.data.subtitle}</span>
+            <h3 class="card-title">{item.data.title}</h3>
+            <p class="card-desc">{item.data.description}</p>
+
+            <div class="divider-hairline"></div>
+
+            <ul class="points-list">
+              {item.data.curriculumPoints.map((point) => (
+                <li>
+                  <span class="point-icon">✓</span>
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="/#chatbot" class="card-btn-pill">
+              <span>Konsultasi Silabus</span>
+              <span class="arrow-ico">↗</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .programs-section {
+    padding: var(--section-spacing) 0;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 44px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .section-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-coral);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(1.85rem, 3.5vw, 2.8rem);
+    max-width: 660px;
+    line-height: 1.2;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .program-card {
+    border-radius: var(--radius-xl);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .program-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(34, 22, 16, 0.08);
+  }
+
+  .card-coral {
+    background-color: #FDF1ED;
+    border-top: 4px solid var(--color-accent-coral);
+  }
+
+  .card-green {
+    background-color: #EDF7F0;
+    border-top: 4px solid var(--color-accent-green);
+  }
+
+  .card-blue {
+    background-color: #EEF4F9;
+    border-top: 4px solid var(--color-accent-blue);
+  }
+
+  .card-header-visual {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .category-badge {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-primary);
+  }
+
+  .grade-pill {
+    background-color: var(--color-surface);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+  }
+
+  .subtitle-text {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+
+  .card-desc {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .divider-hairline {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(34, 22, 16, 0.08);
+    margin-bottom: 20px;
+  }
+
+  .points-list {
+    list-style: none;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--color-text-primary);
+  }
+
+  .points-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.45;
+  }
+
+  .point-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: rgba(34, 22, 16, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-accent-coral);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .card-footer {
+    margin-top: auto;
+  }
+
+  .card-btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 18px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .card-btn-pill:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg);
+  }
+
+  .arrow-ico {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 960px) {
+    .programs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

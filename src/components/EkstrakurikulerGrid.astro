@@ -1,0 +1,170 @@
+---
+import { getEntry } from 'astro:content';
+
+const ekstraData = await getEntry('ekstrakurikuler', 'daftar');
+const list = ekstraData?.data?.items || [];
+---
+
+<section class="ekskul-gallery-section" id="ekstrakurikuler-resmi">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-badge">Pengembangan Karakter & Minat Bakat</span>
+      <h2 class="section-title">23 Ekstrakurikuler Resmi SMAN 1 Klaten</h2>
+      <p class="section-desc">
+        Wadah aktualisasi kepemimpinan, riset ilmiah, prestasi olahraga, kreativitas seni, dan pembinaan spiritual bagi seluruh siswa SMANSA Klaten.
+      </p>
+    </div>
+
+    <div class="ekskul-grid">
+      {list.map((item) => (
+        <div class="ekskul-card" id={`ekskul-${item.id}`}>
+          <div class="ekskul-logo-box">
+            <img 
+              src={item.logo} 
+              alt={`Logo Resmi ${item.name}`} 
+              class="ekskul-logo-img" 
+              loading="lazy" 
+              width="80" 
+              height="80" 
+            />
+          </div>
+          <div class="ekskul-content">
+            <span class="ekskul-badge">{item.category}</span>
+            <h3 class="ekskul-name">{item.name}</h3>
+            <p class="ekskul-desc">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ekskul-gallery-section {
+    padding: 70px 0 90px;
+    background-color: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .section-header {
+    max-width: 760px;
+    margin: 0 auto 50px;
+  }
+
+  .section-badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-coral);
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.8vw, 2.8rem);
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: 14px;
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  .ekskul-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .ekskul-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ekskul-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(34, 22, 16, 0.08);
+    border-color: rgba(232, 90, 56, 0.3);
+  }
+
+  .ekskul-logo-box {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-surface-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 12px rgba(34, 22, 16, 0.04);
+  }
+
+  .ekskul-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+    transition: transform 0.3s ease;
+  }
+
+  .ekskul-card:hover .ekskul-logo-img {
+    transform: scale(1.08);
+  }
+
+  .ekskul-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .ekskul-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-coral);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .ekskul-name {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 8px;
+  }
+
+  .ekskul-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-top: auto;
+  }
+
+  @media (max-width: 600px) {
+    .ekskul-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

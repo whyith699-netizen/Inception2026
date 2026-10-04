@@ -1,0 +1,150 @@
+---
+const stats = [
+  { 
+    value: "1957", 
+    label: "Tahun Berdiri", 
+    sub: "69 Tahun Dedikasi Akademik", 
+    accent: "coral",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7L12 12L22 7L12 2Z"/><path d="M2 17L12 22L22 17"/><path d="M2 12L12 17L22 12"/></svg>` 
+  },
+  { 
+    value: "1.150+", 
+    label: "Siswa Aktif", 
+    sub: "Komunitas Pembelajar Berprestasi", 
+    accent: "yellow",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
+  },
+  { 
+    value: "94.8%", 
+    label: "Lulusan di PTN", 
+    sub: "UGM, ITB, UI, UNAIR, ITS, UNDIP", 
+    accent: "green",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`
+  }
+];
+---
+
+<section class="metrics-section">
+  <div class="container">
+    <div class="metrics-ribbon">
+      {stats.map((item, idx) => (
+        <>
+          <div class="metric-item">
+            <div class={`metric-icon-wrap icon-${item.accent}`} set:html={item.icon} />
+            <div class="metric-text">
+              <div class="value-row">
+                <span class="metric-value">{item.value}</span>
+                <span class="metric-tag">{item.label}</span>
+              </div>
+              <span class="metric-sub">{item.sub}</span>
+            </div>
+          </div>
+          {idx < stats.length - 1 && <div class="ribbon-divider" aria-hidden="true" />}
+        </>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .metrics-section {
+    padding: 20px 0 60px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .metrics-ribbon {
+    background-color: var(--color-dark-ribbon);
+    color: var(--color-dark-ribbon-text);
+    border-radius: var(--radius-pill);
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 12px 32px rgba(34, 22, 16, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .metric-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: 1;
+  }
+
+  .metric-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .icon-coral {
+    background-color: rgba(232, 90, 56, 0.2);
+    color: var(--color-accent-coral);
+  }
+
+  .icon-yellow {
+    background-color: rgba(249, 188, 44, 0.2);
+    color: var(--color-accent-yellow);
+  }
+
+  .icon-green {
+    background-color: rgba(59, 168, 92, 0.2);
+    color: var(--color-accent-green);
+  }
+
+  .metric-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .value-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .metric-value {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #FFFFFF;
+  }
+
+  .metric-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #E5DACB;
+  }
+
+  .metric-sub {
+    font-size: 0.76rem;
+    color: #A99E96;
+    margin-top: 2px;
+  }
+
+  .ribbon-divider {
+    width: 1px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  @media (max-width: 900px) {
+    .metrics-ribbon {
+      border-radius: var(--radius-xl);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px;
+      gap: 20px;
+    }
+    .ribbon-divider {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Prof. DR. Widodo Muktiyo",
+      "designation": "Guru Besar UNS & Mantan Dirjen IKP Kementerian Kominfo RI",
+      "image": "/images/alumni/testimoni-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Prof. Dr. Joko Triyono, S.T., M.T.",
+      "designation": "Dosen Universitas Sebelas Maret & Direktur AKN Pacitan (2021-2025)",
+      "image": "/images/alumni/testimoni-2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Ir. Paulus Insap Santosa, M.Sc., Ph.D.",
+      "designation": "Dosen Dept. Teknik Elektro & Teknologi Informasi, Universitas Gadjah Mada",
+      "image": "/images/alumni/testimoni-3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Drs. Eko Hartono, MPP.",
+      "designation": "Diplomat Senior & Konsul Jenderal (Konjen) RI Jeddah (Purna 2023)",
+      "image": "/images/alumni/testimoni-4.jpeg"
+    },
+    {
+      "id": 5,
+      "name": "Winarno, S.Si., M.Eng.",
+      "designation": "Kepala Program Studi S1 Informatika, Universitas Sebelas Maret",
+      "image": "/images/alumni/testimoni-5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Agus Mulia, S.Pt.",
+      "designation": "Praktisi Industri Peternakan Modern & Pengusaha Nasional",
+      "image": "/images/alumni/testimoni-6.jpg"
+    }
+  ]
+}

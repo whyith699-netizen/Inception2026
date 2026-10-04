@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ValueProp from '../components/ValueProp.astro';
+
+const campusGallery = [
+  { img: "/images/school/Smansa1.jpg", title: "Gerbang & Gedung Cagar Budaya", desc: "Arsitektur ikonik SMAN 1 Klaten yang megah dan penuh nilai historis sejak 1957." },
+  { img: "/images/school/Smansa2.jpg", title: "Halaman Dalam & Lapangan Terbuka", desc: "Pusat aktivitas upacara, apel kesiswaan, dan pembinaan olahraga terbuka." },
+  { img: "/images/school/Smansa3.jpg", title: "Kompleks Ruang Kelas Bertingkat", desc: "Ruang belajar berpendingin ruangan dengan ventilasi silang asri dan proyektor digital." },
+  { img: "/images/school/Smansa4.jpg", title: "Koridor Laboratorium Sains", desc: "Akses penghubung menuju laboratorium fisika, kimia, biologi, dan komputer." },
+  { img: "/images/school/Smansa5.jpg", title: "Taman Kampus & Area Diskusi Hijau", desc: "Ruang terbuka hijau dan gazebo literasi siswa di sela jam istirahat pembelajaran." }
+];
+
+const facilities = [
+  { name: "Laboratorium Sains Terpadu", desc: "Lab Fisika, Kimia, dan Biologi dengan instrumen analitis standar penelitian." },
+  { name: "3 Laboratorium Komputer", desc: "Dilengkapi 120+ unit PC berkecepatan tinggi untuk simulasi komputasi dan asesmen digital." },
+  { name: "Perpustakaan Graha Pustaka & e-Perpus", desc: "Koleksi ribuan buku fisik dan akses e-library digital terakreditasi (eperpus.sma1klaten.sch.id)." },
+  { name: "Gelanggang Olahraga (GOR) Indoor", desc: "Lapangan indoor serbaguna untuk bola basket standar DBL, voli, dan bulutangkis." },
+  { name: "Sanggar Karawitan & Seni Peran", desc: "Ruang akustik berstandar pelestarian gamelan gaya Surakarta dan pementasan teater TSL." },
+  { name: "Masjid Kampus & Sarana Ibadah", desc: "Sarana pembinaan spiritual yang luas, bersih, dan representatif bagi civitas akademika." }
+];
+---
+
+<BaseLayout
+  title="Fasilitas & Galeri Kampus | SMA Negeri 1 Klaten"
+  description="Dokumentasi fasilitas laboratorium riset, ruang komputer, perpustakaan digital e-Perpus, dan sarana olahraga di SMA Negeri 1 Klaten."
+>
+  <Header />
+
+  <main>
+    <section class="facility-hero">
+      <div class="container text-center">
+        <span class="page-tag">Sarana & Prasarana</span>
+        <h1 class="page-title">Infrastruktur Kampus Pendukung Prestasi</h1>
+        <p class="page-lead">
+          Lingkungan belajar yang asri, modern, dan lengkap di Jl. Merbabu No. 13 Klaten untuk menjamin kenyamanan riset, akademik, dan kreativitas siswa.
+        </p>
+      </div>
+    </section>
+
+    <!-- Galeri Foto Kampus Nyata -->
+    <section class="campus-photo-section">
+      <div class="container">
+        <div class="section-title-wrap text-center">
+          <span class="sub-badge">Footage Resmi</span>
+          <h2 class="section-title">Dokumentasi Lingkungan SMAN 1 Klaten</h2>
+        </div>
+
+        <div class="campus-gallery-grid">
+          {campusGallery.map((item) => (
+            <div class="gallery-card">
+              <div class="gallery-img-box">
+                <img src={item.img} alt={item.title} class="gallery-photo" loading="lazy" />
+              </div>
+              <div class="gallery-body">
+                <h3 class="gallery-title">{item.title}</h3>
+                <p class="gallery-desc">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ValueProp />
+
+    <section class="facility-grid-section">
+      <div class="container">
+        <h2 class="section-title text-center" style="margin-bottom: 40px;">Daftar Fasilitas Utama</h2>
+        <div class="facilities-grid">
+          {facilities.map((f) => (
+            <div class="facility-item">
+              <h3>{f.name}</h3>
+              <p>{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .facility-hero {
+    background-color: var(--color-surface-muted);
+    padding: 60px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .text-center { text-align: center; }
+  .page-tag {
+    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-coral);
+    letter-spacing: 0.08em;
+  }
+  .page-title {
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    margin: 12px 0 16px;
+  }
+  .page-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Real Campus Photo Gallery */
+  .campus-photo-section {
+    padding: 70px 0 50px;
+  }
+  .section-title-wrap {
+    margin-bottom: 44px;
+  }
+  .sub-badge {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-accent-coral);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    margin-top: 8px;
+    color: var(--color-text-primary);
+  }
+
+  .campus-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+  }
+  .gallery-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(34, 22, 16, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(34, 22, 16, 0.08);
+  }
+  .gallery-img-box {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: #221610;
+  }
+  .gallery-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .gallery-card:hover .gallery-photo {
+    transform: scale(1.05);
+  }
+  .gallery-body {
+    padding: 22px 24px;
+  }
+  .gallery-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--color-text-primary);
+  }
+  .gallery-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  /* Facility Items */
+  .facility-grid-section {
+    padding: 60px 0 90px;
+  }
+  .facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .facility-item {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+  }
+  .facility-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-family: var(--font-serif);
+  }
+  .facility-item p {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+  @media (max-width: 900px) {
+    .facilities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

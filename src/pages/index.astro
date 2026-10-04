@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Metrics from '../components/Metrics.astro';
+import Programs from '../components/Programs.astro';
+import Curriculum from '../components/Curriculum.astro';
+import ValueProp from '../components/ValueProp.astro';
+import EventBanner from '../components/EventBanner.astro';
+import ChatbotWidget from '../components/ChatbotWidget.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="SMA Negeri 1 Klaten | Profil Sekolah & Chatbot AI Inception 2026"
+  description="Website resmi SMA Negeri 1 Klaten karya Tim RANDOM KID untuk ajang INCEPTION 2026. Menghadirkan informasi akademik, fasilitas, PPDB, dan Chatbot AI interaktif 24/7."
+>
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <Metrics />
+    <Programs />
+    <Curriculum />
+    <ValueProp />
+    <EventBanner />
+    <ChatbotWidget />
+  </main>
+  <Footer />
+</BaseLayout>

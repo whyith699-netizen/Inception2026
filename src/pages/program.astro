@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Programs from '../components/Programs.astro';
+import Curriculum from '../components/Curriculum.astro';
+import EkstrakurikulerGrid from '../components/EkstrakurikulerGrid.astro';
+---
+
+<BaseLayout
+  title="Program Akademik & 23 Ekstrakurikuler | SMA Negeri 1 Klaten"
+  description="Struktur Kurikulum Merdeka, peminatan riset sains, kebumian, bahasa global, dan katalog lengkap 23 ekstrakurikuler resmi SMAN 1 Klaten."
+>
+  <Header />
+
+  <main>
+    <section class="program-hero">
+      <div class="container text-center">
+        <span class="page-tag">Struktur Akademik & Kesiswaan</span>
+        <h1 class="page-title">Kurikulum Merdeka & Ekosistem Minat Bakat</h1>
+        <p class="page-lead">
+          Pembelajaran yang menghargai keunikan potensi setiap peserta didik melalui fase eksplorasi, pendalaman rumpun disiplin ilmu, dan pembinaan 23 organisasi ekstrakurikuler resmi.
+        </p>
+      </div>
+    </section>
+
+    <!-- Program Unggulan Akademik -->
+    <Programs />
+
+    <!-- 4 Pilar Kurikulum & Olimpiade -->
+    <Curriculum />
+
+    <!-- 23 Ekstrakurikuler Resmi Lengkap -->
+    <EkstrakurikulerGrid />
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .program-hero {
+    background-color: var(--color-surface-muted);
+    padding: 60px 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .text-center { text-align: center; }
+  .page-tag {
+    font-size: 0.82rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-accent-coral);
+    letter-spacing: 0.08em;
+  }
+  .page-title {
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    margin: 12px 0 16px;
+  }
+  .page-lead {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+</style>

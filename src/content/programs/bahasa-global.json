@@ -1,0 +1,14 @@
+{
+  "id": "bahasa-global",
+  "title": "Bahasa, Diplomasi & Budaya Global",
+  "subtitle": "Global Communication & Humanities",
+  "targetGrade": "Fase E & F (Kelas X - XII)",
+  "accentColor": "blue",
+  "description": "Penguasaan kemahiran multibahasa (Bahasa Indonesia, Inggris, Jepang/Jerman), diplomasi budaya, apresiasi sastra dunia, dan kepemimpinan internasional.",
+  "curriculumPoints": [
+    "Model United Nations (MUN) & public speaking dwibahasa",
+    "Pusat kebudayaan bahasa asing & pertukaran pelajar",
+    "Penerbitan antologi karya sastra & jurnalisme sekolah"
+  ],
+  "order": 3
+}
