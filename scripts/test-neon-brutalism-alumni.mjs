@@ -15,10 +15,18 @@ assert(alumniHtml.includes('Widodo Muktiyo') || alumniHtml.includes('Joko Triyon
 assert(alumniHtml.includes('18.000.000') || alumniHtml.includes('18 Juta'), 'Halaman alumni harus memuat nominal beasiswa resmi Rp18 Juta');
 console.log('✓ Check 1: Halaman dist/alumni/index.html terverifikasi memuat data riil KAPASSKA & beasiswa');
 
-// 2. Verifikasi Navigasi Header & Footer Memuat Tautan Alumni
+// 2. Verifikasi Navigasi Header & Footer Memuat Tautan Beranda dan Alumni
 const indexHtml = fs.readFileSync(path.resolve('dist/index.html'), 'utf-8');
-assert(indexHtml.includes('href="/alumni"'), 'Navigasi portal harus memuat tautan href="/alumni"');
-console.log('✓ Check 2: Header dan Footer memuat tautan aktif ke /alumni');
+assert(indexHtml.includes('href="/"') && indexHtml.includes('Beranda'), 'Navigasi portal harus memuat tautan Beranda');
+assert(indexHtml.includes('href="/alumni"') && indexHtml.includes('Alumni'), 'Navigasi portal harus memuat tautan Alumni');
+assert(alumniHtml.includes('site-header'), 'Halaman alumni harus memuat bar atas (site-header)');
+assert(alumniHtml.includes('site-footer'), 'Halaman alumni harus memuat footer (site-footer)');
+console.log('✓ Check 2: Header memuat Beranda & Alumni, dan halaman /alumni memuat bar navigasi atas');
+
+// 2b. Verifikasi Hero Tengah & Foto Nongol / Peeking
+assert(indexHtml.includes('hero-peek-pill'), 'Hero harus memuat peeking indicator foto kampus');
+assert(indexHtml.includes('showcase-frame'), 'Hero harus memuat frame showcase foto arsitektur');
+console.log('✓ Check 2b: Hero beranda terpusat dan memiliki indikator foto peeking di viewport awal');
 
 // 3. Verifikasi Token Neon Brutalism
 const tokensCss = fs.readFileSync(path.resolve('src/styles/tokens.css'), 'utf-8');

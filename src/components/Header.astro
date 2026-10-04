@@ -3,6 +3,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.replace(/\/$/, "");
 
 const navLinks = [
+  { href: "/", label: "Beranda" },
   { href: "/profil", label: "Profil" },
   { href: "/program", label: "Akademik" },
   { href: "/direktori", label: "Direktori" },
@@ -46,7 +47,10 @@ const navLinks = [
     <nav class="main-nav" id="main-nav" aria-label="Navigasi utama">
       <ul class="nav-list">
         {navLinks.map((link) => {
-          const isActive = currentPath === link.href.replace(/\/$/, "");
+          const isHome = link.href === "/";
+          const isActive = isHome
+            ? (currentPath === "" || currentPath === "/")
+            : (currentPath === link.href.replace(/\/$/, "") || currentPath.startsWith(link.href + "/"));
           return (
             <li>
               <a

@@ -19,12 +19,12 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#FAF8F5" />
+    <meta name="theme-color" content="#F4F5F8" />
     <link rel="icon" type="image/png" href="/images/school/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -32,5 +32,39 @@ const {
   </head>
   <body>
     <slot />
+
+    <script>
+      // Global Smooth Motion System across ALL pages
+      document.addEventListener('astro:page-load', () => {
+        const animElements = document.querySelectorAll<HTMLElement>(
+          '[data-reveal], .card, .brutal-card, .sec .section-header, .sec .section-heading, .stat-pill, .alumni-box, .chapter-item, .program-card'
+        );
+
+        if (!('IntersectionObserver' in window)) {
+          animElements.forEach((el) => el.classList.add('is-in'));
+          return;
+        }
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-in');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -4% 0px', threshold: 0.05 }
+        );
+
+        animElements.forEach((el, i) => {
+          if (!el.hasAttribute('data-reveal')) {
+            el.setAttribute('data-reveal', '');
+          }
+          el.style.transitionDelay = `${(i % 5) * 50}ms`;
+          io.observe(el);
+        });
+      });
+    </script>
   </body>
 </html>

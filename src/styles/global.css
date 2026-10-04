@@ -221,16 +221,48 @@ button {
   background-color: var(--neon-lime);
 }
 
-/* Scroll reveal */
+main {
+  animation: pageFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll reveal across all pages */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 [data-reveal].is-in {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.75;
+  }
+}
+
+.chat-dot,
+.badge-dot {
+  animation: neonPulse 2.2s infinite ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {

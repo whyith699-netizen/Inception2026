@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import { getEntry } from 'astro:content';
 
 const alumniData = await getEntry('alumni', 'tokoh');
@@ -42,6 +44,8 @@ const programHighlights = [
   title="Alumni (KAPASSKA) — SMAN 1 Klaten"
   description="Keluarga Alumni Padmawijaya SMAN 1 Klaten (KAPASSKA). Direktori tokoh alumni nasional, beasiswa pendidikan, dan jejaring lintas 69 angkatan."
 >
+  <Header />
+  <main id="main-content">
   <!-- Hero Section -->
   <section class="alumni-hero">
     <div class="container">
@@ -216,6 +220,8 @@ const programHighlights = [
       </div>
     </div>
   </section>
+  </main>
+  <Footer />
 </BaseLayout>
 
 <style>
