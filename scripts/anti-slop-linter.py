@@ -103,13 +103,14 @@ def check_ai_gradients(base_dir):
 
 def check_wcag_contrast():
     pairs = [
-        ("#161210", "#FAF8F5", "ink utama pada latar kertas", 4.5),
-        ("#4A423C", "#FAF8F5", "ink sekunder pada latar kertas", 4.5),
-        ("#746A63", "#FAF8F5", "ink muted pada latar kertas", 4.5),
-        ("#B5472F", "#FFFFFF", "aksen pada permukaan putih", 4.5),
-        ("#B5472F", "#FAF8F5", "aksen pada latar kertas", 4.5),
-        ("#FFFFFF", "#B5472F", "teks tombol utama", 4.5),
-        ("#EFEAE3", "#1B1613", "teks pada blok gelap", 4.5),
+        ("#111418", "#F4F5F8", "ink utama pada latar kertas", 4.5),
+        ("#3E4651", "#F4F5F8", "ink sekunder pada latar kertas", 4.5),
+        ("#525B67", "#F4F5F8", "ink muted pada latar kertas", 4.5),
+        ("#111418", "#D4FF00", "teks tombol/badge neon lime", 4.5),
+        ("#111418", "#00F0FF", "teks tombol/badge neon cyan", 4.5),
+        ("#111418", "#FFE600", "teks badge neon yellow", 4.5),
+        ("#FFFFFF", "#111418", "teks pada blok gelap", 4.5),
+        ("#D4FF00", "#111418", "teks neon pada footer gelap", 4.5),
     ]
     failures = []
     for fg, bg, label, min_ratio in pairs:

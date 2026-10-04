@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/program", label: "Akademik" },
   { href: "/direktori", label: "Direktori" },
   { href: "/berita", label: "Berita" },
+  { href: "/alumni", label: "Alumni" },
   { href: "/ppdb", label: "PPDB 2026" }
 ];
 ---
@@ -14,14 +15,16 @@ const navLinks = [
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="brand-link" aria-label="Kembali ke beranda">
-      <img
-        src="/images/school/logo.png"
-        alt="Lambang SMA Negeri 1 Klaten"
-        class="brand-logo-img"
-        width="34"
-        height="34"
-        loading="eager"
-      />
+      <div class="brand-logo-frame">
+        <img
+          src="/images/school/logo.png"
+          alt="Lambang SMA Negeri 1 Klaten"
+          class="brand-logo-img"
+          width="32"
+          height="32"
+          loading="eager"
+        />
+      </div>
       <div class="brand-text">
         <span class="school-name">SMAN 1 KLATEN</span>
         <span class="school-alias">Padmawijaya &middot; Kampus 13</span>
@@ -86,32 +89,45 @@ const navLinks = [
 
 <style>
   .site-header {
-    height: 60px;
+    height: 64px;
     display: flex;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 40;
-    background-color: var(--paper);
-    border-bottom: 1px solid var(--color-border);
+    background-color: var(--neo-surface);
+    border-bottom: var(--neo-border);
+    box-shadow: 0 2px 0px rgba(17, 20, 24, 0.08);
   }
 
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
+    gap: 24px;
   }
 
   .brand-link {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+  }
+
+  .brand-logo-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: #FFFFFF;
+    border: var(--neo-border);
+    box-shadow: 2px 2px 0px var(--neo-ink);
+    border-radius: var(--r-sm);
   }
 
   .brand-logo-img {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
   }
 
@@ -122,18 +138,18 @@ const navLinks = [
   }
 
   .school-name {
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--color-text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--neo-ink);
   }
 
   .school-alias {
     font-family: var(--font-mono);
-    font-size: 0.625rem;
-    font-weight: 400;
-    color: var(--color-text-muted);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--neo-ink-2);
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
@@ -141,46 +157,34 @@ const navLinks = [
   .nav-list {
     display: flex;
     list-style: none;
-    gap: 26px;
+    align-items: center;
+    gap: 8px;
   }
 
   .nav-item {
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: var(--color-text-secondary);
-    padding: 4px 0;
-    position: relative;
-    transition: color 0.18s ease;
-  }
-
-  .nav-item::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 1px;
-    background: var(--ink);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.22s ease;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--neo-ink);
+    padding: 6px 12px;
+    border: 1.5px solid transparent;
+    border-radius: var(--r-sm);
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
   .nav-item:hover {
-    color: var(--color-text-primary);
-  }
-
-  .nav-item:hover::after {
-    transform: scaleX(1);
+    background-color: var(--neon-cyan);
+    border-color: var(--neo-ink);
+    box-shadow: 2px 2px 0px var(--neo-ink);
   }
 
   .nav-item.active {
-    color: var(--color-text-primary);
-  }
-
-  .nav-item.active::after {
-    background: var(--color-accent-coral);
-    transform: scaleX(1);
+    background-color: var(--neon-lime);
+    color: var(--neo-ink);
+    border-color: var(--neo-ink);
+    box-shadow: 2px 2px 0px var(--neo-ink);
   }
 
   .nav-toggle {
@@ -188,49 +192,57 @@ const navLinks = [
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     padding: 0 8px;
-    border: 1px solid var(--color-border-hover);
-    border-radius: var(--radius-sm);
-    background: var(--color-surface);
+    border: var(--neo-border);
+    border-radius: var(--r-sm);
+    background: var(--neon-lime);
+    box-shadow: 2px 2px 0px var(--neo-ink);
   }
 
   .nav-toggle-bar {
     display: block;
-    height: 1px;
+    height: 2.5px;
     width: 100%;
-    background: var(--ink);
+    background: var(--neo-ink);
+    border-radius: 1px;
     transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-
-  .nav-toggle:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
   }
 
   .btn-chat-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border-hover);
-    padding: 7px 14px;
-    border-radius: var(--radius-sm);
-    transition: border-color 0.18s ease, background 0.18s ease;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--neo-ink);
+    background-color: var(--neon-lime);
+    border: var(--neo-border);
+    padding: 8px 14px;
+    border-radius: var(--r-sm);
+    box-shadow: var(--neo-shadow-sm);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
   }
 
   .btn-chat-link:hover {
-    border-color: var(--color-text-muted);
-    background-color: var(--color-surface-muted);
+    background-color: var(--neon-cyan);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--neo-ink);
+  }
+
+  .btn-chat-link:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--neo-ink);
   }
 
   .chat-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--dot-on-accent);
+    width: 8px;
+    height: 8px;
+    background-color: var(--neon-magenta);
+    border: 1px solid var(--neo-ink);
     border-radius: 50%;
   }
 
@@ -241,18 +253,19 @@ const navLinks = [
 
     .main-nav {
       position: absolute;
-      top: 60px;
+      top: 64px;
       left: 0;
       right: 0;
-      background: var(--paper);
-      border-bottom: 1px solid var(--color-border);
+      background: var(--neo-surface);
+      border-bottom: var(--neo-border);
+      box-shadow: var(--neo-shadow);
     }
 
     .nav-list {
       display: none;
       flex-direction: column;
-      gap: 0;
-      padding: 8px 24px 16px;
+      gap: 8px;
+      padding: 16px 24px;
     }
 
     .nav-list.is-open {
@@ -260,12 +273,9 @@ const navLinks = [
     }
 
     .nav-item {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .nav-item:last-child {
-      border-bottom: none;
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
     }
   }
 </style>

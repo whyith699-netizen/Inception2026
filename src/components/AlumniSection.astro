@@ -8,7 +8,7 @@ const list = alumniData?.data?.items || [];
 <section class="alumni-section sec" id="alumni-menyapa">
   <div class="container">
     <div class="section-header">
-      <p class="lbl">KAPASSKA &middot; Keluarga Alumni Padmawijaya</p>
+      <p class="lbl lbl-lime">KAPASSKA &middot; KELUARGA ALUMNI PADMAWIJAYA</p>
       <h2 class="section-title">Alumni yang berkarya di tingkat nasional</h2>
       <p class="section-desc">
         Lulusan SMAN 1 Klaten yang memimpin perguruan tinggi, lembaga negara,
@@ -18,7 +18,7 @@ const list = alumniData?.data?.items || [];
 
     <div class="alumni-grid">
       {list.map((alumnus) => (
-        <article class="alumni-card" data-reveal>
+        <article class="alumni-card card" data-reveal>
           <div class="alumni-avatar-wrap">
             <img
               src={alumnus.image}
@@ -30,68 +30,75 @@ const list = alumniData?.data?.items || [];
             />
           </div>
           <div class="alumni-info">
+            <span class="alumni-pill">Alumni SMANSA</span>
             <h3 class="alumni-name">{alumnus.name}</h3>
             <p class="alumni-role">{alumnus.designation}</p>
           </div>
         </article>
       ))}
     </div>
+
+    <div class="alumni-cta-row" data-reveal>
+      <a href="/alumni" class="btn btn-primary">
+        Buka Portal & Direktori Lengkap Alumni KAPASSKA &rarr;
+      </a>
+    </div>
   </div>
 </section>
 
 <style>
   .alumni-section {
-    padding-top: clamp(56px, 8vw, 88px);
-    padding-bottom: clamp(56px, 8vw, 88px);
-    border-top: 1px solid var(--hairline);
+    padding-top: clamp(64px, 8vw, 96px);
+    padding-bottom: clamp(64px, 8vw, 96px);
+    border-top: var(--neo-border);
   }
 
   .section-header {
-    max-width: 600px;
-    margin-bottom: clamp(28px, 4vw, 44px);
+    max-width: 680px;
+    margin-bottom: clamp(32px, 5vw, 48px);
+  }
+
+  .lbl-lime {
+    background: var(--neon-lime);
+    color: var(--neo-ink);
   }
 
   .section-title {
-    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
-    font-weight: 500;
+    font-size: clamp(2rem, 3.8vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
     margin-bottom: 14px;
+    line-height: 1.15;
   }
 
   .section-desc {
-    font-size: 1rem;
-    color: var(--ink-2);
+    font-size: 1.0625rem;
+    color: var(--neo-ink-2);
     line-height: 1.65;
   }
 
   .alumni-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-    border-radius: var(--r-md);
-    overflow: hidden;
+    gap: 24px;
+    margin-bottom: 36px;
   }
 
   .alumni-card {
-    background: var(--surface);
     padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
-    transition: background 0.2s ease;
-  }
-
-  .alumni-card:hover {
-    background: var(--paper-2);
   }
 
   .alumni-avatar-wrap {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
     border-radius: var(--r-sm);
     overflow: hidden;
-    background: var(--paper-2);
+    background: var(--neo-surface-2);
+    border: var(--neo-border);
+    box-shadow: 2px 2px 0px var(--neo-ink);
   }
 
   .alumni-img {
@@ -101,17 +108,37 @@ const list = alumniData?.data?.items || [];
     object-position: top center;
   }
 
+  .alumni-pill {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: var(--neon-yellow);
+    color: var(--neo-ink);
+    border: 1px solid var(--neo-ink);
+    padding: 2px 6px;
+    box-shadow: 1.5px 1.5px 0px var(--neo-ink);
+    margin-bottom: 8px;
+  }
+
   .alumni-name {
-    font-size: 1.0625rem;
-    font-weight: 500;
+    font-size: 1.15rem;
+    font-weight: 800;
     margin-bottom: 6px;
     line-height: 1.35;
+    color: var(--neo-ink);
   }
 
   .alumni-role {
     font-size: 0.875rem;
-    color: var(--ink-2);
+    color: var(--neo-ink-2);
     line-height: 1.55;
+  }
+
+  .alumni-cta-row {
+    display: flex;
+    justify-content: flex-start;
   }
 
   @media (max-width: 900px) {

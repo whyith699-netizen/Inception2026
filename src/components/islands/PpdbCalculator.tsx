@@ -25,8 +25,9 @@ export default function PpdbCalculator() {
     <div
       className="ppdb-calc-island"
       style={{
-        background: 'var(--surface)',
-        border: '1px solid var(--hairline)',
+        background: 'var(--neo-surface)',
+        border: 'var(--neo-border)',
+        boxShadow: 'var(--neo-shadow-lg)',
         borderRadius: 'var(--r-md)',
         padding: 'clamp(20px, 3.5vw, 32px)',
         margin: '24px 0',
@@ -39,7 +40,7 @@ export default function PpdbCalculator() {
           gap: '16px',
           justifyContent: 'space-between',
           alignItems: 'baseline',
-          borderBottom: '1px solid var(--hairline)',
+          borderBottom: 'var(--neo-border)',
           paddingBottom: '16px',
           marginBottom: '24px',
         }}
@@ -49,21 +50,27 @@ export default function PpdbCalculator() {
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.75rem',
+              fontWeight: 800,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
-              color: 'var(--ink-3)',
-              display: 'block',
-              marginBottom: '4px',
+              color: 'var(--neo-ink)',
+              background: 'var(--neon-yellow)',
+              border: '1px solid var(--neo-ink)',
+              boxShadow: '2px 2px 0px var(--neo-ink)',
+              padding: '2px 8px',
+              display: 'inline-block',
+              marginBottom: '6px',
             }}
           >
             Pulau Interaktif &middot; client:visible
           </span>
           <h3
             style={{
-              fontFamily: 'var(--font-serif)',
+              fontFamily: 'var(--font-sans)',
               fontSize: '1.375rem',
+              fontWeight: 800,
               margin: 0,
-              color: 'var(--ink)',
+              color: 'var(--neo-ink)',
             }}
           >
             Simulasi Jalur PPDB 2026/2027
@@ -75,16 +82,17 @@ export default function PpdbCalculator() {
             type="button"
             onClick={() => setTab('zonasi')}
             style={{
-              fontFamily: 'var(--font-sans)',
+              fontFamily: 'var(--font-mono)',
               fontSize: '0.8125rem',
-              padding: '6px 14px',
+              padding: '8px 14px',
               borderRadius: 'var(--r-sm)',
-              border: '1px solid var(--hairline)',
-              background: tab === 'zonasi' ? 'var(--ink)' : 'transparent',
-              color: tab === 'zonasi' ? 'var(--paper)' : 'var(--ink-2)',
+              border: 'var(--neo-border)',
+              background: tab === 'zonasi' ? 'var(--neon-lime)' : 'var(--neo-bg)',
+              color: 'var(--neo-ink)',
+              boxShadow: tab === 'zonasi' ? '3px 3px 0px var(--neo-ink)' : '2px 2px 0px var(--neo-ink)',
               cursor: 'pointer',
-              fontWeight: 500,
-              transition: 'background 0.15s ease',
+              fontWeight: tab === 'zonasi' ? 800 : 700,
+              textTransform: 'uppercase',
             }}
           >
             Jalur Zonasi (55%)
@@ -93,16 +101,17 @@ export default function PpdbCalculator() {
             type="button"
             onClick={() => setTab('prestasi')}
             style={{
-              fontFamily: 'var(--font-sans)',
+              fontFamily: 'var(--font-mono)',
               fontSize: '0.8125rem',
-              padding: '6px 14px',
+              padding: '8px 14px',
               borderRadius: 'var(--r-sm)',
-              border: '1px solid var(--hairline)',
-              background: tab === 'prestasi' ? 'var(--ink)' : 'transparent',
-              color: tab === 'prestasi' ? 'var(--paper)' : 'var(--ink-2)',
+              border: 'var(--neo-border)',
+              background: tab === 'prestasi' ? 'var(--neon-lime)' : 'var(--neo-bg)',
+              color: 'var(--neo-ink)',
+              boxShadow: tab === 'prestasi' ? '3px 3px 0px var(--neo-ink)' : '2px 2px 0px var(--neo-ink)',
               cursor: 'pointer',
-              fontWeight: 500,
-              transition: 'background 0.15s ease',
+              fontWeight: tab === 'prestasi' ? 800 : 700,
+              textTransform: 'uppercase',
             }}
           >
             Jalur Prestasi (20%)

@@ -498,13 +498,13 @@ export default function InteractiveSmansaBot({ initialFaq }: Props) {
 
       <style>{`
         .smansa-chat-window {
-          background-color: var(--surface);
-          border: 1px solid var(--hairline);
+          background-color: var(--neo-surface);
+          border: var(--neo-border);
           border-radius: var(--r-md);
           overflow: hidden;
           display: flex;
           flex-direction: column;
-          box-shadow: var(--shadow-1);
+          box-shadow: var(--neo-shadow-lg);
         }
 
         .smansa-header {

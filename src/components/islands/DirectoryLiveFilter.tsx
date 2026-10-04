@@ -102,15 +102,15 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
             aria-label="Cari guru dan staf"
             style={{
               width: '100%',
-              padding: '10px 36px 10px 14px',
-              fontSize: '0.875rem',
+              padding: '12px 36px 12px 14px',
+              fontSize: '0.9rem',
               fontFamily: 'var(--font-sans)',
-              background: 'var(--surface)',
-              border: '1px solid var(--hairline)',
+              background: 'var(--neo-surface)',
+              border: 'var(--neo-border)',
+              boxShadow: '3px 3px 0px var(--neo-ink)',
               borderRadius: 'var(--r-sm)',
-              color: 'var(--ink)',
+              color: 'var(--neo-ink)',
               outline: 'none',
-              transition: 'border-color 0.15s ease',
             }}
           />
           {search && (
@@ -120,16 +120,18 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
               aria-label="Hapus kata kunci pencarian"
               style={{
                 position: 'absolute',
-                right: '10px',
+                right: '12px',
                 top: '50%',
                 transform: 'translateY(-50%)',
-                background: 'none',
-                border: 'none',
-                color: 'var(--ink-3)',
+                background: 'var(--neon-magenta)',
+                border: '1px solid var(--neo-ink)',
+                borderRadius: '2px',
+                color: '#FFFFFF',
                 cursor: 'pointer',
-                fontSize: '1.125rem',
+                fontSize: '1rem',
                 lineHeight: 1,
-                padding: '4px',
+                padding: '2px 6px',
+                fontWeight: 800,
               }}
             >
               &times;
@@ -138,7 +140,7 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
         </div>
 
         {/* Tombol Penyaring Kategori */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {FILTER_CATEGORIES.map((cat) => {
             const isActive = selectedCategory === cat;
             return (
@@ -147,16 +149,18 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
                 style={{
-                  fontFamily: 'var(--font-sans)',
+                  fontFamily: 'var(--font-mono)',
                   fontSize: '0.8125rem',
-                  padding: '6px 12px',
+                  padding: '8px 14px',
                   borderRadius: 'var(--r-sm)',
-                  border: '1px solid var(--hairline)',
-                  background: isActive ? 'var(--ink)' : 'var(--surface)',
-                  color: isActive ? 'var(--paper)' : 'var(--ink-2)',
+                  border: 'var(--neo-border)',
+                  background: isActive ? 'var(--neon-lime)' : 'var(--neo-surface)',
+                  color: 'var(--neo-ink)',
+                  boxShadow: isActive ? '3px 3px 0px var(--neo-ink)' : '2px 2px 0px var(--neo-ink)',
                   cursor: 'pointer',
-                  transition: 'background 0.15s ease, color 0.15s ease',
-                  fontWeight: isActive ? 600 : 400,
+                  fontWeight: isActive ? 800 : 700,
+                  textTransform: 'uppercase',
+                  transform: isActive ? 'translate(-1px, -1px)' : 'none',
                 }}
               >
                 {cat}
@@ -230,23 +234,22 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '1px',
-            background: 'var(--hairline)',
-            border: '1px solid var(--hairline)',
-            borderRadius: 'var(--r-md)',
-            overflow: 'hidden',
+            gap: '24px',
           }}
         >
           {filteredPeople.map((person, idx) => (
             <article
               key={`${person.name}-${idx}`}
               style={{
-                background: 'var(--surface)',
+                background: 'var(--neo-surface)',
+                border: 'var(--neo-border)',
+                borderRadius: 'var(--r-md)',
+                boxShadow: 'var(--neo-shadow)',
                 padding: '24px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                transition: 'background 0.15s ease',
+                transition: 'transform 0.15s ease, box-shadow 0.15s ease',
               }}
             >
               <div>
@@ -258,8 +261,9 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
                     borderRadius: 'var(--r-sm)',
                     marginBottom: '16px',
                     overflow: 'hidden',
-                    background: 'var(--paper-2)',
-                    border: '1px solid var(--hairline)',
+                    background: 'var(--neo-surface-2)',
+                    border: 'var(--neo-border)',
+                    boxShadow: '2px 2px 0px var(--neo-ink)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -281,9 +285,10 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
                   ) : (
                     <span
                       style={{
-                        fontFamily: 'var(--font-serif)',
-                        fontSize: '2rem',
-                        color: 'var(--ink-3)',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '2.5rem',
+                        fontWeight: 800,
+                        color: 'var(--neo-ink)',
                       }}
                     >
                       {person.name.charAt(0)}
@@ -296,43 +301,55 @@ export default function DirectoryLiveFilter({ initialGroups }: Props) {
                     fontFamily: 'var(--font-mono)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em',
-                    color: 'var(--accent)',
-                    display: 'block',
-                    marginBottom: '4px',
+                    color: 'var(--neo-ink)',
+                    background: 'var(--neon-yellow)',
+                    border: '1px solid var(--neo-ink)',
+                    padding: '2px 8px',
+                    boxShadow: '2px 2px 0px var(--neo-ink)',
+                    display: 'inline-block',
+                    marginBottom: '8px',
+                    fontWeight: 800,
                   }}
                 >
                   {person.category}
                 </span>
                 <h3
                   style={{
-                    fontFamily: 'var(--font-serif)',
+                    fontFamily: 'var(--font-sans)',
                     fontSize: '1.125rem',
-                    color: 'var(--ink)',
+                    color: 'var(--neo-ink)',
                     margin: '0 0 4px',
-                    fontWeight: 600,
+                    fontWeight: 800,
                   }}
                 >
                   {person.name}
                 </h3>
-                <p
+                <span
                   style={{
-                    fontSize: '0.8125rem',
-                    fontWeight: 500,
-                    color: 'var(--ink-2)',
-                    margin: '0 0 8px',
+                    display: 'inline-block',
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    color: 'var(--neo-ink)',
+                    background: 'var(--neon-cyan)',
+                    border: '1px solid var(--neo-ink)',
+                    padding: '2px 8px',
+                    boxShadow: '2px 2px 0px var(--neo-ink)',
+                    marginBottom: '10px',
                   }}
                 >
                   {person.role}
-                </p>
+                </span>
               </div>
               {person.detail && (
                 <p
                   style={{
                     fontSize: '0.8125rem',
-                    color: 'var(--ink-3)',
+                    color: 'var(--neo-ink-2)',
                     margin: 0,
                     lineHeight: 1.5,
-                    borderTop: '1px solid var(--hairline)',
+                    borderTop: '1.5px solid var(--neo-border-color)',
                     paddingTop: '12px',
                   }}
                 >

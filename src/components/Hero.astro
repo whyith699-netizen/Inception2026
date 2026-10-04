@@ -5,7 +5,7 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
 
 <section class="hero-broadside" id="beranda-hero">
   <div class="container hero-inner">
-    <!-- Eyebrow Meta Bar with Astronomical Coordinates -->
+    <!-- Eyebrow Meta Bar with Neon Brutalist Sticker -->
     <div class="hero-meta-bar" data-reveal>
       <span class="meta-tag">EST. 1957</span>
       <span class="meta-sep" aria-hidden="true">&middot;</span>
@@ -16,7 +16,7 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
       <span class="meta-coords num">7&deg;42'06.5"S 110&deg;36'09.0"E</span>
     </div>
 
-    <!-- Main Headline with Elegant Italic Accent -->
+    <!-- Main Headline with Neon Accent Highlight -->
     <h1 class="hero-title" data-reveal>
       Tradisi Keunggulan Akademik dan Budi Luhur di Bumi <em>Padmawijaya</em>.
     </h1>
@@ -32,26 +32,26 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
     <div class="hero-cta-group" data-reveal>
       <a href="/ppdb" class="btn btn-primary">Informasi PPDB 2026</a>
       <a href="/direktori" class="btn btn-secondary">Direktori 78 Pendidik</a>
-      <a href="/profil" class="btn-text">Sejarah 1957 &rarr;</a>
+      <a href="/alumni" class="btn btn-outline">Portal Alumni &rarr;</a>
     </div>
 
-    <!-- Credential Micro-Grid -->
+    <!-- Credential Micro-Grid with Brutalist Hard Shadows -->
     <div class="hero-cred-grid" data-reveal>
-      <div class="cred-cell">
+      <div class="cred-cell card">
         <span class="cred-num num">98</span>
         <div class="cred-info">
           <strong class="cred-title">Akreditasi A Unggul</strong>
           <span class="cred-sub">SK No. 1347/BAN-SM/2021</span>
         </div>
       </div>
-      <div class="cred-cell">
+      <div class="cred-cell card">
         <span class="cred-num num">20309676</span>
         <div class="cred-info">
           <strong class="cred-title">NPSN Resmi</strong>
           <span class="cred-sub">NSS: 301046002001</span>
         </div>
       </div>
-      <div class="cred-cell">
+      <div class="cred-cell card">
         <span class="cred-num num">33 Rombel</span>
         <div class="cred-info">
           <strong class="cred-title">1.190 Siswa</strong>
@@ -60,7 +60,7 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
       </div>
     </div>
 
-    <!-- Architectural Showcase Frame -->
+    <!-- Architectural Showcase Frame with Neo-Brutalist Frame -->
     <figure class="hero-showcase" data-reveal>
       <div class="frame-border">
         <Image
@@ -91,9 +91,9 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
 
 <style>
   .hero-broadside {
-    padding: clamp(56px, 8vw, 92px) 0 clamp(48px, 6vw, 76px);
-    background-color: var(--paper);
-    border-bottom: 1px solid var(--hairline);
+    padding: clamp(60px, 8vw, 96px) 0 clamp(48px, 6vw, 76px);
+    background-color: var(--neo-bg);
+    border-bottom: var(--neo-border);
   }
 
   .hero-inner {
@@ -102,7 +102,7 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
     align-items: flex-start;
   }
 
-  /* Micro-Eyebrow Bar */
+  /* Micro-Eyebrow Bar as Neon Brutalist Badge */
   .hero-meta-bar {
     display: flex;
     align-items: center;
@@ -110,119 +110,102 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
     flex-wrap: wrap;
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: var(--tracking-wide);
-    color: var(--accent);
+    color: var(--neo-ink);
     text-transform: uppercase;
     margin-bottom: 24px;
-    padding: 6px 14px;
-    background: var(--paper-2);
-    border: 1px solid var(--hairline);
+    padding: 8px 16px;
+    background: var(--neon-lime);
+    border: var(--neo-border);
+    box-shadow: 3px 3px 0px var(--neo-ink);
     border-radius: var(--r-sm);
   }
 
   .meta-sep {
-    color: var(--hairline-2);
+    color: var(--neo-ink);
+    font-weight: 900;
   }
 
   .meta-coords {
-    color: var(--ink-3);
+    color: var(--neo-ink);
     font-variant-numeric: tabular-nums;
   }
 
   /* Display Headline */
   .hero-title {
-    font-family: var(--font-serif-display);
-    font-size: clamp(2.35rem, 5.2vw, 3.85rem);
-    font-weight: 500;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 800;
     line-height: 1.1;
-    letter-spacing: var(--tracking-tight);
-    color: var(--ink);
-    max-width: 22ch;
+    letter-spacing: -0.035em;
+    color: var(--neo-ink);
+    max-width: 23ch;
     margin: 0 0 24px;
-    font-optical-sizing: auto;
   }
 
   .hero-title em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--accent);
-    padding-right: 0.08em;
+    background: var(--neon-cyan);
+    color: var(--neo-ink);
+    padding: 0 10px;
+    border: var(--neo-border);
+    box-shadow: 4px 4px 0px var(--neo-ink);
+    font-style: normal;
+    display: inline-block;
   }
 
   /* Lead Description */
   .hero-lead {
-    font-size: clamp(1.0625rem, 1.8vw, 1.2rem);
+    font-size: clamp(1.1rem, 1.9vw, 1.25rem);
     line-height: 1.65;
-    color: var(--ink-2);
+    color: var(--neo-ink-2);
     max-width: 68ch;
     margin: 0 0 36px;
   }
 
   .hero-lead strong {
-    color: var(--ink);
-    font-weight: 600;
+    color: var(--neo-ink);
+    font-weight: 800;
+    background: rgba(212, 255, 0, 0.45);
+    padding: 2px 6px;
+    border-bottom: 2px solid var(--neo-ink);
   }
 
   /* Action Buttons */
   .hero-cta-group {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
     flex-wrap: wrap;
     margin-bottom: 48px;
   }
 
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--ink);
-    background: var(--surface);
-    border: 1px solid var(--hairline-2);
-    border-radius: var(--r-sm);
-    text-decoration: none;
-    transition: background 0.15s ease, border-color 0.15s ease;
-  }
-
-  .btn-secondary:hover {
-    background: var(--paper-2);
-    border-color: var(--ink-3);
-  }
-
-  /* Credential Micro-Grid (3 Columns Hairline) */
+  /* Credential Micro-Grid */
   .hero-cred-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-    border-radius: var(--r-sm);
+    gap: 20px;
     width: 100%;
     margin-bottom: clamp(36px, 5vw, 56px);
-    overflow: hidden;
   }
 
   .cred-cell {
-    background: var(--surface);
-    padding: 20px 24px;
+    padding: 22px 24px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 18px;
   }
 
   .cred-num {
     font-family: var(--font-mono);
-    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-    font-weight: 700;
-    color: var(--accent);
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    font-weight: 800;
+    color: var(--neo-ink);
     letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
     line-height: 1;
+    background: var(--neon-yellow);
+    border: var(--neo-border-thin);
+    box-shadow: 2px 2px 0px var(--neo-ink);
+    padding: 6px 12px;
   }
 
   .cred-info {
@@ -233,31 +216,33 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
 
   .cred-title {
     font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--neo-ink);
   }
 
   .cred-sub {
     font-size: 0.75rem;
-    color: var(--ink-3);
+    color: var(--neo-ink-3);
     font-family: var(--font-mono);
+    font-weight: 600;
   }
 
-  /* Architectural Showcase Frame with Double Hairline */
+  /* Architectural Showcase Frame */
   .hero-showcase {
     width: 100%;
     margin: 0;
-    border: 1px solid var(--hairline);
+    border: var(--neo-border-thick);
     border-radius: var(--r-md);
-    background: var(--surface);
+    background: var(--neo-surface);
+    box-shadow: var(--neo-shadow-lg);
     overflow: hidden;
-    padding: 6px;
+    padding: 8px;
   }
 
   .frame-border {
     position: relative;
-    border: 1px solid var(--hairline);
+    border: var(--neo-border);
     border-radius: var(--r-sm);
     overflow: hidden;
   }
@@ -277,24 +262,25 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 14px;
-    background: rgba(27, 22, 19, 0.88);
-    backdrop-filter: blur(4px);
-    border: 1px solid var(--dark-hairline);
+    padding: 8px 16px;
+    background: var(--neon-lime);
+    border: var(--neo-border);
+    box-shadow: 3px 3px 0px var(--neo-ink);
     border-radius: var(--r-sm);
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--dark-ink);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--neo-ink);
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
 
   .badge-dot {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background-color: var(--dot-on-accent);
+    background-color: var(--neon-magenta);
+    border: 1px solid var(--neo-ink);
   }
 
   /* Technical Caption */
@@ -303,19 +289,20 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
     align-items: center;
     gap: 12px;
     flex-wrap: wrap;
-    padding: 14px 14px 8px;
-    font-size: 0.8125rem;
-    color: var(--ink-3);
+    padding: 16px 14px 8px;
+    font-size: 0.85rem;
+    color: var(--neo-ink-2);
     font-family: var(--font-mono);
+    font-weight: 600;
   }
 
   .caption-title {
-    font-weight: 600;
-    color: var(--ink);
+    font-weight: 800;
+    color: var(--neo-ink);
   }
 
   .sep {
-    color: var(--hairline-2);
+    color: var(--neo-ink-3);
   }
 
   .caption-archive {
@@ -334,7 +321,6 @@ import Smansa1 from '../assets/school/Smansa1.jpg';
     .frame-badge {
       position: static;
       margin: 10px 10px 0;
-      background: var(--dark);
     }
   }
 </style>
