@@ -45,7 +45,7 @@ const knowledgeBase = faqList.map((item) => ({
         </div>
 
         <!-- Chat History -->
-        <div class="chat-messages" id="chat-messages">
+        <div class="chat-messages" id="chat-messages" role="log" aria-live="polite">
           <div class="message msg-bot">
             <div class="msg-bubble">
               Salam sejahtera! Saya <strong>SmansaBot</strong>, asisten informasi resmi SMA Negeri 1 Klaten (Padmawijaya). Silakan pilih topik pertanyaan cepat di bawah atau ketik langsung pertanyaan Anda.
@@ -85,7 +85,13 @@ const knowledgeBase = faqList.map((item) => ({
 </section>
 
 <!-- Floating Chatbot Launcher -->
-<div class="floating-chatbot-launcher" id="floating-launcher" title="Buka SmansaBot AI">
+<div
+    class="floating-chatbot-launcher"
+    id="floating-launcher"
+    role="button"
+    tabindex="0"
+    aria-label="Buka SmansaBot AI"
+  >
   <span class="launcher-svg">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -181,11 +187,18 @@ const knowledgeBase = faqList.map((item) => ({
     });
 
     if (floatingLauncher) {
-      floatingLauncher.addEventListener('click', () => {
+      const openChat = () => {
         const section = document.getElementById('chatbot');
         if (section) {
           section.scrollIntoView({ behavior: 'smooth' });
           if (chatInput) chatInput.focus();
+        }
+      };
+      floatingLauncher.addEventListener('click', openChat);
+      floatingLauncher.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openChat();
         }
       });
     }
@@ -246,28 +259,28 @@ const knowledgeBase = faqList.map((item) => ({
   }
 
   .bot-avatar-circle {
-    background-color: rgba(255, 255, 255, 0.09);
+    background-color: var(--dark-2);
     border-radius: var(--r-sm);
     width: 32px;
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #E8B4A6;
+    color: var(--accent-soft);
   }
 
   .bot-name {
     display: block;
     font-weight: 600;
     font-size: 0.9375rem;
-    color: #FFFFFF;
+    color: var(--dark-ink);
     line-height: 1.3;
   }
 
   .bot-role {
     display: block;
     font-size: 0.75rem;
-    color: #A99E96;
+    color: var(--dark-ink-muted);
     line-height: 1.3;
   }
 
@@ -275,7 +288,7 @@ const knowledgeBase = faqList.map((item) => ({
     font-family: var(--font-mono);
     font-size: 0.6875rem;
     letter-spacing: 0.06em;
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: var(--dark-2);
     color: var(--dark-ink);
     padding: 4px 10px;
     border-radius: var(--r-sm);
@@ -322,12 +335,13 @@ const knowledgeBase = faqList.map((item) => ({
 
   .msg-user .msg-bubble {
     background-color: var(--accent);
-    color: #FFFFFF;
+    color: var(--dark-ink);
   }
 
   .msg-time {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
+    font-variant-numeric: tabular-nums;
     color: var(--ink-3);
     margin-top: 4px;
     padding: 0 2px;
@@ -428,18 +442,18 @@ const knowledgeBase = faqList.map((item) => ({
     z-index: 60;
     font-weight: 500;
     font-size: 0.8125rem;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid var(--dark-hairline);
     transition: background 0.2s ease;
   }
 
   .floating-chatbot-launcher:hover {
-    background-color: #241D19;
+    background-color: var(--dark);
   }
 
   .launcher-svg {
     display: flex;
     align-items: center;
-    color: #E8B4A6;
+    color: var(--accent-soft);
   }
 
   @media (max-width: 600px) {

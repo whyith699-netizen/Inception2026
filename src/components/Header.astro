@@ -28,13 +28,29 @@ const navLinks = [
       </div>
     </a>
 
-    <nav class="main-nav" aria-label="Navigasi utama">
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="main-nav"
+      aria-label="Buka menu navigasi"
+    >
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigasi utama">
       <ul class="nav-list">
         {navLinks.map((link) => {
           const isActive = currentPath === link.href.replace(/\/$/, "");
           return (
             <li>
-              <a href={link.href} class:list={["nav-item", { active: isActive }]}>
+              <a
+                href={link.href}
+                class:list={["nav-item", { active: isActive }]}
+                aria-current={isActive ? "page" : undefined}
+              >
                 {link.label}
               </a>
             </li>
@@ -51,6 +67,21 @@ const navLinks = [
   </div>
 </header>
 
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    const setOpen = (open: boolean) => {
+      toggle.classList.toggle('is-open', open);
+      nav.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+    };
+    toggle.addEventListener('click', () => setOpen(!toggle.classList.contains('is-open')));
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  }
+</script>
+
 <style>
   .site-header {
     height: 60px;
@@ -59,8 +90,7 @@ const navLinks = [
     position: sticky;
     top: 0;
     z-index: 40;
-    background-color: rgba(250, 248, 245, 0.93);
-    backdrop-filter: blur(8px);
+    background-color: var(--paper);
     border-bottom: 1px solid var(--color-border);
   }
 
@@ -151,6 +181,32 @@ const navLinks = [
     transform: scaleX(1);
   }
 
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 0 8px;
+    border: 1px solid var(--color-border-hover);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+  }
+
+  .nav-toggle-bar {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: var(--ink);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
   .btn-chat-link {
     display: inline-flex;
     align-items: center;
@@ -172,13 +228,42 @@ const navLinks = [
   .chat-dot {
     width: 6px;
     height: 6px;
-    background-color: var(--color-accent-green);
+    background-color: var(--dot-on-accent);
     border-radius: 50%;
   }
 
   @media (max-width: 900px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .main-nav {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--color-border);
+    }
+
     .nav-list {
       display: none;
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 24px 16px;
+    }
+
+    .nav-list.is-open {
+      display: flex;
+    }
+
+    .nav-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-item:last-child {
+      border-bottom: none;
     }
   }
 </style>
