@@ -3,9 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import DirectoryLiveFilter from '../components/islands/DirectoryLiveFilter';
 
 const groups = (await getCollection('direktori')).flatMap((entry) => entry.data);
-const leadership = groups[0];
 ---
 
 <BaseLayout
@@ -26,52 +26,11 @@ const leadership = groups[0];
       </div>
     </section>
 
-    {leadership && (
-      <section class="sec" style="padding-top: clamp(32px, 5vw, 56px);">
-        <div class="container">
-          <h2 class="section-heading">{leadership.category}</h2>
-          <div class="leader-grid">
-            {leadership.people.map((person, idx) => (
-              <article class="leader-card" data-reveal>
-                {person.photo ? (
-                  <img
-                    class="leader-photo"
-                    src={person.photo}
-                    alt={`Potret ${person.name}`}
-                    width="480"
-                    height="480"
-                    loading={idx === 0 ? "eager" : "lazy"}
-                  />
-                ) : (
-                  <span class="leader-photo leader-photo-empty" aria-hidden="true"></span>
-                )}
-                <div class="leader-body">
-                  <h3 class="leader-name">{person.name}</h3>
-                  <p class="leader-role">{person.role}</p>
-                  {person.detail && <p class="leader-detail">{person.detail}</p>}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    {groups.slice(1).map((group) => (
-      <section class="sec">
-        <div class="container">
-          <h2 class="section-heading">{group.category}</h2>
-          <div class="staff-grid">
-            {group.people.map((person) => (
-              <article class="staff-row" data-reveal>
-                <h3 class="staff-role">{person.role}</h3>
-                <p class="staff-detail">{person.detail}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    ))}
+    <section class="sec" style="padding-top: clamp(32px, 5vw, 56px);">
+      <div class="container">
+        <DirectoryLiveFilter client:load initialGroups={groups} />
+      </div>
+    </section>
   </main>
 
   <Footer />
@@ -86,109 +45,5 @@ const leadership = groups[0];
 
   .page-title {
     margin-bottom: 18px;
-  }
-
-  .section-heading {
-    font-size: clamp(1.4rem, 2.4vw, 1.75rem);
-    font-weight: 500;
-    margin-bottom: clamp(24px, 3vw, 36px);
-  }
-
-  .leader-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-    border-radius: var(--r-md);
-    overflow: hidden;
-  }
-
-  .leader-card {
-    background: var(--surface);
-    display: flex;
-    flex-direction: column;
-    transition: background 0.2s ease;
-  }
-
-  .leader-card:hover {
-    background: var(--paper-2);
-  }
-
-  .leader-photo {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    background: var(--paper-2);
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .leader-photo-empty {
-    display: block;
-  }
-
-  .leader-body {
-    padding: 20px;
-  }
-
-  .leader-name {
-    font-size: 1.0625rem;
-    font-weight: 500;
-    margin-bottom: 4px;
-    line-height: 1.3;
-  }
-
-  .leader-role {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 10px;
-  }
-
-  .leader-detail {
-    font-size: 0.875rem;
-    color: var(--ink-2);
-    line-height: 1.6;
-  }
-
-  .staff-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--hairline);
-    border: 1px solid var(--hairline);
-    border-radius: var(--r-md);
-    overflow: hidden;
-  }
-
-  .staff-row {
-    background: var(--surface);
-    padding: 22px;
-    transition: background 0.2s ease;
-  }
-
-  .staff-row:hover {
-    background: var(--paper-2);
-  }
-
-  .staff-role {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-
-  .staff-detail {
-    font-size: 0.875rem;
-    color: var(--ink-2);
-    line-height: 1.6;
-  }
-
-  @media (max-width: 900px) {
-    .leader-grid,
-    .staff-grid {
-      grid-template-columns: 1fr;
-    }
   }
 </style>

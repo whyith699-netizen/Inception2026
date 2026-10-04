@@ -1,6 +1,6 @@
 [
   {
-    "category": "Pimpinan Sekolah",
+    "category": "Pimpinan",
     "people": [
       {
         "name": "Tantri Ambarsari, S.Pd., M.Eng.",
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "category": "Guru Bidang Studi Sains & Riset",
+    "category": "Sains & Riset",
     "people": [
       {
         "name": "Tim Guru Matematika",
@@ -61,7 +61,7 @@
     ]
   },
   {
-    "category": "Guru Bidang Studi Sosial & Bahasa",
+    "category": "Sosial & Humaniora",
     "people": [
       {
         "name": "Tim Guru Sejarah & Sosiologi",
@@ -72,16 +72,21 @@
         "name": "Tim Guru Ekonomi & Kewirausahaan",
         "role": "Ekonomi, Akuntansi",
         "detail": "Pembina studi ekonomi kreatif, koperasi siswa, dan program wirausaha muda."
-      },
-      {
-        "name": "Tim Guru Bahasa",
-        "role": "Bahasa Indonesia, Bahasa Inggris, Sastra",
-        "detail": "Pembina FLS2N, teater, karawitan, dan pendampingan akademik masuk perguruan tinggi."
       }
     ]
   },
   {
-    "category": "Tenaga Kependidikan & Administrasi",
+    "category": "Bahasa & Seni",
+    "people": [
+      {
+        "name": "Tim Guru Bahasa & Seni",
+        "role": "Bahasa Indonesia, Bahasa Inggris, Sastra & Seni Budaya",
+        "detail": "Pembina FLS2N, teater, karawitan, dan pendampingan akademik masuk perguruan tinggi negeri."
+      }
+    ]
+  },
+  {
+    "category": "Tenaga Kependidikan",
     "people": [
       {
         "name": "Staf Sekretariat & Tata Usaha",

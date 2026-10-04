@@ -229,14 +229,16 @@ import Footer from '../components/Footer.astro';
 </style>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement | null;
-  const note = document.getElementById('form-note');
-  if (form && note) {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      note.textContent = form.checkValidity()
-        ? 'Pesan tercatat di peramban Anda. Untuk balasan langsung, hubungi sekretariat di (0272) 321150 pada jam kerja.'
-        : 'Lengkapi nama, kontak, dan isi pesan sebelum mengirim.';
-    });
-  }
+  document.addEventListener('astro:page-load', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const note = document.getElementById('form-note');
+    if (form && note) {
+      form.onsubmit = (event) => {
+        event.preventDefault();
+        note.textContent = form.checkValidity()
+          ? 'Pesan tercatat di peramban Anda. Untuk balasan langsung, hubungi sekretariat di (0272) 321150 pada jam kerja.'
+          : 'Lengkapi nama, kontak, dan isi pesan sebelum mengirim.';
+      };
+    }
+  });
 </script>

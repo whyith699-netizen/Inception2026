@@ -68,18 +68,20 @@ const navLinks = [
 </header>
 
 <script>
-  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
-  const nav = document.getElementById('main-nav');
-  if (toggle && nav) {
-    const setOpen = (open: boolean) => {
-      toggle.classList.toggle('is-open', open);
-      nav.classList.toggle('is-open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
-    };
-    toggle.addEventListener('click', () => setOpen(!toggle.classList.contains('is-open')));
-    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
-  }
+  document.addEventListener('astro:page-load', () => {
+    const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+    if (toggle && nav) {
+      const setOpen = (open: boolean) => {
+        toggle.classList.toggle('is-open', open);
+        nav.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+      };
+      toggle.onclick = () => setOpen(!toggle.classList.contains('is-open'));
+      nav.querySelectorAll('a').forEach((a) => (a as HTMLElement).onclick = () => setOpen(false));
+    }
+  });
 </script>
 
 <style>

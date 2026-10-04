@@ -64,7 +64,7 @@ def iter_source_files(base_dir):
             continue
         for root, _, files in os.walk(root_dir):
             for f in files:
-                if f.endswith(('.astro', '.ts', '.json')):
+                if f.endswith(('.astro', '.ts', '.tsx', '.json')):
                     yield os.path.join(root, f)
 
 def check_banned_words(base_dir):

@@ -60,19 +60,21 @@ const categories = [
 </section>
 
 <script>
-  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-  const cards = document.querySelectorAll<HTMLElement>('.ekskul-card');
+  document.addEventListener('astro:page-load', () => {
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const cards = document.querySelectorAll<HTMLElement>('.ekskul-card');
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
+    filterBtns.forEach((btn) => {
+      btn.onclick = () => {
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
 
-      const filter = btn.getAttribute('data-filter');
-      cards.forEach((card) => {
-        const cat = card.getAttribute('data-category');
-        card.style.display = filter === 'all' || cat === filter ? 'flex' : 'none';
-      });
+        const filter = btn.getAttribute('data-filter');
+        cards.forEach((card) => {
+          const cat = card.getAttribute('data-category');
+          card.style.display = filter === 'all' || cat === filter ? 'flex' : 'none';
+        });
+      };
     });
   });
 </script>

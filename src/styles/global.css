@@ -192,3 +192,18 @@ button {
   }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* ============ View Transitions (ClientRouter) ============ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 180ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
