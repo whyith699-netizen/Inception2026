@@ -16,7 +16,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPath: propPath }) => {
 
   const navLinks = [
     { href: '/', label: 'Beranda' },
-    { href: '/#profil', label: 'Profil' },
     { href: '/program', label: 'Akademik' },
     { href: '/direktori', label: 'Direktori' },
     { href: '/berita', label: 'Berita' },
