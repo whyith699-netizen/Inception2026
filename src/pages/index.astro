@@ -1,29 +1,55 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Metrics from '../components/Metrics.astro';
-import Programs from '../components/Programs.astro';
-import Curriculum from '../components/Curriculum.astro';
-import ValueProp from '../components/ValueProp.astro';
-import EventBanner from '../components/EventBanner.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+import Header from '../components/react/Header';
+import Hero from '../components/react/Hero';
+import Metrics from '../components/react/Metrics';
+import ProfileSections from '../components/react/ProfileSections';
+import Programs from '../components/react/Programs';
+import Curriculum from '../components/react/Curriculum';
+import ValueProp from '../components/react/ValueProp';
+import AlumniSection from '../components/react/AlumniSection';
+import EventBanner from '../components/react/EventBanner';
 import ChatbotWidget from '../components/ChatbotWidget.astro';
-import Footer from '../components/Footer.astro';
+import Footer from '../components/react/Footer';
+
+const alumniTokoh = await getEntry('alumni', 'tokoh');
+const alumniList = (alumniTokoh?.data?.items || []).map((item: any) => ({
+  id: item.id,
+  name: item.name,
+  designation: item.designation,
+  image: item.image
+}));
+
+const events = await getCollection('events');
+const rawEvent = events[0]?.data;
+const eventData = rawEvent ? {
+  title: rawEvent.title,
+  badge: rawEvent.badge,
+  description: rawEvent.description,
+  time: rawEvent.time,
+  location: rawEvent.location,
+  dateNum: '18',
+  dateMonth: 'Mei 2026'
+} : null;
 ---
 
 <BaseLayout
-  title="SMA Negeri 1 Klaten (Padmawijaya) | Sekolah Rujukan Klaten"
-  description="Website resmi SMA Negeri 1 Klaten (Padmawijaya / Kampus 13). Berdiri sejak 5 November 1957, terakreditasi A dengan nilai 98 BAN-SM, membina 23 ekstrakurikuler, direktori guru, berita sekolah, dan asisten digital SmansaBot AI."
+  title="SMA Negeri 1 Klaten (Padmawijaya) | Beranda & Profil Resmi"
+  description="Website resmi SMA Negeri 1 Klaten (Padmawijaya / Kampus 13). Berdiri sejak 5 November 1957, terakreditasi A dengan nilai 98 BAN-SM, memadukan profil institusi, kurikulum, direktori guru, alumni KAPASSKA, dan asisten SmansaBot AI."
 >
-  <Header />
+  <Header client:load currentPath="/" />
   <main id="main-content">
-    <Hero />
-    <Metrics />
-    <Programs />
-    <Curriculum />
-    <ValueProp />
-    <EventBanner />
+    <Hero client:load heroImage="/images/school/Smansa1.jpg" />
+    <Metrics client:visible />
+    <ProfileSections client:visible />
+    <Programs client:visible />
+    <Curriculum client:visible />
+    <ValueProp client:visible />
+    <AlumniSection client:visible items={alumniList} />
+    {eventData && <EventBanner client:visible event={eventData} />}
     <ChatbotWidget />
   </main>
-  <Footer />
+  <Footer client:load />
 </BaseLayout>

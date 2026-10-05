@@ -35,7 +35,8 @@
   --ink: var(--neo-ink);
   --ink-2: var(--neo-ink-2);
   --ink-3: var(--neo-ink-3);
-  --accent: var(--neon-lime);
+  --accent: var(--neo-ink);
+  --accent-text: #0E7490;
   --accent-ink: var(--neo-ink);
   --accent-soft: rgba(212, 255, 0, 0.22);
   --hairline: #111418;
