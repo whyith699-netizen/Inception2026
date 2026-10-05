@@ -193,121 +193,95 @@ export const PrestasiPage: FC = () => {
     });
   }, [selectedYear, selectedCategory, selectedLevel, searchQuery]);
 
-  const getLevelBadgeClass = (level: string) => {
-    switch (level) {
-      case 'Internasional':
-        return 'bg-neon-magenta text-neo-surface';
-      case 'Nasional':
-        return 'bg-neon-lime text-neo-ink';
-      case 'Provinsi':
-        return 'bg-neon-cyan text-neo-ink';
-      case 'Kabupaten':
-        return 'bg-neon-yellow text-neo-ink';
-      default:
-        return 'bg-neo-surface-2 text-neo-ink';
-    }
-  };
-
   return (
     <div className="bg-neo-bg text-neo-ink">
-      {/* Header Banner */}
-      <section className="border-b-2 border-neo-ink bg-neo-surface py-12 md:py-16">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="inline-block bg-neon-yellow text-neo-ink border-2 border-neo-ink px-3 py-1 font-mono font-bold text-xs uppercase tracking-wider shadow-neo-sm mb-4">
-            Rekam Jejak Kejuaraan & Prestasi
-          </div>
-          <h1 className="font-sans font-extrabold text-3xl md:text-5xl text-neo-ink leading-tight mb-4 tracking-tight">
+      {/* 1. Page Header (Editorial) */}
+      <section className="py-12 sm:py-16 border-b border-neo-ink bg-neo-bg">
+        <div className="container">
+          <span className="lbl lbl-lime mb-3 inline-block">REKAM JEJAK PRESTASI</span>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neo-ink mb-4 max-w-3xl leading-[1.15]">
             Prestasi Siswa SMAN 1 Klaten
           </h1>
-          <p className="text-neo-ink-2 font-medium text-base md:text-lg max-w-3xl leading-relaxed">
-            Tradisi panjang nalar ilmiah, kejujuran sportivitas, dan kreasi estetika civitas akademika Padmawijaya.
-            Mulai dari medali emas dunia di Simeiz Crimea hingga gelar juara umum olimpiade dan Adiwiyata Mandiri.
+          <p className="text-neo-ink-2 text-base sm:text-lg leading-relaxed max-w-2xl mb-8">
+            Tradisi panjang nalar ilmiah, kejujuran sportivitas, dan kreasi estetika civitas akademika Padmawijaya, dari kejuaraan dunia hingga Adiwiyata Mandiri.
           </p>
 
-          {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-8">
-            <div className="bg-neon-magenta text-neo-surface border-2 border-neo-ink p-3 md:p-4 shadow-neo-sm">
-              <span className="font-mono text-xs uppercase block font-bold text-neo-surface/90">Tingkat Dunia</span>
-              <span className="font-sans font-extrabold text-xl md:text-2xl">Emas IOA Crimea</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl pt-6 border-t border-neo-ink">
+            <div>
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Dunia</span>
+              <span className="font-mono text-xs text-neo-ink-3 uppercase">Emas IOA Crimea</span>
             </div>
-            <div className="bg-neon-lime text-neo-ink border-2 border-neo-ink p-3 md:p-4 shadow-neo-sm">
-              <span className="font-mono text-xs uppercase block font-bold text-neo-ink-3">OSN & LKTIN</span>
-              <span className="font-sans font-extrabold text-xl md:text-2xl">45+ Juara Nasional</span>
+            <div>
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">45+</span>
+              <span className="font-mono text-xs text-neo-ink-3 uppercase">Juara Nasional</span>
             </div>
-            <div className="bg-neon-cyan text-neo-ink border-2 border-neo-ink p-3 md:p-4 shadow-neo-sm">
-              <span className="font-mono text-xs uppercase block font-bold text-neo-ink-3">FLS2N & O2SN</span>
-              <span className="font-sans font-extrabold text-xl md:text-2xl">80+ Gelar Daerah</span>
+            <div>
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">80+</span>
+              <span className="font-mono text-xs text-neo-ink-3 uppercase">Gelar Daerah</span>
             </div>
-            <div className="bg-neon-yellow text-neo-ink border-2 border-neo-ink p-3 md:p-4 shadow-neo-sm">
-              <span className="font-mono text-xs uppercase block font-bold text-neo-ink-3">Lingkungan Hidup</span>
-              <span className="font-sans font-extrabold text-xl md:text-2xl">Adiwiyata Mandiri</span>
+            <div>
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Mandiri</span>
+              <span className="font-mono text-xs text-neo-ink-3 uppercase">Status Adiwiyata</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Control Panel: Filters, Search & View Switcher */}
-      <section className="py-8 bg-neo-surface-2 border-b-2 border-neo-ink">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+      {/* 2. Control Panel */}
+      <section className="py-8 bg-neo-surface border-b border-neo-ink">
+        <div className="container">
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-6">
-            {/* Search Input */}
             <div className="flex-1 max-w-md">
-              <label htmlFor="search-achievement" className="font-mono text-xs font-bold text-neo-ink uppercase block mb-1.5">
-                Cari Prestasi / Siswa:
-              </label>
               <input
                 id="search-achievement"
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Ketik nama ajang, OSN, futsal, riset..."
-                className="w-full bg-neo-surface border-2 border-neo-ink px-3 py-2 font-mono text-sm text-neo-ink placeholder:text-neo-ink-3 shadow-neo-sm focus:outline-hidden"
+                placeholder="Cari kejuaraan, OSN, futsal, riset..."
+                className="w-full bg-neo-bg border border-neo-ink px-3 py-2 text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:ring-1 focus:ring-neo-ink font-sans"
               />
             </div>
 
-            {/* View Mode Toggle */}
-            <div className="flex items-end gap-2">
-              <div className="flex border-2 border-neo-ink bg-neo-surface shadow-neo-sm p-1">
-                <button
-                  type="button"
-                  onClick={() => setViewMode('timeline')}
-                  className={`font-mono text-xs font-bold px-3 py-1.5 transition-all ${
-                    viewMode === 'timeline'
-                      ? 'bg-neo-ink text-neo-surface'
-                      : 'text-neo-ink hover:bg-neo-surface-2'
-                  }`}
-                >
-                  Linimasa
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setViewMode('table')}
-                  className={`font-mono text-xs font-bold px-3 py-1.5 transition-all ${
-                    viewMode === 'table'
-                      ? 'bg-neo-ink text-neo-surface'
-                      : 'text-neo-ink hover:bg-neo-surface-2'
-                  }`}
-                >
-                  Tabel Data
-                </button>
-              </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-mono text-neo-ink-3 mr-2">Tampilan:</span>
+              <button
+                type="button"
+                onClick={() => setViewMode('timeline')}
+                className={`font-mono text-xs px-3 py-1.5 border border-neo-ink transition-all cursor-pointer ${
+                  viewMode === 'timeline'
+                    ? 'bg-neon-lime text-neo-ink font-bold shadow-neo-sm'
+                    : 'bg-neo-bg text-neo-ink-2 hover:bg-neo-surface-2'
+                }`}
+              >
+                Linimasa
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode('table')}
+                className={`font-mono text-xs px-3 py-1.5 border border-neo-ink transition-all cursor-pointer ${
+                  viewMode === 'table'
+                    ? 'bg-neon-lime text-neo-ink font-bold shadow-neo-sm'
+                    : 'bg-neo-bg text-neo-ink-2 hover:bg-neo-surface-2'
+                }`}
+              >
+                Tabel Data
+              </button>
             </div>
           </div>
 
           {/* Filter Rows */}
-          <div className="space-y-3">
-            {/* Category Filter */}
+          <div className="space-y-3 pt-4 border-t border-neo-ink/10">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="font-mono text-xs font-bold text-neo-ink-3 uppercase mr-1">Bidang:</span>
+              <span className="font-mono text-xs text-neo-ink-3 uppercase mr-1">Bidang:</span>
               {categories.map((c) => (
                 <button
                   key={c.key}
                   type="button"
                   onClick={() => setSelectedCategory(c.key)}
-                  className={`font-mono text-xs font-bold px-3 py-1 border border-neo-ink transition-all ${
+                  className={`font-mono text-xs px-2.5 py-1 border border-neo-ink transition-all cursor-pointer ${
                     selectedCategory === c.key
-                      ? 'bg-neon-lime text-neo-ink shadow-neo-sm'
-                      : 'bg-neo-surface text-neo-ink hover:bg-neo-surface-2'
+                      ? 'bg-neon-lime text-neo-ink font-bold shadow-neo-sm'
+                      : 'bg-neo-bg text-neo-ink-2 hover:bg-neo-surface-2'
                   }`}
                 >
                   {c.label}
@@ -315,19 +289,18 @@ export const PrestasiPage: FC = () => {
               ))}
             </div>
 
-            {/* Year & Level Filters */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-neo-ink/20">
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
               <div className="flex flex-wrap items-center gap-1.5">
-                <span className="font-mono text-xs font-bold text-neo-ink-3 uppercase mr-1">Tahun:</span>
+                <span className="font-mono text-xs text-neo-ink-3 uppercase mr-1">Tahun:</span>
                 {years.map((y) => (
                   <button
                     key={y}
                     type="button"
                     onClick={() => setSelectedYear(y)}
-                    className={`font-mono text-xs font-bold px-2.5 py-0.5 border border-neo-ink transition-all ${
+                    className={`font-mono text-xs px-2 py-0.5 border border-neo-ink transition-all cursor-pointer ${
                       selectedYear === y
-                        ? 'bg-neo-ink text-neo-surface'
-                        : 'bg-neo-surface text-neo-ink hover:bg-neo-surface-2'
+                        ? 'bg-neon-lime text-neo-ink font-bold shadow-neo-sm'
+                        : 'bg-neo-bg text-neo-ink-2 hover:bg-neo-surface-2'
                     }`}
                   >
                     {y === 'all' ? 'Semua' : y}
@@ -336,16 +309,16 @@ export const PrestasiPage: FC = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-1.5">
-                <span className="font-mono text-xs font-bold text-neo-ink-3 uppercase mr-1">Tingkat:</span>
+                <span className="font-mono text-xs text-neo-ink-3 uppercase mr-1">Tingkat:</span>
                 {levels.map((lvl) => (
                   <button
                     key={lvl}
                     type="button"
                     onClick={() => setSelectedLevel(lvl)}
-                    className={`font-mono text-xs font-bold px-2.5 py-0.5 border border-neo-ink transition-all ${
+                    className={`font-mono text-xs px-2 py-0.5 border border-neo-ink transition-all cursor-pointer ${
                       selectedLevel === lvl
-                        ? 'bg-neon-cyan text-neo-ink shadow-neo-sm'
-                        : 'bg-neo-surface text-neo-ink hover:bg-neo-surface-2'
+                        ? 'bg-neon-lime text-neo-ink font-bold shadow-neo-sm'
+                        : 'bg-neo-bg text-neo-ink-2 hover:bg-neo-surface-2'
                     }`}
                   >
                     {lvl === 'all' ? 'Semua' : lvl}
@@ -357,173 +330,156 @@ export const PrestasiPage: FC = () => {
         </div>
       </section>
 
-      {/* Main Content Area */}
-      <section className="py-12 md:py-16 max-w-6xl mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between mb-8">
-          <p className="font-mono text-xs font-bold text-neo-ink-3">
-            Menampilkan <span className="text-neo-ink">{filteredAchievements.length}</span> rekam jejak prestasi
-          </p>
-          {(selectedYear !== 'all' || selectedCategory !== 'all' || selectedLevel !== 'all' || searchQuery !== '') && (
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedYear('all');
-                setSelectedCategory('all');
-                setSelectedLevel('all');
-                setSearchQuery('');
-              }}
-              className="font-mono text-xs font-bold text-neo-ink underline hover:text-neo-ink-2"
-            >
-              Reset Filter ✕
-            </button>
-          )}
-        </div>
-
-        {filteredAchievements.length === 0 ? (
-          <div className="bg-neo-surface border-2 border-neo-ink shadow-neo p-12 text-center">
-            <span className="font-mono text-2xl font-bold block mb-2">✦</span>
-            <h3 className="font-sans font-bold text-lg text-neo-ink mb-2">
-              Tidak ada data prestasi yang cocok
-            </h3>
-            <p className="text-sm text-neo-ink-2 max-w-md mx-auto mb-4">
-              Silakan sesuaikan kata kunci pencarian atau ubah kombinasi filter tahun dan bidang kejuaraan.
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedYear('all');
-                setSelectedCategory('all');
-                setSelectedLevel('all');
-                setSearchQuery('');
-              }}
-              className="font-mono font-bold text-xs px-4 py-2 bg-neon-lime text-neo-ink border-2 border-neo-ink shadow-neo-sm"
-            >
-              Tampilkan Semua Prestasi
-            </button>
+      {/* 3. Main Content Area */}
+      <section className="py-12 sm:py-16">
+        <div className="container">
+          <div className="flex items-center justify-between mb-8 pb-2 border-b border-neo-ink">
+            <span className="font-mono text-xs text-neo-ink-2 tabular-nums">
+              Menampilkan <strong className="text-neo-ink">{filteredAchievements.length}</strong> rekam jejak prestasi
+            </span>
+            {(selectedYear !== 'all' || selectedCategory !== 'all' || selectedLevel !== 'all' || searchQuery !== '') && (
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedYear('all');
+                  setSelectedCategory('all');
+                  setSelectedLevel('all');
+                  setSearchQuery('');
+                }}
+                className="font-mono text-xs text-neo-ink hover:underline"
+              >
+                Reset Filter &times;
+              </button>
+            )}
           </div>
-        ) : viewMode === 'timeline' ? (
-          /* Timeline View */
-          <div className="relative border-l-3 border-neo-ink ml-4 md:ml-8 pl-6 md:pl-10 space-y-8">
-            {filteredAchievements.map((item) => (
-              <div key={item.id} className="relative group">
-                {/* Node on Timeline Line */}
-                <div className="absolute -left-[35px] md:-left-[51px] top-1.5 w-6 h-6 bg-neon-lime border-2 border-neo-ink shadow-neo-sm flex items-center justify-center font-mono font-bold text-[10px] text-neo-ink">
-                  ★
-                </div>
 
-                <article className="bg-neo-surface border-2 border-neo-ink shadow-neo hover:shadow-neo-lg hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all p-5 md:p-6">
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                    <div className="flex items-center gap-2">
-                      <span className="bg-neo-ink text-neo-surface font-mono font-bold text-xs px-2.5 py-1">
-                        {item.year}
-                      </span>
-                      <span className={`font-mono font-bold text-xs px-2.5 py-1 border border-neo-ink ${getLevelBadgeClass(item.level)}`}>
-                        {item.level}
-                      </span>
-                      <span className="font-mono text-xs font-bold text-neo-ink-3 uppercase">
-                        {item.categoryLabel}
-                      </span>
-                    </div>
-                    <span className="font-mono font-bold text-xs bg-neon-yellow text-neo-ink px-2.5 py-1 border border-neo-ink shadow-neo-sm">
-                      {item.medal}
-                    </span>
-                  </div>
+          {filteredAchievements.length === 0 ? (
+            <div className="bg-neo-surface border border-neo-ink p-12 text-center max-w-lg mx-auto">
+              <h3 className="font-serif font-bold text-lg text-neo-ink mb-2">
+                Tidak ada data prestasi yang cocok
+              </h3>
+              <p className="text-xs text-neo-ink-2 mb-4">
+                Silakan sesuaikan kata kunci atau ubah kombinasi filter.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedYear('all');
+                  setSelectedCategory('all');
+                  setSelectedLevel('all');
+                  setSearchQuery('');
+                }}
+                className="btn btn-secondary text-xs"
+              >
+                Tampilkan Semua Prestasi
+              </button>
+            </div>
+          ) : viewMode === 'timeline' ? (
+            <div className="relative border-l-2 border-neo-ink ml-3 sm:ml-6 pl-5 sm:pl-8 space-y-6">
+              {filteredAchievements.map((item) => (
+                <div key={item.id} className="relative">
+                  <div className="absolute -left-[27px] sm:-left-[39px] top-2 w-3.5 h-3.5 bg-neon-lime border border-neo-ink rounded-full"></div>
 
-                  <h3 className="font-sans font-extrabold text-lg md:text-xl text-neo-ink mb-2">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm text-neo-ink-2 leading-relaxed mb-4">
-                    {item.desc}
-                  </p>
-
-                  <div className="pt-3 border-t border-neo-ink/20 flex flex-wrap items-center justify-between text-xs font-mono">
-                    <span className="text-neo-ink-2">
-                      <strong className="text-neo-ink">Delegasi:</strong> {item.delegation}
-                    </span>
-                    <span className="text-neo-ink-3">Tervalidasi Sekolah</span>
-                  </div>
-                </article>
-              </div>
-            ))}
-          </div>
-        ) : (
-          /* Interactive Table View */
-          <div className="overflow-x-auto border-2 border-neo-ink shadow-neo bg-neo-surface">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-neo-ink text-neo-surface font-mono text-xs uppercase border-b-2 border-neo-ink">
-                  <th className="p-3 md:p-4">Tahun</th>
-                  <th className="p-3 md:p-4">Ajang Kejuaraan</th>
-                  <th className="p-3 md:p-4">Bidang</th>
-                  <th className="p-3 md:p-4">Tingkat</th>
-                  <th className="p-3 md:p-4">Capaian</th>
-                  <th className="p-3 md:p-4">Delegasi / Keterangan</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-neo-ink/20 font-sans text-xs md:text-sm">
-                {filteredAchievements.map((item) => (
-                  <tr key={item.id} className="hover:bg-neo-surface-2/70 transition-colors">
-                    <td className="p-3 md:p-4 font-mono font-bold text-neo-ink align-top">
-                      {item.year}
-                    </td>
-                    <td className="p-3 md:p-4 font-bold text-neo-ink align-top max-w-xs">
-                      {item.title}
-                    </td>
-                    <td className="p-3 md:p-4 font-mono text-xs text-neo-ink-2 align-top whitespace-nowrap">
-                      {item.categoryLabel}
-                    </td>
-                    <td className="p-3 md:p-4 align-top whitespace-nowrap">
-                      <span className={`inline-block font-mono font-bold text-xs px-2 py-0.5 border border-neo-ink ${getLevelBadgeClass(item.level)}`}>
-                        {item.level}
-                      </span>
-                    </td>
-                    <td className="p-3 md:p-4 align-top whitespace-nowrap">
-                      <span className="inline-block font-mono font-bold text-xs bg-neon-yellow text-neo-ink px-2 py-0.5 border border-neo-ink">
+                  <article className="bg-neo-surface border border-neo-ink shadow-neo-sm p-5 hover:shadow-neo transition-all">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2 pb-2 border-b border-neo-ink/10">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono font-bold text-xs bg-neo-bg border border-neo-ink px-2 py-0.5 text-neo-ink">
+                          {item.year}
+                        </span>
+                        <span className="lbl lbl-lime text-[10px] px-1.5 py-0.5">
+                          {item.level}
+                        </span>
+                        <span className="font-mono text-xs text-neo-ink-3">
+                          {item.categoryLabel}
+                        </span>
+                      </div>
+                      <span className="font-mono font-bold text-xs text-neo-ink">
                         {item.medal}
                       </span>
-                    </td>
-                    <td className="p-3 md:p-4 text-xs text-neo-ink-2 align-top max-w-sm leading-relaxed">
-                      <p className="font-semibold text-neo-ink mb-1">{item.delegation}</p>
-                      <p>{item.desc}</p>
-                    </td>
+                    </div>
+
+                    <h3 className="font-serif font-bold text-base sm:text-lg text-neo-ink mb-2">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-neo-ink-2 leading-relaxed mb-3">
+                      {item.desc}
+                    </p>
+
+                    <div className="pt-2 border-t border-neo-ink/10 flex items-center justify-between text-xs font-mono text-neo-ink-3">
+                      <span><strong>Delegasi:</strong> {item.delegation}</span>
+                      <span>Terverifikasi</span>
+                    </div>
+                  </article>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="overflow-x-auto border border-neo-ink shadow-neo-sm bg-neo-surface">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-neo-bg text-neo-ink font-mono text-xs uppercase border-b border-neo-ink">
+                    <th className="p-3">Tahun</th>
+                    <th className="p-3">Ajang Kejuaraan</th>
+                    <th className="p-3">Bidang</th>
+                    <th className="p-3">Tingkat</th>
+                    <th className="p-3">Capaian</th>
+                    <th className="p-3">Delegasi</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+                </thead>
+                <tbody className="divide-y divide-neo-ink/10 font-sans text-xs">
+                  {filteredAchievements.map((item) => (
+                    <tr key={item.id} className="hover:bg-neo-surface-2 transition-colors">
+                      <td className="p-3 font-mono font-bold text-neo-ink align-top">
+                        {item.year}
+                      </td>
+                      <td className="p-3 font-bold text-neo-ink align-top max-w-xs">
+                        {item.title}
+                      </td>
+                      <td className="p-3 font-mono text-neo-ink-2 align-top whitespace-nowrap">
+                        {item.categoryLabel}
+                      </td>
+                      <td className="p-3 align-top whitespace-nowrap">
+                        <span className="lbl lbl-lime text-[10px] px-1.5 py-0.5">
+                          {item.level}
+                        </span>
+                      </td>
+                      <td className="p-3 align-top whitespace-nowrap font-mono font-bold text-neo-ink">
+                        {item.medal}
+                      </td>
+                      <td className="p-3 text-neo-ink-2 align-top">
+                        {item.delegation}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
       </section>
 
-      {/* Pembinaan & Mentoring Callout */}
-      <section className="py-12 border-t-2 border-neo-ink bg-neo-surface">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="bg-neo-bg border-3 border-neo-ink shadow-neo p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      {/* 4. Ekosistem Pembinaan Callout */}
+      <section className="py-12 sm:py-16 border-t border-neo-ink bg-neo-surface-2">
+        <div className="container">
+          <div className="bg-neo-surface border border-neo-ink shadow-neo p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <span className="inline-block bg-neon-cyan text-neo-ink border-2 border-neo-ink font-mono font-bold text-xs px-2.5 py-0.5 mb-2 shadow-neo-sm">
-                Ekosistem Pembinaan Prestasi
+              <span className="lbl lbl-lime text-[10px] px-2 py-0.5 inline-block mb-2">
+                PEMBINAAN BERKELANJUTAN
               </span>
-              <h3 className="font-sans font-extrabold text-xl md:text-2xl text-neo-ink mb-2">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-neo-ink mb-2">
                 Program Pendampingan Juara SMANSA
               </h3>
-              <p className="text-sm text-neo-ink-2 max-w-2xl leading-relaxed">
-                Persiapan kompetisi dilakukan terstruktur lewat klinik olimpiade sains laboratorium,
-                bimbingan penulisan karya ilmiah remaja (KIR), pelatihan tanding Smansa Eagles, serta mentoring berkala
-                bersama jejaring alumni KAPASSKA di perguruan tinggi nasional.
+              <p className="text-sm text-neo-ink-2 max-w-xl leading-relaxed">
+                Persiapan kompetisi dilakukan terstruktur lewat klinik olimpiade sains laboratorium, bimbingan penulisan karya ilmiah remaja (KIR), pelatihan tanding olahraga, serta mentoring berkala bersama jejaring alumni KAPASSKA.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-              <a
-                href="/program"
-                className="inline-block text-center font-mono font-bold text-xs uppercase px-5 py-3 bg-neon-lime text-neo-ink border-2 border-neo-ink shadow-neo-sm hover:shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
-              >
-                Lihat 23 Ekstrakurikuler &rarr;
+            <div className="flex flex-wrap gap-3">
+              <a href="/program" className="btn btn-primary text-xs">
+                Katalog Ekstrakurikuler &rarr;
               </a>
-              <a
-                href="/alumni"
-                className="inline-block text-center font-mono font-bold text-xs uppercase px-5 py-3 bg-neo-surface text-neo-ink border-2 border-neo-ink shadow-neo-sm hover:bg-neo-surface-2 transition-all"
-              >
-                Jejaring Alumni KAPASSKA &rarr;
+              <a href="/alumni" className="btn btn-secondary text-xs">
+                Jejaring Alumni &rarr;
               </a>
             </div>
           </div>

@@ -5,7 +5,6 @@ interface AcademicTrack {
   name: string;
   engName: string;
   badge: string;
-  color: string;
   summary: string;
   coreSubjects: string[];
   focusPillars: string[];
@@ -28,7 +27,6 @@ const academicTracks: AcademicTrack[] = [
     name: 'MIPA, Rekayasa & Kelas Riset Ilmiah',
     engName: 'Natural Science & Innovation Hub',
     badge: 'Sains & Teknologi',
-    color: 'bg-neon-lime',
     summary: 'Penguatan nalar deduktif matematika analitis, sains murni (Fisika, Kimia, Biologi), metodologi penelitian ilmiah remaja, dan persiapan intensif olimpiade sains nasional (OSN).',
     coreSubjects: [
       'Matematika Tingkat Lanjut & Kalkulus Dasar',
@@ -53,7 +51,6 @@ const academicTracks: AcademicTrack[] = [
     name: 'Ilmu Sosial, Geopolitik & Ekonomi Kreatif',
     engName: 'Social Dynamics & Economic Literacy',
     badge: 'Sosial & Humaniora',
-    color: 'bg-neon-cyan',
     summary: 'Pemahaman kritis dinamika masyarakat, geopolitik global, literasi keuangan modern, kewirausahaan berbasis riset, serta analisis data kebijakan publik.',
     coreSubjects: [
       'Ekonomi Makro, Mikro & Pasar Modal',
@@ -78,7 +75,6 @@ const academicTracks: AcademicTrack[] = [
     name: 'Bahasa, Diplomasi & Budaya Global',
     engName: 'Global Communication & Humanities',
     badge: 'Bahasa & Diplomasi',
-    color: 'bg-neon-yellow',
     summary: 'Penguasaan kemahiran multibahasa (Bahasa Indonesia sastra, Bahasa Inggris diplomasi, Bahasa Jepang/Jerman), retorika komunikasi publik, dan literasi antarbangsa.',
     coreSubjects: [
       'Bahasa & Sastra Indonesia Tingkat Lanjut',
@@ -313,7 +309,7 @@ const extracurriculars: ExtraCurricular[] = [
     categoryLabel: 'Kerohanian Islam',
     desc: 'Rohani Islam SMAN 1 Klaten pusat pendampingan kajian taklim, peringatan isra mi\'raj/maulid nabi, dan pembinaan karakter akhlakul karimah.',
     logo: '/images/logoekstra/Romansa.png',
-    schedule: 'Jumat Siang Ba\'da Salat'
+    schedule: 'Jumat Siang'
   },
   {
     id: 'persik',
@@ -342,10 +338,10 @@ export const ProgramPage: FC = () => {
 
   const extraCategories = [
     { key: 'all', label: 'Semua 23 Ekskul' },
-    { key: 'organisasi', label: 'Kepemimpinan & Organisasi' },
-    { key: 'sains-tek', label: 'Sains, Riset & Teknologi' },
-    { key: 'seni-bahasa', label: 'Kesenian, Budaya & Bahasa' },
-    { key: 'olahraga', label: 'Olahraga & Prestasi' },
+    { key: 'organisasi', label: 'Organisasi & Kepemimpinan' },
+    { key: 'sains-tek', label: 'Sains & Teknologi' },
+    { key: 'seni-bahasa', label: 'Kesenian & Bahasa' },
+    { key: 'olahraga', label: 'Olahraga' },
     { key: 'sosial-rohani', label: 'Kerohanian & Kemanusiaan' }
   ];
 
@@ -369,202 +365,191 @@ export const ProgramPage: FC = () => {
 
   return (
     <div className="bg-neo-bg text-neo-ink">
-      {/* Header Banner */}
-      <section className="border-b-2 border-neo-ink bg-neo-surface py-12 md:py-16">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="inline-block bg-neon-lime text-neo-ink border-2 border-neo-ink px-3 py-1 font-mono font-bold text-xs uppercase tracking-wider shadow-neo-sm mb-4">
-            Kurikulum Merdeka & Ekosistem Siswa
-          </div>
-          <h1 className="font-sans font-extrabold text-3xl md:text-5xl text-neo-ink leading-tight mb-4 tracking-tight">
+      {/* 1. Page Header (Editorial) */}
+      <section className="py-12 sm:py-16 border-b border-neo-ink bg-neo-bg">
+        <div className="container">
+          <span className="lbl lbl-lime mb-3 inline-block">KURIKULUM & KESISWAAN</span>
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neo-ink mb-4 max-w-3xl leading-[1.15]">
             Program Akademik & 23 Ekstrakurikuler
           </h1>
-          <p className="text-neo-ink-2 font-medium text-base md:text-lg max-w-3xl leading-relaxed">
-            Struktur pembelajaran berorientasi masa depan yang memfasilitasi 3 peminatan disiplin ilmu,
-            pembinaan riset laboratorium analitis, serta katalog lengkap 23 ekstrakurikuler resmi di SMAN 1 Klaten.
+          <p className="text-neo-ink-2 text-base sm:text-lg leading-relaxed max-w-2xl mb-8">
+            Struktur pembelajaran berorientasi masa depan yang memfasilitasi 3 peminatan disiplin ilmu, pembinaan riset laboratorium sains, serta katalog lengkap 23 ekstrakurikuler resmi di SMAN 1 Klaten.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-8">
-            <div className="bg-neo-bg border-2 border-neo-ink p-3 md:p-4 shadow-neo-sm">
-              <span className="font-mono text-xs text-neo-ink-3 uppercase block font-bold">Kurikulum Resmi</span>
-              <span className="font-sans font-extrabold text-xl md:text-2xl text-neo-ink">Kurikulum Merdeka</span>
-            </div>
-            <div className="bg-neon-cyan text-neo-ink border-2 border-neo-ink p-3 md:p-4 shadow-neo-sm">
-              <span className="font-mono text-xs uppercase block font-bold text-neo-ink-3">Peminatan Utama</span>
-              <span className="font-sans font-extrabold text-xl md:text-2xl text-neo-ink">3 Rumpun Ilmu</span>
-            </div>
-            <div className="bg-neon-yellow text-neo-ink border-2 border-neo-ink p-3 md:p-4 shadow-neo-sm">
-              <span className="font-mono text-xs uppercase block font-bold text-neo-ink-3">Bakat & Minat</span>
-              <span className="font-sans font-extrabold text-xl md:text-2xl text-neo-ink">23 Ekstrakurikuler</span>
-            </div>
-            <div className="bg-neon-lime text-neo-ink border-2 border-neo-ink p-3 md:p-4 shadow-neo-sm">
-              <span className="font-mono text-xs uppercase block font-bold text-neo-ink-3">Karakter Siswa</span>
-              <span className="font-sans font-extrabold text-xl md:text-2xl text-neo-ink">Profil Pancasila</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tiga Pilar Peminatan Akademik */}
-      <section className="py-12 md:py-16 max-w-6xl mx-auto px-4 md:px-6">
-        <div className="mb-8">
-          <div className="inline-block bg-neon-cyan text-neo-ink border-2 border-neo-ink px-3 py-1 font-mono font-bold text-xs uppercase tracking-wider shadow-neo-sm mb-2">
-            Pilihan Fase F
-          </div>
-          <h2 className="font-sans font-extrabold text-2xl md:text-3xl text-neo-ink tracking-tight mb-2">
-            Tiga Peminatan Akademik SMAN 1 Klaten
-          </h2>
-          <p className="text-neo-ink-2 font-medium text-sm md:text-base max-w-2xl">
-            Siswa menentukan kombinasi mata pelajaran pilihan sesuai arah studi lanjut di perguruan tinggi dengan pendampingan psikotes diagnostik dan konseling BK.
-          </p>
-        </div>
-
-        {/* Track Selector Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8" role="tablist">
-          {academicTracks.map((track) => (
-            <button
-              key={track.id}
-              type="button"
-              onClick={() => setSelectedTrack(track.id)}
-              className={`p-4 border-2 border-neo-ink text-left transition-all ${
-                selectedTrack === track.id
-                  ? 'bg-neo-surface shadow-neo border-3'
-                  : 'bg-neo-surface-2/60 shadow-neo-sm hover:bg-neo-surface hover:-translate-x-0.5 hover:-translate-y-0.5'
-              }`}
-              role="tab"
-              aria-selected={selectedTrack === track.id}
-            >
-              <div className="flex items-center justify-between mb-2">
-                <span className={`font-mono font-bold text-xs px-2 py-0.5 border border-neo-ink ${track.color} text-neo-ink`}>
-                  {track.badge}
-                </span>
-                <span className="font-mono text-xs text-neo-ink-3 font-bold">
-                  {selectedTrack === track.id ? '● Terpilih' : 'Pilih'}
-                </span>
-              </div>
-              <h3 className="font-sans font-extrabold text-base md:text-lg text-neo-ink">
-                {track.name}
-              </h3>
-              <p className="font-mono text-xs text-neo-ink-3 mt-1">
-                {track.engName}
-              </p>
-            </button>
-          ))}
-        </div>
-
-        {/* Detail Selected Track Card */}
-        <div className="bg-neo-surface border-3 border-neo-ink shadow-neo p-6 md:p-8">
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b-2 border-neo-ink/20 mb-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl pt-6 border-t border-neo-ink">
             <div>
-              <span className={`inline-block font-mono font-bold text-xs px-3 py-1 border border-neo-ink ${activeTrackData.color} text-neo-ink mb-2`}>
-                Rumpun {activeTrackData.badge}
-              </span>
-              <h3 className="font-sans font-extrabold text-2xl md:text-3xl text-neo-ink">
-                {activeTrackData.name}
-              </h3>
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Merdeka</span>
+              <span className="font-mono text-xs text-neo-ink-3 uppercase">Kurikulum Resmi</span>
             </div>
-            <a
-              href="/#chatbot"
-              className="font-mono font-bold text-xs px-4 py-2 bg-neon-lime text-neo-ink border-2 border-neo-ink shadow-neo-sm hover:shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
-            >
-              Konsultasi Jurusan ke SmansaBot &rarr;
-            </a>
-          </div>
-
-          <p className="text-base text-neo-ink-2 leading-relaxed mb-8">
-            {activeTrackData.summary}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Mata Pelajaran Pilihan */}
-            <div className="bg-neo-bg border-2 border-neo-ink p-4">
-              <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-3 pb-2 border-b border-neo-ink/20">
-                Mata Pelajaran Pilihan:
-              </span>
-              <ul className="space-y-2">
-                {activeTrackData.coreSubjects.map((sub, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs md:text-sm text-neo-ink-2">
-                    <span className="text-neo-ink font-mono font-bold">■</span>
-                    <span>{sub}</span>
-                  </li>
-                ))}
-              </ul>
+            <div>
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">3 Rumpun</span>
+              <span className="font-mono text-xs text-neo-ink-3 uppercase">Peminatan Utama</span>
             </div>
-
-            {/* Pilar Pembinaan Riset */}
-            <div className="bg-neo-bg border-2 border-neo-ink p-4">
-              <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-3 pb-2 border-b border-neo-ink/20">
-                Pilar Pembinaan Unggulan:
-              </span>
-              <ul className="space-y-2">
-                {activeTrackData.focusPillars.map((pil, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs md:text-sm text-neo-ink-2">
-                    <span className="text-neo-ink font-mono font-bold">✦</span>
-                    <span>{pil}</span>
-                  </li>
-                ))}
-              </ul>
+            <div>
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">23 Unit</span>
+              <span className="font-mono text-xs text-neo-ink-3 uppercase">Ekstrakurikuler</span>
             </div>
-
-            {/* Prospek Studi Lanjut */}
-            <div className="bg-neo-bg border-2 border-neo-ink p-4">
-              <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-3 pb-2 border-b border-neo-ink/20">
-                Target Program Studi PTN:
-              </span>
-              <ul className="space-y-2">
-                {activeTrackData.careerOutlooks.map((out, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs md:text-sm text-neo-ink-2">
-                    <span className="text-neo-ink font-mono font-bold">&rarr;</span>
-                    <span>{out}</span>
-                  </li>
-                ))}
-              </ul>
+            <div>
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Pancasila</span>
+              <span className="font-mono text-xs text-neo-ink-3 uppercase">Penguatan Profil</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Struktur Kurikulum Merdeka (Fase E & Fase F) */}
-      <section className="py-12 md:py-16 border-t-2 border-neo-ink bg-neo-surface-2/40">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+      {/* 2. Tiga Peminatan Akademik */}
+      <section className="py-12 sm:py-16 border-b border-neo-ink">
+        <div className="container">
           <div className="mb-8">
-            <div className="inline-block bg-neon-yellow text-neo-ink border-2 border-neo-ink px-3 py-1 font-mono font-bold text-xs uppercase tracking-wider shadow-neo-sm mb-2">
-              Struktur Pembelajaran
+            <span className="lbl lbl-lime mb-2 inline-block">PILIHAN FASE F</span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neo-ink">
+              Tiga Peminatan Akademik SMAN 1 Klaten
+            </h2>
+            <p className="text-neo-ink-2 text-sm sm:text-base mt-1">
+              Siswa menentukan kombinasi mata pelajaran pilihan sesuai arah studi lanjut di perguruan tinggi.
+            </p>
+          </div>
+
+          {/* Track Selector Tabs */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8" role="tablist">
+            {academicTracks.map((track) => (
+              <button
+                key={track.id}
+                type="button"
+                onClick={() => setSelectedTrack(track.id)}
+                className={`p-4 border border-neo-ink text-left transition-all cursor-pointer ${
+                  selectedTrack === track.id
+                    ? 'bg-neo-surface shadow-neo'
+                    : 'bg-neo-bg hover:bg-neo-surface-2'
+                }`}
+                role="tab"
+                aria-selected={selectedTrack === track.id}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="lbl lbl-lime text-[10px] px-2 py-0.5">
+                    {track.badge}
+                  </span>
+                  <span className="font-mono text-xs text-neo-ink-3">
+                    {selectedTrack === track.id ? '● Terpilih' : 'Pilih'}
+                  </span>
+                </div>
+                <h3 className="font-serif font-bold text-base text-neo-ink">
+                  {track.name}
+                </h3>
+                <p className="font-mono text-xs text-neo-ink-3 mt-1">
+                  {track.engName}
+                </p>
+              </button>
+            ))}
+          </div>
+
+          {/* Detail Selected Track Card */}
+          <div className="bg-neo-surface border border-neo-ink shadow-neo-sm p-6 sm:p-8">
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-neo-ink/20 mb-6">
+              <div>
+                <span className="lbl lbl-lime text-[10px] px-2 py-0.5 inline-block mb-1">
+                  Rumpun {activeTrackData.badge}
+                </span>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-neo-ink">
+                  {activeTrackData.name}
+                </h3>
+              </div>
+              <a href="/#chatbot" className="btn btn-secondary text-xs">
+                Konsultasi Jurusan &rarr;
+              </a>
             </div>
-            <h2 className="font-sans font-extrabold text-2xl md:text-3xl text-neo-ink tracking-tight mb-2">
+
+            <p className="text-sm sm:text-base text-neo-ink-2 leading-relaxed mb-6">
+              {activeTrackData.summary}
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-neo-bg border border-neo-ink p-4">
+                <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-3 pb-2 border-b border-neo-ink/10">
+                  Mata Pelajaran Pilihan:
+                </span>
+                <ul className="space-y-1.5 text-xs text-neo-ink-2">
+                  {activeTrackData.coreSubjects.map((sub, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 leading-snug">
+                      <span className="text-neo-ink font-bold">&bull;</span>
+                      <span>{sub}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-neo-bg border border-neo-ink p-4">
+                <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-3 pb-2 border-b border-neo-ink/10">
+                  Pilar Pembinaan Unggulan:
+                </span>
+                <ul className="space-y-1.5 text-xs text-neo-ink-2">
+                  {activeTrackData.focusPillars.map((pil, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 leading-snug">
+                      <span className="text-neo-ink font-bold">&bull;</span>
+                      <span>{pil}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="bg-neo-bg border border-neo-ink p-4">
+                <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-3 pb-2 border-b border-neo-ink/10">
+                  Target Studi Lanjut PTN:
+                </span>
+                <ul className="space-y-1.5 text-xs text-neo-ink-2">
+                  {activeTrackData.careerOutlooks.map((out, idx) => (
+                    <li key={idx} className="flex items-start gap-1.5 leading-snug">
+                      <span className="text-neo-ink font-bold">&rarr;</span>
+                      <span>{out}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Struktur Kurikulum Merdeka */}
+      <section className="py-12 sm:py-16 border-b border-neo-ink bg-neo-surface">
+        <div className="container">
+          <div className="mb-8">
+            <span className="lbl lbl-lime mb-2 inline-block">STRUKTUR PEMBELAJARAN</span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neo-ink">
               Implementasi Kurikulum Merdeka Terintegrasi
             </h2>
-            <p className="text-neo-ink-2 font-medium text-sm md:text-base max-w-2xl">
+            <p className="text-neo-ink-2 text-sm sm:text-base mt-1">
               Memadukan kurikulum intrakurikuler berbobot, penguatan nalar ilmiah mandiri, dan kokurikuler Projek Penguatan Profil Pelajar Pancasila (P5).
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {curriculumPhases.map((phase, idx) => (
-              <div key={idx} className="bg-neo-surface border-2 border-neo-ink shadow-neo p-6 flex flex-col justify-between">
+              <div key={idx} className="bg-neo-bg border border-neo-ink shadow-neo-sm p-6 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="font-mono text-xs font-bold px-2.5 py-1 bg-neon-lime text-neo-ink border border-neo-ink">
+                  <div className="flex items-center justify-between gap-2 mb-3 pb-2 border-b border-neo-ink/10">
+                    <span className="lbl lbl-lime text-[10px] px-2 py-0.5">
                       {phase.phase}
                     </span>
-                    <span className="font-mono text-xs font-bold text-neo-ink-3">
+                    <span className="font-mono text-xs text-neo-ink-3">
                       {phase.hours}
                     </span>
                   </div>
-                  <h3 className="font-sans font-extrabold text-lg md:text-xl text-neo-ink mb-3">
+                  <h3 className="font-serif font-bold text-lg text-neo-ink mb-3">
                     {phase.theme}
                   </h3>
-                  <ul className="space-y-2.5 mb-6">
+                  <ul className="space-y-2 mb-6">
                     {phase.points.map((p, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2 text-xs md:text-sm text-neo-ink-2 leading-relaxed">
-                        <span className="text-neo-ink font-bold mt-0.5">✓</span>
+                      <li key={pIdx} className="flex items-start gap-2 text-xs text-neo-ink-2 leading-relaxed">
+                        <span className="text-neo-ink font-bold">&check;</span>
                         <span>{p}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="pt-3 border-t border-neo-ink/20 font-mono text-xs text-neo-ink-3 flex items-center justify-between">
-                  <span>Asesmen Formatif & Sumatif</span>
-                  <span className="text-neo-ink font-bold">Terstandarisasi BAN-SM</span>
+                <div className="pt-3 border-t border-neo-ink/10 font-mono text-xs text-neo-ink-3 flex items-center justify-between">
+                  <span>Asesmen Terstandarisasi</span>
+                  <span className="text-neo-ink font-bold">BAN-SM Nilai 98</span>
                 </div>
               </div>
             ))}
@@ -572,54 +557,41 @@ export const ProgramPage: FC = () => {
         </div>
       </section>
 
-      {/* Katalog 23 Ekstrakurikuler Resmi Lengkap */}
-      <section className="py-12 md:py-16 border-t-2 border-neo-ink bg-neo-bg" id="ekstrakurikuler-resmi">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-            <div>
-              <div className="inline-block bg-neon-magenta text-neo-surface border-2 border-neo-ink px-3 py-1 font-mono font-bold text-xs uppercase tracking-wider shadow-neo-sm mb-2">
-                Minat, Bakat & Kepemimpinan
-              </div>
-              <h2 className="font-sans font-extrabold text-2xl md:text-3xl text-neo-ink tracking-tight mb-2">
-                Katalog 23 Ekstrakurikuler Resmi
-              </h2>
-              <p className="text-neo-ink-2 font-medium text-sm md:text-base max-w-2xl">
-                Wadah aktualisasi diri seluruh peserta didik di bidang kepemimpinan organisasi, riset olimpiade, kreativitas seni, keolahragaan, dan kerohanian.
-              </p>
-            </div>
-            <div className="text-left md:text-right">
-              <span className="font-mono text-xs font-bold text-neo-ink bg-neon-yellow border border-neo-ink px-3 py-1 shadow-neo-sm">
-                Total 23 Unit Aktif Terdaftar
-              </span>
-            </div>
+      {/* 4. Katalog 23 Ekstrakurikuler Resmi */}
+      <section className="py-12 sm:py-16" id="ekstrakurikuler-resmi">
+        <div className="container">
+          <div className="mb-8">
+            <span className="lbl lbl-lime mb-2 inline-block">BAKAT & MINAT</span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neo-ink">
+              Katalog 23 Ekstrakurikuler Resmi
+            </h2>
+            <p className="text-neo-ink-2 text-sm sm:text-base mt-1">
+              Wadah aktualisasi diri seluruh peserta didik di bidang kepemimpinan, riset sains, kreativitas seni, dan keolahragaan.
+            </p>
           </div>
 
           {/* Search & Category Filter */}
-          <div className="bg-neo-surface border-2 border-neo-ink shadow-neo p-4 md:p-6 mb-8 space-y-4">
+          <div className="bg-neo-surface border border-neo-ink shadow-neo-sm p-5 mb-8 space-y-4">
             <div>
-              <label htmlFor="search-ekskul" className="font-mono text-xs font-bold text-neo-ink uppercase block mb-1.5">
-                Cari Ekstrakurikuler:
-              </label>
               <input
                 id="search-ekskul"
                 type="text"
                 value={extraSearch}
                 onChange={(e) => setExtraSearch(e.target.value)}
-                placeholder="Ketik nama ekskul (contoh: OSMANSA, Eagles, KIR, SECURE, Sakla...)"
-                className="w-full bg-neo-bg border-2 border-neo-ink px-3 py-2 font-mono text-sm text-neo-ink placeholder:text-neo-ink-3 shadow-neo-sm focus:outline-hidden"
+                placeholder="Cari ekskul (contoh: OSMANSA, Eagles, KIR, SECURE, Sakla...)"
+                className="w-full bg-neo-bg border border-neo-ink px-3 py-2 text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:ring-1 focus:ring-neo-ink font-sans"
               />
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-neo-ink/20">
-              <span className="font-mono text-xs font-bold text-neo-ink-3 uppercase mr-1">Filter Kategori:</span>
+            <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-neo-ink/10">
               {extraCategories.map((c) => (
                 <button
                   key={c.key}
                   type="button"
                   onClick={() => setExtraFilter(c.key)}
-                  className={`font-mono text-xs font-bold px-3 py-1.5 border border-neo-ink transition-all ${
+                  className={`font-mono text-xs px-2.5 py-1 border border-neo-ink transition-all cursor-pointer ${
                     extraFilter === c.key
-                      ? 'bg-neo-ink text-neo-surface shadow-neo-sm'
+                      ? 'bg-neon-lime text-neo-ink font-bold shadow-neo-sm'
                       : 'bg-neo-bg text-neo-ink hover:bg-neo-surface-2'
                   }`}
                 >
@@ -630,9 +602,9 @@ export const ProgramPage: FC = () => {
           </div>
 
           {/* Results Count */}
-          <div className="flex items-center justify-between mb-6">
-            <span className="font-mono text-xs font-bold text-neo-ink-3">
-              Menampilkan <span className="text-neo-ink">{filteredExtras.length}</span> dari 23 ekstrakurikuler
+          <div className="flex items-center justify-between mb-6 pb-2 border-b border-neo-ink">
+            <span className="font-mono text-xs text-neo-ink-2 tabular-nums">
+              Menampilkan <strong className="text-neo-ink">{filteredExtras.length}</strong> dari 23 ekstrakurikuler
             </span>
             {(extraFilter !== 'all' || extraSearch !== '') && (
               <button
@@ -641,9 +613,9 @@ export const ProgramPage: FC = () => {
                   setExtraFilter('all');
                   setExtraSearch('');
                 }}
-                className="font-mono text-xs font-bold text-neo-ink underline"
+                className="font-mono text-xs text-neo-ink hover:underline"
               >
-                Reset Filter ✕
+                Reset Filter &times;
               </button>
             )}
           </div>
@@ -653,46 +625,41 @@ export const ProgramPage: FC = () => {
             {filteredExtras.map((extra) => (
               <article
                 key={extra.id}
-                className="bg-neo-surface border-2 border-neo-ink shadow-neo hover:shadow-neo-lg hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all p-5 flex flex-col justify-between"
+                className="bg-neo-surface border border-neo-ink shadow-neo-sm p-5 flex flex-col justify-between hover:shadow-neo transition-all"
               >
                 <div>
-                  <div className="flex items-center gap-3.5 mb-4">
-                    {/* Logo Box */}
-                    <div className="w-14 h-14 bg-neo-bg border-2 border-neo-ink shadow-neo-sm p-1.5 flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-3.5 mb-3 pb-3 border-b border-neo-ink/10">
+                    <div className="w-12 h-12 bg-neo-bg border border-neo-ink p-1 flex items-center justify-center shrink-0">
                       <img
                         src={extra.logo}
                         alt={`Logo ${extra.name}`}
                         className="max-w-full max-h-full object-contain"
                         loading="lazy"
-                        width={48}
-                        height={48}
+                        width={44}
+                        height={44}
                         onError={(e) => {
-                          // Fallback placeholder jika gambar gagal dimuat
                           (e.target as HTMLElement).style.display = 'none';
                         }}
                       />
                     </div>
                     <div>
-                      <span className="font-mono text-[11px] font-bold text-neo-ink-3 block uppercase">
+                      <span className="lbl lbl-lime text-[10px] px-1.5 py-0.5 inline-block mb-1">
                         {extra.categoryLabel}
                       </span>
-                      <h3 className="font-sans font-extrabold text-lg text-neo-ink">
+                      <h3 className="font-serif font-bold text-base text-neo-ink">
                         {extra.name}
                       </h3>
                     </div>
                   </div>
 
-                  <p className="text-xs md:text-sm text-neo-ink-2 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-neo-ink-2 leading-relaxed mb-4">
                     {extra.desc}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-neo-ink/20 flex items-center justify-between text-xs font-mono">
-                  <span className="text-neo-ink-3 flex items-center gap-1.5">
-                    <span className="inline-block w-2 h-2 bg-neon-lime border border-neo-ink rounded-full"></span>
-                    {extra.schedule}
-                  </span>
-                  <span className="font-bold text-neo-ink">Terakreditasi</span>
+                <div className="pt-2 border-t border-neo-ink/10 flex items-center justify-between text-xs font-mono text-neo-ink-3">
+                  <span>Jadwal: {extra.schedule}</span>
+                  <span className="font-bold text-neo-ink">Aktif</span>
                 </div>
               </article>
             ))}
@@ -700,33 +667,27 @@ export const ProgramPage: FC = () => {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-12 border-t-2 border-neo-ink bg-neo-surface">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="bg-neo-bg border-3 border-neo-ink shadow-neo p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      {/* 5. Bottom Callout */}
+      <section className="py-12 sm:py-16 border-t border-neo-ink bg-neo-surface-2">
+        <div className="container">
+          <div className="bg-neo-surface border border-neo-ink shadow-neo p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <span className="inline-block bg-neon-lime text-neo-ink border-2 border-neo-ink font-mono font-bold text-xs px-2.5 py-0.5 mb-2 shadow-neo-sm">
-                Informasi Registrasi Kesiswaan
+              <span className="lbl lbl-lime text-[10px] px-2 py-0.5 inline-block mb-2">
+                INFORMASI REGISTRASI
               </span>
-              <h3 className="font-sans font-extrabold text-xl md:text-2xl text-neo-ink mb-2">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-neo-ink mb-2">
                 Pendaftaran Ekstrakurikuler Siswa Baru
               </h3>
-              <p className="text-sm text-neo-ink-2 max-w-2xl leading-relaxed">
+              <p className="text-sm text-neo-ink-2 max-w-xl leading-relaxed">
                 Setiap peserta didik baru wajib memilih 1 ekstrakurikuler kepemimpinan/pramuka dan maksimal 2 ekstrakurikuler minat bakat saat masa orientasi kesiswaan (MPLS).
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-              <a
-                href="/kontak"
-                className="inline-block text-center font-mono font-bold text-xs uppercase px-5 py-3 bg-neon-yellow text-neo-ink border-2 border-neo-ink shadow-neo-sm hover:shadow-neo hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all"
-              >
+            <div className="flex flex-wrap gap-3">
+              <a href="/kontak" className="btn btn-primary text-xs">
                 Tanya Kesiswaan &rarr;
               </a>
-              <a
-                href="/prestasi"
-                className="inline-block text-center font-mono font-bold text-xs uppercase px-5 py-3 bg-neo-surface text-neo-ink border-2 border-neo-ink shadow-neo-sm hover:bg-neo-surface-2 transition-all"
-              >
-                Lihat Prestasi Siswa &rarr;
+              <a href="/prestasi" className="btn btn-secondary text-xs">
+                Rekam Jejak Prestasi &rarr;
               </a>
             </div>
           </div>
