@@ -1,5 +1,7 @@
 @import "tailwindcss";
+@source "../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}";
 @import './tokens.css';
+@import './subpages.css';
 
 @theme {
   --color-neo-bg: #F4F5F8;

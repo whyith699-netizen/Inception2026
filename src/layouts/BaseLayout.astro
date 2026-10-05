@@ -36,9 +36,7 @@ const {
     <script>
       // Global Smooth Motion System across ALL pages
       document.addEventListener('astro:page-load', () => {
-        const animElements = document.querySelectorAll<HTMLElement>(
-          '[data-reveal], .card, .brutal-card, .sec .section-header, .sec .section-heading, .stat-pill, .alumni-box, .chapter-item, .program-card'
-        );
+        const animElements = document.querySelectorAll<HTMLElement>('[data-reveal]');
 
         if (!('IntersectionObserver' in window)) {
           animElements.forEach((el) => el.classList.add('is-in'));
@@ -54,14 +52,11 @@ const {
               }
             }
           },
-          { rootMargin: '0px 0px -4% 0px', threshold: 0.05 }
+          { rootMargin: '120px 0px 60px 0px', threshold: 0.02 }
         );
 
         animElements.forEach((el, i) => {
-          if (!el.hasAttribute('data-reveal')) {
-            el.setAttribute('data-reveal', '');
-          }
-          el.style.transitionDelay = `${(i % 5) * 50}ms`;
+          el.style.transitionDelay = `${(i % 5) * 40}ms`;
           io.observe(el);
         });
       });

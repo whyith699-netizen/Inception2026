@@ -70,7 +70,7 @@ export const Programs: React.FC<ProgramsProps> = ({ programs = defaultPrograms }
 
         <div className="programs-grid">
           {programs.map((item) => (
-            <article className="program-card card" data-reveal="" key={item.id}>
+            <article className="program-card card" key={item.id}>
               <div className="card-top-row">
                 <span className="sticker-label">{cardLabels[item.id] || 'Peminatan'}</span>
                 <span className="card-grade num">{item.targetGrade}</span>

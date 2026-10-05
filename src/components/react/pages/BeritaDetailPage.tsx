@@ -45,30 +45,30 @@ export default function BeritaDetailPage({ article }: BeritaDetailPageProps) {
   }
 
   return (
-    <article className="bg-neo-bg text-neo-ink py-12 sm:py-16">
-      <div className="container max-w-4xl">
-        {/* Breadcrumb */}
+    <article className="bg-neo-bg text-neo-ink py-10 sm:py-14">
+      <div className="container max-w-3xl">
+        {/* Breadcrumb Navigation */}
         <nav
           aria-label="Breadcrumb"
-          className="font-mono text-xs text-neo-ink-3 mb-6 flex items-center flex-wrap gap-2 uppercase tracking-wider"
+          className="font-mono text-xs text-neo-ink-3 mb-6 flex items-center flex-wrap gap-2"
         >
-          <a href="/" className="hover:text-neo-ink">
+          <a href="/" className="hover:text-neo-ink font-semibold">
             Beranda
           </a>
-          <span aria-hidden="true">·</span>
-          <a href="/berita" className="hover:text-neo-ink">
+          <span aria-hidden="true" className="text-neo-ink-3">/</span>
+          <a href="/berita" className="hover:text-neo-ink font-semibold">
             Warta Berita
           </a>
-          <span aria-hidden="true">·</span>
-          <span className="text-neo-ink truncate max-w-xs sm:max-w-md">
-            {article.title}
+          <span aria-hidden="true" className="text-neo-ink-3">/</span>
+          <span className="text-neo-ink font-bold">
+            {article.category}
           </span>
         </nav>
 
         {/* Editorial Header */}
         <header className="mb-8">
           <div className="flex items-center gap-2 mb-3">
-            <span className="lbl lbl-lime text-[10px] px-2 py-0.5">
+            <span className="lbl lbl-lime text-[11px] px-2.5 py-0.5 font-bold">
               {article.category}
             </span>
             <span className="font-mono text-xs text-neo-ink-3">
@@ -76,11 +76,11 @@ export default function BeritaDetailPage({ article }: BeritaDetailPageProps) {
             </span>
           </div>
 
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-neo-ink leading-[1.18] tracking-tight mb-6">
+          <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-neo-ink leading-snug mb-4">
             {article.title}
           </h1>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-neo-ink-3 border-y border-neo-ink/20 py-3">
+          <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-neo-ink-2 border-y border-neo-ink/20 py-2.5 my-4">
             <div>
               <span className="text-neo-ink font-bold">Rilis:</span>{' '}
               <time dateTime={formatIso(article.date)}>
@@ -95,40 +95,42 @@ export default function BeritaDetailPage({ article }: BeritaDetailPageProps) {
         </header>
 
         {/* Gambar Sampul Artikel */}
-        <div className="mb-8 border border-neo-ink shadow-neo-sm overflow-hidden bg-neo-surface-2">
-          <img
-            src={article.image}
-            alt={article.title}
-            className="w-full h-auto max-h-[500px] object-cover"
-            loading="eager"
-            width={960}
-            height={540}
-          />
-        </div>
+        {article.image && (
+          <div className="mb-8 border-2 border-neo-ink rounded-md shadow-neo overflow-hidden bg-neo-surface-2 aspect-[16/9]">
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-full object-cover"
+              loading="eager"
+              width={800}
+              height={450}
+            />
+          </div>
+        )}
 
-        {/* Lede / Ringkasan */}
+        {/* Lede / Ringkasan Editorial */}
         {article.excerpt && (
-          <div className="mb-8 p-5 bg-neo-surface border-l-4 border-l-neon-lime border border-neo-ink shadow-neo-sm">
-            <p className="font-sans font-medium text-base text-neo-ink leading-relaxed">
-              {article.excerpt}
+          <div className="mb-8 p-5 bg-neo-surface border-2 border-neo-ink rounded-md shadow-neo-sm">
+            <p className="font-serif italic text-base sm:text-lg text-neo-ink leading-relaxed">
+              "{article.excerpt}"
             </p>
           </div>
         )}
 
         {/* Isi Artikel */}
-        <div className="space-y-5 text-base sm:text-lg leading-relaxed text-neo-ink-2 font-sans">
+        <div className="space-y-5 text-base sm:text-lg leading-relaxed text-neo-ink-2 font-sans max-w-[70ch]">
           {article.body.map((par, idx) => (
             <p key={idx}>{par}</p>
           ))}
         </div>
 
         {/* Footer Artikel */}
-        <footer className="mt-12 pt-6 border-t border-neo-ink flex flex-wrap items-center justify-between gap-4">
+        <footer className="mt-12 pt-6 border-t-2 border-neo-ink flex flex-wrap items-center justify-between gap-4">
           <a href="/berita" className="btn btn-secondary text-xs">
-            ← Kembali ke Daftar Berita
+            ← Kembali ke Warta Berita
           </a>
           <span className="font-mono text-xs text-neo-ink-3">
-            Arsip Publikasi · SMAN 1 Klaten
+            Dokumentasi Resmi · SMAN 1 Klaten
           </span>
         </footer>
       </div>

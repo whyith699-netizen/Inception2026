@@ -71,294 +71,213 @@ export const KontakPage: FC = () => {
   };
 
   return (
-    <div className="bg-neo-bg text-neo-ink">
-      {/* 1. Page Header (Editorial) */}
-      <section className="py-12 sm:py-16 border-b border-neo-ink bg-neo-bg">
+    <div className="kontak-page-wrapper">
+      {/* 1. Classic Contact Hero */}
+      <section className="contact-hero sec sec-flush">
         <div className="container">
-          <span className="lbl lbl-lime mb-3 inline-block">SEKRETARIAT & LAYANAN PUBLIK</span>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neo-ink mb-4 max-w-3xl leading-[1.15]">
-            Hubungi SMAN 1 Klaten
-          </h1>
-          <p className="text-neo-ink-2 text-base sm:text-lg leading-relaxed max-w-2xl mb-8">
-            Saluran komunikasi resmi sekretariat tata usaha SMA Negeri 1 Klaten untuk layanan akademik, informasi PPDB 2026, legalisir ijazah alumni KAPASSKA, dan permohonan kemitraan.
+          <p className="lbl">Sekretariat dan layanan informasi</p>
+          <h1 className="page-title">Hubungi SMA Negeri 1 Klaten</h1>
+          <p className="page-lead">
+            Saluran komunikasi sekolah untuk pertanyaan akademik, layanan kesiswaan,
+            kemitraan institusi, dan konsultasi pendaftaran peserta didik baru.
           </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl pt-8 mt-8 border-t border-neo-ink">
-            <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">(0272) 321150</span>
-              <span className="font-mono text-xs text-neo-ink-3 uppercase">Telepon Kantor</span>
-            </div>
-            <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Senin – Kamis</span>
-              <span className="font-mono text-xs text-neo-ink-3 uppercase">07.00 - 15.30 WIB</span>
-            </div>
-            <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Jumat</span>
-              <span className="font-mono text-xs text-neo-ink-3 uppercase">07.00 - 14.00 WIB</span>
-            </div>
-            <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Jl. Merbabu 13</span>
-              <span className="font-mono text-xs text-neo-ink-3 uppercase">Klaten Selatan</span>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* 2. Main Grid: Kontak Info & Form */}
-      <section className="py-12 sm:py-16 border-b border-neo-ink">
+      {/* 2. Main Contact Grid */}
+      <section className="contact-body sec sec-flush">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            {/* Kolom Kiri: Informasi Sekretariat */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="bg-neo-surface border border-neo-ink shadow-neo-sm p-6">
-                <div className="mb-4 pb-3 border-b border-neo-ink/20">
-                  <span className="lbl lbl-lime text-[10px] px-2 py-0.5 inline-block mb-1">
-                    SEKRETARIAT
-                  </span>
-                  <h2 className="font-serif font-bold text-xl text-neo-ink">
-                    Informasi Kontak Sekolah
-                  </h2>
-                </div>
+          <div className="grid-contact">
+            {/* Kolom Kiri: Saluran Resmi Sekolah */}
+            <div className="contact-info-card">
+              <h2 className="card-heading">Saluran resmi sekolah</h2>
 
-                <div className="space-y-4 text-sm">
-                  <div>
-                    <span className="font-mono text-xs text-neo-ink-3 uppercase block mb-1">
-                      Alamat Gedung Utama
-                    </span>
-                    <p className="font-sans font-semibold text-neo-ink leading-relaxed">
-                      Jalan Merbabu Nomor 13, Klaten Selatan, Kabupaten Klaten, Jawa Tengah 57423
-                    </p>
-                    <p className="font-mono text-xs text-neo-ink-3 mt-0.5">
-                      Kawasan Cagar Budaya & Adiwiyata Mandiri
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-neo-ink/10">
-                    <span className="font-mono text-xs text-neo-ink-3 uppercase block mb-1">
-                      Telepon & Pos Elektronik
-                    </span>
-                    <p className="font-mono text-sm text-neo-ink">
-                      Telepon: <strong>(0272) 321150</strong>
-                    </p>
-                    <p className="font-mono text-xs text-neo-ink-2 mt-0.5">
-                      Email: info@sma1klaten.sch.id
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-neo-ink/10">
-                    <span className="font-mono text-xs text-neo-ink-3 uppercase block mb-1">
-                      Jam Kerja Tata Usaha
-                    </span>
-                    <ul className="space-y-1 font-mono text-xs text-neo-ink-2">
-                      <li className="flex justify-between">
-                        <span>Senin – Kamis:</span>
-                        <strong className="text-neo-ink">07.00 – 15.30 WIB</strong>
-                      </li>
-                      <li className="flex justify-between">
-                        <span>Jumat:</span>
-                        <strong className="text-neo-ink">07.00 – 14.00 WIB</strong>
-                      </li>
-                      <li className="flex justify-between text-neo-ink-3">
-                        <span>Sabtu & Minggu:</span>
-                        <span>Libur</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <div className="info-group" style={{ borderTop: 'none', paddingTop: 0 }}>
+                <span className="group-title">Alamat gedung utama</span>
+                <p>Jalan Merbabu Nomor 13, Klaten Selatan, Kabupaten Klaten, Jawa Tengah 57423</p>
+                <p className="text-xs text-neo-ink-3 font-mono mt-1">Kawasan Cagar Budaya & Adiwiyata Mandiri</p>
               </div>
 
-              {/* Aksesibilitas Kampus */}
-              <div className="bg-neo-surface-2 border border-neo-ink p-5">
-                <span className="lbl lbl-lime text-[10px] px-2 py-0.5 inline-block mb-2">
-                  AKSESIBILITAS KAMPUS
-                </span>
-                <ul className="space-y-2 text-xs text-neo-ink-2">
-                  <li className="flex items-start gap-1.5 leading-relaxed">
-                    <span className="text-neo-ink font-bold">•</span>
-                    <span><strong>1,2 km dari Stasiun Klaten:</strong> 3 menit berkendara atau angkutan kota jalur Merbabu.</span>
-                  </li>
-                  <li className="flex items-start gap-1.5 leading-relaxed">
-                    <span className="text-neo-ink font-bold">•</span>
-                    <span><strong>800 m dari Alun-Alun Klaten:</strong> Berada di kawasan pusat pendidikan Klaten Selatan.</span>
-                  </li>
-                </ul>
+              <div className="info-group">
+                <span className="group-title">Telepon kantor & surat elektronik</span>
+                <p className="num text-base font-bold">(0272) 321150</p>
+                <p className="text-sm font-mono text-neo-ink-2 mt-1">info@sma1klaten.sch.id</p>
+              </div>
+
+              <div className="info-group">
+                <span className="group-title">Portal layanan daring</span>
+                <p>
+                  <a className="inline-link" href="http://elearning.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">
+                    elearning.sma1klaten.sch.id ↗
+                  </a>
+                </p>
+                <p>
+                  <a className="inline-link" href="https://eperpus.sma1klaten.sch.id/" target="_blank" rel="noopener noreferrer">
+                    eperpus.sma1klaten.sch.id ↗
+                  </a>
+                </p>
+              </div>
+
+              <div className="info-group">
+                <span className="group-title">Jam pelayanan tata usaha</span>
+                <p>Senin sampai Kamis: <strong>07.00 – 15.30 WIB</strong></p>
+                <p>Jumat: <strong>07.00 – 14.00 WIB</strong></p>
+                <p className="text-xs text-neo-ink-3 font-mono mt-1">Sabtu, Minggu & Hari Libur Nasional: Tutup</p>
+              </div>
+
+              <div className="info-group">
+                <span className="group-title">Aksesibilitas transportasi</span>
+                <p>• 1,2 km dari Stasiun Klaten (3 menit via angkutan kota jalur Merbabu)</p>
+                <p>• 800 meter dari Alun-Alun Klaten (pusat pendidikan Klaten Selatan)</p>
               </div>
             </div>
 
-            {/* Kolom Kanan: Form Pengaduan */}
-            <div className="lg:col-span-7">
-              <div className="bg-neo-surface border border-neo-ink shadow-neo p-6 sm:p-8">
-                <div className="mb-6 pb-3 border-b border-neo-ink/20">
-                  <span className="lbl lbl-lime text-[10px] px-2 py-0.5 inline-block mb-1">
-                    LAYANAN PERSURATAN
-                  </span>
-                  <h2 className="font-serif font-bold text-xl sm:text-2xl text-neo-ink">
-                    Form Pengaduan & Layanan Tata Usaha
-                  </h2>
+            {/* Kolom Kanan: Form Pengaduan & Layanan */}
+            <div className="contact-form-card">
+              <h2 className="card-heading">Kirim pesan ke tata usaha</h2>
+
+              {submittedTicket ? (
+                <div className="bg-neo-bg border-2 border-neo-ink rounded-md p-6 text-center space-y-4 shadow-neo-sm">
+                  <span className="lbl lbl-lime inline-block">PESAN TERKIRIM</span>
+                  <h3 className="font-serif font-bold text-xl text-neo-ink">
+                    Laporan Berhasil Diterima
+                  </h3>
+                  <p className="text-xs text-neo-ink-2 max-w-md mx-auto leading-relaxed">
+                    Pesan Anda telah dicatat oleh sistem administrasi persuratan SMAN 1 Klaten.
+                  </p>
+
+                  <div className="bg-neo-surface border border-dashed border-neo-ink p-4 max-w-sm mx-auto text-left font-mono text-xs space-y-2">
+                    <div className="flex justify-between border-b border-neo-ink/10 pb-1.5">
+                      <span className="text-neo-ink-3">Nomor Tiket:</span>
+                      <strong className="text-neo-ink">{submittedTicket.id}</strong>
+                    </div>
+                    <div className="flex justify-between border-b border-neo-ink/10 pb-1.5">
+                      <span className="text-neo-ink-3">Pemohon:</span>
+                      <strong className="text-neo-ink">{submittedTicket.name}</strong>
+                    </div>
+                    <div className="flex justify-between border-b border-neo-ink/10 pb-1.5">
+                      <span className="text-neo-ink-3">Kategori:</span>
+                      <strong className="text-neo-ink">{categoryLabels[submittedTicket.category] || submittedTicket.category}</strong>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-neo-ink-3">Waktu:</span>
+                      <strong className="text-neo-ink">{submittedTicket.timestamp}</strong>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={handleReset}
+                    className="btn btn-secondary text-xs"
+                  >
+                    Kirim Pesan Lainnya →
+                  </button>
                 </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="contact-form">
+                  <div className="form-group">
+                    <label htmlFor="input-name">Nama lengkap *</label>
+                    <input
+                      id="input-name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Nama lengkap pengirim"
+                    />
+                  </div>
 
-                {submittedTicket ? (
-                  <div className="bg-neo-bg border border-neo-ink p-6 text-center space-y-4">
-                    <span className="lbl lbl-lime mb-2 inline-block">TERKIRIM</span>
-                    <h3 className="font-serif font-bold text-xl text-neo-ink mb-1">
-                      Pesan Layanan Berhasil Diterima
-                    </h3>
-                    <p className="text-xs text-neo-ink-2 max-w-md mx-auto leading-relaxed">
-                      Laporan Anda telah dicatat oleh sistem administrasi persuratan SMAN 1 Klaten.
-                    </p>
-
-                    <div className="bg-neo-surface border border-dashed border-neo-ink p-4 max-w-sm mx-auto text-left font-mono text-xs space-y-2">
-                      <div className="flex justify-between border-b border-neo-ink/10 pb-1.5">
-                        <span className="text-neo-ink-3">Nomor Tiket:</span>
-                        <strong className="text-neo-ink">{submittedTicket.id}</strong>
-                      </div>
-                      <div className="flex justify-between border-b border-neo-ink/10 pb-1.5">
-                        <span className="text-neo-ink-3">Pemohon:</span>
-                        <strong className="text-neo-ink">{submittedTicket.name}</strong>
-                      </div>
-                      <div className="flex justify-between border-b border-neo-ink/10 pb-1.5">
-                        <span className="text-neo-ink-3">Kategori:</span>
-                        <strong className="text-neo-ink">{categoryLabels[submittedTicket.category] || submittedTicket.category}</strong>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-neo-ink-3">Waktu:</span>
-                        <strong className="text-neo-ink">{submittedTicket.timestamp}</strong>
-                      </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="form-group">
+                      <label htmlFor="input-contact">Email / No. WhatsApp *</label>
+                      <input
+                        id="input-contact"
+                        type="text"
+                        required
+                        value={formData.contact}
+                        onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                        placeholder="nama@email.com / 08..."
+                      />
                     </div>
 
+                    <div className="form-group">
+                      <label htmlFor="select-category">Keperluan layanan *</label>
+                      <select
+                        id="select-category"
+                        value={formData.category}
+                        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                      >
+                        <option value="ppdb">Informasi PPDB 2026</option>
+                        <option value="akademik">Kurikulum & Peminatan Siswa</option>
+                        <option value="legalisir">Legalisir Ijazah & Layanan Alumni</option>
+                        <option value="sarpras">Pengaduan Sarana Prasarana</option>
+                        <option value="kemitraan">Kemitraan & Studi Banding</option>
+                        <option value="umum">Layanan Informasi Umum</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="input-subject">Subjek pesan</label>
+                    <input
+                      id="input-subject"
+                      type="text"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      placeholder="Contoh: Permohonan Verifikasi Berkas PPDB"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="input-message">Isi pesan atau pertanyaan *</label>
+                    <textarea
+                      id="input-message"
+                      rows={5}
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Tuliskan pertanyaan atau permohonan informasi secara lengkap..."
+                    ></textarea>
+                  </div>
+
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="font-mono text-xs text-neo-ink-3">
+                      Dicatat langsung oleh Tata Usaha SMAN 1 Klaten.
+                    </p>
                     <button
-                      type="button"
-                      onClick={handleReset}
-                      className="btn btn-secondary text-xs"
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="btn btn-primary text-xs w-full sm:w-auto"
                     >
-                      Kirim Pesan Lainnya →
+                      {isSubmitting ? 'Memproses...' : 'Kirim Pesan Sekarang →'}
                     </button>
                   </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <label htmlFor="input-name" className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">
-                        Nama Lengkap *
-                      </label>
-                      <input
-                        id="input-name"
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Contoh: Budi Santoso, S.Pd."
-                        className="w-full bg-neo-bg border border-neo-ink p-2.5 text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:ring-1 focus:ring-neo-ink font-sans"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="input-contact" className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">
-                          Email atau Nomor WA *
-                        </label>
-                        <input
-                          id="input-contact"
-                          type="text"
-                          required
-                          value={formData.contact}
-                          onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                          placeholder="08xxxxxxxxxx"
-                          className="w-full bg-neo-bg border border-neo-ink p-2.5 text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:ring-1 focus:ring-neo-ink font-sans"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="select-category" className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">
-                          Keperluan Layanan *
-                        </label>
-                        <select
-                          id="select-category"
-                          value={formData.category}
-                          onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                          className="w-full bg-neo-bg border border-neo-ink p-2.5 text-sm text-neo-ink focus:outline-none focus:ring-1 focus:ring-neo-ink font-sans"
-                        >
-                          <option value="ppdb">Informasi PPDB 2026</option>
-                          <option value="akademik">Kurikulum & Peminatan Siswa</option>
-                          <option value="legalisir">Legalisir Ijazah & Layanan Alumni</option>
-                          <option value="sarpras">Pengaduan Sarana Prasarana</option>
-                          <option value="kemitraan">Kemitraan, Studi Banding & Riset</option>
-                          <option value="umum">Layanan Informasi Umum</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="input-subject" className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">
-                        Subjek Pesan
-                      </label>
-                      <input
-                        id="input-subject"
-                        type="text"
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        placeholder="Contoh: Jadwal Verifikasi Berkas Jalur Zonasi"
-                        className="w-full bg-neo-bg border border-neo-ink p-2.5 text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:ring-1 focus:ring-neo-ink font-sans"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="input-message" className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">
-                        Isi Pesan / Pengaduan *
-                      </label>
-                      <textarea
-                        id="input-message"
-                        rows={4}
-                        required
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Tuliskan pertanyaan, permohonan informasi, atau rincian pengaduan Anda secara jelas..."
-                        className="w-full bg-neo-bg border border-neo-ink p-2.5 text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:ring-1 focus:ring-neo-ink font-sans resize-y"
-                      ></textarea>
-                    </div>
-
-                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-                      <p className="font-mono text-xs text-neo-ink-3">
-                        Pesan dicatat resmi oleh Tata Usaha SMAN 1 Klaten.
-                      </p>
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="btn btn-primary text-xs w-full sm:w-auto"
-                      >
-                        {isSubmitting ? 'Memproses...' : 'Kirim Pesan Sekarang ➔'}
-                      </button>
-                    </div>
-                  </form>
-                )}
-              </div>
+                </form>
+              )}
             </div>
           </div>
         </div>
       </section>
 
       {/* 3. Peta Lokasi */}
-      <section className="py-12 sm:py-16 bg-neo-surface">
+      <section className="contact-map-sec sec sec-flush" id="peta-lokasi">
         <div className="container">
-          <div className="mb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+          <div className="map-header">
             <div>
-              <span className="lbl lbl-lime text-[10px] px-2 py-0.5 inline-block mb-1">
-                PETA KOORDINAT
-              </span>
-              <h2 className="font-serif font-bold text-2xl text-neo-ink">
-                Lokasi Geografis SMAN 1 Klaten
-              </h2>
+              <p className="lbl">Peta koordinat</p>
+              <h2 className="section-heading mb-0">Lokasi geografis SMAN 1 Klaten</h2>
             </div>
             <a
               href="https://maps.google.com/?q=SMA+Negeri+1+Klaten"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary text-xs"
+              className="map-btn"
             >
               Buka di Google Maps ↗
             </a>
           </div>
 
-          <div className="border border-neo-ink shadow-neo-sm overflow-hidden aspect-[16/9] md:aspect-[21/9] bg-neo-surface-2">
+          <div className="map-frame">
             <iframe
               title="Peta Lokasi SMA Negeri 1 Klaten"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.5134107147754!2d110.59897037594553!3d-7.712613576403912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a44136bc73901%3A0xc07ce9fa699131e5!2sSMA%20Negeri%201%20Klaten!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
@@ -371,16 +290,16 @@ export const KontakPage: FC = () => {
             ></iframe>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-            <div className="bg-neo-bg border border-neo-ink p-4">
+          <div className="map-meta-grid">
+            <div className="map-meta-card">
               <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-1">Koordinat GPS</span>
               <p className="font-mono text-xs text-neo-ink-2">Lintang: -7.7126° S · Bujur: 110.5990° E</p>
             </div>
-            <div className="bg-neo-bg border border-neo-ink p-4">
+            <div className="map-meta-card">
               <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-1">Kecamatan & Kode Pos</span>
               <p className="font-mono text-xs text-neo-ink-2">Kecamatan Klaten Selatan · 57423</p>
             </div>
-            <div className="bg-neo-bg border border-neo-ink p-4">
+            <div className="map-meta-card">
               <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-1">Status Bangunan</span>
               <p className="font-mono text-xs text-neo-ink-2">Cagar Budaya Resmi Sejak 1957</p>
             </div>

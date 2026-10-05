@@ -11,15 +11,15 @@ export interface AlumniPageProps {
   items?: AlumniItem[];
 }
 
-const regionalChapters = [
-  { region: 'Pengda Jabodetabek', scope: 'DKI Jakarta, Bogor, Depok, Tangerang, Bekasi', contact: 'kapasska.jabodetabek@sma1klaten.sch.id' },
-  { region: 'Pengda Solo Raya & DIY', scope: 'Klaten, Surakarta, Sleman, Yogyakarta', contact: 'kapasska.soloraya@sma1klaten.sch.id' },
-  { region: 'Pengda Jawa Timur', scope: 'Surabaya, Malang, Sidoarjo, dan sekitarnya', contact: 'kapasska.jatim@sma1klaten.sch.id' },
-  { region: 'Pengda Jawa Barat', scope: 'Bandung Raya, Cirebon, Sukabumi', contact: 'kapasska.jabar@sma1klaten.sch.id' },
-  { region: 'Komisariat Diaspora', scope: 'Luar Pulau Jawa & Mancanegara', contact: 'kapasska.global@sma1klaten.sch.id' },
+const REGIONAL_CHAPTERS = [
+  { name: 'Pengda Jabodetabek', desc: 'Mencakup DKI Jakarta, Bogor, Depok, Tangerang, dan Bekasi.', badge: 'Jabodetabek' },
+  { name: 'Pengda Solo Raya & DIY', desc: 'Pusat temu alumni wilayah Klaten, Surakarta, Sleman, dan Yogyakarta.', badge: 'Jateng-DIY' },
+  { name: 'Pengda Jawa Timur', desc: 'Komunitas alumni di Surabaya, Malang, dan sekitarnya.', badge: 'Jatim' },
+  { name: 'Pengda Jawa Barat', desc: 'Jejaring civitas perguruan tinggi dan korporasi Bandung & sekitarnya.', badge: 'Jabar' },
+  { name: 'Komisariat Diaspora', desc: 'Alumni yang bertugas di luar pulau Jawa dan mancanegara.', badge: 'Diaspora' },
 ];
 
-export default function AlumniPage({ items = [] }: AlumniPageProps) {
+export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
   const [formData, setFormData] = useState({
     name: '',
     graduationYear: '',
@@ -29,7 +29,7 @@ export default function AlumniPage({ items = [] }: AlumniPageProps) {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.graduationYear.trim() || !formData.phone.trim()) {
       return;
@@ -38,72 +38,92 @@ export default function AlumniPage({ items = [] }: AlumniPageProps) {
   };
 
   return (
-    <div className="bg-neo-bg text-neo-ink">
-      {/* 1. Page Header (Editorial) */}
-      <section className="py-12 sm:py-16 border-b border-neo-ink bg-neo-bg">
+    <div className="alumni-page-wrapper">
+      {/* 1. Hero Section */}
+      <section className="alumni-hero">
         <div className="container">
-          <span className="lbl lbl-lime mb-3 inline-block">KAPASSKA · KELUARGA ALUMNI</span>
-          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neo-ink mb-4 max-w-3xl leading-[1.15]">
-            Jejaring Alumni SMAN 1 Klaten
-          </h1>
-          <p className="text-neo-ink-2 text-base sm:text-lg leading-relaxed max-w-2xl mb-8">
-            Keluarga Alumni Padmawijaya SMAN 1 Klaten (KAPASSKA) menghimpun lebih dari 69 angkatan alumni sejak 1957 yang berkiprah di kepemimpinan nasional, perguruan tinggi, kedokteran, korporasi, dan lembaga negara.
-          </p>
+          <div className="hero-card brutal-card">
+            <div className="hero-top">
+              <span className="lbl lbl-lime">KAPASSKA · SEJAK 1957</span>
+              <span className="lbl lbl-cyan">69 ANGKATAN ALUMNI</span>
+            </div>
+            <h1 className="hero-title">
+              Keluarga Alumni <em>Padmawijaya</em> SMA Negeri 1 Klaten
+            </h1>
+            <p className="hero-lede">
+              Wadah persaudaraan dan sinergi puluhan ribu lulusan SMAN 1 Klaten yang berkarya di kancah nasional, memimpin perguruan tinggi, korps diplomatik, lembaga negara, perbankan, riset sains, hingga kewirausahaan global.
+            </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl pt-8 mt-8 border-t border-neo-ink">
-            <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">10.000+</span>
-              <span className="font-mono text-xs text-neo-ink-3 uppercase">Alumni Terdata</span>
-            </div>
-            <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">1957</span>
-              <span className="font-mono text-xs text-neo-ink-3 uppercase">Angkatan Perdana</span>
-            </div>
-            <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">69</span>
-              <span className="font-mono text-xs text-neo-ink-3 uppercase">Generasi Lulusan</span>
-            </div>
-            <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">5</span>
-              <span className="font-mono text-xs text-neo-ink-3 uppercase">Pengurus Wilayah</span>
+            <div className="stats-row">
+              <div className="stat-pill">
+                <span className="stat-num">10.000+</span>
+                <span className="stat-lbl">Alumni Tersebar</span>
+              </div>
+              <div className="stat-pill">
+                <span className="stat-num">1957</span>
+                <span className="stat-lbl">Tahun Angkatan Perdana</span>
+              </div>
+              <div className="stat-pill">
+                <span className="stat-num">5 Wilayah</span>
+                <span className="stat-lbl">Pengurus Daerah</span>
+              </div>
+              <div className="stat-pill stat-accent">
+                <span className="stat-num">Rp 18 Juta</span>
+                <span className="stat-lbl">Beasiswa Angkatan 1976 (2026)</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Tokoh Alumni Nasional */}
-      <section className="py-12 sm:py-16 border-b border-neo-ink">
+      {/* 2. Tokoh Alumni Berprestasi */}
+      <section className="sec" id="tokoh-alumni">
         <div className="container">
-          <div className="mb-8">
-            <span className="lbl lbl-lime mb-2 inline-block">TOKOH KEHORMATAN</span>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neo-ink">Alumni yang Berkiprah Nasional</h2>
-            <p className="text-neo-ink-2 text-sm sm:text-base mt-1 max-w-xl">
-              Dedikasi alumni SMAN 1 Klaten pada sektor pendidikan tinggi, perbankan, kesehatan, dan pemerintahan.
+          <div className="section-heading">
+            <span className="lbl lbl-magenta">REKAM JEJAK KARYA</span>
+            <h2 className="title-heading">Tokoh Alumni di Tingkat Nasional</h2>
+            <p className="desc-heading">
+              Profil figur publik lulusan SMAN 1 Klaten yang mendedikasikan keilmuan dan kepemimpinan bagi kemajuan bangsa.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {items.map((alumnus) => (
               <article
+                className="bg-neo-surface border-2 border-neo-ink rounded-md shadow-neo p-6 flex flex-col justify-between hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-lg transition-all h-full"
                 key={alumnus.id}
-                className="bg-neo-surface border border-neo-ink shadow-neo-sm p-5 flex flex-col justify-between hover:shadow-neo transition-all"
               >
-                <div>
-                  <div className="flex items-center gap-4 mb-4">
-                    <img
-                      src={alumnus.image}
-                      alt={`Potret ${alumnus.name}`}
-                      className="w-16 h-16 object-cover object-top border border-neo-ink rounded-none shrink-0 bg-neo-surface-2"
-                      loading="lazy"
-                    />
-                    <div>
-                      <span className="lbl lbl-lime text-[10px] px-2 py-0.5 inline-block mb-1">Padmawijaya</span>
-                      <h3 className="font-sans font-bold text-base text-neo-ink leading-snug">{alumnus.name}</h3>
+                <div className="flex flex-col h-full justify-between">
+                  <div>
+                    <div className="flex items-center gap-4 mb-4 pb-4 border-b border-neo-ink/15">
+                      <div className="w-16 h-16 rounded-full border-2 border-neo-ink shadow-neo-sm overflow-hidden shrink-0 bg-neo-surface-2">
+                        <img
+                          src={alumnus.image}
+                          alt={`Foto ${alumnus.name}`}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                          width={64}
+                          height={64}
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="inline-block font-mono text-[10px] font-extrabold uppercase bg-neon-yellow text-neo-ink border border-neo-ink px-2 py-0.5 shadow-[1.5px_1.5px_0px_#111418] mb-1.5">
+                          Alumni SMANSA
+                        </span>
+                        <h3 className="font-serif font-bold text-base text-neo-ink leading-snug line-clamp-2">
+                          {alumnus.name}
+                        </h3>
+                      </div>
                     </div>
+                    <p className="text-xs sm:text-sm text-neo-ink-2 leading-relaxed">
+                      {alumnus.designation}
+                    </p>
                   </div>
-                  <p className="text-neo-ink-2 text-xs sm:text-sm leading-relaxed border-t border-neo-ink/20 pt-3">
-                    {alumnus.designation}
-                  </p>
+
+                  <div className="mt-6 pt-3 border-t border-neo-ink/15 flex items-center justify-between text-xs font-mono text-neo-ink-3">
+                    <span>KAPASSKA Klaten</span>
+                    <span className="font-bold text-neo-ink">Tingkat Nasional</span>
+                  </div>
                 </div>
               </article>
             ))}
@@ -111,165 +131,190 @@ export default function AlumniPage({ items = [] }: AlumniPageProps) {
         </div>
       </section>
 
-      {/* 3. Program Kepedulian & Beasiswa 1976 */}
-      <section className="py-12 sm:py-16 border-b border-neo-ink bg-neo-surface-2">
+      {/* 3. Program Beasiswa & Bakti Almamater */}
+      <section className="sec sec-flush" style={{ background: 'var(--neo-surface-2)', padding: 'clamp(56px, 8vw, 88px) 0' }} id="beasiswa">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-7">
-              <span className="lbl lbl-lime mb-2 inline-block">SOLIDARITAS ALUMNI</span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-neo-ink mb-4">
-                Beasiswa Pendidikan Angkatan 1976
-              </h2>
-              <p className="text-neo-ink-2 text-sm sm:text-base leading-relaxed mb-4">
-                Wujud nyata kepedulian lintas generasi alumni KAPASSKA dalam menyokong pendidikan adik-adik siswa di almamater. Dana bantuan disalurkan langsung secara transparan untuk membiayai kelengkapan belajar siswa berprestasi.
-              </p>
-              <div className="flex flex-wrap gap-4 text-xs font-mono text-neo-ink-2">
-                <span>• Penyerahan: 18 September 2026</span>
-                <span>• Penerima: 12 Siswa Berprestasi</span>
-                <span>• Pengelola: Komite Beasiswa KAPASSKA</span>
+          <div className="section-heading">
+            <span className="lbl lbl-lime">KEPEDULIAN SOSIAL</span>
+            <h2 className="title-heading">Program Beasiswa & Bakti Almamater</h2>
+            <p className="desc-heading">
+              Aksi nyata alumni KAPASSKA dalam mendukung keberlangsungan studi adik-adik siswa dan kemajuan fasilitas almamater.
+            </p>
+          </div>
+
+          <div className="program-grid">
+            <div className="program-card card">
+              <div className="program-header">
+                <span className="lbl lbl-yellow" style={{ marginBottom: 0 }}>Beasiswa Aktif</span>
+                <span className="program-date">18 September 2026</span>
               </div>
+              <h3 className="program-title">Beasiswa Pendidikan Angkatan 1976</h3>
+              <div className="program-amount">Rp 18.000.000,-</div>
+              <p className="program-desc">
+                Bantuan dana pendidikan disalurkan langsung kepada 12 siswa aktif SMAN 1 Klaten yang berprestasi dan membutuhkan dukungan biaya sekolah.
+              </p>
             </div>
 
-            <div className="lg:col-span-5 bg-neo-surface border border-neo-ink shadow-neo p-6 sm:p-8">
-              <span className="font-mono text-xs text-neo-ink-3 uppercase block mb-1">Total Dana Disalurkan</span>
-              <span className="font-serif text-3xl sm:text-4xl font-bold text-neo-ink block mb-4">
-                Rp 18.000.000,-
-              </span>
-              <p className="text-xs text-neo-ink-2 leading-relaxed border-t border-neo-ink/20 pt-3">
-                Diserahkan pada silaturahmi akbar alumni di aula SMA Negeri 1 Klaten untuk memastikan tidak ada siswa berprestasi yang terkendala biaya sekolah.
+            <div className="program-card card">
+              <div className="program-header">
+                <span className="lbl lbl-cyan" style={{ marginBottom: 0 }}>Edukasi</span>
+                <span className="program-date">Setiap Semester Genap</span>
+              </div>
+              <h3 className="program-title">Mentoring Karier & Masuk PTN</h3>
+              <div className="program-amount">Sharing Rutin</div>
+              <p className="program-desc">
+                Sesi kuliah tamu dan bedah jurusan langsung bersama alumni yang berkuliah di UGM, ITB, UI, UNS, serta profesional industri terkemuka.
+              </p>
+            </div>
+
+            <div className="program-card card">
+              <div className="program-header">
+                <span className="lbl lbl-magenta" style={{ color: '#fff', marginBottom: 0 }}>Pengabdian</span>
+                <span className="program-date">Tahunan</span>
+              </div>
+              <h3 className="program-title">Bakti Almamater & Fasilitas</h3>
+              <div className="program-amount">Penguatan Sarpras</div>
+              <p className="program-desc">
+                Dukungan fasilitas laboratorium komputer, digitalisasi arsip sekolah, serta penunjang riset astronomi dan olimpiade sains nasional.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Pengurus Daerah & Pendataan Alumni */}
-      <section className="py-12 sm:py-16">
+      {/* 4. Jejaring Pengurus Daerah & Form Pendaftaran */}
+      <section className="sec" id="jejaring-kapasska">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            {/* Pengurus Wilayah */}
-            <div className="lg:col-span-6">
-              <div className="mb-6">
-                <span className="lbl lbl-lime mb-2 inline-block">JARINGAN WILAYAH</span>
-                <h2 className="font-serif text-2xl font-bold text-neo-ink">Pengurus Daerah KAPASSKA</h2>
-                <p className="text-neo-ink-2 text-sm mt-1">
-                  Kontak koordinator komisariat alumni di berbagai wilayah domisili.
-                </p>
-              </div>
+          <div className="network-layout">
+            {/* Kolom Kiri: Pengurus Daerah */}
+            <div className="network-left">
+              <span className="lbl lbl-lime">KOMISARIAT WILAYAH</span>
+              <h2 className="title-heading">Jejaring Pengurus Daerah KAPASSKA</h2>
+              <p className="desc-heading" style={{ marginBottom: '24px' }}>
+                Terhubung dengan sesama alumni di kota domisili Anda untuk kolaborasi karier, wirausaha, dan silaturahmi.
+              </p>
 
-              <div className="space-y-3">
-                {regionalChapters.map((ch, idx) => (
-                  <div key={idx} className="bg-neo-surface border border-neo-ink shadow-neo-sm p-4">
-                    <h3 className="font-sans font-bold text-sm text-neo-ink mb-1">{ch.region}</h3>
-                    <p className="text-xs text-neo-ink-2 mb-2">{ch.scope}</p>
-                    <span className="font-mono text-xs text-neo-ink-3">{ch.contact}</span>
+              <div className="chapters-list">
+                {REGIONAL_CHAPTERS.map((ch) => (
+                  <div className="chapter-item card" key={ch.name}>
+                    <div className="chapter-badge num">{ch.badge}</div>
+                    <div className="chapter-info">
+                      <h4 className="chapter-name">{ch.name}</h4>
+                      <p className="chapter-desc">{ch.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Form Pendataan */}
-            <div className="lg:col-span-6">
-              <div className="mb-6">
-                <span className="lbl lbl-lime mb-2 inline-block">FORMULIR ONLINE</span>
-                <h2 className="font-serif text-2xl font-bold text-neo-ink">Pembaruan Data Alumni</h2>
-                <p className="text-neo-ink-2 text-sm mt-1">
-                  Bantu almamater memperbarui direktori alumni untuk kemitraan, bursa karier, dan silaturahmi.
-                </p>
-              </div>
-
-              {isSubmitted ? (
-                <div className="bg-neo-surface border border-neo-ink shadow-neo p-6 text-center">
-                  <span className="lbl lbl-lime mb-2 inline-block">DATA TERSIMPAN</span>
-                  <h3 className="font-serif text-xl font-bold text-neo-ink mb-2">Terima Kasih, Rekan Alumni!</h3>
-                  <p className="text-xs text-neo-ink-2 mb-4 leading-relaxed">
-                    Data Anda telah masuk ke dalam basis data sekretariat KAPASSKA SMA Negeri 1 Klaten.
+            {/* Kolom Kanan: Form Pendaftaran Direktori Alumni */}
+            <div className="network-right">
+              <div className="form-card card">
+                <div className="form-top">
+                  <span className="lbl lbl-yellow">DATABASE RESMI</span>
+                  <h3 className="form-title">Pembaruan Data Alumni</h3>
+                  <p className="form-desc">
+                    Bantu sekretariat KAPASSKA memetakan potensi alumni dengan memperbarui data kontak dan profesi Anda.
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setFormData({ name: '', graduationYear: '', phone: '', profession: '', city: '' });
-                      setIsSubmitted(false);
-                    }}
-                    className="btn btn-secondary text-xs"
-                  >
-                    Kirim Data Lain
-                  </button>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="bg-neo-surface border border-neo-ink shadow-neo p-6 space-y-4">
-                  <div>
-                    <label className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">Nama Lengkap *</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Contoh: Budi Prasetyo, S.T."
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-neo-bg border border-neo-ink px-3 py-2 text-sm text-neo-ink focus:outline-none focus:ring-1 focus:ring-neo-ink"
-                    />
-                  </div>
 
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">Tahun Lulus *</label>
+                {isSubmitted ? (
+                  <div className="p-6 bg-neo-bg border border-neo-ink text-center">
+                    <span className="lbl lbl-lime mb-2 inline-block">TERCATAT</span>
+                    <h4 className="font-serif text-lg font-bold text-neo-ink mb-2">Terima Kasih, Rekan Alumni!</h4>
+                    <p className="text-xs text-neo-ink-2 mb-4 leading-relaxed">
+                      Data Anda telah berhasil disimpan dalam basis data resmi KAPASSKA SMA Negeri 1 Klaten.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setIsSubmitted(false)}
+                      className="btn btn-secondary text-xs"
+                    >
+                      Kirim Data Lain
+                    </button>
+                  </div>
+                ) : (
+                  <form className="alumni-form" onSubmit={handleSubmit}>
+                    <div className="field-group">
+                      <label htmlFor="f-name" className="field-label">Nama Lengkap & Gelar</label>
                       <input
+                        id="f-name"
                         type="text"
+                        className="field-input"
+                        placeholder="contoh: Budi Santoso, S.T., M.T."
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         required
-                        placeholder="Contoh: 1998"
-                        value={formData.graduationYear}
-                        onChange={(e) => setFormData({ ...formData, graduationYear: e.target.value })}
-                        className="w-full bg-neo-bg border border-neo-ink px-3 py-2 text-sm text-neo-ink focus:outline-none focus:ring-1 focus:ring-neo-ink"
                       />
                     </div>
-                    <div>
-                      <label className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">Nomor Kontak/WA *</label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="08xxxxxxxxxx"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-neo-bg border border-neo-ink px-3 py-2 text-sm text-neo-ink focus:outline-none focus:ring-1 focus:ring-neo-ink"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">Profesi / Instansi</label>
+                    <div className="form-row">
+                      <div className="field-group">
+                        <label htmlFor="f-year" className="field-label">Tahun Kelulusan</label>
+                        <input
+                          id="f-year"
+                          type="number"
+                          min="1957"
+                          max="2026"
+                          className="field-input num"
+                          placeholder="contoh: 2015"
+                          value={formData.graduationYear}
+                          onChange={(e) => setFormData({ ...formData, graduationYear: e.target.value })}
+                          required
+                        />
+                      </div>
+                      <div className="field-group">
+                        <label htmlFor="f-phone" className="field-label">Nomor WhatsApp</label>
+                        <input
+                          id="f-phone"
+                          type="tel"
+                          className="field-input num"
+                          placeholder="08xxxxxxxxxx"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="field-group">
+                      <label htmlFor="f-job" className="field-label">Profesi / Instansi / Tempat Kerja</label>
                       <input
+                        id="f-job"
                         type="text"
-                        placeholder="Pekerjaan / Perusahaan"
+                        className="field-input"
+                        placeholder="contoh: Dosen Teknik UGM / CEO PT ..."
                         value={formData.profession}
                         onChange={(e) => setFormData({ ...formData, profession: e.target.value })}
-                        className="w-full bg-neo-bg border border-neo-ink px-3 py-2 text-sm text-neo-ink focus:outline-none focus:ring-1 focus:ring-neo-ink"
+                        required
                       />
                     </div>
-                    <div>
-                      <label className="block font-mono text-xs font-bold uppercase text-neo-ink mb-1">Kota Domisili</label>
+
+                    <div className="field-group">
+                      <label htmlFor="f-city" className="field-label">Kota Domisili Saat Ini</label>
                       <input
+                        id="f-city"
                         type="text"
-                        placeholder="Kota saat ini"
+                        className="field-input"
+                        placeholder="contoh: Jakarta Selatan / Yogyakarta"
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        className="w-full bg-neo-bg border border-neo-ink px-3 py-2 text-sm text-neo-ink focus:outline-none focus:ring-1 focus:ring-neo-ink"
+                        required
                       />
                     </div>
-                  </div>
 
-                  <button
-                    type="submit"
-                    className="w-full btn btn-primary text-xs py-2.5 mt-2"
-                  >
-                    Simpan ke Direktori Alumni →
-                  </button>
-                </form>
-              )}
+                    <button type="submit" className="btn btn-primary submit-btn">
+                      Simpan Data Alumni →
+                    </button>
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </section>
     </div>
   );
-}
+};
+
+export default AlumniPage;

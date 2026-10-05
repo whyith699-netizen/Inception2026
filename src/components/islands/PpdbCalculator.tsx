@@ -54,7 +54,7 @@ export default function PpdbCalculator() {
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
               color: 'var(--neo-ink)',
-              background: 'var(--neon-yellow)',
+              background: 'var(--neon-lime)',
               border: '1px solid var(--neo-ink)',
               boxShadow: '2px 2px 0px var(--neo-ink)',
               padding: '2px 8px',
@@ -62,7 +62,7 @@ export default function PpdbCalculator() {
               marginBottom: '6px',
             }}
           >
-            Pulau Interaktif &middot; client:visible
+            SIMULASI MANDIRI PPDB
           </span>
           <h3
             style={{
@@ -208,19 +208,15 @@ export default function PpdbCalculator() {
               style={{
                 margin: '8px 0',
                 fontSize: '1.0625rem',
-                fontWeight: 600,
-                color: isZonasiSafe
-                  ? 'var(--dot-on-accent)'
-                  : isZonasiCompetitive
-                  ? 'var(--accent)'
-                  : 'var(--ink-3)',
+                fontWeight: 700,
+                color: 'var(--neo-ink)',
               }}
             >
               {isZonasiSafe
-                ? 'Prioritas Tinggi (Zona 1 Aman)'
+                ? '✓ Prioritas Tinggi (Zona 1 Aman)'
                 : isZonasiCompetitive
-                ? 'Zona Kompetitif (Mendekati Batas Kuota)'
-                : 'Di Luar Radius Historis Utama'}
+                ? '• Zona Kompetitif (Mendekati Batas Kuota)'
+                : '× Di Luar Radius Historis Utama'}
             </div>
             <p
               style={{
@@ -348,8 +344,8 @@ export default function PpdbCalculator() {
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '2rem',
-                fontWeight: 700,
-                color: isPrestasiSafe ? 'var(--dot-on-accent)' : 'var(--accent)',
+                fontWeight: 800,
+                color: 'var(--neo-ink)',
                 margin: '4px 0 8px',
                 fontVariantNumeric: 'tabular-nums',
               }}
