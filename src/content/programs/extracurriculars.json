@@ -1,0 +1,165 @@
+{
+  "items": [
+    {
+      "id": "osmansa",
+      "name": "OSMANSA",
+      "category": "Kepemimpinan",
+      "desc": "Organisasi Siswa Intra Sekolah (OSIS) resmi SMA Negeri 1 Klaten yang menggerakkan kegiatan kesiswaan dan kepemimpinan.",
+      "logo": "/images/logoekstra/Osmansa.png"
+    },
+    {
+      "id": "mpk",
+      "name": "MPK",
+      "category": "Kepemimpinan",
+      "desc": "Majelis Permusyawaratan Kelas yang bergerak dalam ranah legislatif, evaluasi, dan aspirasi siswa di SMAN 1 Klaten.",
+      "logo": "/images/logoekstra/MPK.png"
+    },
+    {
+      "id": "dewan-ambalan",
+      "name": "Dewan Ambalan",
+      "category": "Kepemimpinan",
+      "desc": "Ambalan Diponegoro - Dewi Sartika, pramuka tingkat Penegak untuk membangun karakter tangguh dan jiwa kepemimpinan.",
+      "logo": "/images/logoekstra/DewanAmbalanNew.png"
+    },
+    {
+      "id": "prata",
+      "name": "PRATA",
+      "category": "Kepemimpinan",
+      "desc": "Pratiyodha Paramita, organisasi Pasukan Pengibar Bendera (Paskibra) berdisiplin tinggi di SMAN 1 Klaten.",
+      "logo": "/images/logoekstra/prata.png"
+    },
+    {
+      "id": "emapal",
+      "name": "EMAPAL",
+      "category": "Kepecintaalaman",
+      "desc": "Emansipasi Pecinta Alam, wadah kesiswaan yang berfokus pada konservasi lingkungan, penjelajahan alam, dan kepedulian ekologis.",
+      "logo": "/images/logoekstra/Emapala.png"
+    },
+    {
+      "id": "romansa",
+      "name": "ROMANSA",
+      "category": "Kerohanian",
+      "desc": "Organisasi Rohani Islam SMAN 1 Klaten sebagai pusat pembinaan iman, ukhuwah, dan kajian keislaman di lingkungan sekolah.",
+      "logo": "/images/logoekstra/Romansa.png"
+    },
+    {
+      "id": "persik",
+      "name": "PERSIK",
+      "category": "Kerohanian",
+      "desc": "Organisasi Rohani Kristen SMAN 1 Klaten yang mewadahi persekutuan doa dan penguatan nilai kasih bagi siswa Kristiani.",
+      "logo": "/images/logoekstra/Persik.png"
+    },
+    {
+      "id": "perkasa",
+      "name": "PERKASA",
+      "category": "Kerohanian",
+      "desc": "Organisasi Rohani Katolik SMAN 1 Klaten sebagai wadah pembinaan iman, perayaan ekaristi pelajar, dan persaudaraan sejati.",
+      "logo": "/images/logoekstra/Perkasa.png"
+    },
+    {
+      "id": "sakla-music",
+      "name": "Sakla Music",
+      "category": "Kesenian",
+      "desc": "Komunitas band dan kreasi musik modern siswa SMAN 1 Klaten yang aktif tampil di festival dan acara sekolah.",
+      "logo": "/images/logoekstra/SaklaMusic.png"
+    },
+    {
+      "id": "sakla-voice",
+      "name": "Sakla Voice",
+      "category": "Kesenian",
+      "desc": "Paduan suara resmi SMAN 1 Klaten dengan harmonisasi vokal klasik hingga pop kontemporer peraih prestasi.",
+      "logo": "/images/logoekstra/SaklaVoice.png"
+    },
+    {
+      "id": "juju",
+      "name": "JUJU",
+      "category": "Jurnalistik",
+      "desc": "Junior Jurnalistik yang berperan dalam penerbitan majalah sekolah, reportase berita, jurnalisme investigatif, dan sastra.",
+      "logo": "/images/logoekstra/JujuNew.png"
+    },
+    {
+      "id": "kir",
+      "name": "KIR",
+      "category": "Sains & Riset",
+      "desc": "Kelompok Ilmiah Remaja yang berfokus pada metodologi penelitian ilmiah, penulisan karya tulis ilmiah, dan inovasi sains.",
+      "logo": "/images/logoekstra/KIR.png"
+    },
+    {
+      "id": "futsal",
+      "name": "Futsal Padmawijaya",
+      "category": "Olahraga",
+      "desc": "Komunitas olahraga futsal yang menumbuhkan sportivitas, ketahanan fisik, dan strategi permainan tim yang solid.",
+      "logo": "/images/logoekstra/Futsal.png"
+    },
+    {
+      "id": "eagles",
+      "name": "Smansa Eagles",
+      "category": "Olahraga",
+      "desc": "Klub bola basket kebanggaan SMAN 1 Klaten yang konsisten berlaga dan meraih piala di ajang DBL Central Java Series.",
+      "logo": "/images/logoekstra/eagles.png"
+    },
+    {
+      "id": "recsa",
+      "name": "RECSA",
+      "category": "Kemanusiaan",
+      "desc": "Red Cross of SMANSA (PMR Wira) yang terlatih dalam pertolongan pertama, donor darah, dan kesiapsiagaan bencana.",
+      "logo": "/images/logoekstra/Recsa.png"
+    },
+    {
+      "id": "ec",
+      "name": "EC (English Club)",
+      "category": "Bahasa",
+      "desc": "Komunitas bahasa Inggris untuk mengasah kemahiran speech, story telling, debat, dan persiapan kompetisi Model UN.",
+      "logo": "/images/logoekstra/EC.png"
+    },
+    {
+      "id": "sparkle",
+      "name": "Sparkle",
+      "category": "Kesenian",
+      "desc": "Komunitas tari modern dan tradisional dance club yang mengombinasikan koreografi energik dan apresiasi budaya nusantara.",
+      "logo": "/images/logoekstra/Sparkle.png"
+    },
+    {
+      "id": "tsl",
+      "name": "TSL (Teater Sapu Lidi)",
+      "category": "Kesenian",
+      "desc": "Kelompok teater dan seni pertunjukan peran yang telah lama mengharumkan nama sekolah lewat pementasan drama bermakna.",
+      "logo": "/images/logoekstra/TSL.png"
+    },
+    {
+      "id": "secure",
+      "name": "SECURE",
+      "category": "Teknologi",
+      "desc": "SMANSA Educational, Computing, and Research di bidang teknologi informasi, pemrograman komputer, dan riset digital.",
+      "logo": "/images/logoekstra/Secure.png"
+    },
+    {
+      "id": "daco",
+      "name": "DACO",
+      "category": "Seni Rupa",
+      "desc": "Drawing Art Community untuk mengembangkan minat dan bakat siswa dalam seni lukis, ilustrasi grafis, sketsa, dan desain visual.",
+      "logo": "/images/logoekstra/DACO.png"
+    },
+    {
+      "id": "icomsa",
+      "name": "Icomsa",
+      "category": "Teknologi",
+      "desc": "Komunitas teknologi dan robotika yang mempelajari mekanika mikrokontroler, otomasi, dan rekayasa cerdas.",
+      "logo": "/images/logoekstra/Icomsa.png"
+    },
+    {
+      "id": "snapshot",
+      "name": "SNAPSHOT",
+      "category": "Media & Kreatif",
+      "desc": "Ekstrakurikuler fotografi, videografi, dan video editing yang mendokumentasikan seluruh momen berharga kehidupan sekolah.",
+      "logo": "/images/logoekstra/SnapshotNew.png"
+    },
+    {
+      "id": "hadroh",
+      "name": "Al-Zamartanabil",
+      "category": "Kesenian",
+      "desc": "Komunitas kesenian musik Islami dan hadroh yang membawakan shalawat dan syiar nada dengan ritme rebana adiluhung.",
+      "logo": "/images/logoekstra/Hadroh.png"
+    }
+  ]
+}

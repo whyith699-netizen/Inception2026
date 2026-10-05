@@ -139,7 +139,7 @@ export default function PpdbCalculator() {
                 marginBottom: '8px',
               }}
             >
-              Jarak domisili KK ke Kampus 13 (Jl. Merbabu No. 13):
+              Jarak domisili KK ke SMAN 1 Klaten (Jl. Merbabu No. 13):
             </label>
             <div
               style={{
@@ -231,7 +231,7 @@ export default function PpdbCalculator() {
               }}
             >
               {isZonasiSafe
-                ? 'Jarak tempat tinggal Anda berada dalam radius inti Kampus 13. Peluang penerimaan kuota zonasi sangat tinggi dengan ketentuan KK sah minimal 1 tahun.'
+                ? 'Jarak tempat tinggal Anda berada dalam radius zonasi utama SMAN 1 Klaten. Peluang penerimaan kuota zonasi sangat tinggi dengan ketentuan KK sah minimal 1 tahun.'
                 : isZonasiCompetitive
                 ? 'Jarak tempat tinggal masih berada dalam rentang kuota tahun lalu, namun disarankan menyiapkan alternatif jalur prestasi sebagai proteksi cadangan.'
                 : 'Jarak melampaui batas aman zonasi tahun sebelumnya. Kami menyarankan mendaftar melalui jalur prestasi atau afirmasi.'}

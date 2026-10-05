@@ -1,56 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Programs from '../components/Programs.astro';
-import Curriculum from '../components/Curriculum.astro';
-import EkstrakurikulerGrid from '../components/EkstrakurikulerGrid.astro';
+import Header from '../components/react/Header';
+import Footer from '../components/react/Footer';
+import ProgramPage from '../components/react/pages/ProgramPage';
 ---
 
 <BaseLayout
   title="Akademik dan Ekstrakurikuler | SMA Negeri 1 Klaten"
-  description="Struktur Kurikulum Merdeka, tiga pilar peminatan, empat bidang pengembangan siswa, dan katalog 23 ekstrakurikuler resmi SMAN 1 Klaten."
+  description="Struktur Kurikulum Merdeka, tiga peminatan akademik, dan katalog 23 ekstrakurikuler resmi SMA Negeri 1 Klaten."
 >
-  <Header />
+  <Header client:load currentPath="/program" />
 
   <main id="main-content">
-    <section class="program-hero">
-      <div class="container">
-        <p class="lbl">Akademik dan kesiswaan</p>
-        <h1 class="page-title">Kurikulum Merdeka dan ekosistem minat bakat</h1>
-        <p class="page-lead">
-          Pembelajaran yang menghargai keunikan potensi setiap peserta didik melalui
-          fase eksplorasi, pendalaman rumpun disiplin ilmu, dan pembinaan 23
-          ekstrakurikuler resmi.
-        </p>
-      </div>
-    </section>
-
-    <Programs />
-    <Curriculum />
-    <EkstrakurikulerGrid />
+    <ProgramPage client:load />
   </main>
 
-  <Footer />
+  <Footer client:load />
 </BaseLayout>
-
-<style>
-  .program-hero {
-    padding: clamp(40px, 6vw, 72px) 0 clamp(32px, 5vw, 48px);
-    border-top: 0;
-  }
-
-  .page-title {
-    font-size: clamp(1.9rem, 3.6vw, 2.8rem);
-    font-weight: 500;
-    margin-bottom: 18px;
-    max-width: 24ch;
-  }
-
-  .page-lead {
-    font-size: 1.0625rem;
-    color: var(--ink-2);
-    line-height: 1.7;
-    max-width: 60ch;
-  }
-</style>

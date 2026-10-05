@@ -39,7 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath: propPath }) => {
           </div>
           <div className="brand-text">
             <span className="school-name">SMAN 1 KLATEN</span>
-            <span className="school-alias">Padmawijaya &middot; Kampus 13</span>
+            <span className="school-alias">Padmawijaya &middot; Klaten</span>
           </div>
         </a>
 

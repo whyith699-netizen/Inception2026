@@ -14,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ heroImage = '/images/school/Smansa1.
           <span className="meta-sep" aria-hidden="true">&middot;</span>
           <span className="meta-tag">SMA NEGERI 1 KLATEN</span>
           <span className="meta-sep" aria-hidden="true">&middot;</span>
-          <span className="meta-tag">KAMPUS 13 PADMAWIJAYA</span>
+          <span className="meta-tag">PADMAWIJAYA</span>
           <span className="meta-sep" aria-hidden="true">&middot;</span>
           <span className="meta-coords num">7&deg;42'06.5"S 110&deg;36'09.0"E</span>
         </div>
@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({ heroImage = '/images/school/Smansa1.
         {/* Scroll & Peeking Indicator Pill */}
         <div className="hero-peek-pill" data-reveal="">
           <span className="peek-arrow" aria-hidden="true">&darr;</span>
-          <span>DOKUMENTASI FOTO KAMPUS 13</span>
+          <span>DOKUMENTASI GEDUNG UTAMA</span>
           <span className="peek-arrow" aria-hidden="true">&darr;</span>
         </div>
 
@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ heroImage = '/images/school/Smansa1.
           <div className="frame-border">
             <img
               src={heroImage}
-              alt="Gedung utama Kampus 13 SMA Negeri 1 Klaten di Jalan Merbabu Nomor 13 Klaten Selatan"
+              alt="Gedung utama SMA Negeri 1 Klaten di Jalan Merbabu Nomor 13 Klaten Selatan"
               width={1400}
               height={740}
               loading="eager"
@@ -83,11 +83,11 @@ export const Hero: React.FC<HeroProps> = ({ heroImage = '/images/school/Smansa1.
             />
             <div className="frame-badge">
               <span className="badge-dot" aria-hidden="true"></span>
-              <span>Kampus Rujukan Jawa Tengah &middot; Nilai 98</span>
+              <span>Sekolah Rujukan Jawa Tengah &middot; Nilai 98</span>
             </div>
           </div>
           <figcaption className="hero-caption">
-            <span className="caption-title">Gedung Utama Kampus 13</span>
+            <span className="caption-title">Gedung Utama</span>
             <span className="sep" aria-hidden="true">&middot;</span>
             <span>Jalan Merbabu Nomor 13, Klaten Selatan 57423</span>
             <span className="sep" aria-hidden="true">&middot;</span>

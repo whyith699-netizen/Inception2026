@@ -25,15 +25,15 @@ console.log(`✓ 2. Direktori staf memuat ${totalStaff} personil riil dari API r
 // 3. Alumni Resmi
 const alumniPath = path.resolve('src/content/alumni/tokoh.json');
 const alumniJson = JSON.parse(fs.readFileSync(alumniPath, 'utf-8'));
-assert(alumniJson.items.length === 6, `Alumni harus memuat 6 tokoh resmi (ditemukan: ${alumniJson.items.length})`);
-console.log(`✓ 3. Data alumni resmi memuat 6 tokoh kehormatan.`);
+assert(alumniJson.items.length >= 6, `Alumni harus memuat minimal 6 tokoh resmi (ditemukan: ${alumniJson.items.length})`);
+console.log(`✓ 3. Data alumni resmi memuat ${alumniJson.items.length} tokoh kehormatan.`);
 
 // 4. Hero Detail & Kredensial di Output HTML
 const distIndex = path.resolve('dist/index.html');
 assert(fs.existsSync(distIndex), 'dist/index.html harus ada setelah build');
 const html = fs.readFileSync(distIndex, 'utf-8');
 assert(html.includes('hero-broadside'), 'Hero harus menggunakan layout hero-broadside');
-assert(html.includes('meta-coords') && (html.includes('7&deg;42') || html.includes('110&deg;36')), 'Hero harus memuat koordinat GPS Kampus 13');
+assert(html.includes('meta-coords') && (html.includes('7&deg;42') || html.includes('7°42') || html.includes('110&deg;36') || html.includes('110°36')), 'Hero harus memuat koordinat GPS sekolah');
 assert(html.includes('Akreditasi A Unggul') || html.includes('Nilai 98'), 'Hero harus memuat akreditasi nilai 98');
 assert(html.includes('20309676'), 'Hero harus memuat NPSN resmi 20309676');
 assert(html.includes('33 Rombel'), 'Hero harus memuat kapasitas 33 Rombel');

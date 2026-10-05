@@ -35,7 +35,7 @@ const timelineMilestones = [
 
 const legalRows: [string, string][] = [
   ['Nama resmi', 'SMA Negeri 1 Klaten'],
-  ['Sebutan akrab', 'SMANSA, Padmawijaya, Kampus 13'],
+  ['Sebutan akrab', 'SMANSA, Padmawijaya'],
   ['NPSN', '20309676'],
   ['NSS', '301046002001'],
   ['Tanggal berdiri', '5 November 1957, SK 5620/B/57'],
@@ -56,7 +56,7 @@ export const ProfileSections: React.FC = () => {
             <span className="lbl lbl-lime">SEJARAH DAN IDENTITAS INSTITUSI</span>
             <h2 className="section-heading-lg">Profil SMA Negeri 1 Klaten</h2>
             <p className="section-lead-text">
-              Lebih dari enam dekade berdiri di Kampus 13 Klaten, sekolah ini dibina untuk
+              Lebih dari enam dekade berdiri di Klaten, sekolah ini dibina untuk
               mencetak lulusan yang berakar pada budaya Jawa, luwes dalam sains, dan siap
               bersaing di tingkat nasional.
             </p>
@@ -141,7 +141,7 @@ export const ProfileSections: React.FC = () => {
       <section className="sec history-sec" id="sejarah">
         <div className="container">
           <div className="section-head-badge" data-reveal="">
-            <span className="lbl lbl-lime">PERJALANAN PANJANG KAMPUS 13</span>
+            <span className="lbl lbl-lime">PERJALANAN PANJANG SEJAK 1957</span>
             <h2 className="section-heading">Linimasa Sejarah SMAN 1 Klaten</h2>
           </div>
 

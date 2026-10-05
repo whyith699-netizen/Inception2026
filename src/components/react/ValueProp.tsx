@@ -25,7 +25,7 @@ export const ValueProp: React.FC = () => {
       <div className="container">
         <div className="section-intro" data-reveal="">
           <span className="lbl lbl-lime">SARANA DAN PRASARANA</span>
-          <h2 className="section-heading">Fasilitas Penunjang Belajar di Kampus 13</h2>
+          <h2 className="section-heading">Fasilitas Penunjang Belajar</h2>
         </div>
 
         <div className="prop-grid">

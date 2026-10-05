@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
               />
               <div>
                 <span className="footer-logo">SMANSA<span className="dot">.</span></span>
-                <span className="brand-motto">Padmawijaya • Kampus 13</span>
+                <span className="brand-motto">Padmawijaya &middot; Klaten</span>
               </div>
             </div>
 

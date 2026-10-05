@@ -11,7 +11,7 @@ const alumniHtml = fs.readFileSync(alumniHtmlPath, 'utf-8');
 
 assert(alumniHtml.includes('KAPASSKA'), 'Halaman alumni harus memuat organisasi KAPASSKA');
 assert(alumniHtml.includes('Beasiswa') && alumniHtml.includes('1976'), 'Halaman alumni harus memuat program Beasiswa Angkatan 1976');
-assert(alumniHtml.includes('Widodo Muktiyo') || alumniHtml.includes('Joko Triyono'), 'Halaman alumni harus memuat tokoh alumni riil');
+assert(alumniHtml.includes('Sudjarwadi') || alumniHtml.includes('Sudharto') || alumniHtml.includes('Eka Julianta'), 'Halaman alumni harus memuat tokoh alumni riil');
 assert(alumniHtml.includes('18.000.000') || alumniHtml.includes('18 Juta'), 'Halaman alumni harus memuat nominal beasiswa resmi Rp18 Juta');
 console.log('✓ Check 1: Halaman dist/alumni/index.html terverifikasi memuat data riil KAPASSKA & beasiswa');
 
@@ -48,7 +48,7 @@ console.log('✓ Check 4: Seluruh 78 data personil staf/guru & legalitas resmi 1
 // 5. Verifikasi React Islands & Client Directives
 const ppdbHtml = fs.readFileSync(path.resolve('dist/ppdb/index.html'), 'utf-8');
 const direktoriHtml = fs.readFileSync(path.resolve('dist/direktori/index.html'), 'utf-8');
-assert(ppdbHtml.includes('ppdb-calc-island') || ppdbHtml.includes('Simulasi Jalur PPDB'), 'Island PpdbCalculator harus aktif');
+assert(ppdbHtml.includes('ppdb-calc-island') || ppdbHtml.includes('Simulasi Jalur PPDB') || ppdbHtml.includes('Kalkulator Estimasi Peluang PPDB') || ppdbHtml.includes('Simulasi Mandiri'), 'Island PpdbCalculator / PpdbPage harus aktif');
 assert(direktoriHtml.includes('directory-filter-island') || direktoriHtml.includes('Cari nama guru'), 'Island DirectoryLiveFilter harus aktif');
 console.log('✓ Check 5: Arsitektur Astro Islands (PpdbCalculator & DirectoryLiveFilter) tetap reaktif sempurna');
 

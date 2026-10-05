@@ -1,184 +1,28 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import Header from '../../components/react/Header';
+import Footer from '../../components/react/Footer';
+import BeritaDetailPage from '../../components/react/pages/BeritaDetailPage';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('berita');
-  return posts.map((p) => ({ params: { slug: p.id }, props: { post: p } }));
+  return posts.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
 }
 
-const { post } = Astro.props;
-
-const fmt = (d: Date) =>
-  new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }).format(d);
-
-const all = await getCollection('berita');
-const other = all
-  .filter((p) => p.id !== post.id)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 3);
+const { entry } = Astro.props;
 ---
 
 <BaseLayout
-  title={`${post.data.title} | Berita SMAN 1 Klaten`}
-  description={post.data.excerpt}
+  title={`${entry.data.title} | Berita SMAN 1 Klaten`}
+  description={entry.data.excerpt}
 >
-  <Header />
-
+  <Header client:load currentPath="/berita" />
   <main id="main-content">
-    <article class="article-sec">
-      <div class="container narrow">
-        <p class="lbl">{post.data.category}</p>
-        <h1 class="article-title">{post.data.title}</h1>
-        <p class="article-meta">
-          <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
-          <span class="meta-sep" aria-hidden="true"></span>
-          <span>{post.data.author || 'Sekretariat SMAN 1 Klaten'}</span>
-        </p>
-        <img
-          class="article-hero"
-          src={post.data.image}
-          alt={post.data.title}
-          width="960"
-          height="540"
-          loading="eager"
-        />
-        <div class="article-body">
-          {post.data.body.map((par) => <p>{par}</p>)}
-        </div>
-        <a class="btn-text" href="/berita">Kembali ke daftar berita</a>
-      </div>
-    </article>
-
-    {other.length > 0 && (
-      <section class="related-sec">
-        <div class="container">
-          <h2 class="related-heading">Berita lain</h2>
-          <div class="related-list">
-            {other.map((p) => (
-              <a class="related-item" href={`/berita/${p.id}`}>
-                <span class="related-cat">{p.data.category}</span>
-                <span class="related-title">{p.data.title}</span>
-                <time class="related-date" datetime={p.data.date.toISOString()}>{fmt(p.data.date)}</time>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
+    <BeritaDetailPage client:load article={entry.data} />
   </main>
-
-  <Footer />
+  <Footer client:load />
 </BaseLayout>
-
-<style>
-  .article-sec {
-    padding: clamp(40px, 6vw, 72px) 0 clamp(32px, 5vw, 48px);
-    border-top: 0;
-  }
-
-  .narrow {
-    max-width: 720px;
-  }
-
-  .article-title {
-    font-size: clamp(1.75rem, 3.4vw, 2.6rem);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-
-  .article-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    color: var(--ink-3);
-    margin-bottom: clamp(20px, 3vw, 32px);
-  }
-
-  .meta-sep {
-    width: 1px;
-    height: 12px;
-    background: var(--hairline-2);
-  }
-
-  .article-hero {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border: 1px solid var(--hairline);
-    border-radius: var(--r-md);
-    margin-bottom: clamp(24px, 3vw, 36px);
-  }
-
-  .article-body {
-    font-size: 1.0625rem;
-    line-height: 1.75;
-    color: var(--ink-2);
-    margin-bottom: 32px;
-  }
-
-  .article-body p + p {
-    margin-top: 18px;
-  }
-
-  .related-sec {
-    padding-bottom: clamp(56px, 8vw, 88px);
-    border-top: 1px solid var(--hairline);
-  }
-
-  .related-heading {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin: clamp(24px, 3vw, 36px) 0 20px;
-  }
-
-  .related-list {
-    border-top: 1px solid var(--hairline);
-  }
-
-  .related-item {
-    display: grid;
-    grid-template-columns: 120px 1fr auto;
-    gap: 16px;
-    align-items: baseline;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--hairline);
-    transition: color 0.18s ease;
-  }
-
-  .related-item:hover .related-title {
-    color: var(--accent);
-  }
-
-  .related-cat {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-  }
-
-  .related-title {
-    font-size: 1rem;
-    color: var(--ink);
-    transition: color 0.18s ease;
-  }
-
-  .related-date {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--ink-3);
-    white-space: nowrap;
-  }
-
-  @media (max-width: 700px) {
-    .related-item {
-      grid-template-columns: 1fr;
-      gap: 4px;
-    }
-  }
-</style>

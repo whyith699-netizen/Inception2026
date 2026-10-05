@@ -20,7 +20,7 @@ const defaultPrograms: ProgramItem[] = [
     description: 'Fokus penguatan kalkulus, mekanika, bioteknologi, kimia organik, dan metodologi riset ilmiah untuk persiapan olimpiade dan perguruan tinggi teknik/kedokteran.',
     curriculumPoints: [
       'Olimpiade Sains Nasional (OSN) & Riset Ilmiah Remaja (KIR)',
-      'Praktikum terpadu di laboratorium sains modern Kampus 13',
+      'Praktikum terpadu di laboratorium sains modern SMANSA',
       'Matematika tingkat lanjut dan komputasi sains dasar'
     ]
   },

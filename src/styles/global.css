@@ -1,4 +1,24 @@
+@import "tailwindcss";
 @import './tokens.css';
+
+@theme {
+  --color-neo-bg: #F4F5F8;
+  --color-neo-surface: #FFFFFF;
+  --color-neo-surface-2: #E8EBF0;
+  --color-neo-ink: #111418;
+  --color-neo-ink-2: #3E4651;
+  --color-neo-ink-3: #6C7684;
+  --color-neon-lime: #D4FF00;
+  --color-neon-cyan: #00F0FF;
+  --color-neon-magenta: #FF2E93;
+  --color-neon-yellow: #FFE600;
+  --shadow-neo-sm: 2px 2px 0px #111418;
+  --shadow-neo: 4px 4px 0px #111418;
+  --shadow-neo-lg: 6px 6px 0px #111418;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -278,7 +298,7 @@ main {
 /* ============ View Transitions (ClientRouter) ============ */
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 160ms;
+  animation-duration: 180ms;
   animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
 }
 

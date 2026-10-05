@@ -39,10 +39,10 @@ const DEFAULT_KNOWLEDGE: FaqItem[] = [
     keywords: [
       'profil', 'sejarah', '1957', 'berdiri', 'didirikan', 'pendirian', 'akreditasi', '98',
       'ban-sm', 'unggul', 'nilai', 'npsn', '20309676', 'alamat', 'lokasi', 'merbabu',
-      'kampus 13', 'padmawijaya', 'visi', 'misi', 'slogan', 'hebat jaya', 'semboyan'
+      'padmawijaya', 'visi', 'misi', 'slogan', 'hebat jaya', 'semboyan'
     ],
     question: 'Bagaimana sejarah pendirian 1957, akreditasi nilai 98, dan identitas resmi SMA Negeri 1 Klaten?',
-    answer: 'SMA Negeri 1 Klaten (dikenal sebagai Padmawijaya atau Kampus 13) didirikan pada tanggal 5 November 1957 dan beralamat di Jl. Merbabu No. 13, Klaten Selatan, Jawa Tengah (Kode Pos 57423, Telp 0272-321150). Sekolah ber-NPSN 20309676 dengan predikat Akreditasi A (Unggul) bernilai 98 dari BAN-SM. Slogan sekolah: "SMA Negeri 1 Klaten Berkarakter Hebat Jaya". Visi: "Terwujudnya lulusan yang religius, cerdas, berkarakter, berbudi pekerti luhur, berdaya saing global dan beretika lingkungan".'
+    answer: 'SMA Negeri 1 Klaten (dikenal sebagai Padmawijaya) didirikan pada tanggal 5 November 1957 dan beralamat di Jl. Merbabu No. 13, Klaten Selatan, Jawa Tengah (Kode Pos 57423, Telp 0272-321150). Sekolah ber-NPSN 20309676 dengan predikat Akreditasi A (Unggul) bernilai 98 dari BAN-SM. Slogan sekolah: "SMA Negeri 1 Klaten Berkarakter Hebat Jaya". Visi: "Terwujudnya lulusan yang religius, cerdas, berkarakter, berbudi pekerti luhur, berdaya saing global dan beretika lingkungan".'
   },
   {
     id: 'faq-direktori',

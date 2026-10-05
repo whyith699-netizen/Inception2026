@@ -1,49 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { getCollection } from 'astro:content';
-import DirectoryLiveFilter from '../components/islands/DirectoryLiveFilter';
-
-const groups = (await getCollection('direktori')).flatMap((entry) => entry.data);
+import Header from '../components/react/Header';
+import Footer from '../components/react/Footer';
+import staffData from '../content/direktori/staff.json';
+import DirektoriPage from '../components/react/pages/DirektoriPage';
 ---
 
 <BaseLayout
   title="Direktori Guru dan Pimpinan SMAN 1 Klaten"
-  description="Daftar pimpinan, wakil kepala sekolah, dan guru bidang studi SMA Negeri 1 Klaten beserta tugas dan tanggung jawab masing-masing."
+  description="Daftar pimpinan, wakil kepala sekolah, dewan guru, dan tenaga kependidikan SMA Negeri 1 Klaten."
 >
-  <Header />
-
+  <Header client:load currentPath="/direktori" />
   <main id="main-content">
-    <section class="page-head sec sec-flush">
-      <div class="container">
-        <p class="lbl">Direktori sekolah</p>
-        <h1 class="page-title">Guru dan pimpinan SMAN 1 Klaten</h1>
-        <p class="lede">
-          Struktur pimpinan dan tenaga pendidik yang mengelola 33 rombongan belajar,
-          program hybrid learning, serta kegiatan kesiswaan di Kampus 13.
-        </p>
-      </div>
-    </section>
-
-    <section class="sec" style="padding-top: clamp(32px, 5vw, 56px);">
-      <div class="container">
-        <DirectoryLiveFilter client:load initialGroups={groups} />
-      </div>
-    </section>
+    <DirektoriPage client:load staffGroups={staffData} />
   </main>
-
-  <Footer />
+  <Footer client:load />
 </BaseLayout>
-
-<style>
-  .page-head {
-    padding-top: clamp(40px, 6vw, 72px);
-    padding-bottom: 0;
-    border-top: 0;
-  }
-
-  .page-title {
-    margin-bottom: 18px;
-  }
-</style>

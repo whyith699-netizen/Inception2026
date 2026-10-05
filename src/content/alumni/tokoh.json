@@ -1,40 +1,46 @@
 {
   "items": [
     {
-      "id": 6,
-      "name": "AGUS MULIA S.Pt",
-      "designation": "Pengusaha",
-      "image": "/images/testimoni/testimoni-6.jpg"
-    },
-    {
-      "id": 5,
-      "name": "Winarno, S.Si., M.Eng",
-      "designation": "Dosen UNS - Kepala Prodi Informatika",
-      "image": "/images/testimoni/testimoni-5.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Drs. Eko Hartono, MPP.",
-      "designation": "Konsul Jenderal (Konjen) RI Jeddah - (Purna 2023)",
-      "image": "/images/testimoni/testimoni-4.jpeg"
-    },
-    {
-      "id": 3,
-      "name": "Ir. Paulus Insap Santosa, M.Sc., Ph.D.",
-      "designation": "Universitas Gadjah Mada, Department of Information Technology and Electrical Engineering",
-      "image": "/images/testimoni/testimoni-3.jpg"
+      "id": 1,
+      "name": "Prof. Ir. Sudjarwadi, M.Eng., Ph.D.",
+      "designation": "Mantan Rektor Universitas Gadjah Mada (2007–2012)",
+      "image": "/images/alumni/alumni-sudjarwadi.jpg"
     },
     {
       "id": 2,
-      "name": "PROF. DR. JOKO TRIYONO, S.T., M.T.",
-      "designation": "Dosen UNS & Direktur AKN Pacitan periode 2021-2025",
-      "image": "/images/testimoni/testimoni-2.jpg"
+      "name": "Prof. Sudharto P. Hadi, MES., Ph.D.",
+      "designation": "Mantan Rektor Universitas Diponegoro",
+      "image": "/images/alumni/alumni-sudharto.jpg"
     },
     {
-      "id": 1,
-      "name": "Prof. DR. Widodo Muktiyo",
-      "designation": "Dirjen Kominfo & Dosen UNS",
-      "image": "/images/testimoni/testimoni-1.jpg"
+      "id": 3,
+      "name": "Prof. Dr. dr. Syamsul Hadi, Sp.KJ.",
+      "designation": "Mantan Rektor Universitas Sebelas Maret",
+      "image": "/images/alumni/alumni-syamsul-hadi.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Dr. Rudjito",
+      "designation": "Direktur Utama BRI (2000–2005) & Ketua Komisioner LPS (2005–2010)",
+      "image": "/images/alumni/alumni-rudjito.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Prof. Dr. dr. Hardyanto Soebono, Sp.KK.",
+      "designation": "Mantan Dekan Fakultas Kedokteran UGM",
+      "image": "/images/alumni/alumni-hardyanto.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Prof. Dr. dr. Eka Julianta Wahjoepramono, Sp.BS.",
+      "designation": "Dokter pertama di Indonesia yang berhasil membedah batang otak pasien",
+      "image": "/images/alumni/alumni-eka-julianta.jpeg"
+    },
+    {
+      "id": 7,
+      "name": "Prof. Dr. Ir. Hari Muhammad",
+      "designation": "Mantan Dekan FTMD ITB & Komisaris Independen GMF AeroAsia (2018)",
+      "image": "/images/alumni/alumni-hari-muhammad.png"
     }
   ]
 }
