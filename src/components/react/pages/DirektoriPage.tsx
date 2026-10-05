@@ -93,8 +93,8 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
       <section className="sec sec-flush" style={{ paddingTop: 'clamp(32px, 5vw, 56px)', paddingBottom: 'clamp(56px, 8vw, 88px)' }}>
         <div className="container">
           {/* Panel Kontrol & Filter */}
-          <div className="bg-neo-surface border-2 border-neo-ink rounded-md shadow-neo p-5 sm:p-6 mb-8">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5 pb-5 border-b border-neo-ink/15">
+          <div className="direktori-control-panel">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-neo-ink/15">
               {/* Search Bar */}
               <div className="relative flex-1 max-w-md">
                 <input
@@ -103,14 +103,14 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Cari nama guru, staf, atau NIP..."
                   aria-label="Cari nama guru atau staf"
-                  className="w-full pl-4 pr-10 py-2.5 bg-neo-bg border-2 border-neo-ink rounded text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:bg-white font-mono shadow-neo-sm transition-colors"
+                  className="w-full pl-4 pr-10 py-3 bg-neo-bg border-2 border-neo-ink rounded text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:bg-white font-mono shadow-neo-sm transition-colors"
                 />
                 {search && (
                   <button
                     type="button"
                     onClick={() => setSearch('')}
                     aria-label="Hapus kata kunci pencarian"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-neon-magenta text-white border border-neo-ink rounded text-xs px-2 py-0.5 font-bold hover:bg-neon-magenta/90 cursor-pointer"
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 bg-neon-magenta text-white border border-neo-ink rounded text-xs px-2 py-0.5 font-bold hover:bg-neon-magenta/90 cursor-pointer"
                   >
                     ×
                   </button>
@@ -118,13 +118,13 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
               </div>
 
               {/* Status Counter */}
-              <div className="font-mono text-xs text-neo-ink-2">
+              <div className="font-mono text-xs text-neo-ink-2 pr-2">
                 Menampilkan <strong className="text-neo-ink font-bold">{filteredPeople.length}</strong> dari {allPeople.length} personil
               </div>
             </div>
 
             {/* Filter Buttons: Hanya Kepala Sekolah, Guru, Staf */}
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2.5">
               <span className="font-mono text-xs font-bold text-neo-ink uppercase mr-2">
                 Kategori:
               </span>
@@ -136,14 +136,14 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
                     key={cat}
                     type="button"
                     onClick={() => setSelectedRole(cat)}
-                    className={`font-mono text-xs px-3 py-1.5 border-2 border-neo-ink rounded transition-all cursor-pointer flex items-center gap-1.5 ${
+                    className={`font-mono text-xs px-3.5 py-1.5 border-2 border-neo-ink rounded transition-all cursor-pointer flex items-center gap-2 ${
                       isActive
                         ? 'bg-neon-lime text-neo-ink font-extrabold shadow-neo-sm -translate-y-0.5'
                         : 'bg-neo-bg text-neo-ink hover:bg-neo-surface-2'
                     }`}
                   >
                     <span>{cat}</span>
-                    <span className={`text-[10px] px-1.5 py-0.2 rounded border ${
+                    <span className={`text-[10px] px-2 py-0.5 rounded border ${
                       isActive ? 'bg-neo-ink text-white border-neo-ink' : 'bg-white text-neo-ink border-neo-ink/30'
                     }`}>
                       {count}
@@ -175,7 +175,7 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="direktori-grid-cards">
               {filteredPeople.map((person, idx) => {
                 const displayRole = getDisplayRole(person.role, person.category);
                 const hasValidPhoto = person.photo && !person.photo.includes('logo.png');
@@ -184,11 +184,11 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
                 return (
                   <article
                     key={`${person.name}-${idx}`}
-                    className="bg-neo-surface border-2 border-neo-ink rounded-md shadow-neo overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-neo-lg transition-all h-full"
+                    className="direktori-person-card"
                   >
                     <div>
                       {/* Photo Frame 3:4 */}
-                      <div className="w-full aspect-[3/4] bg-neo-surface-2 border-b-2 border-neo-ink overflow-hidden relative flex items-center justify-center">
+                      <div className="direktori-photo-frame">
                         {hasValidPhoto ? (
                           <img
                             src={person.photo}
@@ -210,7 +210,7 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
                         )}
 
                         {/* Top-Right Tag */}
-                        <span className={`absolute top-2.5 right-2.5 font-mono text-[10px] font-extrabold uppercase px-2 py-0.5 border border-neo-ink rounded shadow-[1.5px_1.5px_0px_#111418] ${
+                        <span className={`direktori-role-badge ${
                           displayRole === 'Kepala Sekolah'
                             ? 'bg-neon-lime text-neo-ink'
                             : displayRole === 'Staf'
@@ -222,13 +222,13 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
                       </div>
 
                       {/* Info Area */}
-                      <div className="p-4">
-                        <h3 className="font-serif font-bold text-base text-neo-ink leading-snug line-clamp-2 min-h-[2.6rem]">
+                      <div className="direktori-card-body">
+                        <h3 className="direktori-person-name">
                           {person.name}
                         </h3>
 
                         {person.detail && (
-                          <p className="text-xs text-neo-ink-2 mt-2 pt-2 border-t border-neo-ink/10 leading-relaxed font-mono">
+                          <p className="direktori-status-line">
                             {person.detail.startsWith('Pangkat/Golongan:')
                               ? `Status: ${person.detail.replace(/Pangkat\/Golongan:\s*/i, '').trim()}`
                               : person.detail}
@@ -238,7 +238,7 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
                     </div>
 
                     {/* Footer Card */}
-                    <div className="px-4 pb-4 pt-1 flex items-center justify-between text-[11px] font-mono text-neo-ink-3 border-t border-neo-ink/10 mt-auto">
+                    <div className="direktori-card-footer">
                       <span>SMAN 1 Klaten</span>
                       <span className="font-bold text-neo-ink">Aktif</span>
                     </div>

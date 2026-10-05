@@ -79,7 +79,7 @@ export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
       {/* 2. Tokoh Alumni Berprestasi */}
       <section className="sec" id="tokoh-alumni">
         <div className="container">
-          <div className="section-heading">
+          <div className="section-heading" style={{ marginBottom: 'clamp(28px, 4vw, 40px)' }}>
             <span className="lbl lbl-magenta">REKAM JEJAK KARYA</span>
             <h2 className="title-heading">Tokoh Alumni di Tingkat Nasional</h2>
             <p className="desc-heading">
@@ -88,12 +88,12 @@ export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
           </div>
 
           {items.length > 0 && (
-            <div className="space-y-8">
+            <div>
               {/* Featured Lead Alumni: Prof. Ir. Sudjarwadi, M.Eng., Ph.D. */}
               {items[0] && (
-                <article className="bg-neo-surface border-2 border-neo-ink rounded-md shadow-neo overflow-hidden p-6 sm:p-8">
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
-                    <div className="md:col-span-4 lg:col-span-3">
+                <article className="alumni-spotlight-card">
+                  <div className="alumni-spotlight-grid">
+                    <div>
                       <div className="w-full aspect-[4/5] max-h-[320px] bg-neo-surface-2 border-2 border-neo-ink rounded shadow-neo-sm overflow-hidden relative">
                         <img
                           src={items[0].image}
@@ -103,18 +103,18 @@ export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
                           width={320}
                           height={400}
                         />
-                        <span className="absolute top-2.5 right-2.5 bg-neon-lime text-neo-ink border border-neo-ink font-mono text-[10px] font-extrabold uppercase px-2 py-0.5 shadow-[1.5px_1.5px_0px_#111418]">
+                        <span className="alumni-card-badge">
                           Tokoh Utama
                         </span>
                       </div>
                     </div>
 
-                    <div className="md:col-span-8 lg:col-span-9 flex flex-col justify-center">
-                      <div className="mb-2">
-                        <span className="lbl lbl-yellow text-[10px] px-2.5 py-0.5 inline-block mb-2">
+                    <div className="flex flex-col justify-center">
+                      <div className="mb-3">
+                        <span className="lbl lbl-yellow text-[10px] px-2.5 py-1 inline-block mb-2">
                           MANTAN REKTOR UNIVERSITAS GADJAH MADA (2007–2012)
                         </span>
-                        <h3 className="font-serif font-bold text-2xl sm:text-3xl text-neo-ink leading-tight">
+                        <h3 className="font-serif font-bold text-2xl sm:text-3xl text-neo-ink leading-snug">
                           {items[0].name}
                         </h3>
                       </div>
@@ -123,16 +123,16 @@ export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
                         Menyelesaikan pendidikan dasar hingga menengah di Klaten sebelum menempuh studi teknik sipil di UGM, Asian Institute of Technology Bangkok, dan University of Iowa. Beliau memimpin Universitas Gadjah Mada sebagai Rektor ke-13, menjadi teladan kepemimpinan berbasis riset kerakyatan, serta senantiasa mendukung kemajuan almamater SMA Negeri 1 Klaten.
                       </p>
 
-                      <div className="pt-4 border-t border-neo-ink/15 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-neo-ink-3">
+                      <div className="pt-4 border-t border-neo-ink/15 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-neo-ink-3">
                         <div className="flex items-center gap-2">
-                          <span className="px-2 py-0.5 bg-neo-bg border border-neo-ink rounded text-neo-ink font-bold">
+                          <span className="px-3 py-1 bg-neo-bg border border-neo-ink rounded text-neo-ink font-bold">
                             Guru Besar UGM
                           </span>
-                          <span className="px-2 py-0.5 bg-neo-bg border border-neo-ink rounded text-neo-ink font-bold">
+                          <span className="px-3 py-1 bg-neo-bg border border-neo-ink rounded text-neo-ink font-bold">
                             Alumni Kehormatan
                           </span>
                         </div>
-                        <span className="font-bold text-neo-ink">KAPASSKA Klaten · Nasional</span>
+                        <span className="font-bold text-neo-ink pr-2">KAPASSKA Klaten · Nasional</span>
                       </div>
                     </div>
                   </div>
@@ -140,7 +140,7 @@ export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
               )}
 
               {/* Grid 6 Tokoh Alumni (Symmetrical 2 rows of 3) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="alumni-grid-six">
                 {items.slice(1).map((alumnus) => {
                   const tagMap: Record<number, string> = {
                     2: 'Mantan Rektor Undip',
@@ -153,43 +153,40 @@ export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
                   const roleTag = tagMap[alumnus.id] || 'Alumni Nasional';
 
                   return (
-                    <article
-                      key={alumnus.id}
-                      className="bg-neo-surface border-2 border-neo-ink rounded-md shadow-neo overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:shadow-neo-lg transition-all h-full"
-                    >
+                    <article key={alumnus.id} className="alumni-card-item">
                       <div>
                         {/* Top Photo Frame with Uniform Centered Portrait */}
-                        <div className="w-full h-44 bg-neo-surface-2 border-b-2 border-neo-ink relative flex items-center justify-center p-4">
-                          <div className="w-28 h-28 rounded-full border-2 border-neo-ink shadow-neo-sm overflow-hidden bg-white shrink-0">
+                        <div className="alumni-card-photo-box">
+                          <div className="alumni-card-avatar">
                             <img
                               src={alumnus.image}
                               alt={`Potret ${alumnus.name}`}
                               className="w-full h-full object-cover object-top rounded-full"
                               loading="lazy"
-                              width={112}
-                              height={112}
+                              width={120}
+                              height={120}
                             />
                           </div>
-                          <span className="absolute top-2.5 right-2.5 bg-neon-yellow text-neo-ink border border-neo-ink font-mono text-[10px] font-extrabold uppercase px-2 py-0.5 shadow-[1.5px_1.5px_0px_#111418]">
+                          <span className="alumni-card-badge">
                             {roleTag}
                           </span>
                         </div>
 
                         {/* Content Area */}
-                        <div className="p-5">
+                        <div className="alumni-card-body">
                           <h3 className="font-serif font-bold text-base text-neo-ink leading-snug line-clamp-2 min-h-[2.8rem] flex items-center">
                             {alumnus.name}
                           </h3>
-                          <p className="text-xs sm:text-sm text-neo-ink-2 leading-relaxed mt-1">
+                          <p className="text-xs sm:text-sm text-neo-ink-2 leading-relaxed">
                             {alumnus.designation}
                           </p>
                         </div>
                       </div>
 
                       {/* Card Foot */}
-                      <div className="px-5 pb-4 pt-3 border-t border-neo-ink/10 flex items-center justify-between text-[11px] font-mono text-neo-ink-3 mt-auto">
+                      <div className="alumni-card-footer">
                         <span>KAPASSKA Klaten</span>
-                        <span className="font-bold text-neo-ink bg-neon-lime/20 px-1.5 py-0.5 border border-neo-ink/20">
+                        <span className="font-bold text-neo-ink bg-neon-lime/20 px-2 py-0.5 border border-neo-ink/20">
                           Padmawijaya Honor
                         </span>
                       </div>

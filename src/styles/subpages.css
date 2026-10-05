@@ -1360,3 +1360,219 @@
   box-shadow: var(--neo-shadow-sm);
   padding: 16px 20px;
 }
+
+/* ==========================================================================
+   8. Alumni Spacing & Spotlight Enhancements
+   ========================================================================== */
+.alumni-spotlight-card {
+  background: var(--neo-surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow);
+  padding: clamp(24px, 4vw, 36px);
+  margin-bottom: clamp(36px, 5vw, 48px);
+}
+
+.alumni-spotlight-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 3vw, 36px);
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .alumni-spotlight-grid {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+.alumni-grid-six {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(24px, 3vw, 32px);
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.alumni-card-item {
+  background: var(--neo-surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.alumni-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--neo-shadow-lg);
+}
+
+.alumni-card-photo-box {
+  width: 100%;
+  height: 190px;
+  background: var(--neo-surface-2);
+  border-bottom: var(--neo-border);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.alumni-card-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow-sm);
+  overflow: hidden;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.alumni-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--neon-yellow);
+  color: var(--neo-ink);
+  border: 1.5px solid var(--neo-ink);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+}
+
+.alumni-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 10px;
+}
+
+.alumni-card-footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--neo-ink-3);
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   9. Direktori Spacing & Card Enhancements
+   ========================================================================== */
+.direktori-control-panel {
+  background: var(--neo-surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow);
+  padding: clamp(20px, 3vw, 28px);
+  margin-bottom: clamp(32px, 5vw, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.direktori-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: clamp(24px, 3vw, 32px);
+  margin-bottom: clamp(48px, 6vw, 72px);
+}
+
+.direktori-person-card {
+  background: var(--neo-surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.direktori-person-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--neo-shadow-lg);
+}
+
+.direktori-photo-frame {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: var(--neo-surface-2);
+  border-bottom: var(--neo-border);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.direktori-role-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+}
+
+.direktori-card-body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.direktori-person-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  color: var(--neo-ink);
+  margin-bottom: 8px;
+  min-height: 2.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.direktori-status-line {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--neo-ink-2);
+  line-height: 1.5;
+  padding-top: 10px;
+  margin-top: 6px;
+  border-top: 1px solid var(--hairline);
+}
+
+.direktori-card-footer {
+  padding: 12px 22px;
+  border-top: 1px solid var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--neo-ink-3);
+  margin-top: auto;
+}
