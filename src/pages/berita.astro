@@ -3,15 +3,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/react/Header';
 import Footer from '../components/react/Footer';
 import BeritaPage from '../components/react/pages/BeritaPage';
-import { getCollection } from 'astro:content';
 
-const posts = await getCollection('berita');
-const articles = posts
-  .map((p) => ({
-    ...p.data,
-    id: p.id || p.data.id,
-    date: p.data.date instanceof Date ? p.data.date.toISOString() : p.data.date,
-  }))
+const newsFiles = import.meta.glob('../content/berita/*.json', { eager: true });
+const articles = Object.entries(newsFiles)
+  .map(([filepath, m]: [string, any]) => {
+    const data = m.default || m;
+    const fileSlug = filepath.split('/').pop()?.replace('.json', '') || '';
+    return {
+      ...data,
+      id: data.id || fileSlug,
+      date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString(),
+    };
+  })
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 ---
 

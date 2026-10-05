@@ -206,7 +206,7 @@ export const PrestasiPage: FC = () => {
             Tradisi panjang nalar ilmiah, kejujuran sportivitas, dan kreasi estetika civitas akademika Padmawijaya, dari kejuaraan dunia hingga Adiwiyata Mandiri.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl pt-6 border-t border-neo-ink">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl pt-8 mt-8 border-t border-neo-ink">
             <div>
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Dunia</span>
               <span className="font-mono text-xs text-neo-ink-3 uppercase">Emas IOA Crimea</span>
@@ -348,7 +348,7 @@ export const PrestasiPage: FC = () => {
                 }}
                 className="font-mono text-xs text-neo-ink hover:underline"
               >
-                Reset Filter &times;
+                Reset Filter ×
               </button>
             )}
           </div>
@@ -476,10 +476,10 @@ export const PrestasiPage: FC = () => {
             </div>
             <div className="flex flex-wrap gap-3">
               <a href="/program" className="btn btn-primary text-xs">
-                Katalog Ekstrakurikuler &rarr;
+                Katalog Ekstrakurikuler →
               </a>
               <a href="/alumni" className="btn btn-secondary text-xs">
-                Jejaring Alumni &rarr;
+                Jejaring Alumni →
               </a>
             </div>
           </div>

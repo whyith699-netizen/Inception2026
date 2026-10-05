@@ -42,7 +42,7 @@ export default function AlumniPage({ items = [] }: AlumniPageProps) {
       {/* 1. Page Header (Editorial) */}
       <section className="py-12 sm:py-16 border-b border-neo-ink bg-neo-bg">
         <div className="container">
-          <span className="lbl lbl-lime mb-3 inline-block">KAPASSKA &middot; KELUARGA ALUMNI</span>
+          <span className="lbl lbl-lime mb-3 inline-block">KAPASSKA · KELUARGA ALUMNI</span>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neo-ink mb-4 max-w-3xl leading-[1.15]">
             Jejaring Alumni SMAN 1 Klaten
           </h1>
@@ -50,7 +50,7 @@ export default function AlumniPage({ items = [] }: AlumniPageProps) {
             Keluarga Alumni Padmawijaya SMAN 1 Klaten (KAPASSKA) menghimpun lebih dari 69 angkatan alumni sejak 1957 yang berkiprah di kepemimpinan nasional, perguruan tinggi, kedokteran, korporasi, dan lembaga negara.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl pt-6 border-t border-neo-ink">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl pt-8 mt-8 border-t border-neo-ink">
             <div>
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">10.000+</span>
               <span className="font-mono text-xs text-neo-ink-3 uppercase">Alumni Terdata</span>
@@ -124,9 +124,9 @@ export default function AlumniPage({ items = [] }: AlumniPageProps) {
                 Wujud nyata kepedulian lintas generasi alumni KAPASSKA dalam menyokong pendidikan adik-adik siswa di almamater. Dana bantuan disalurkan langsung secara transparan untuk membiayai kelengkapan belajar siswa berprestasi.
               </p>
               <div className="flex flex-wrap gap-4 text-xs font-mono text-neo-ink-2">
-                <span>&bull; Penyerahan: 18 September 2026</span>
-                <span>&bull; Penerima: 12 Siswa Berprestasi</span>
-                <span>&bull; Pengelola: Komite Beasiswa KAPASSKA</span>
+                <span>• Penyerahan: 18 September 2026</span>
+                <span>• Penerima: 12 Siswa Berprestasi</span>
+                <span>• Pengelola: Komite Beasiswa KAPASSKA</span>
               </div>
             </div>
 
@@ -262,7 +262,7 @@ export default function AlumniPage({ items = [] }: AlumniPageProps) {
                     type="submit"
                     className="w-full btn btn-primary text-xs py-2.5 mt-2"
                   >
-                    Simpan ke Direktori Alumni &rarr;
+                    Simpan ke Direktori Alumni →
                   </button>
                 </form>
               )}

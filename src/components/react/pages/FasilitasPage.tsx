@@ -202,7 +202,7 @@ export const FasilitasPage: FC = () => {
             Lingkungan belajar seluas 15.619 m² berarsitektur cagar budaya dengan fasilitas laboratorium analitis, perpustakaan digital Graha Pustaka, gelanggang olahraga, dan taman hijau Sekolah Adiwiyata Mandiri.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl pt-6 border-t border-neo-ink">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl pt-8 mt-8 border-t border-neo-ink">
             <div>
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">15.619 m²</span>
               <span className="font-mono text-xs text-neo-ink-3 uppercase">Luas Lahan</span>
@@ -265,7 +265,7 @@ export const FasilitasPage: FC = () => {
                   </div>
                   <div className="pt-2 border-t border-neo-ink/10 flex items-center justify-between text-xs font-mono text-neo-ink-3">
                     <span>{photo.capacity}</span>
-                    <span className="font-bold text-neo-ink hover:underline">Perbesar &rarr;</span>
+                    <span className="font-bold text-neo-ink hover:underline">Perbesar →</span>
                   </div>
                 </figcaption>
               </figure>
@@ -292,7 +292,7 @@ export const FasilitasPage: FC = () => {
               className="absolute -top-3 -right-3 bg-neo-surface border border-neo-ink font-mono font-bold w-8 h-8 flex items-center justify-center shadow-neo-sm hover:bg-neon-lime text-xs"
               aria-label="Tutup detail foto"
             >
-              &times;
+              ×
             </button>
             <div className="border border-neo-ink mb-4 overflow-hidden bg-neo-surface-2 aspect-[16/10]">
               <img
@@ -420,7 +420,7 @@ export const FasilitasPage: FC = () => {
             </div>
             <div className="flex flex-wrap gap-3">
               <a href="/kontak" className="btn btn-primary text-xs">
-                Hubungi Tata Usaha &rarr;
+                Hubungi Tata Usaha →
               </a>
               <a
                 href="https://eperpus.sma1klaten.sch.id/"
@@ -428,7 +428,7 @@ export const FasilitasPage: FC = () => {
                 rel="noopener noreferrer"
                 className="btn btn-secondary text-xs"
               >
-                Portal e-Perpus &nearr;
+                Portal e-Perpus ↗
               </a>
             </div>
           </div>

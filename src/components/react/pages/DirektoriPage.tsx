@@ -81,7 +81,7 @@ export default function DirektoriPage({ staffGroups = [] }: DirektoriPageProps) 
             Struktur pimpinan, dewan pendidik, dan tenaga kependidikan yang membina 33 rombongan belajar dengan dedikasi akademis dan integritas karakter.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl pt-6 border-t border-neo-ink">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl pt-8 mt-8 border-t border-neo-ink">
             <div>
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">78</span>
               <span className="font-mono text-xs text-neo-ink-3 uppercase">Pendidik & Staf</span>
@@ -122,7 +122,7 @@ export default function DirektoriPage({ staffGroups = [] }: DirektoriPageProps) 
                   aria-label="Hapus kata kunci pencarian"
                   className="absolute right-2 top-1/2 -translate-y-1/2 text-neo-ink-3 hover:text-neo-ink font-mono text-xs p-1"
                 >
-                  &times;
+                  ×
                 </button>
               )}
             </div>
@@ -173,63 +173,73 @@ export default function DirektoriPage({ staffGroups = [] }: DirektoriPageProps) 
                 }}
                 className="btn btn-secondary text-xs"
               >
-                Reset Filter &rarr;
+                Reset Filter →
               </button>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {filteredPeople.map((person, idx) => (
-                <article
-                  key={`${person.name}-${idx}`}
-                  className="bg-neo-surface border border-neo-ink shadow-neo-sm p-4 flex flex-col justify-between hover:shadow-neo transition-all"
-                >
-                  <div>
-                    <div className="w-full aspect-[3/4] bg-neo-surface-2 border border-neo-ink mb-4 overflow-hidden flex items-center justify-center">
-                      {person.photo ? (
-                        <img
-                          src={person.photo}
-                          alt={`Potret ${person.name}`}
-                          className="w-full h-full object-cover object-top"
-                          loading="lazy"
-                          width={280}
-                          height={373}
-                        />
-                      ) : (
-                        <span className="font-mono text-3xl font-bold text-neo-ink-3">
-                          {person.name.charAt(0)}
+              {filteredPeople.map((person, idx) => {
+                const hasValidPhoto = person.photo && !person.photo.includes('logo.png');
+                const initialChar = person.name.replace(/^(Drs\.|Dr\.|Prof\.|Ir\.|H\.|Hj\.)\s*/i, '').charAt(0) || 'S';
+
+                return (
+                  <article
+                    key={`${person.name}-${idx}`}
+                    className="bg-neo-surface border border-neo-ink shadow-neo-sm p-4 flex flex-col justify-between hover:shadow-neo transition-all h-full"
+                  >
+                    <div>
+                      <div className="w-full aspect-[3/4] bg-neo-surface-2 border border-neo-ink mb-4 overflow-hidden flex items-center justify-center">
+                        {hasValidPhoto ? (
+                          <img
+                            src={person.photo}
+                            alt={`Potret ${person.name}`}
+                            className="w-full h-full object-cover object-top"
+                            loading="lazy"
+                            width={280}
+                            height={373}
+                          />
+                        ) : (
+                          <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-neo-surface-2 text-center">
+                            <div className="w-14 h-14 border border-neo-ink bg-neo-surface flex items-center justify-center font-serif text-2xl font-bold text-neo-ink mb-2">
+                              {initialChar}
+                            </div>
+                            <span className="font-mono text-[10px] text-neo-ink-3 uppercase tracking-wider">
+                              SMAN 1 Klaten
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="mb-2">
+                        <span className="lbl lbl-lime text-[10px] px-1.5 py-0.5 inline-block mb-1">
+                          {person.category}
                         </span>
+                        <h3 className="font-sans font-bold text-sm sm:text-base text-neo-ink leading-snug">
+                          {person.name}
+                        </h3>
+                        <p className="font-mono text-xs text-neo-ink-2 mt-0.5">
+                          {person.role}
+                        </p>
+                      </div>
+
+                      {person.detail && (
+                        <p className="text-xs text-neo-ink-3 border-t border-neo-ink/10 pt-2 mt-2 leading-relaxed">
+                          {person.detail}
+                        </p>
                       )}
                     </div>
 
-                    <div className="mb-2">
-                      <span className="lbl lbl-lime text-[10px] px-1.5 py-0.5 inline-block mb-1">
-                        {person.category}
-                      </span>
-                      <h3 className="font-sans font-bold text-sm sm:text-base text-neo-ink leading-snug">
-                        {person.name}
-                      </h3>
-                      <p className="font-mono text-xs text-neo-ink-2 mt-0.5">
-                        {person.role}
-                      </p>
-                    </div>
-
-                    {person.detail && (
-                      <p className="text-xs text-neo-ink-3 border-t border-neo-ink/10 pt-2 mt-2 leading-relaxed">
-                        {person.detail}
-                      </p>
+                    {person.email && (
+                      <a
+                        href={`mailto:${person.email}`}
+                        className="font-mono text-[11px] text-neo-ink-2 hover:text-neo-ink block truncate border-t border-neo-ink/10 pt-2 mt-2"
+                      >
+                        ✉ {person.email}
+                      </a>
                     )}
-                  </div>
-
-                  {person.email && (
-                    <a
-                      href={`mailto:${person.email}`}
-                      className="font-mono text-[11px] text-neo-ink-2 hover:text-neo-ink block truncate border-t border-neo-ink/10 pt-2 mt-2"
-                    >
-                      ✉ {person.email}
-                    </a>
-                  )}
-                </article>
-              ))}
+                  </article>
+                );
+              })}
             </div>
           )}
         </div>

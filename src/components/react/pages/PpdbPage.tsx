@@ -119,7 +119,7 @@ export default function PpdbPage() {
       {/* 1. Page Header (Editorial) */}
       <section className="py-12 sm:py-16 border-b border-neo-ink bg-neo-bg">
         <div className="container">
-          <span className="lbl lbl-lime mb-3 inline-block">PPDB 2026/2027 &middot; JUKNIS RESMI</span>
+          <span className="lbl lbl-lime mb-3 inline-block">PPDB 2026/2027 · JUKNIS RESMI</span>
           <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neo-ink mb-4 max-w-3xl leading-[1.15]">
             Petunjuk Teknis PPDB SMA Negeri 1 Klaten
           </h1>
@@ -127,10 +127,10 @@ export default function PpdbPage() {
             Penerimaan peserta didik baru berlangsung transparan dan akuntabel sesuai regulasi Dinas Pendidikan dan Kebudayaan Provinsi Jawa Tengah tanpa pungutan biaya.
           </p>
 
-          <div className="flex flex-wrap gap-4 pt-6 border-t border-neo-ink text-xs font-mono text-neo-ink-2">
-            <span>&bull; Bebas Biaya Pendaftaran</span>
-            <span>&bull; Sistem Seleksi Terpusat Jateng</span>
-            <span>&bull; Verifikasi Berkas di Gedung Utama</span>
+          <div className="flex flex-wrap gap-6 pt-8 mt-8 border-t border-neo-ink text-xs font-mono text-neo-ink-2">
+            <span>• Bebas Biaya Pendaftaran</span>
+            <span>• Sistem Seleksi Terpusat Jateng</span>
+            <span>• Verifikasi Berkas di Gedung Utama</span>
           </div>
         </div>
       </section>
@@ -178,7 +178,7 @@ export default function PpdbPage() {
                   <ul className="space-y-1 text-xs text-neo-ink-2">
                     {q.requirements.map((req, idx) => (
                       <li key={idx} className="flex items-start gap-1.5 leading-snug">
-                        <span className="text-neo-ink font-bold">&bull;</span>
+                        <span className="text-neo-ink font-bold">•</span>
                         <span>{req}</span>
                       </li>
                     ))}
@@ -263,9 +263,9 @@ export default function PpdbPage() {
 
                   <div className="p-4 bg-neo-bg border border-neo-ink text-xs font-mono text-neo-ink-2 space-y-1">
                     <p className="font-bold text-neo-ink">Radius Panduan:</p>
-                    <p>&bull; 0.20 km – 2.50 km : Prioritas utama (Zona 1)</p>
-                    <p>&bull; 2.51 km – 3.50 km : Rentang kompetitif kuota</p>
-                    <p>&bull; &gt; 3.50 km : Disarankan alternatif prestasi / afirmasi</p>
+                    <p>• 0.20 km – 2.50 km : Prioritas utama (Zona 1)</p>
+                    <p>• 2.51 km – 3.50 km : Rentang kompetitif kuota</p>
+                    <p>• {'>'} 3.50 km : Disarankan alternatif prestasi / afirmasi</p>
                   </div>
                 </div>
 
@@ -344,7 +344,7 @@ export default function PpdbPage() {
                   </div>
 
                   <p className="font-mono text-xs text-neo-ink-3">
-                    Rumus: (Rapor &times; 70%) + (Piagam &times; 3). Cut-off historis berkisar <strong>92.80</strong>.
+                    Rumus: (Rapor × 70%) + (Piagam × 3). Cut-off historis berkisar <strong>92.80</strong>.
                   </p>
                 </div>
 
@@ -462,7 +462,7 @@ export default function PpdbPage() {
               href="/#chatbot"
               className="btn btn-primary text-xs whitespace-nowrap"
             >
-              Tanya SmansaBot AI &rarr;
+              Tanya SmansaBot AI →
             </a>
           </div>
         </div>

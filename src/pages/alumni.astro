@@ -2,11 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/react/Header';
 import Footer from '../components/react/Footer';
-import { getEntry } from 'astro:content';
+import alumniJson from '../content/alumni/tokoh.json';
 import AlumniPage from '../components/react/pages/AlumniPage';
 
-const alumniData = await getEntry('alumni', 'tokoh');
-const alumniList = alumniData?.data?.items || [];
+const alumniList = alumniJson.items || [];
 ---
 
 <BaseLayout

@@ -376,7 +376,7 @@ export const ProgramPage: FC = () => {
             Struktur pembelajaran berorientasi masa depan yang memfasilitasi 3 peminatan disiplin ilmu, pembinaan riset laboratorium sains, serta katalog lengkap 23 ekstrakurikuler resmi di SMAN 1 Klaten.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl pt-6 border-t border-neo-ink">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl pt-8 mt-8 border-t border-neo-ink">
             <div>
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Merdeka</span>
               <span className="font-mono text-xs text-neo-ink-3 uppercase">Kurikulum Resmi</span>
@@ -455,7 +455,7 @@ export const ProgramPage: FC = () => {
                 </h3>
               </div>
               <a href="/#chatbot" className="btn btn-secondary text-xs">
-                Konsultasi Jurusan &rarr;
+                Konsultasi Jurusan →
               </a>
             </div>
 
@@ -471,7 +471,7 @@ export const ProgramPage: FC = () => {
                 <ul className="space-y-1.5 text-xs text-neo-ink-2">
                   {activeTrackData.coreSubjects.map((sub, idx) => (
                     <li key={idx} className="flex items-start gap-1.5 leading-snug">
-                      <span className="text-neo-ink font-bold">&bull;</span>
+                      <span className="text-neo-ink font-bold">•</span>
                       <span>{sub}</span>
                     </li>
                   ))}
@@ -485,7 +485,7 @@ export const ProgramPage: FC = () => {
                 <ul className="space-y-1.5 text-xs text-neo-ink-2">
                   {activeTrackData.focusPillars.map((pil, idx) => (
                     <li key={idx} className="flex items-start gap-1.5 leading-snug">
-                      <span className="text-neo-ink font-bold">&bull;</span>
+                      <span className="text-neo-ink font-bold">•</span>
                       <span>{pil}</span>
                     </li>
                   ))}
@@ -499,7 +499,7 @@ export const ProgramPage: FC = () => {
                 <ul className="space-y-1.5 text-xs text-neo-ink-2">
                   {activeTrackData.careerOutlooks.map((out, idx) => (
                     <li key={idx} className="flex items-start gap-1.5 leading-snug">
-                      <span className="text-neo-ink font-bold">&rarr;</span>
+                      <span className="text-neo-ink font-bold">→</span>
                       <span>{out}</span>
                     </li>
                   ))}
@@ -541,13 +541,13 @@ export const ProgramPage: FC = () => {
                   <ul className="space-y-2 mb-6">
                     {phase.points.map((p, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2 text-xs text-neo-ink-2 leading-relaxed">
-                        <span className="text-neo-ink font-bold">&check;</span>
+                        <span className="text-neo-ink font-bold">✓</span>
                         <span>{p}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="pt-3 border-t border-neo-ink/10 font-mono text-xs text-neo-ink-3 flex items-center justify-between">
+                <div className="mt-6 pt-4 border-t border-neo-ink/10 font-mono text-xs text-neo-ink-3 flex items-center justify-between">
                   <span>Asesmen Terstandarisasi</span>
                   <span className="text-neo-ink font-bold">BAN-SM Nilai 98</span>
                 </div>
@@ -615,7 +615,7 @@ export const ProgramPage: FC = () => {
                 }}
                 className="font-mono text-xs text-neo-ink hover:underline"
               >
-                Reset Filter &times;
+                Reset Filter ×
               </button>
             )}
           </div>
@@ -684,10 +684,10 @@ export const ProgramPage: FC = () => {
             </div>
             <div className="flex flex-wrap gap-3">
               <a href="/kontak" className="btn btn-primary text-xs">
-                Tanya Kesiswaan &rarr;
+                Tanya Kesiswaan →
               </a>
               <a href="/prestasi" className="btn btn-secondary text-xs">
-                Rekam Jejak Prestasi &rarr;
+                Rekam Jejak Prestasi →
               </a>
             </div>
           </div>

@@ -3,26 +3,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/react/Header';
 import Footer from '../../components/react/Footer';
 import BeritaDetailPage from '../../components/react/pages/BeritaDetailPage';
-import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('berita');
-  return posts.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+  const newsFiles = import.meta.glob('../../content/berita/*.json', { eager: true });
+  return Object.entries(newsFiles).map(([filepath, m]: [string, any]) => {
+    const data = m.default || m;
+    const fileSlug = filepath.split('/').pop()?.replace('.json', '') || '';
+    const slug = data.id || fileSlug;
+    return {
+      params: { slug },
+      props: {
+        article: {
+          ...data,
+          id: slug,
+          date: typeof data.date === 'string' ? data.date : new Date(data.date).toISOString(),
+        }
+      },
+    };
+  });
 }
 
-const { entry } = Astro.props;
+const { article } = Astro.props;
 ---
 
 <BaseLayout
-  title={`${entry.data.title} | Berita SMAN 1 Klaten`}
-  description={entry.data.excerpt}
+  title={`${article.title} | Berita SMAN 1 Klaten`}
+  description={article.excerpt}
 >
   <Header client:load currentPath="/berita" />
   <main id="main-content">
-    <BeritaDetailPage client:load article={entry.data} />
+    <BeritaDetailPage client:load article={article} />
   </main>
   <Footer client:load />
 </BaseLayout>

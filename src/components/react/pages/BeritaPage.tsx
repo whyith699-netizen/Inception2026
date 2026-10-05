@@ -154,13 +154,13 @@ export default function BeritaPage({ newsList = [] }: BeritaPageProps) {
 
                 <div className="pt-4 border-t border-neo-ink/20 flex items-center justify-between">
                   <span className="font-mono text-xs text-neo-ink-3">
-                    {featuredArticle.author || 'Sekretariat SMAN 1 Klaten'}
+                    {featuredArticle.author || 'Tim Humas SMAN 1 Klaten'}
                   </span>
                   <a
                     href={`/berita/${featuredArticle.id}`}
                     className="btn btn-secondary text-xs"
                   >
-                    Baca Lengkapnya &rarr;
+                    Baca Lengkapnya →
                   </a>
                 </div>
               </div>
@@ -236,7 +236,7 @@ export default function BeritaPage({ newsList = [] }: BeritaPageProps) {
                       href={`/berita/${article.id}`}
                       className="font-mono text-xs font-bold text-neo-ink hover:underline"
                     >
-                      Baca Artikel &rarr;
+                      Baca Artikel →
                     </a>
                   </div>
                 </article>
@@ -253,7 +253,7 @@ export default function BeritaPage({ newsList = [] }: BeritaPageProps) {
                 Belum Ada Berita di Kategori Ini
               </h3>
               <p className="text-neo-ink-2 text-xs mb-4">
-                Tidak ada publikasi warta yang ditemukan untuk kategori &ldquo;{selectedCategory}&rdquo;.
+                Tidak ada publikasi warta yang ditemukan untuk kategori “{selectedCategory}”.
               </p>
               <button
                 type="button"

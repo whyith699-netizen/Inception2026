@@ -83,13 +83,13 @@ export const KontakPage: FC = () => {
             Saluran komunikasi resmi sekretariat tata usaha SMA Negeri 1 Klaten untuk layanan akademik, informasi PPDB 2026, legalisir ijazah alumni KAPASSKA, dan permohonan kemitraan.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl pt-6 border-t border-neo-ink">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl pt-8 mt-8 border-t border-neo-ink">
             <div>
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">(0272) 321150</span>
               <span className="font-mono text-xs text-neo-ink-3 uppercase">Telepon Kantor</span>
             </div>
             <div>
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Senin &ndash; Kamis</span>
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-neo-ink block">Senin – Kamis</span>
               <span className="font-mono text-xs text-neo-ink-3 uppercase">07.00 - 15.30 WIB</span>
             </div>
             <div>
@@ -151,12 +151,12 @@ export const KontakPage: FC = () => {
                     </span>
                     <ul className="space-y-1 font-mono text-xs text-neo-ink-2">
                       <li className="flex justify-between">
-                        <span>Senin &ndash; Kamis:</span>
-                        <strong className="text-neo-ink">07.00 &ndash; 15.30 WIB</strong>
+                        <span>Senin – Kamis:</span>
+                        <strong className="text-neo-ink">07.00 – 15.30 WIB</strong>
                       </li>
                       <li className="flex justify-between">
                         <span>Jumat:</span>
-                        <strong className="text-neo-ink">07.00 &ndash; 14.00 WIB</strong>
+                        <strong className="text-neo-ink">07.00 – 14.00 WIB</strong>
                       </li>
                       <li className="flex justify-between text-neo-ink-3">
                         <span>Sabtu & Minggu:</span>
@@ -174,11 +174,11 @@ export const KontakPage: FC = () => {
                 </span>
                 <ul className="space-y-2 text-xs text-neo-ink-2">
                   <li className="flex items-start gap-1.5 leading-relaxed">
-                    <span className="text-neo-ink font-bold">&bull;</span>
+                    <span className="text-neo-ink font-bold">•</span>
                     <span><strong>1,2 km dari Stasiun Klaten:</strong> 3 menit berkendara atau angkutan kota jalur Merbabu.</span>
                   </li>
                   <li className="flex items-start gap-1.5 leading-relaxed">
-                    <span className="text-neo-ink font-bold">&bull;</span>
+                    <span className="text-neo-ink font-bold">•</span>
                     <span><strong>800 m dari Alun-Alun Klaten:</strong> Berada di kawasan pusat pendidikan Klaten Selatan.</span>
                   </li>
                 </ul>
@@ -231,7 +231,7 @@ export const KontakPage: FC = () => {
                       onClick={handleReset}
                       className="btn btn-secondary text-xs"
                     >
-                      Kirim Pesan Lainnya &rarr;
+                      Kirim Pesan Lainnya →
                     </button>
                   </div>
                 ) : (
@@ -354,7 +354,7 @@ export const KontakPage: FC = () => {
               rel="noopener noreferrer"
               className="btn btn-secondary text-xs"
             >
-              Buka di Google Maps &nearr;
+              Buka di Google Maps ↗
             </a>
           </div>
 
@@ -374,11 +374,11 @@ export const KontakPage: FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             <div className="bg-neo-bg border border-neo-ink p-4">
               <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-1">Koordinat GPS</span>
-              <p className="font-mono text-xs text-neo-ink-2">Lintang: -7.7126° S &middot; Bujur: 110.5990° E</p>
+              <p className="font-mono text-xs text-neo-ink-2">Lintang: -7.7126° S · Bujur: 110.5990° E</p>
             </div>
             <div className="bg-neo-bg border border-neo-ink p-4">
               <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-1">Kecamatan & Kode Pos</span>
-              <p className="font-mono text-xs text-neo-ink-2">Kecamatan Klaten Selatan &middot; 57423</p>
+              <p className="font-mono text-xs text-neo-ink-2">Kecamatan Klaten Selatan · 57423</p>
             </div>
             <div className="bg-neo-bg border border-neo-ink p-4">
               <span className="font-mono text-xs font-bold text-neo-ink uppercase block mb-1">Status Bangunan</span>

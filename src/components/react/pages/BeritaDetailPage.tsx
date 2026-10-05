@@ -37,7 +37,7 @@ export default function BeritaDetailPage({ article }: BeritaDetailPageProps) {
         <div className="container text-center">
           <p className="font-mono text-sm text-neo-ink-3 mb-4">Warta Tidak Ditemukan</p>
           <a href="/berita" className="btn btn-secondary text-xs">
-            &larr; Kembali ke Warta Berita
+            ← Kembali ke Warta Berita
           </a>
         </div>
       </div>
@@ -55,11 +55,11 @@ export default function BeritaDetailPage({ article }: BeritaDetailPageProps) {
           <a href="/" className="hover:text-neo-ink">
             Beranda
           </a>
-          <span aria-hidden="true">&middot;</span>
+          <span aria-hidden="true">·</span>
           <a href="/berita" className="hover:text-neo-ink">
             Warta Berita
           </a>
-          <span aria-hidden="true">&middot;</span>
+          <span aria-hidden="true">·</span>
           <span className="text-neo-ink truncate max-w-xs sm:max-w-md">
             {article.title}
           </span>
@@ -125,10 +125,10 @@ export default function BeritaDetailPage({ article }: BeritaDetailPageProps) {
         {/* Footer Artikel */}
         <footer className="mt-12 pt-6 border-t border-neo-ink flex flex-wrap items-center justify-between gap-4">
           <a href="/berita" className="btn btn-secondary text-xs">
-            &larr; Kembali ke Daftar Berita
+            ← Kembali ke Daftar Berita
           </a>
           <span className="font-mono text-xs text-neo-ink-3">
-            Arsip Publikasi &middot; SMAN 1 Klaten
+            Arsip Publikasi · SMAN 1 Klaten
           </span>
         </footer>
       </div>
