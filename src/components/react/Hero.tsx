@@ -1,4 +1,5 @@
 import React from 'react';
+import { PaperAirplaneDoodle, SparkleDoodle, CurvedDashedTrail } from './DoodleDecorations';
 
 interface HeroProps {
   heroImage?: string;
@@ -6,8 +7,22 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ heroImage = '/images/school/Smansa1.jpg' }) => {
   return (
-    <section className="hero-broadside" id="beranda-hero">
-      <div className="container hero-inner">
+    <section className="hero-broadside relative overflow-hidden" id="beranda-hero">
+      {/* Decorative Neobrutalism Doodles */}
+      <div className="absolute top-8 left-4 sm:left-12 opacity-85 doodle-float hidden sm:block">
+        <PaperAirplaneDoodle />
+      </div>
+      <div className="absolute top-16 right-6 sm:right-16 opacity-85 doodle-float-delayed">
+        <SparkleDoodle size={32} color="#D4FF00" />
+      </div>
+      <div className="absolute top-44 left-2 sm:left-8 opacity-75 hidden md:block">
+        <CurvedDashedTrail />
+      </div>
+      <div className="absolute bottom-28 right-4 sm:right-12 opacity-80 doodle-float hidden sm:block">
+        <SparkleDoodle size={28} color="#00F0FF" />
+      </div>
+
+      <div className="container hero-inner relative z-10">
         {/* Eyebrow Meta Bar with Neon Brutalist Sticker */}
         <div className="hero-meta-bar" data-reveal="">
           <span className="meta-tag">EST. 1957</span>

@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
             <div className="team-credit-box">
               <span className="credit-title">Dirancang oleh Tim RANDOM KID:</span>
               <p className="credit-names">
-                Muhammad Agha Prabswara • Radithya Asadel Narendra • Jalu Budi Dhamarsakti
+                Muhammad Agha Prabaswara • Radithya Asadel Narendra • Jalu Budi Dhamarsakti • Miftahu Roifu Valda Anam
               </p>
               <span className="competition-tag">Karya Kompetisi INCEPTION 2026</span>
             </div>
@@ -60,7 +60,17 @@ export const Footer: React.FC = () => {
                   <a href="/program#ekstrakurikuler-resmi">23 Ekstrakurikuler Resmi</a>
                 </li>
                 <li>
-                  <a href="/#chatbot">Layanan SmansaBot AI</a>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (typeof window !== 'undefined') {
+                        window.dispatchEvent(new CustomEvent('open-smansabot'));
+                      }
+                    }}
+                    className="text-left text-gray-300 hover:text-neon-lime transition-colors bg-transparent border-0 p-0 font-sans text-sm cursor-pointer"
+                  >
+                    Layanan SmansaBot AI
+                  </button>
                 </li>
                 <li>
                   <a href="/ppdb">Informasi PPDB 2026</a>
@@ -124,6 +134,15 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="footer-bottom">
+          <div className="footer-doodle" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="#D4FF00" stroke="#FFFFFF" strokeWidth="1.2" />
+            </svg>
+            <span className="footer-doodle-dash" aria-hidden="true"></span>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="#00F0FF" stroke="#FFFFFF" strokeWidth="1.2" />
+            </svg>
+          </div>
           <p className="copyright">&copy; {currentYear} SMA Negeri 1 Klaten</p>
           <div className="legal-links">
             <a href="/#profil">Keterbukaan Informasi</a>
@@ -140,6 +159,21 @@ export const Footer: React.FC = () => {
           padding: 64px 0 32px;
           margin-top: auto;
           border-top: var(--neo-border-thick);
+        }
+
+        .footer-doodle {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 12px;
+        }
+
+        .footer-doodle-dash {
+          display: block;
+          width: 56px;
+          height: 2px;
+          background-image: linear-gradient(to right, #D4FF00 0 6px, transparent 6px 12px);
+          background-size: 12px 2px;
         }
 
         .footer-top {

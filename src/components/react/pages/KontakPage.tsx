@@ -1,4 +1,5 @@
 import { useState, type FC } from 'react';
+import { PaperAirplaneDoodle, SparkleDoodle, CurvedDashedTrail } from '../DoodleDecorations';
 
 interface FormData {
   name: string;
@@ -73,8 +74,14 @@ export const KontakPage: FC = () => {
   return (
     <div className="kontak-page-wrapper">
       {/* 1. Classic Contact Hero */}
-      <section className="contact-hero sec sec-flush">
-        <div className="container">
+      <section className="contact-hero sec sec-flush relative overflow-hidden">
+        <div className="absolute top-6 right-8 doodle-float hidden sm:block">
+          <PaperAirplaneDoodle flip={true} />
+        </div>
+        <div className="absolute bottom-4 right-20 doodle-float-delayed">
+          <SparkleDoodle size={28} color="#FF2E93" />
+        </div>
+        <div className="container relative z-10">
           <p className="lbl">Sekretariat dan layanan informasi</p>
           <h1 className="page-title">Hubungi SMA Negeri 1 Klaten</h1>
           <p className="page-lead">
@@ -84,7 +91,32 @@ export const KontakPage: FC = () => {
         </div>
       </section>
 
-      {/* 2. Main Contact Grid */}
+      {/* 2. Aksi Cepat Kontak */}
+      <section className="contact-body sec sec-flush">
+        <div className="container">
+          <div className="kontak-quick-actions">
+            <a href="tel:+62272321150" className="qa-btn qa-btn--lime">
+              <span className="qa-label">Telepon Sekretariat</span>
+              <span className="qa-value num">(0272) 321150</span>
+            </a>
+            <a
+              href="https://wa.me/6281234567890"
+              className="qa-btn qa-btn--cyan"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="qa-label">WhatsApp</span>
+              <span className="qa-value num">Chat langsung TU</span>
+            </a>
+            <a href="mailto:info@sma1klaten.sch.id" className="qa-btn qa-btn--yellow">
+              <span className="qa-label">Surel Resmi</span>
+              <span className="qa-value">info@sma1klaten.sch.id</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Main Contact Grid */}
       <section className="contact-body sec sec-flush">
         <div className="container">
           <div className="grid-contact">

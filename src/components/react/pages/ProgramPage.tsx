@@ -1,5 +1,7 @@
 import { useState, useMemo } from 'react';
 import Programs from '../Programs';
+import NeoFilterBar from '../NeoFilterBar';
+import { PaperAirplaneDoodle, SparkleDoodle, CurvedDashedTrail } from '../DoodleDecorations';
 import ekstraData from '../../../content/ekstrakurikuler/daftar.json';
 
 const CURRICULUM_PILLARS = [
@@ -38,24 +40,43 @@ const EXTRA_CATEGORIES = [
   'Kerohanian & Sosial',
 ];
 
+const matchesCategory = (category: string, selectedCat: string): boolean => {
+  const cat = (category || '').toLowerCase();
+  switch (selectedCat) {
+    case 'Kepemimpinan':
+      return cat.includes('kepemimpinan') || cat.includes('kepecintaalaman');
+    case 'Sains & Teknologi':
+      return cat.includes('sains') || cat.includes('riset') || cat.includes('teknologi');
+    case 'Seni & Bahasa':
+      return cat.includes('seni') || cat.includes('bahasa') || cat.includes('jurnalistik') || cat.includes('media');
+    case 'Olahraga':
+      return cat.includes('olahraga');
+    case 'Kerohanian & Sosial':
+      return cat.includes('kerohanian') || cat.includes('kemanusiaan');
+    default:
+      return true;
+  }
+};
+
 export const ProgramPage = () => {
   const [selectedCat, setSelectedCat] = useState<string>('Semua');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const allExtras = ekstraData.items || [];
 
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { Semua: allExtras.length };
+    for (const cat of EXTRA_CATEGORIES.slice(1)) {
+      counts[cat] = allExtras.filter((item) => matchesCategory(item.category, cat)).length;
+    }
+    return counts;
+  }, [allExtras]);
+
   const filteredExtras = useMemo(() => {
     return allExtras.filter((item) => {
-      let matchCat = selectedCat === 'Semua';
-      if (!matchCat) {
-        const cat = (item.category || '').toLowerCase();
-        if (selectedCat === 'Kepemimpinan') matchCat = cat.includes('kepemimpinan') || cat.includes('kepecintaalaman');
-        else if (selectedCat === 'Sains & Teknologi') matchCat = cat.includes('sains') || cat.includes('riset') || cat.includes('teknologi');
-        else if (selectedCat === 'Seni & Bahasa') matchCat = cat.includes('seni') || cat.includes('bahasa') || cat.includes('jurnalistik') || cat.includes('media');
-        else if (selectedCat === 'Olahraga') matchCat = cat.includes('olahraga');
-        else if (selectedCat === 'Kerohanian & Sosial') matchCat = cat.includes('kerohanian') || cat.includes('kemanusiaan');
-      }
-      
+      const matchCat =
+        selectedCat === 'Semua' || matchesCategory(item.category, selectedCat);
+
       const q = searchQuery.toLowerCase().trim();
       const matchQuery =
         !q ||
@@ -70,14 +91,28 @@ export const ProgramPage = () => {
   return (
     <div className="program-page-wrapper">
       {/* 1. Original Program Hero */}
-      <section className="program-hero sec sec-flush">
-        <div className="container">
+      <section className="program-hero sec sec-flush relative overflow-hidden">
+        <div className="absolute top-6 right-8 doodle-float hidden sm:block">
+          <PaperAirplaneDoodle flip={true} />
+        </div>
+        <div className="absolute bottom-4 right-16 doodle-float-delayed">
+          <SparkleDoodle size={30} color="#00F0FF" />
+        </div>
+        <div className="container relative z-10">
           <p className="lbl">Akademik dan kesiswaan</p>
           <h1 className="page-title">Kurikulum Merdeka dan ekosistem minat bakat</h1>
           <p className="page-lead">
             Pembelajaran yang menghargai keunikan potensi setiap peserta didik melalui
             fase eksplorasi, pendalaman rumpun disiplin ilmu, dan pembinaan 23
             ekstrakurikuler resmi.
+          </p>
+          <p className="flex flex-wrap gap-2 mt-4">
+            <span className="inline-block bg-neon-lime border-2 border-neo-ink rounded font-mono text-[11px] font-bold text-neo-ink px-2.5 py-1 shadow-neo-sm">
+              {allExtras.length} Ekstrakurikuler Resmi
+            </span>
+            <span className="inline-block bg-neon-cyan border-2 border-neo-ink rounded font-mono text-[11px] font-bold text-neo-ink px-2.5 py-1 shadow-neo-sm">
+              Kurikulum Merdeka
+            </span>
           </p>
         </div>
       </section>
@@ -112,91 +147,102 @@ export const ProgramPage = () => {
       <section className="ekskul-gallery-section sec" id="ekstrakurikuler-resmi">
         <div className="container">
           <div className="section-header">
-            <p className="lbl">Pengembangan karakter dan bakat</p>
+            <div className="ekskul-head-stickers">
+              <span className="lbl lbl-cyan nb-sticker">Kurikulum Merdeka</span>
+              <span className="lbl lbl-yellow nb-sticker">23 Ekskul</span>
+            </div>
             <h2 className="section-heading">23 ekstrakurikuler resmi</h2>
             <p className="page-lead" style={{ marginBottom: '24px' }}>
               Wadah pembinaan kepemimpinan, penalaran ilmiah, kreasi seni,
               ketangkasan raga, dan keteguhan rohani civitas akademika Padmawijaya.
             </p>
-
-            {/* Controls: Search and Filter Pills */}
-            <div className="flex flex-wrap gap-4 items-center justify-between mb-8 pb-5 border-b border-neo-ink/20">
-              <div className="relative min-w-[280px] flex-1 max-w-md">
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Cari ekstrakurikuler (contoh: OSMANSA, KIR, Basket...)"
-                  className="w-full px-4 py-2.5 bg-neo-surface border-2 border-neo-ink rounded shadow-neo-sm text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:shadow-neo font-sans"
-                />
-                {searchQuery && (
-                  <button
-                    type="button"
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-neo-ink-3 hover:text-neo-ink"
-                  >
-                    ×
-                  </button>
-                )}
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {EXTRA_CATEGORIES.map((cat) => {
-                  const isActive = selectedCat === cat;
-                  return (
-                    <button
-                      key={cat}
-                      type="button"
-                      onClick={() => setSelectedCat(cat)}
-                      className={`font-mono text-xs px-3 py-1.5 border-2 border-neo-ink rounded transition-all cursor-pointer ${
-                        isActive
-                          ? 'bg-neon-lime text-neo-ink font-extrabold shadow-neo-sm -translate-x-0.5 -translate-y-0.5'
-                          : 'bg-neo-surface text-neo-ink font-bold shadow-[2px_2px_0px_#111418] hover:bg-neo-surface-2'
-                      }`}
-                    >
-                      {cat}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
           </div>
+
+          {/* Sub-nav: pencarian dan filter kategori */}
+          <NeoFilterBar
+            search={searchQuery}
+            onSearch={setSearchQuery}
+            searchLabel="Cari ekstrakurikuler"
+            placeholder="Cari ekstrakurikuler (contoh: OSMANSA, KIR, Basket...)"
+            groups={[
+              {
+                key: 'kategori',
+                label: 'Kategori',
+                options: EXTRA_CATEGORIES.map((cat) => ({
+                  value: cat,
+                  label: cat,
+                  count: categoryCounts[cat] ?? 0,
+                })),
+              },
+            ]}
+            values={{ kategori: selectedCat }}
+            onFilter={(_key, value) => setSelectedCat(value)}
+            resultCount={filteredExtras.length}
+            totalCount={allExtras.length}
+            noun="ekstrakurikuler"
+            onReset={() => {
+              setSearchQuery('');
+              setSelectedCat('Semua');
+            }}
+          />
 
           {/* Ekskul Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredExtras.map((item) => (
-              <article className="ekskul-card card" key={item.id}>
-                <div className="flex-1 flex flex-col">
-                  <div className="ekskul-logo-box shrink-0">
-                    <img
-                      src={item.logo}
-                      alt={`Logo ${item.name}`}
-                      className="ekskul-logo-img"
-                      loading="lazy"
-                      width={48}
-                      height={48}
-                      onError={(e) => {
-                        (e.target as HTMLElement).style.display = 'none';
-                      }}
-                    />
+          {filteredExtras.length === 0 ? (
+            <div className="nb-empty">
+              <span className="nb-tag nb-tag--magenta">Tidak ditemukan</span>
+              <h3 className="font-serif text-xl font-bold text-neo-ink mt-3 mb-2">
+                Tidak ada ekstrakurikuler yang cocok
+              </h3>
+              <p className="text-sm text-neo-ink-2 mb-5">
+                Silakan sesuaikan kata kunci atau pilih kategori &quot;Semua&quot;.
+              </p>
+              <button
+                type="button"
+                className="nb-reset"
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedCat('Semua');
+                }}
+              >
+                Reset filter
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredExtras.map((item) => (
+                <article className="ekskul-card card" key={item.id}>
+                  <div className="flex-1 flex flex-col">
+                    <div className="ekskul-logo-box shrink-0">
+                      <img
+                        src={item.logo}
+                        alt={`Logo ${item.name}`}
+                        className="ekskul-logo-img"
+                        loading="lazy"
+                        width={48}
+                        height={48}
+                        onError={(e) => {
+                          (e.target as HTMLElement).style.display = 'none';
+                        }}
+                      />
+                    </div>
+                    <span className="ekskul-cat self-start nb-sticker">
+                      {item.category}
+                    </span>
+                    <h3 className="ekskul-name">
+                      {item.name}
+                    </h3>
+                    <p className="ekskul-desc">
+                      {item.desc}
+                    </p>
                   </div>
-                  <span className="ekskul-cat self-start">
-                    {item.category}
-                  </span>
-                  <h3 className="ekskul-name">
-                    {item.name}
-                  </h3>
-                  <p className="ekskul-desc">
-                    {item.desc}
-                  </p>
-                </div>
-                <div className="ekskul-foot">
-                  <span>Unit Resmi</span>
-                  <span className="font-bold text-neo-ink">SMAN 1 Klaten</span>
-                </div>
-              </article>
-            ))}
-          </div>
+                  <div className="ekskul-foot">
+                    <span>Unit Resmi</span>
+                    <span className="font-bold text-neo-ink">SMAN 1 Klaten</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
 
           {/* Bottom Information Callout */}
           <div className="ppdb-cta" style={{ marginTop: 'clamp(40px, 6vw, 64px)' }}>

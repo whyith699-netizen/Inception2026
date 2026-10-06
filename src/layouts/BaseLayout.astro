@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import ChatbotWidget from '../components/ChatbotWidget.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -32,6 +33,7 @@ const {
   </head>
   <body>
     <slot />
+    <ChatbotWidget />
 
     <script>
       // Global Smooth Motion System across ALL pages

@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/react/Header';
+import Footer from '../components/react/Footer';
+
+const quickLinks = [
+  { href: '/', label: 'Beranda', note: 'Kembali ke ringkasan sekolah' },
+  { href: '/direktori', label: 'Direktori', note: 'Guru dan staf' },
+  { href: '/berita', label: 'Berita', note: 'Kabar dan pengumuman' },
+];
+---
+
+<BaseLayout
+  title="Halaman Tidak Ditemukan (404) | SMA Negeri 1 Klaten"
+  description="Halaman yang Anda cari tidak tersedia. Gunakan navigasi pintasan untuk kembali ke beranda, direktori, atau warta sekolah SMAN 1 Klaten."
+>
+  <Header client:load />
+
+  <main id="main-content">
+    <section class="sec sec-flush">
+      <div class="container">
+        <div class="err-card">
+          <div class="err-stickers">
+            <span class="lbl lbl-magenta nb-sticker">Error 404</span>
+            <span class="lbl lbl-cyan nb-sticker">Halaman hilang</span>
+          </div>
+
+          <p class="err-code num" aria-hidden="true">404</p>
+
+          <h1 class="page-title">Halaman yang Anda cari tidak ditemukan</h1>
+          <p class="page-lead">
+            Tautan mungkin sudah lama dihapus, alamatnya salah ketik, atau halaman
+            telah dipindahkan. Gunakan pintasan di bawah untuk melanjutkan jelajah
+            informasi SMA Negeri 1 Klaten.
+          </p>
+
+          <nav class="err-links" aria-label="Pintasan halaman utama">
+            {quickLinks.map((link) => (
+              <a class="err-link" href={link.href}>
+                <strong>{link.label} &rarr;</strong>
+                <span>{link.note}</span>
+              </a>
+            ))}
+          </nav>
+
+          <div class="err-cta">
+            <a href="/" class="btn btn-primary">Kembali ke Beranda</a>
+            <a href="/kontak" class="btn btn-secondary">Hubungi Sekretariat</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer client:load />
+</BaseLayout>
+
+<style>
+  .err-card {
+    background: var(--neo-surface);
+    border: var(--neo-border-thick);
+    border-radius: var(--r-md);
+    box-shadow: var(--neo-shadow-lg);
+    padding: clamp(32px, 6vw, 64px);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .err-stickers {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .err-stickers .lbl {
+    margin-bottom: 0;
+  }
+
+  .err-code {
+    font-family: var(--font-mono);
+    font-size: clamp(4rem, 14vw, 7rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--neon-lime);
+    -webkit-text-stroke: 3px var(--neo-ink);
+    text-shadow: 6px 6px 0px var(--neo-ink);
+    margin: 16px 0 20px;
+  }
+
+  .err-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 28px 0 32px;
+  }
+
+  .err-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 18px;
+    font-family: var(--font-mono);
+    color: var(--neo-ink);
+    background: var(--neo-bg);
+    border: var(--neo-border);
+    border-radius: var(--r-md);
+    box-shadow: var(--neo-shadow-sm);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+  }
+
+  .err-link strong {
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .err-link span {
+    font-size: 0.75rem;
+    color: var(--neo-ink-3);
+  }
+
+  .err-link:hover {
+    background: var(--neon-cyan);
+    box-shadow: var(--neo-shadow);
+    transform: translate(-2px, -2px);
+  }
+
+  .err-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 700px) {
+    .err-links {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

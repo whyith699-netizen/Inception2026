@@ -1,4 +1,6 @@
 import { useState, useMemo } from 'react';
+import NeoFilterBar from '../NeoFilterBar';
+import { PaperAirplaneDoodle, SparkleDoodle, CurvedDashedTrail } from '../DoodleDecorations';
 
 export interface StaffPerson {
   name: string;
@@ -70,17 +72,32 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
         p.name.toLowerCase().includes(query) ||
         displayRole.toLowerCase().includes(query) ||
         (p.detail && p.detail.toLowerCase().includes(query)) ||
+        (p.role && p.role.toLowerCase().includes(query)) ||
         (p.email && p.email.toLowerCase().includes(query))
       );
     });
   }, [allPeople, search, selectedRole]);
 
+  const resetFilters = () => {
+    setSearch('');
+    setSelectedRole('Semua');
+  };
+
   return (
     <div className="direktori-page-wrapper bg-neo-bg text-neo-ink">
       {/* 1. Page Header (Editorial) */}
-      <section className="page-head sec sec-flush border-b border-neo-ink bg-neo-bg">
-        <div className="container">
-          <p className="lbl">Direktori sekolah</p>
+      <section className="page-head sec sec-flush border-b border-neo-ink bg-neo-bg relative overflow-hidden">
+        <div className="absolute top-6 right-8 doodle-float hidden sm:block">
+          <PaperAirplaneDoodle flip={true} />
+        </div>
+        <div className="absolute bottom-4 right-20 doodle-float-delayed">
+          <SparkleDoodle size={28} color="#D4FF00" />
+        </div>
+        <div className="container relative z-10">
+          <div className="direktori-head-stickers">
+            <p className="lbl">Direktori sekolah</p>
+            <p className="lbl lbl-magenta nb-sticker">{allPeople.length} Pendidik &amp; Staf</p>
+          </div>
           <h1 className="page-title">Guru dan staf SMAN 1 Klaten</h1>
           <p className="page-lead">
             Daftar resmi kepala sekolah, tenaga pendidik, dan staf tata usaha yang mengelola
@@ -92,86 +109,43 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
       {/* 2. Interactive Directory Island */}
       <section className="sec sec-flush" style={{ paddingTop: 'clamp(32px, 5vw, 56px)', paddingBottom: 'clamp(56px, 8vw, 88px)' }}>
         <div className="container">
-          {/* Panel Kontrol & Filter */}
-          <div className="direktori-control-panel">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-neo-ink/15">
-              {/* Search Bar */}
-              <div className="relative flex-1 max-w-md">
-                <input
-                  type="text"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Cari nama guru, staf, atau NIP..."
-                  aria-label="Cari nama guru atau staf"
-                  className="w-full pl-4 pr-10 py-3 bg-neo-bg border-2 border-neo-ink rounded text-sm text-neo-ink placeholder:text-neo-ink-3 focus:outline-none focus:bg-white font-mono shadow-neo-sm transition-colors"
-                />
-                {search && (
-                  <button
-                    type="button"
-                    onClick={() => setSearch('')}
-                    aria-label="Hapus kata kunci pencarian"
-                    className="absolute right-3.5 top-1/2 -translate-y-1/2 bg-neon-magenta text-white border border-neo-ink rounded text-xs px-2 py-0.5 font-bold hover:bg-neon-magenta/90 cursor-pointer"
-                  >
-                    ×
-                  </button>
-                )}
-              </div>
-
-              {/* Status Counter */}
-              <div className="font-mono text-xs text-neo-ink-2 pr-2">
-                Menampilkan <strong className="text-neo-ink font-bold">{filteredPeople.length}</strong> dari {allPeople.length} personil
-              </div>
-            </div>
-
-            {/* Filter Buttons: Hanya Kepala Sekolah, Guru, Staf */}
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className="font-mono text-xs font-bold text-neo-ink uppercase mr-2">
-                Kategori:
-              </span>
-              {ROLE_FILTERS.map((cat) => {
-                const isActive = selectedRole === cat;
-                const count = roleCounts[cat] ?? 0;
-                return (
-                  <button
-                    key={cat}
-                    type="button"
-                    onClick={() => setSelectedRole(cat)}
-                    className={`font-mono text-xs px-3.5 py-1.5 border-2 border-neo-ink rounded transition-all cursor-pointer flex items-center gap-2 ${
-                      isActive
-                        ? 'bg-neon-lime text-neo-ink font-extrabold shadow-neo-sm -translate-y-0.5'
-                        : 'bg-neo-bg text-neo-ink hover:bg-neo-surface-2'
-                    }`}
-                  >
-                    <span>{cat}</span>
-                    <span className={`text-[10px] px-2 py-0.5 rounded border ${
-                      isActive ? 'bg-neo-ink text-white border-neo-ink' : 'bg-white text-neo-ink border-neo-ink/30'
-                    }`}>
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+          {/* Sub-nav: pencarian dan filter peran */}
+          <NeoFilterBar
+            search={search}
+            onSearch={setSearch}
+            searchLabel="Cari nama guru atau staf"
+            placeholder="Cari nama guru, staf, atau mata pelajaran..."
+            groups={[
+              {
+                key: 'peran',
+                label: 'Peran',
+                options: ROLE_FILTERS.map((cat) => ({
+                  value: cat,
+                  label: cat,
+                  count: roleCounts[cat] ?? 0,
+                })),
+              },
+            ]}
+            values={{ peran: selectedRole }}
+            onFilter={(_key, value) => setSelectedRole(value)}
+            resultCount={filteredPeople.length}
+            totalCount={allPeople.length}
+            noun="personil"
+            onReset={resetFilters}
+          />
 
           {/* Grid Personil */}
           {filteredPeople.length === 0 ? (
-            <div className="text-center py-16 px-6 border-2 border-dashed border-neo-ink bg-neo-surface rounded-md max-w-xl mx-auto space-y-3 shadow-neo">
-              <h3 className="font-serif text-xl font-bold text-neo-ink">
+            <div className="nb-empty">
+              <span className="nb-tag nb-tag--magenta">Tidak ditemukan</span>
+              <h3 className="font-serif text-xl font-bold text-neo-ink mt-3 mb-2">
                 Tidak ada data guru atau staf yang cocok
               </h3>
-              <p className="text-sm text-neo-ink-2">
+              <p className="text-sm text-neo-ink-2 mb-5">
                 Silakan sesuaikan kata kunci pencarian atau klik tombol kategori &quot;Semua&quot;.
               </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setSearch('');
-                  setSelectedRole('Semua');
-                }}
-                className="btn btn-secondary text-xs"
-              >
-                Tampilkan Semua Personil →
+              <button type="button" className="nb-reset" onClick={resetFilters}>
+                Tampilkan Semua Personil
               </button>
             </div>
           ) : (
@@ -193,21 +167,25 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
                           <img
                             src={person.photo}
                             alt={`Potret ${person.name}`}
-                            className="w-full h-full object-cover object-top"
+                            className="w-full h-full object-cover object-top relative z-10"
                             loading="lazy"
                             width={280}
                             height={373}
+                            onError={(e) => {
+                              (e.currentTarget as HTMLElement).style.display = 'none';
+                            }}
                           />
-                        ) : (
-                          <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-neo-surface-2 text-center">
-                            <div className="w-16 h-16 border-2 border-neo-ink rounded bg-neon-lime flex items-center justify-center font-serif text-3xl font-extrabold text-neo-ink shadow-neo-sm mb-2">
-                              {initialChar}
-                            </div>
-                            <span className="font-mono text-[10px] font-bold text-neo-ink-3 uppercase tracking-wider">
-                              SMAN 1 Klaten
-                            </span>
+                        ) : null}
+
+                        {/* Fallback inisial — tampil jika foto tidak ada atau gagal dimuat */}
+                        <div className={`w-full h-full flex flex-col items-center justify-center p-4 bg-neo-surface-2 text-center ${hasValidPhoto ? 'absolute inset-0' : ''}`}>
+                          <div className="w-16 h-16 border-2 border-neo-ink rounded bg-neon-lime flex items-center justify-center font-serif text-3xl font-extrabold text-neo-ink shadow-neo-sm mb-2">
+                            {initialChar}
                           </div>
-                        )}
+                          <span className="font-mono text-[10px] font-bold text-neo-ink-3 uppercase tracking-wider">
+                            SMAN 1 Klaten
+                          </span>
+                        </div>
 
                         {/* Top-Right Tag */}
                         <span className={`direktori-role-badge ${
@@ -215,7 +193,7 @@ export const DirektoriPage = ({ staffGroups = [] }: DirektoriPageProps) => {
                             ? 'bg-neon-lime text-neo-ink'
                             : displayRole === 'Staf'
                             ? 'bg-neon-yellow text-neo-ink'
-                            : 'bg-white text-neo-ink'
+                            : 'bg-neo-cyan text-neo-ink'
                         }`}>
                           {displayRole}
                         </span>

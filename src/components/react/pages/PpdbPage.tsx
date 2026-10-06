@@ -1,5 +1,6 @@
 import EventBanner, { type EventData } from '../EventBanner';
 import PpdbCalculator from '../../islands/PpdbCalculator';
+import { PaperAirplaneDoodle, SparkleDoodle, CurvedDashedTrail } from '../DoodleDecorations';
 
 const PPDB_EVENT: EventData = {
   title: 'Posko Layanan & Verifikasi Akun PPDB Jateng 2026',
@@ -43,12 +44,41 @@ const REQUIREMENTS = [
   'Dokumen pendukung DTKS bagi pendaftar jalur afirmasi',
 ];
 
+const TIMELINE = [
+  {
+    date: '04 Mei 2026',
+    title: 'Pembukaan akun PPDB Jateng',
+    desc: 'Pendaftar membuat akun pada portal penerimaan peserta didik baru provinsi Jawa Tengah.',
+  },
+  {
+    date: '11 – 15 Mei 2026',
+    title: 'Pendaftaran dan pemilihan jalur',
+    desc: 'Pengisian formulir, unggah berkas, serta penentuan urutan preferensi jalur seleksi.',
+  },
+  {
+    date: '18 – 22 Mei 2026',
+    title: 'Verifikasi berkas sekolah',
+    desc: 'Panitia memeriksa keabsahan dokumen dan zonasi domisili sesuai kartu keluarga.',
+  },
+  {
+    date: '09 Juni 2026',
+    title: 'Pengumuman hasil seleksi',
+    desc: 'Hasil penerimaan diumumkan melalui portal resmi dan papan informasi sekolah.',
+  },
+];
+
 export const PpdbPage = () => {
   return (
     <div className="ppdb-page-wrapper bg-neo-bg text-neo-ink">
       {/* 1. Original Hero Section */}
-      <section className="ppdb-hero sec sec-flush">
-        <div className="container">
+      <section className="ppdb-hero sec sec-flush relative overflow-hidden">
+        <div className="absolute top-6 right-8 doodle-float hidden sm:block">
+          <PaperAirplaneDoodle flip={true} />
+        </div>
+        <div className="absolute bottom-4 left-6 doodle-float-delayed">
+          <SparkleDoodle size={28} color="#D4FF00" />
+        </div>
+        <div className="container relative z-10">
           <p className="lbl">Penerimaan siswa baru</p>
           <h1 className="page-title">Petunjuk teknis PPDB 2026/2027</h1>
           <p className="page-lead">
@@ -69,7 +99,23 @@ export const PpdbPage = () => {
         </div>
       </section>
 
-      {/* 4. Quota Distribution Section */}
+      {/* 4. Jadwal Seleksi */}
+      <section className="quota-section">
+        <div className="container">
+          <h2 className="section-heading">Jadwal seleksi PPDB 2026</h2>
+          <div className="ppdb-timeline">
+            {TIMELINE.map((step) => (
+              <article className="ppdb-timeline-item" key={step.title}>
+                <span className="ppdb-timeline-date num">{step.date}</span>
+                <h3 className="ppdb-timeline-title">{step.title}</h3>
+                <p className="ppdb-timeline-desc">{step.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Quota Distribution Section */}
       <section className="quota-section">
         <div className="container">
           <h2 className="section-heading">Pembagian kuota jalur seleksi</h2>
@@ -92,7 +138,7 @@ export const PpdbPage = () => {
           <ul className="req-list">
             {REQUIREMENTS.map((r, i) => (
               <li className="req-item" key={i}>
-                <span className="req-mark" aria-hidden="true"></span>
+                <span className="req-mark" aria-hidden="true">✓</span>
                 <span>{r}</span>
               </li>
             ))}

@@ -80,7 +80,7 @@ export default function BeritaDetailPage({ article }: BeritaDetailPageProps) {
             {article.title}
           </h1>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-neo-ink-2 border-y border-neo-ink/20 py-2.5 my-4">
+          <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-neo-ink-2 border-y-2 border-neo-ink py-2.5 my-4">
             <div>
               <span className="text-neo-ink font-bold">Rilis:</span>{' '}
               <time dateTime={formatIso(article.date)}>
@@ -95,8 +95,8 @@ export default function BeritaDetailPage({ article }: BeritaDetailPageProps) {
         </header>
 
         {/* Gambar Sampul Artikel */}
-        {article.image && (
-          <div className="mb-8 border-2 border-neo-ink rounded-md shadow-neo overflow-hidden bg-neo-surface-2 aspect-[16/9]">
+        {article.image ? (
+          <div className="mb-8 border-[3px] border-neo-ink rounded-md shadow-neo-lg overflow-hidden bg-neo-surface-2 aspect-[16/9]">
             <img
               src={article.image}
               alt={article.title}
@@ -104,21 +104,27 @@ export default function BeritaDetailPage({ article }: BeritaDetailPageProps) {
               loading="eager"
               width={800}
               height={450}
+              onError={(e) => {
+                (e.target as HTMLElement).parentElement!.style.display = 'none';
+              }}
             />
+          </div>
+        ) : (
+          <div className="mb-8 p-4 bg-neon-lime/10 border-2 border-neo-ink rounded-md flex items-center gap-3 font-mono text-xs text-neo-ink">
+            <span className="text-base">📢</span>
+            <span>Dokumentasi teks resmi warta sekolah tanpa lampiran foto.</span>
           </div>
         )}
 
         {/* Lede / Ringkasan Editorial */}
         {article.excerpt && (
-          <div className="mb-8 p-5 bg-neo-surface border-2 border-neo-ink rounded-md shadow-neo-sm">
-            <p className="font-serif italic text-base sm:text-lg text-neo-ink leading-relaxed">
-              "{article.excerpt}"
-            </p>
-          </div>
+          <blockquote className="article-quote">
+            {article.excerpt}
+          </blockquote>
         )}
 
         {/* Isi Artikel */}
-        <div className="space-y-5 text-base sm:text-lg leading-relaxed text-neo-ink-2 font-sans max-w-[70ch]">
+        <div className="article-prose max-w-[70ch]">
           {article.body.map((par, idx) => (
             <p key={idx}>{par}</p>
           ))}

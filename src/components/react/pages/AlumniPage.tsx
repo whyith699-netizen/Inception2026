@@ -123,7 +123,7 @@ export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
                         Menyelesaikan pendidikan dasar hingga menengah di Klaten sebelum menempuh studi teknik sipil di UGM, Asian Institute of Technology Bangkok, dan University of Iowa. Beliau memimpin Universitas Gadjah Mada sebagai Rektor ke-13, menjadi teladan kepemimpinan berbasis riset kerakyatan, serta senantiasa mendukung kemajuan almamater SMA Negeri 1 Klaten.
                       </p>
 
-                      <div className="pt-4 border-t border-neo-ink/15 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-neo-ink-3">
+                      <div className="pt-4 border-t-2 border-neo-ink flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-neo-ink-3">
                         <div className="flex items-center gap-2">
                           <span className="px-3 py-1 bg-neo-bg border border-neo-ink rounded text-neo-ink font-bold">
                             Guru Besar UGM
@@ -186,7 +186,7 @@ export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
                       {/* Card Foot */}
                       <div className="alumni-card-footer">
                         <span>KAPASSKA Klaten</span>
-                        <span className="font-bold text-neo-ink bg-neon-lime/20 px-2 py-0.5 border border-neo-ink/20">
+                        <span className="alumni-year-chip">
                           Padmawijaya Honor
                         </span>
                       </div>
@@ -237,7 +237,7 @@ export const AlumniPage = ({ items = [] }: AlumniPageProps) => {
 
             <div className="program-card card">
               <div className="program-header">
-                <span className="lbl lbl-magenta" style={{ color: '#fff', marginBottom: 0 }}>Pengabdian</span>
+                <div className="lbl lbl-magenta" style={{ marginBottom: 0 }}>Pengabdian</div>
                 <span className="program-date">Tahunan</span>
               </div>
               <h3 className="program-title">Bakti Almamater & Fasilitas</h3>

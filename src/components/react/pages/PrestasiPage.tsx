@@ -1,4 +1,5 @@
 import { useState, useMemo, type FC } from 'react';
+import NeoFilterBar from '../NeoFilterBar';
 import Metrics from '../Metrics';
 import AlumniSection from '../AlumniSection';
 import alumniJson from '../../../content/alumni/tokoh.json';
@@ -178,6 +179,16 @@ export const PrestasiPage: FC = () => {
   ];
   const levels = ['all', 'Internasional', 'Nasional', 'Provinsi', 'Kabupaten'];
 
+  const countBy = (predicate: (item: Achievement) => boolean) =>
+    achievementList.filter(predicate).length;
+
+  const resetFilters = () => {
+    setSelectedYear('all');
+    setSelectedCategory('all');
+    setSelectedLevel('all');
+    setSearchQuery('');
+  };
+
   const filteredAchievements = useMemo(() => {
     return achievementList.filter((item) => {
       const matchYear = selectedYear === 'all' || item.year === selectedYear;
@@ -207,6 +218,14 @@ export const PrestasiPage: FC = () => {
             mulai dari medali olimpiade sains dunia hingga pembinaan karakter berbasis
             sekolah Adiwiyata Mandiri.
           </p>
+          <p className="flex flex-wrap gap-2 mt-4">
+            <span className="inline-block bg-neon-lime border-2 border-neo-ink rounded font-mono text-[11px] font-bold text-neo-ink px-2.5 py-1 shadow-neo-sm">
+              {achievementList.length} Rekam Prestasi
+            </span>
+            <span className="inline-block bg-neon-cyan border-2 border-neo-ink rounded font-mono text-[11px] font-bold text-neo-ink px-2.5 py-1 shadow-neo-sm">
+              Sejak 2004 Hingga 2026
+            </span>
+          </p>
         </div>
       </section>
 
@@ -216,6 +235,21 @@ export const PrestasiPage: FC = () => {
       {/* 3. Achievements Section */}
       <section className="achievements-section sec sec-flush">
         <div className="container">
+          {/* Ringkasan jumlah kejuaraan per tingkat */}
+          <div className="prestasi-summary-row">
+            <span className="prestasi-filter-label">Ringkasan:</span>
+            {levels.map((lvl) => (
+              <span className="prestasi-summary-chip" key={lvl}>
+                <strong>{lvl === 'all' ? 'Semua' : lvl}</strong>
+                <span className="num">
+                  {lvl === 'all'
+                    ? achievementList.length
+                    : countBy((item) => item.level === lvl)}
+                </span>
+              </span>
+            ))}
+          </div>
+
           <div className="prestasi-search-header">
             <div>
               <h2 className="section-heading mb-1">Arsip kejuaraan terverifikasi</h2>
@@ -223,90 +257,67 @@ export const PrestasiPage: FC = () => {
                 Menampilkan <strong>{filteredAchievements.length}</strong> catatan prestasi resmi
               </p>
             </div>
-
-            <div className="w-full md:w-72">
-              <input
-                id="search-achievement"
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Cari olimpiade, seni, riset..."
-                className="prestasi-input"
-              />
-            </div>
           </div>
 
-          {/* Interactive Filters */}
-          <div className="prestasi-controls">
-            <div className="prestasi-filter-row">
-              <span className="prestasi-filter-label">Bidang:</span>
-              <div className="flex flex-wrap items-center gap-1.5 flex-1">
-                {categories.map((c) => (
-                  <button
-                    key={c.key}
-                    type="button"
-                    onClick={() => setSelectedCategory(c.key)}
-                    className={`prestasi-filter-btn ${selectedCategory === c.key ? 'active' : ''}`}
-                  >
-                    {c.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+          {/* Sub-nav: pencarian dan filter */}
+          <NeoFilterBar
+            search={searchQuery}
+            onSearch={setSearchQuery}
+            searchLabel="Cari prestasi"
+            placeholder="Cari olimpiade, seni, riset..."
+            groups={[
+              {
+                key: 'bidang',
+                label: 'Bidang',
+                options: categories.map((c) => ({
+                  value: c.key,
+                  label: c.label,
+                  count: c.key === 'all' ? achievementList.length : countBy((item) => item.category === c.key),
+                })),
+              },
+              {
+                key: 'tingkat',
+                label: 'Tingkat',
+                options: levels.map((lvl) => ({
+                  value: lvl,
+                  label: lvl === 'all' ? 'Semua' : lvl,
+                  count: lvl === 'all' ? achievementList.length : countBy((item) => item.level === lvl),
+                })),
+              },
+              {
+                key: 'tahun',
+                label: 'Tahun',
+                options: years.map((y) => ({
+                  value: y,
+                  label: y === 'all' ? 'Semua' : y,
+                  count: y === 'all' ? achievementList.length : countBy((item) => item.year === y),
+                })),
+              },
+            ]}
+            values={{ bidang: selectedCategory, tingkat: selectedLevel, tahun: selectedYear }}
+            onFilter={(key, value) => {
+              if (key === 'bidang') setSelectedCategory(value);
+              else if (key === 'tingkat') setSelectedLevel(value);
+              else setSelectedYear(value);
+            }}
+            resultCount={filteredAchievements.length}
+            totalCount={achievementList.length}
+            noun="catatan prestasi"
+            onReset={resetFilters}
+          />
 
-            <div className="prestasi-filter-row">
-              <span className="prestasi-filter-label">Tingkat:</span>
-              <div className="flex flex-wrap items-center gap-1.5 flex-1">
-                {levels.map((lvl) => (
-                  <button
-                    key={lvl}
-                    type="button"
-                    onClick={() => setSelectedLevel(lvl)}
-                    className={`prestasi-filter-btn ${selectedLevel === lvl ? 'active' : ''}`}
-                  >
-                    {lvl === 'all' ? 'Semua' : lvl}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="prestasi-filter-row">
-              <span className="prestasi-filter-label">Tahun:</span>
-              <div className="flex flex-wrap items-center gap-1.5 flex-1">
-                {years.map((y) => (
-                  <button
-                    key={y}
-                    type="button"
-                    onClick={() => setSelectedYear(y)}
-                    className={`prestasi-filter-btn ${selectedYear === y ? 'active' : ''}`}
-                  >
-                    {y === 'all' ? 'Semua' : y}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Hairline Grid of Achievements */}
+          {/* Grid of Achievements */}
           {filteredAchievements.length === 0 ? (
-            <div className="bg-neo-surface border-2 border-neo-ink rounded-md p-10 text-center max-w-lg mx-auto shadow-neo">
-              <h3 className="font-serif font-bold text-lg text-neo-ink mb-2">
+            <div className="nb-empty">
+              <span className="nb-tag nb-tag--magenta">Tidak ditemukan</span>
+              <h3 className="font-serif text-xl font-bold text-neo-ink mt-3 mb-2">
                 Tidak ada data prestasi yang cocok
               </h3>
-              <p className="text-xs text-neo-ink-2 mb-4">
+              <p className="text-sm text-neo-ink-2 mb-5">
                 Silakan sesuaikan kata kunci pencarian atau ubah filter bidang dan tingkat.
               </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setSelectedYear('all');
-                  setSelectedCategory('all');
-                  setSelectedLevel('all');
-                  setSearchQuery('');
-                }}
-                className="btn btn-secondary text-xs"
-              >
-                Reset Semua Filter ×
+              <button type="button" className="nb-reset" onClick={resetFilters}>
+                Reset Semua Filter
               </button>
             </div>
           ) : (
@@ -315,18 +326,13 @@ export const PrestasiPage: FC = () => {
                 <article className="achievement-card" key={a.id}>
                   <div className="card-meta">
                     <span className="year-badge num">{a.year}</span>
-                    <span className="level-badge">{a.level}</span>
-                    <span className="font-mono text-[10px] uppercase font-bold text-neo-ink bg-neo-bg px-2 py-0.5 border border-neo-ink/30 ml-auto">
-                      {a.categoryLabel}
-                    </span>
+                    <span className={`level-badge level-${a.level.toLowerCase()} nb-sticker`}>{a.level}</span>
                   </div>
                   <h3 className="ach-title">{a.title}</h3>
                   <p className="ach-desc">{a.desc}</p>
-                  <div className="mt-4 pt-3 border-t border-neo-ink/10 flex items-center justify-between font-mono text-xs text-neo-ink-3">
+                  <div className="ach-foot">
                     <span><strong>Delegasi:</strong> {a.delegation}</span>
-                    <span className="font-bold text-neo-ink bg-neon-lime/20 px-1.5 py-0.5 border border-neo-ink/20">
-                      {a.medal}
-                    </span>
+                    <span className="ach-medal nb-sticker">{a.medal}</span>
                   </div>
                 </article>
               ))}

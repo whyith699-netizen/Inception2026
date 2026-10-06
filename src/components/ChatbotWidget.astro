@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import InteractiveSmansaBot from './islands/InteractiveSmansaBot';
 
-const faqList = await getCollection('faq');
+const faqList = await getCollection('faq').catch(() => []);
 const knowledgeBase = faqList.map((item) => ({
   id: item.data.id,
   category: item.data.category,
@@ -12,49 +12,5 @@ const knowledgeBase = faqList.map((item) => ({
 }));
 ---
 
-<section class="chatbot-section sec" id="chatbot">
-  <div class="container">
-    <div class="chatbot-header">
-      <p class="lbl">SmansaBot AI</p>
-      <h2 class="chatbot-title">Tanya seputar sekolah di sini</h2>
-      <p class="chatbot-subtitle">
-        Asisten informasi SMAN 1 Klaten menjawab pertanyaan tentang PPDB 2026, profil sekolah,
-        kurikulum, fasilitas, ekstrakurikuler, dan berita terbaru. Jawaban bekerja sepenuhnya di
-        peramban Anda tanpa mengirim data ke server lain.
-      </p>
-    </div>
-
-    <div class="chat-container">
-      <InteractiveSmansaBot client:idle initialFaq={knowledgeBase} />
-    </div>
-  </div>
-</section>
-
-<style>
-  .chatbot-section {
-    padding-top: clamp(56px, 8vw, 88px);
-    padding-bottom: clamp(56px, 8vw, 88px);
-    border-top: 1px solid var(--hairline);
-  }
-
-  .chatbot-header {
-    max-width: 560px;
-    margin-bottom: clamp(28px, 4vw, 44px);
-  }
-
-  .chatbot-title {
-    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
-    font-weight: 500;
-    margin-bottom: 14px;
-  }
-
-  .chatbot-subtitle {
-    font-size: 1rem;
-    color: var(--ink-2);
-    line-height: 1.65;
-  }
-
-  .chat-container {
-    max-width: 760px;
-  }
-</style>
+<!-- Global Floating SmansaBot AI Modal -->
+<InteractiveSmansaBot client:idle initialFaq={knowledgeBase} />

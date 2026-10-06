@@ -9,7 +9,7 @@
   --color-neo-surface-2: #E8EBF0;
   --color-neo-ink: #111418;
   --color-neo-ink-2: #3E4651;
-  --color-neo-ink-3: #6C7684;
+  --color-neo-ink-3: #525B67;
   --color-neon-lime: #D4FF00;
   --color-neon-cyan: #00F0FF;
   --color-neon-magenta: #FF2E93;
@@ -17,6 +17,7 @@
   --shadow-neo-sm: 2px 2px 0px #111418;
   --shadow-neo: 4px 4px 0px #111418;
   --shadow-neo-lg: 6px 6px 0px #111418;
+  --shadow-neo-yellow: 4px 4px 0px #FFE600;
   --font-serif: 'Fraunces', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'Space Mono', monospace;
@@ -131,11 +132,79 @@ button {
 
 .lbl-magenta {
   background: var(--neon-magenta);
-  color: #FFFFFF;
+  color: var(--neo-ink);
+}
+
+/* Used in ~20 places but never defined; .lbl already defaults to lime, so this
+   just makes the intent explicit. */
+.lbl-lime {
+  background: var(--neon-lime);
 }
 
 .lbl-yellow {
   background: var(--neon-yellow);
+}
+
+/* ============ Utility Neobrutalism: tag mono, label sticky, mark sorot ============ */
+
+.nb-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--neo-ink);
+  background: var(--neon-lime);
+  border: 1.5px solid var(--neo-ink);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 3px 8px;
+  border-radius: var(--r-sm);
+  display: inline-block;
+}
+
+.nb-tag--cyan { background: var(--neon-cyan); }
+.nb-tag--yellow { background: var(--neon-yellow); }
+.nb-tag--magenta { background: var(--neon-magenta); }
+.nb-tag--ink { background: var(--neo-ink); color: var(--neon-lime); }
+
+/* Stiker miring: dipakai untuk badge yang perlu terlihat "tempel". */
+.nb-sticker { transform: rotate(var(--neo-tilt)); }
+
+/* Penanda sorot di dalam paragraf. */
+.nb-mark {
+  background: var(--neon-yellow);
+  color: var(--neo-ink);
+  padding: 0 2px;
+}
+
+/* Status kosong: dipakai tiap grid filter yang tidak menemukan hasil. */
+.nb-empty {
+  border: 2px dashed var(--neo-ink);
+  background: var(--neo-surface);
+  box-shadow: var(--neo-shadow-sm);
+  border-radius: var(--r-md);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.nb-reset {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--neon-lime);
+  background: var(--neo-ink);
+  border: var(--neo-border-thin);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 7px 14px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+}
+
+.nb-reset:hover {
+  box-shadow: 3px 3px 0px var(--neon-cyan);
+  transform: translate(-1px, -1px);
 }
 
 .page-title {
@@ -295,6 +364,68 @@ main {
     transition-duration: 0.01ms !important;
   }
   [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* ============ Universal Tactile Click Motion Across All Pages ============ */
+.btn,
+button,
+[role="button"],
+.card,
+.post-card,
+.ekskul-card,
+.nav-item,
+.nf-pill,
+.qa-btn,
+.chapter-item,
+.quota-card,
+.facility-item,
+.achievement-card,
+.social-btn,
+.btn-chat-link {
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:active,
+button:active,
+[role="button"]:active,
+.card:active,
+.post-card:active,
+.ekskul-card:active,
+.nav-item:active,
+.nf-pill:active,
+.qa-btn:active,
+.chapter-item:active,
+.quota-card:active,
+.facility-item:active,
+.achievement-card:active,
+.social-btn:active,
+.btn-chat-link:active {
+  transform: translate(2px, 2px) !important;
+}
+
+/* Float Animation for Neobrutalism Doodles */
+@keyframes doodleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+.doodle-float {
+  animation: doodleFloat 4s ease-in-out infinite;
+}
+
+.doodle-float-delayed {
+  animation: doodleFloat 5s ease-in-out 1.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doodle-float,
+  .doodle-float-delayed {
+    animation: none;
+  }
 }
 
 /* ============ View Transitions (ClientRouter) ============ */

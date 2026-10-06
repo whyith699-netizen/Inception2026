@@ -27,6 +27,9 @@
   --neo-shadow-lime: 4px 4px 0px #D4FF00;
   --neo-shadow-cyan: 4px 4px 0px #00F0FF;
   --neo-shadow-magenta: 4px 4px 0px #FF2E93;
+  --neo-shadow-yellow: 4px 4px 0px #FFE600;
+  --neo-shadow-orange: 4px 4px 0px #FF5500;
+  --neo-tilt: -1.5deg;
 
   /* Mapping ke token standar portal agar seluruh halaman bertransformasi seragam */
   --paper: var(--neo-bg);

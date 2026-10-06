@@ -443,28 +443,30 @@
   flex-wrap: wrap;
   gap: 8px;
   padding: 18px 0;
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
+  border-top: var(--neo-border);
+  border-bottom: var(--neo-border);
 }
 
 .filter-link {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  color: var(--ink-2);
+  color: var(--neo-ink-2);
   padding: 6px 14px;
-  border: 1px solid var(--hairline-2);
+  border: 1.5px solid var(--neo-ink);
   border-radius: var(--r-sm);
   text-transform: uppercase;
-  font-weight: 600;
-  background: var(--neo-surface);
-  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  font-weight: 700;
+  background: var(--neo-bg);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.18s ease;
   cursor: pointer;
 }
 
 .filter-link:hover {
   color: var(--neo-ink);
-  border-color: var(--neo-ink);
-  background: var(--neo-surface-2);
+  background: var(--neon-cyan);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--neo-ink);
 }
 
 .filter-link.is-active {
@@ -472,7 +474,8 @@
   background: var(--neon-lime);
   border: 1.5px solid var(--neo-ink);
   font-weight: 800;
-  box-shadow: 2px 2px 0px var(--neo-ink);
+  box-shadow: 3px 3px 0px var(--neo-ink);
+  transform: translate(-1px, -1px);
 }
 
 .featured-sec {
@@ -484,9 +487,9 @@
   grid-template-columns: 1.15fr 1fr;
   gap: clamp(20px, 3vw, 40px);
   align-items: center;
-  border: var(--neo-border);
+  border: var(--neo-border-thick);
   border-radius: var(--r-md);
-  box-shadow: var(--neo-shadow);
+  box-shadow: var(--neo-shadow-lg);
   overflow: hidden;
   background: var(--surface);
 }
@@ -515,18 +518,19 @@
   gap: 10px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--ink-3);
+  color: var(--neo-ink-3);
   margin-bottom: 12px;
 }
 
 .post-cat {
   color: var(--neo-ink);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   background: var(--neon-lime);
   padding: 2px 8px;
-  border: 1px solid var(--neo-ink);
+  border: 1.5px solid var(--neo-ink);
+  box-shadow: 2px 2px 0px var(--neo-ink);
 }
 
 .post-title {
@@ -557,20 +561,20 @@
 .post-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--hairline);
-  border: 1px solid var(--hairline);
-  border-radius: var(--r-md);
-  overflow: hidden;
+  gap: clamp(16px, 2vw, 24px);
 }
 
 .post-card {
   background: var(--surface);
-  transition: background 0.2s ease;
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow-sm);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .post-card:hover {
-  background: var(--paper-2);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--neo-shadow);
 }
 
 .post-card-link {
@@ -621,31 +625,42 @@
 .quota-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--hairline);
-  border: 1px solid var(--hairline);
-  border-radius: var(--r-md);
-  overflow: hidden;
+  gap: clamp(16px, 2vw, 24px);
 }
 
 .quota-card {
   background: var(--surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow);
   padding: 24px;
-  transition: background 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .quota-card:hover {
-  background: var(--paper-2);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--neo-shadow-lg);
 }
 
 .quota-pct {
-  font-family: var(--font-serif);
+  font-family: var(--font-mono);
   font-size: 2.25rem;
-  font-weight: 700;
-  display: block;
+  font-weight: 800;
+  display: inline-block;
   margin-bottom: 12px;
   color: var(--neo-ink);
+  background: var(--neon-lime);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 3px 3px 0px var(--neo-ink);
+  padding: 4px 12px;
 }
+
+.quota-card:nth-child(2) .quota-pct { background: var(--neon-cyan); }
+.quota-card:nth-child(3) .quota-pct { background: var(--neon-yellow); }
+.quota-card:nth-child(4) .quota-pct { background: var(--neon-magenta); transform: rotate(var(--neo-tilt)); }
+
+.quota-card:nth-child(4):hover .quota-pct { transform: rotate(0deg); }
 
 .quota-title {
   font-family: var(--font-serif);
@@ -657,7 +672,7 @@
 
 .quota-desc {
   font-size: 0.875rem;
-  color: var(--ink-2);
+  color: var(--neo-ink-2);
   line-height: 1.6;
 }
 
@@ -665,31 +680,38 @@
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--hairline);
-  border: 1px solid var(--hairline);
-  border-radius: var(--r-md);
-  overflow: hidden;
+  gap: clamp(16px, 2vw, 24px);
   margin-bottom: clamp(24px, 4vw, 40px);
 }
 
 .req-item {
   background: var(--surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow-sm);
   padding: 18px 20px;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
   font-size: 0.9375rem;
-  color: var(--ink-2);
+  color: var(--neo-ink-2);
 }
 
 .req-mark {
-  width: 6px;
-  height: 6px;
-  margin-top: 8px;
-  border-radius: 50%;
-  background: var(--neo-ink);
+  width: 22px;
+  height: 22px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--neo-ink);
+  background: var(--neon-lime);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
 }
 
 .ppdb-cta {
@@ -776,21 +798,37 @@
 .facilities-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--hairline);
-  border: 1px solid var(--hairline);
-  border-radius: var(--r-md);
-  overflow: hidden;
+  gap: clamp(16px, 2vw, 24px);
 }
 
 .facility-item {
   background: var(--surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow-sm);
   padding: 22px;
-  transition: background 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .facility-item:hover {
-  background: var(--paper-2);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--neo-shadow);
+}
+
+.fac-chip {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--neo-ink);
+  background: var(--neon-cyan);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .fac-name {
@@ -877,7 +915,7 @@
 }
 .prestasi-filter-row + .prestasi-filter-row {
   padding-top: 14px;
-  border-top: 1px solid var(--hairline);
+  border-top: var(--neo-border-thin);
 }
 
 .prestasi-filter-label {
@@ -920,21 +958,21 @@
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--hairline);
-  border: 1px solid var(--hairline);
-  border-radius: var(--r-md);
-  overflow: hidden;
+  gap: clamp(16px, 2vw, 24px);
 }
 
 .achievement-card {
   background: var(--surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow-sm);
   padding: 24px;
-  transition: background 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .achievement-card:hover {
-  background: var(--paper-2);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--neo-shadow);
 }
 
 .card-meta {
@@ -942,24 +980,87 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 14px;
+  flex-wrap: wrap;
 }
 
 .year-badge {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--ink-3);
+  color: var(--neo-ink-3);
   font-weight: 700;
 }
 
 .level-badge {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--neo-ink);
   background: var(--neon-lime);
-  padding: 2px 6px;
+  padding: 2px 8px;
+  border: 1.5px solid var(--neo-ink);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+}
+
+.level-badge.level-internasional { background: var(--neon-magenta); }
+.level-badge.level-provinsi { background: var(--neon-cyan); }
+.level-badge.level-kabupaten { background: var(--neon-yellow); }
+
+.prestasi-summary-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.prestasi-summary-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--neo-ink);
+  background: var(--neo-bg);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 5px 10px;
+}
+
+.prestasi-summary-chip span {
+  font-weight: 800;
+  background: var(--neon-lime);
   border: 1px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  padding: 0 6px;
+}
+
+/* Footer kartu prestasi (mengganti utilitas Tailwind border-tele-ink/10) */
+.ach-foot {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1.5px solid var(--neo-ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--neo-ink-3);
+}
+
+.ach-medal {
+  font-weight: 800;
+  color: var(--neo-ink);
+  background: var(--neon-lime);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 2px 8px;
 }
 
 .ach-title {
@@ -1063,17 +1164,20 @@
 .filter-btn {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  color: var(--ink-2);
+  color: var(--neo-ink-2);
   padding: 6px 14px;
-  border: 1px solid var(--hairline-2);
+  border: 1.5px solid var(--neo-ink);
   border-radius: var(--r-sm);
   background: var(--neo-surface);
+  box-shadow: 2px 2px 0px var(--neo-ink);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .filter-btn:hover {
-  background: var(--neo-surface-2);
+  background: var(--neon-cyan);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--neo-ink);
 }
 
 .filter-btn.active {
@@ -1081,7 +1185,8 @@
   color: var(--neo-ink);
   font-weight: 800;
   border: 1.5px solid var(--neo-ink);
-  box-shadow: 2px 2px 0px var(--neo-ink);
+  box-shadow: 3px 3px 0px var(--neo-ink);
+  transform: translate(-1px, -1px);
 }
 
 .ekskul-grid {
@@ -1111,8 +1216,8 @@
 .ekskul-logo-box {
   width: 56px;
   height: 56px;
-  background: var(--neo-surface-2);
-  border: var(--neo-border);
+  background: rgba(212, 255, 0, 0.22);
+  border: 1.5px solid var(--neo-ink);
   border-radius: var(--r-sm);
   box-shadow: 2px 2px 0px var(--neo-ink);
   display: flex;
@@ -1143,9 +1248,9 @@
   text-transform: uppercase;
   color: var(--neo-ink);
   background: var(--neon-yellow);
-  border: 1px solid var(--neo-ink);
+  border: 1.5px solid var(--neo-ink);
   padding: 2px 8px;
-  box-shadow: 1.5px 1.5px 0px var(--neo-ink);
+  box-shadow: 2px 2px 0px var(--neo-ink);
   display: inline-block;
   margin-bottom: 12px;
 }
@@ -1181,11 +1286,8 @@
 .grid-contact {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  gap: 1px;
-  background: var(--hairline);
-  border: 1px solid var(--hairline);
-  border-radius: var(--r-md);
-  overflow: hidden;
+  gap: clamp(20px, 3vw, 28px);
+  align-items: start;
 }
 
 .contact-info-card,
@@ -1202,10 +1304,75 @@
   color: var(--neo-ink);
 }
 
+/* ============ Kontak: aksi cepat (telepon / WhatsApp / surel) ============ */
+.kontak-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 2vw, 20px);
+}
+
+.qa-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 20px;
+  font-family: var(--font-mono);
+  color: var(--neo-ink);
+  background: var(--neo-surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.qa-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--neo-shadow-lg);
+}
+
+.qa-btn--lime { background: var(--neon-lime); }
+.qa-btn--cyan { background: var(--neon-cyan); }
+.qa-btn--yellow { background: var(--neon-yellow); }
+
+.qa-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.qa-value {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 900px) {
+  .kontak-quick-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
 .info-group {
   padding-top: 16px;
-  border-top: 1px solid var(--hairline);
+  border-top: 1.5px solid var(--neo-ink);
   margin-bottom: 16px;
+}
+
+.info-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--neo-ink);
+  background: var(--neon-cyan);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: 6px;
 }
 
 .group-title {
@@ -1253,8 +1420,8 @@
 
 .form-group label {
   font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--ink);
+  font-weight: 700;
+  color: var(--neo-ink);
 }
 
 .form-group input,
@@ -1263,10 +1430,11 @@
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   padding: 10px 12px;
-  border: 1px solid var(--hairline-2);
+  border: var(--neo-border);
   border-radius: var(--r-sm);
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--neo-bg);
+  color: var(--neo-ink);
+  box-shadow: 2px 2px 0px var(--neo-ink);
 }
 
 .form-group input:focus,
@@ -1274,8 +1442,8 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--neo-ink);
-  background: var(--surface);
-  box-shadow: 2px 2px 0px var(--neo-ink);
+  background: var(--neo-surface);
+  box-shadow: 4px 4px 0px var(--neon-cyan);
 }
 
 @media (max-width: 860px) {
@@ -1287,7 +1455,7 @@
 .contact-map-sec {
   padding-top: clamp(48px, 6vw, 72px);
   padding-bottom: clamp(48px, 6vw, 64px);
-  border-top: 1px solid var(--hairline);
+  border-top: var(--neo-border);
   scroll-margin-top: 80px;
 }
 
@@ -1322,18 +1490,20 @@
   gap: 6px;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.15s ease;
+  padding: 8px 16px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
 }
 
 .map-btn:hover {
   background: var(--neon-lime);
-  box-shadow: var(--neo-shadow);
+  box-shadow: 3px 3px 0px var(--neo-ink);
+  transform: translate(-1px, -1px);
 }
 
 .map-frame {
-  border: var(--neo-border);
+  border: var(--neo-border-thick);
   border-radius: var(--r-md);
-  box-shadow: var(--neo-shadow);
+  box-shadow: var(--neo-shadow-lg);
   overflow: hidden;
   height: 400px;
   width: 100%;
@@ -1550,9 +1720,6 @@
   line-height: 1.4;
   color: var(--neo-ink);
   margin-bottom: 8px;
-  min-height: 2.8rem;
-  display: flex;
-  align-items: center;
 }
 
 .direktori-status-line {
@@ -1562,12 +1729,12 @@
   line-height: 1.5;
   padding-top: 10px;
   margin-top: 6px;
-  border-top: 1px solid var(--hairline);
+  border-top: 1.5px solid var(--neo-ink);
 }
 
 .direktori-card-footer {
   padding: 12px 22px;
-  border-top: 1px solid var(--hairline);
+  border-top: 1.5px solid var(--neo-ink);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1576,3 +1743,340 @@
   color: var(--neo-ink-3);
   margin-top: auto;
 }
+
+.direktori-status-line {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--neo-ink-2);
+  line-height: 1.5;
+  padding-top: 10px;
+  margin-top: 6px;
+  border-top: 1.5px solid var(--neo-ink);
+}
+
+/* ==========================================================================
+   10. Neobrutalism: stiker label halaman subpage
+   ========================================================================== */
+
+/* Rumpun label di bawah satu judul — selalu sebaris, boleh wrap. */
+.ekskul-head-stickers,
+.direktori-head-stickers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+/* Anggap setiap .lbl di dalam rumpun tidak punya margin bawah sendiri. */
+.ekskul-head-stickers .lbl,
+.direktori-head-stickers .lbl {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   11. Fasilitas: filter kategori galeri & daftar fasilitas
+   ========================================================================== */
+.fas-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: clamp(24px, 3vw, 32px);
+}
+
+.fas-filter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--neo-ink);
+  background: var(--neo-surface);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+}
+
+.fas-filter-btn:hover {
+  background: var(--neo-surface-2);
+  transform: translate(-1px, -1px);
+}
+
+.fas-filter-btn.is-active {
+  background: var(--neon-lime);
+  font-weight: 800;
+  box-shadow: 3px 3px 0px var(--neo-ink);
+  transform: translate(-1px, -1px);
+}
+
+/* Stiker nomor urut di atas foto galeri kampus */
+.fas-gallery-item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.fas-gallery-frame {
+  position: relative;
+  overflow: hidden;
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow);
+  background: var(--neo-surface-2);
+  aspect-ratio: 3 / 2;
+  margin-bottom: 12px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.fas-gallery-item:hover .fas-gallery-frame {
+  box-shadow: var(--neo-shadow-lg);
+  transform: translate(-2px, -2px);
+}
+
+.fas-gallery-index {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--neo-ink);
+  background: var(--neon-lime);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 2px 8px;
+}
+
+.fas-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.fas-gallery-item:hover .fas-gallery-img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   12. Berita detail: tipografi artikel
+   ========================================================================== */
+.article-prose {
+  font-size: 1rem;
+  color: var(--neo-ink-2);
+  line-height: 1.75;
+}
+
+.article-prose p {
+  margin-bottom: 1.25em;
+}
+
+.article-prose p:first-of-type::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3.4em;
+  float: left;
+  line-height: 0.82;
+  padding: 6px 12px 0 0;
+  color: var(--neo-ink);
+}
+
+.article-quote {
+  background: var(--neo-surface);
+  border: var(--neo-border);
+  border-left: 6px solid var(--neon-lime);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow-sm);
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--neo-ink);
+}
+
+.article-related-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--neo-ink);
+  margin-bottom: 14px;
+}
+
+.article-related-item {
+  display: block;
+  background: var(--neo-surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow-sm);
+  padding: 16px 18px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.article-related-item:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--neo-shadow);
+}
+
+.article-related-title-text {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--neo-ink);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+/* ==========================================================================
+   13. Alumni: aksen warna program beasiswa & chip footer
+   ========================================================================== */
+.program-card .card-top-row .sticker-label {
+  border: 1.5px solid var(--neo-ink);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+}
+
+.alumni-page-wrapper .program-card:nth-child(1) .sticker-label { background: var(--neon-lime); }
+.alumni-page-wrapper .program-card:nth-child(2) .sticker-label { background: var(--neon-cyan); }
+.alumni-page-wrapper .program-card:nth-child(3) .sticker-label { background: var(--neon-yellow); }
+
+.alumni-card-footer {
+  padding: 14px 24px;
+  border-top: 1.5px solid var(--neo-ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--neo-ink-3);
+  margin-top: auto;
+}
+
+.alumni-card-footer .num,
+.alumni-card-footer span.alumni-year-chip {
+  color: var(--neo-ink);
+  font-weight: 800;
+  background: var(--neon-lime);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 2px 8px;
+}
+
+.chapter-badge {
+  background: var(--neon-lime) !important;
+  color: var(--neo-ink) !important;
+  border: 1.5px solid var(--neo-ink);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+}
+
+.stat-pill {
+  border: var(--neo-border) !important;
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow-sm) !important;
+  background: var(--neo-surface);
+}
+
+.stat-pill.stat-accent {
+  transform: rotate(var(--neo-tilt));
+  background: var(--neon-yellow);
+}
+
+/* ==========================================================================
+   14. PPDB: kartu CTA gelap & jadwal timeline
+   ========================================================================== */
+.ppdb-cta {
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow);
+  background: var(--neo-ink);
+  color: var(--neo-bg);
+  padding: clamp(22px, 3vw, 32px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.ppdb-cta .cta-title {
+  color: var(--neon-lime);
+}
+
+.ppdb-cta .cta-desc {
+  color: var(--neo-surface-2);
+}
+
+.ppdb-page-wrapper .ppdb-cta .btn-primary {
+  background: var(--neon-lime);
+  color: var(--neo-ink);
+}
+
+.ppdb-page-wrapper .ppdb-cta .btn-secondary {
+  background: var(--neo-surface);
+  color: var(--neo-ink);
+}
+
+.ppdb-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 2vw, 20px);
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.ppdb-timeline-item {
+  background: var(--neo-surface);
+  border: var(--neo-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--neo-shadow-sm);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ppdb-timeline-item:nth-child(odd) {
+  transform: rotate(var(--neo-tilt));
+}
+
+.ppdb-timeline-date {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--neo-ink);
+  background: var(--neon-cyan);
+  border: 1.5px solid var(--neo-ink);
+  border-radius: var(--r-sm);
+  box-shadow: 2px 2px 0px var(--neo-ink);
+  padding: 2px 8px;
+  align-self: flex-start;
+}
+
+.ppdb-timeline-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--neo-ink);
+}
+
+.ppdb-timeline-desc {
+  font-size: 0.875rem;
+  color: var(--neo-ink-2);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .ppdb-timeline {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -19,7 +19,7 @@ interface Props {
   initialFaq?: FaqItem[];
 }
 
-const STORAGE_KEY = 'smansabot_chat_history_v1';
+const STORAGE_KEY = 'smansabot_chat_history_v2';
 
 const DEFAULT_KNOWLEDGE: FaqItem[] = [
   {
@@ -62,10 +62,10 @@ const DEFAULT_KNOWLEDGE: FaqItem[] = [
     keywords: [
       'prestasi', 'osn', 'olimpiade', 'sains', 'matematika', 'fisika', 'astronomi', 'kebumian',
       'juara', 'emas', 'perak', 'fls2n', 'o2sn', 'alumni', 'kapasska', 'ptn', 'ugm', 'itb',
-      'ui', 'undip', 'uns', 'unair', 'its', 'kelulusan', 'snbp', 'snbt', 'iup'
+      'ui', 'undip', 'uns', 'unair', 'its', 'kelulusan', 'snbp', 'snbt', 'iup', 'beasiswa', '1976'
     ],
     question: 'Bagaimana rekam jejak prestasi OSN dan sebaran alumni SMA Negeri 1 Klaten di PTN?',
-    answer: 'SMA Negeri 1 Klaten secara konsisten meraih medali emas dan perak dalam Olimpiade Sains Nasional (OSN) bidang Matematika, Fisika, Astronomi, dan Kebumian, serta ajang FLS2N dan O2SN tingkat nasional. Lebih dari 90% lulusan setiap tahunnya diterima di Perguruan Tinggi Negeri (PTN) terkemuka seperti UGM, ITB, UI, UNDIP, UNS, UNAIR, dan ITS melalui jalur SNBP, SNBT, maupun IUP. Wadah komunikasi alumni resmi berhimpun dalam KAPASSKA.'
+    answer: 'SMA Negeri 1 Klaten secara konsisten meraih medali emas dan perak dalam Olimpiade Sains Nasional (OSN) bidang Matematika, Fisika, Astronomi, dan Kebumian, serta ajang FLS2N dan O2SN tingkat nasional. Lebih dari 90% lulusan setiap tahunnya diterima di PTN terkemuka seperti UGM, ITB, UI, UNDIP, UNS, UNAIR, dan ITS. Wadah komunikasi alumni resmi berhimpun dalam KAPASSKA dengan program unggulan Beasiswa Angkatan 1976 (total Rp18.000.000 untuk 12 siswa).'
   },
   {
     id: 'faq-ekskul',
@@ -91,90 +91,62 @@ const DEFAULT_KNOWLEDGE: FaqItem[] = [
     ],
     question: 'Apa saja fasilitas pendukung pembelajaran di SMA Negeri 1 Klaten?',
     answer: 'Fasilitas di Kampus SMA Negeri 1 Klaten mencakup: Laboratorium Fisika, Kimia, dan Biologi standar riset; 3 Laboratorium Komputer berkecepatan tinggi; Perpustakaan Digital Graha Pustaka dengan ribuan judul buku dan e-book; Gelanggang Olahraga (GOR) indoor untuk basket dan bulu tangkis; Lapangan sepak bola & upacara; Ruang Audio Visual; Masjid Kampus; serta Wi-Fi fiber optic terdistribusi di setiap ruang kelas ber-AC.'
-  },
-  {
-    id: 'faq-berita',
-    category: 'Berita & Pengumuman',
-    keywords: [
-      'berita', 'pengumuman', 'kabar', 'agenda', 'informasi', 'terbaru', 'terkini',
-      'dies natalis', 'workshop', 'literasi', 'ujian', 'uts', 'uas', 'jadwal'
-    ],
-    question: 'Di mana melihat informasi berita dan pengumuman terbaru sekolah?',
-    answer: 'Informasi pengumuman jadwal seleksi PPDB 2026, rekap juara OSN, agenda Dies Natalis ke-69, pendaftaran ekstrakurikuler, dan agenda alumni KAPASSKA dapat disimak secara lengkap pada halaman Berita portal resmi sekolah.'
-  },
-  {
-    id: 'faq-kontak',
-    category: 'Kontak & Lokasi',
-    keywords: [
-      'kontak', 'alamat', 'lokasi', 'telepon', 'telp', 'email', 'jam', 'buka',
-      'tata usaha', 'tu', 'layanan', 'kantor', 'surat', 'pos'
-    ],
-    question: 'Berapa nomor telepon dan di mana alamat SMA Negeri 1 Klaten?',
-    answer: 'SMA Negeri 1 Klaten beralamat di Jl. Merbabu No. 13, Klaten Selatan, Kabupaten Klaten, Jawa Tengah (Kode Pos 57423). Telepon sekretariat: (0272) 321150, email: info@sma1klaten.sch.id. Jam pelayanan tata usaha: Senin - Jumat pukul 07.00 - 15.30 WIB.'
   }
 ];
 
 const CANNED_PILLS = [
-  { label: 'Jalur PPDB 2026', query: 'Bagaimana jalur seleksi dan syarat PPDB 2026 di SMA Negeri 1 Klaten?' },
-  { label: 'Akreditasi & Sejarah', query: 'Bagaimana sejarah pendirian 1957 dan nilai akreditasi SMA Negeri 1 Klaten?' },
-  { label: 'Pimpinan Sekolah', query: 'Siapa Kepala Sekolah dan jajaran pimpinan SMA Negeri 1 Klaten saat ini?' },
-  { label: '23 Ekstrakurikuler', query: 'Apa saja 23 kegiatan ekstrakurikuler resmi di SMA Negeri 1 Klaten?' },
-  { label: 'Prestasi & Alumni', query: 'Bagaimana rekam jejak prestasi OSN dan sebaran alumni SMA Negeri 1 Klaten di PTN?' },
-  { label: 'Fasilitas Kampus', query: 'Apa saja fasilitas unggulan laboratorium, perpustakaan, dan olahraga di SMAN 1 Klaten?' }
+  { label: 'Syarat PPDB 2026', query: 'Apa saja syarat dan jalur PPDB SMA Negeri 1 Klaten?' },
+  { label: 'Akreditasi & Sejarah', query: 'Kapan SMA Negeri 1 Klaten didirikan dan apa akreditasinya?' },
+  { label: 'Kepala Sekolah', query: 'Siapa nama Kepala Sekolah dan Wakil Kepala Sekolah?' },
+  { label: '23 Ekskul Resmi', query: 'Apa saja 23 ekstrakurikuler di SMAN 1 Klaten?' },
+  { label: 'Beasiswa Alumni', query: 'Bagaimana program Beasiswa Alumni KAPASSKA Angkatan 1976?' }
 ];
 
 const INITIAL_BOT_MESSAGE: ChatMessage = {
-  id: 'initial-welcome',
+  id: 'b-init',
   sender: 'bot',
-  text: 'Salam sejahtera! Saya SmansaBot, asisten informasi resmi SMA Negeri 1 Klaten (Padmawijaya). Silakan pilih topik pertanyaan cepat di bawah atau ketik langsung pertanyaan Anda seputar PPDB, pimpinan, prestasi, ekskul, akreditasi 98, atau sejarah 1957.',
+  text: 'Halo! Saya SmansaBot AI, asisten digital resmi SMA Negeri 1 Klaten (Padmawijaya). Ada yang bisa saya bantu terkait informasi PPDB, profil sekolah (sejak 1957, Akreditasi A-98), direktori guru, atau ekstrakurikuler?',
   time: 'Sekarang'
 };
 
-function formatCurrentTime(): string {
-  const d = new Date();
-  const h = d.getHours().toString().padStart(2, '0');
-  const m = d.getMinutes().toString().padStart(2, '0');
+const formatCurrentTime = (): string => {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, '0');
+  const m = String(now.getMinutes()).padStart(2, '0');
   return `${h}:${m}`;
-}
+};
 
-export default function InteractiveSmansaBot({ initialFaq }: Props) {
+export const InteractiveSmansaBot: React.FC<Props> = ({ initialFaq }) => {
+  const knowledgeBase = useMemo(() => {
+    return initialFaq && initialFaq.length > 0 ? initialFaq : DEFAULT_KNOWLEDGE;
+  }, [initialFaq]);
+
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_BOT_MESSAGE]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [streamingText, setStreamingText] = useState('');
   const [hasLoadedStorage, setHasLoadedStorage] = useState(false);
+  const [engineSource, setEngineSource] = useState<'gemini' | 'local'>('local');
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
-  const typingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const streamIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const messagesAreaRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  const typingTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const streamIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Gabungkan knowledge base dari props Astro dan default fallback
-  const knowledgeBase = useMemo<FaqItem[]>(() => {
-    if (!initialFaq || initialFaq.length === 0) {
-      return DEFAULT_KNOWLEDGE;
-    }
-    const combined = [...initialFaq];
-    for (const def of DEFAULT_KNOWLEDGE) {
-      if (!combined.some((item) => item.id === def.id)) {
-        combined.push(def);
-      }
-    }
-    return combined;
-  }, [initialFaq]);
-
-  // Muat riwayat pesan dari sessionStorage saat komponen aktif di client
+  // Muat riwayat percakapan dari sessionStorage saat awal
   useEffect(() => {
     try {
-      const saved = sessionStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
+      const stored = sessionStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
         if (Array.isArray(parsed) && parsed.length > 0) {
           setMessages(parsed);
         }
       }
     } catch {
-      // sessionStorage tidak tersedia atau di-block peramban
+      // ignore
     }
     setHasLoadedStorage(true);
   }, []);
@@ -185,11 +157,35 @@ export default function InteractiveSmansaBot({ initialFaq }: Props) {
     try {
       sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     } catch {
-      // ignore quota errors
+      // ignore
     }
   }, [messages, hasLoadedStorage]);
 
-  // Bersihkan interval dan timer saat unmount
+  // Listener global: CustomEvent 'open-smansabot' dan Escape key
+  useEffect(() => {
+    const handleOpenEvent = () => {
+      setIsOpen(true);
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 150);
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('open-smansabot', handleOpenEvent);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('open-smansabot', handleOpenEvent);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
+
+  // Bersihkan timer saat unmount
   useEffect(() => {
     return () => {
       if (typingTimerRef.current) clearTimeout(typingTimerRef.current);
@@ -197,15 +193,17 @@ export default function InteractiveSmansaBot({ initialFaq }: Props) {
     };
   }, []);
 
-  // Auto scroll saat ada pesan baru atau efek mengetik
+  // Perbaikan Scroll: HANYA scroll di dalam container chat saat modal aktif dibuka
+  // TIDAK scroll window browser halaman utama!
   useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (!isOpen) return;
+    if (messagesAreaRef.current) {
+      messagesAreaRef.current.scrollTop = messagesAreaRef.current.scrollHeight;
     }
-  }, [messages, isTyping, streamingText]);
+  }, [messages, isTyping, streamingText, isOpen]);
 
-  // Pencarian berbasis bobot kata kunci
-  const findBestAnswer = (queryText: string): string => {
+  // Pencarian lokal fallback berbasis bobot kata kunci
+  const findLocalAnswer = (queryText: string): string => {
     const q = queryText.toLowerCase().trim();
     if (!q) return '';
 
@@ -219,11 +217,9 @@ export default function InteractiveSmansaBot({ initialFaq }: Props) {
       const catLower = item.category.toLowerCase();
       const ansLower = item.answer.toLowerCase();
 
-      // Cocokan frasa utuh
       if (qLower.includes(q)) score += 15;
       if (catLower.includes(q)) score += 10;
 
-      // Cocokan kata kunci terdaftar
       for (const kw of item.keywords) {
         const kwLower = kw.toLowerCase();
         if (q.includes(kwLower)) {
@@ -236,7 +232,6 @@ export default function InteractiveSmansaBot({ initialFaq }: Props) {
         }
       }
 
-      // Cocokan kata per kata pada pertanyaan dan jawaban
       for (const w of words) {
         if (qLower.includes(w)) score += 3;
         if (ansLower.includes(w)) score += 1;
@@ -252,11 +247,11 @@ export default function InteractiveSmansaBot({ initialFaq }: Props) {
       return bestMatch.answer;
     }
 
-    return `Terima kasih atas pertanyaan Anda. Terkait "${queryText}", informasi spesifik belum tercatat dalam sistem ringkas kami. Silakan menghubungi Sekretariat SMA Negeri 1 Klaten langsung di Jl. Merbabu No. 13 Klaten Selatan, telepon (0272) 321150, atau via email resmi info@sma1klaten.sch.id pada hari dan jam kerja.`;
+    return `Terima kasih atas pertanyaan Anda tentang "${queryText}". Terkait informasi spesifik tersebut, silakan menghubungi Sekretariat SMA Negeri 1 Klaten di Jl. Merbabu No. 13 Klaten Selatan, Telepon (0272) 321150 atau email resmi smansa_klaten@yahoo.com pada hari kerja.`;
   };
 
-  // Kirim pertanyaan dan aktifkan typing indicator & typewriter effect
-  const handleSend = (textToSend: string) => {
+  // Kirim pertanyaan ke backend /api/chat dengan fallback otomatis ke basis data lokal
+  const handleSend = async (textToSend: string) => {
     const trimmed = textToSend.trim();
     if (!trimmed || isTyping) return;
 
@@ -275,20 +270,48 @@ export default function InteractiveSmansaBot({ initialFaq }: Props) {
     setIsTyping(true);
     setStreamingText('');
 
-    const targetAnswer = findBestAnswer(trimmed);
+    let finalAnswer = '';
+    let sourceMode: 'gemini' | 'local' = 'local';
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: trimmed,
+          history: messages.slice(-5).map((m) => ({ sender: m.sender, text: m.text }))
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.answer) {
+          finalAnswer = data.answer;
+          sourceMode = data.source === 'gemini' ? 'gemini' : 'local';
+        } else {
+          finalAnswer = findLocalAnswer(trimmed);
+        }
+      } else {
+        finalAnswer = findLocalAnswer(trimmed);
+      }
+    } catch {
+      finalAnswer = findLocalAnswer(trimmed);
+    }
+
+    setEngineSource(sourceMode);
+
     const prefersReducedMotion =
       typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Durasi jeda indikator mengetik (bouncing dots)
-    const thinkDelay = prefersReducedMotion ? 200 : 450;
+    const thinkDelay = prefersReducedMotion ? 150 : 350;
 
     typingTimerRef.current = setTimeout(() => {
       if (prefersReducedMotion) {
         const botMsg: ChatMessage = {
           id: `b-${Date.now()}`,
           sender: 'bot',
-          text: targetAnswer,
+          text: finalAnswer,
           time: formatCurrentTime()
         };
         setMessages((prev) => [...prev, botMsg]);
@@ -297,30 +320,28 @@ export default function InteractiveSmansaBot({ initialFaq }: Props) {
         return;
       }
 
-      // Efek typewriter streaming bertahap
       let charIndex = 0;
-      const chunkSize = 3; // Mengetik 3 karakter per tick untuk kelancaran
+      const chunkSize = 4;
       streamIntervalRef.current = setInterval(() => {
         charIndex += chunkSize;
-        if (charIndex >= targetAnswer.length) {
+        if (charIndex >= finalAnswer.length) {
           if (streamIntervalRef.current) clearInterval(streamIntervalRef.current);
           const botMsg: ChatMessage = {
             id: `b-${Date.now()}`,
             sender: 'bot',
-            text: targetAnswer,
+            text: finalAnswer,
             time: formatCurrentTime()
           };
           setMessages((prev) => [...prev, botMsg]);
           setIsTyping(false);
           setStreamingText('');
         } else {
-          setStreamingText(targetAnswer.slice(0, charIndex));
+          setStreamingText(finalAnswer.slice(0, charIndex));
         }
-      }, 16);
+      }, 14);
     }, thinkDelay);
   };
 
-  // Reset percakapan dan sessionStorage
   const handleReset = () => {
     if (typingTimerRef.current) clearTimeout(typingTimerRef.current);
     if (streamIntervalRef.current) clearInterval(streamIntervalRef.current);
@@ -335,522 +356,421 @@ export default function InteractiveSmansaBot({ initialFaq }: Props) {
     inputRef.current?.focus();
   };
 
-  // Navigasi scroll ke kotak chat dari tombol mengambang
-  const handleScrollToChat = () => {
-    const section = document.getElementById('chatbot');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      inputRef.current?.focus();
+  const toggleModal = () => {
+    const nextState = !isOpen;
+    setIsOpen(nextState);
+    if (nextState) {
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 150);
     }
   };
 
   return (
     <>
-      <div className="smansa-chat-window">
-        {/* Chat Window Header */}
-        <div className="smansa-header">
-          <div className="smansa-bot-info">
-            <div className="smansa-avatar-badge" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-                <rect x="4" y="8" width="16" height="12" rx="3" />
-                <circle cx="9" cy="14" r="1.5" fill="currentColor" />
-                <circle cx="15" cy="14" r="1.5" fill="currentColor" />
-              </svg>
+      {/* Floating Action Button: persegi, border tebal, hard shadow */}
+      <aside aria-label="Widget Asisten SmansaBot AI" className="sb-launcher-wrap">
+        <button
+          type="button"
+          onClick={toggleModal}
+          aria-label={isOpen ? 'Tutup Asisten SmansaBot AI' : 'Buka Asisten SmansaBot AI'}
+          aria-expanded={isOpen}
+          className="sb-launcher"
+        >
+          <span className="sb-launcher-title">SmansaBot AI</span>
+          <span className="sb-launcher-sub">{isOpen ? 'Tutup panel' : 'Tanya SMANSA'}</span>
+        </button>
+      </aside>
+
+      {/* Floating Modal Dialog Window */}
+      {isOpen && (
+        <aside aria-label="Jendela Chat SmansaBot AI" className="sb-panel">
+          <div className="sb-head">
+            <div className="sb-head-main">
+              <span className="sb-head-title">SmansaBot AI</span>
+              <span className="sb-head-sub">Asisten Resmi SMAN 1 Klaten</span>
             </div>
-            <div>
-              <span className="smansa-bot-title">SmansaBot AI</span>
-              <span className="smansa-bot-status">Asisten resmi SMAN 1 Klaten &middot; client:idle</span>
-            </div>
+            <span className={`sb-badge ${engineSource === 'gemini' ? 'sb-badge--gemini' : 'sb-badge--local'}`}>
+              {engineSource === 'gemini' ? 'Gemini 2.0 Flash' : 'Basis Data Lokal'}
+            </span>
           </div>
 
-          <div className="smansa-header-actions">
-            <span className="smansa-badge-local">Basis Data Lokal</span>
+          <div className="sb-head-actions">
             {messages.length > 1 && (
-              <button
-                type="button"
-                className="smansa-reset-btn"
-                onClick={handleReset}
-                title="Bersihkan riwayat percakapan"
-                aria-label="Bersihkan riwayat percakapan"
-              >
+              <button type="button" className="sb-btn-quiet" onClick={handleReset}>
                 Bersihkan
               </button>
             )}
-          </div>
-        </div>
-
-        {/* Messages Log (Aman XSS: teks murni React JSX) */}
-        <div className="smansa-messages-area" role="log" aria-live="polite">
-          {messages.map((msg) => (
-            <div
-              key={msg.id}
-              className={`smansa-msg-row ${msg.sender === 'user' ? 'smansa-msg-user' : 'smansa-msg-bot'}`}
+            <button
+              type="button"
+              className="sb-btn-close"
+              onClick={() => setIsOpen(false)}
+              aria-label="Tutup jendela chat"
             >
-              <div className="smansa-bubble">
-                {msg.text.split('\n').map((line, idx) => (
-                  <p key={idx} style={{ margin: idx > 0 ? '6px 0 0' : 0 }}>
-                    {line}
-                  </p>
-                ))}
-              </div>
-              <span className="smansa-timestamp">{msg.time}</span>
-            </div>
-          ))}
-
-          {/* Typing Indicator & Streaming Buffer */}
-          {isTyping && (
-            <div className="smansa-msg-row smansa-msg-bot" aria-label="SmansaBot sedang mengetik tanggapan">
-              <div className="smansa-bubble smansa-typing-bubble">
-                {streamingText ? (
-                  <>
-                    {streamingText.split('\n').map((line, idx) => (
-                      <p key={idx} style={{ margin: idx > 0 ? '6px 0 0' : 0 }}>
-                        {line}
-                      </p>
-                    ))}
-                    <span className="smansa-cursor" aria-hidden="true" />
-                  </>
-                ) : (
-                  <div className="smansa-dots-container" aria-hidden="true">
-                    <span className="smansa-dot" />
-                    <span className="smansa-dot" />
-                    <span className="smansa-dot" />
-                  </div>
-                )}
-              </div>
-              <span className="smansa-timestamp">Mengetik...</span>
-            </div>
-          )}
-
-          <div ref={messagesEndRef} />
-        </div>
-
-        {/* Canned Question Pills */}
-        <div className="smansa-pills-bar">
-          <span className="smansa-pills-title">Topik Pilihan</span>
-          <div className="smansa-pills-list">
-            {CANNED_PILLS.map((pill) => (
-              <button
-                key={pill.label}
-                type="button"
-                className="smansa-pill"
-                onClick={() => handleSend(pill.query)}
-                disabled={isTyping}
-              >
-                {pill.label}
-              </button>
-            ))}
+              Tutup
+            </button>
           </div>
-        </div>
 
-        {/* Input Form */}
-        <form
-          className="smansa-input-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSend(input);
-          }}
-        >
-          <input
-            ref={inputRef}
-            type="text"
-            className="smansa-input-field"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Tanyakan syarat PPDB, akreditasi 98, sejarah 1957, atau fasilitas..."
-            disabled={isTyping}
-            aria-label="Ketik pertanyaan untuk SmansaBot"
-            autoComplete="off"
-          />
-          <button
-            type="submit"
-            className="smansa-send-button"
-            disabled={isTyping || !input.trim()}
-            aria-label="Kirim pertanyaan"
+          {/* Messages log: scroll container internal, halaman tidak ikut bergerak */}
+          <div className="sb-log" role="log" aria-live="polite" ref={messagesAreaRef}>
+            {messages.map((msg) => (
+              <div key={msg.id} className={`sb-row ${msg.sender === 'user' ? 'sb-row--user' : 'sb-row--bot'}`}>
+                <div className="sb-meta">
+                  <span className="sb-sender">{msg.sender === 'user' ? 'Anda' : 'SmansaBot'}</span>
+                  <span className="sb-time">{msg.time}</span>
+                </div>
+                <div className="sb-bubble">
+                  {msg.text.split('\n').map((line, idx) => (
+                    <p key={idx}>{line}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {isTyping && (
+              <div className="sb-row sb-row--bot" aria-label="SmansaBot sedang mengetik tanggapan">
+                <div className="sb-meta">
+                  <span className="sb-sender">SmansaBot</span>
+                  <span className="sb-time">Mengetik</span>
+                </div>
+                <div className="sb-bubble">
+                  {streamingText ? (
+                    <>
+                      {streamingText.split('\n').map((line, idx) => (
+                        <p key={idx}>{line}</p>
+                      ))}
+                    </>
+                  ) : (
+                    <span className="sb-typing">...</span>
+                  )}
+                </div>
+              </div>
+            )}
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* Topik cepat */}
+          <div className="sb-topics">
+            <span className="sb-topics-label">Topik</span>
+            <div className="sb-topics-list">
+              {CANNED_PILLS.map((pill) => (
+                <button
+                  key={pill.label}
+                  type="button"
+                  className="sb-pill"
+                  onClick={() => handleSend(pill.query)}
+                  disabled={isTyping}
+                >
+                  {pill.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <form
+            className="sb-form"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSend(input);
+            }}
           >
-            <span>Kirim</span>
-          </button>
-        </form>
-      </div>
-
-      {/* Floating Chatbot Launcher */}
-      <div
-        className="smansa-floating-launcher"
-        role="button"
-        tabIndex={0}
-        aria-label="Buka SmansaBot AI"
-        onClick={handleScrollToChat}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            handleScrollToChat();
-          }
-        }}
-      >
-        <span className="smansa-launcher-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>
-        </span>
-        <span className="smansa-launcher-label">Tanya SmansaBot</span>
-      </div>
+            <input
+              ref={inputRef}
+              type="text"
+              className="sb-input"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Tanya PPDB, akreditasi, ekskul..."
+              disabled={isTyping}
+              aria-label="Ketik pertanyaan untuk SmansaBot"
+              autoComplete="off"
+            />
+            <button type="submit" className="sb-send" disabled={isTyping || !input.trim()}>
+              Kirim
+            </button>
+          </form>
+        </aside>
+      )}
 
       <style>{`
-        .smansa-chat-window {
-          background-color: var(--neo-surface);
-          border: var(--neo-border);
-          border-radius: var(--r-md);
-          overflow: hidden;
+        .sb-launcher-wrap {
+          position: fixed;
+          right: 20px;
+          bottom: 20px;
+          z-index: 50;
+        }
+
+        .sb-launcher {
           display: flex;
           flex-direction: column;
+          align-items: flex-start;
+          gap: 2px;
+          padding: 10px 16px;
+          border: 3px solid var(--neo-ink);
+          background-color: var(--neon-lime);
+          color: var(--neo-ink);
+          cursor: pointer;
+          box-shadow: var(--neo-shadow);
+          transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+        }
+
+        .sb-launcher:hover {
+          background-color: var(--neon-yellow);
+          transform: translate(-2px, -2px);
           box-shadow: var(--neo-shadow-lg);
         }
 
-        .smansa-header {
-          background-color: var(--dark);
-          color: var(--dark-ink);
-          padding: 14px 20px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 16px;
-          border-bottom: 1px solid var(--dark-hairline);
+        .sb-launcher:active {
+          transform: translate(2px, 2px);
+          box-shadow: var(--neo-shadow-sm);
         }
 
-        .smansa-bot-info {
+        .sb-launcher-title {
+          font-family: var(--font-mono);
+          font-weight: 700;
+          font-size: 0.8125rem;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          line-height: 1.1;
+        }
+
+        .sb-launcher-sub {
+          font-family: var(--font-mono);
+          font-size: 0.6875rem;
+          line-height: 1.2;
+          color: var(--neo-ink);
+        }
+
+        .sb-panel {
+          position: fixed;
+          right: 20px;
+          bottom: 92px;
+          z-index: 50;
+          width: calc(100vw - 40px);
+          max-width: 420px;
+          max-height: min(76dvh, 640px);
+          display: flex;
+          flex-direction: column;
+          border: 3px solid var(--neo-ink);
+          background-color: var(--neo-surface);
+          box-shadow: var(--neo-shadow-lg);
+          overflow: hidden;
+        }
+
+        .sb-head {
           display: flex;
           align-items: center;
+          justify-content: space-between;
+          gap: 12px;
+          padding: 12px 14px;
+          border-bottom: 2px solid var(--neo-ink);
+          background-color: var(--neo-ink);
+        }
+
+        .sb-head-main {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+
+        .sb-head-title {
+          font-family: var(--font-mono);
+          font-weight: 700;
+          font-size: 0.875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #FFFFFF;
+          line-height: 1.2;
+        }
+
+        .sb-head-sub {
+          font-family: var(--font-mono);
+          font-size: 0.6875rem;
+          color: #D9DCE2;
+          line-height: 1.3;
+        }
+
+        .sb-badge {
+          font-family: var(--font-mono);
+          font-size: 0.625rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          padding: 4px 8px;
+          border: 2px solid var(--neo-ink);
+          color: var(--neo-ink);
+          white-space: nowrap;
+        }
+
+        .sb-badge--gemini { background-color: var(--neon-cyan); }
+        .sb-badge--local { background-color: var(--neon-lime); }
+
+        .sb-head-actions {
+          display: flex;
+          justify-content: flex-end;
+          gap: 8px;
+          padding: 8px 14px;
+          border-bottom: 2px solid var(--neo-ink);
+          background-color: var(--neo-surface-2);
+        }
+
+        .sb-btn-quiet,
+        .sb-btn-close {
+          font-family: var(--font-mono);
+          font-size: 0.6875rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          padding: 6px 10px;
+          border: 2px solid var(--neo-ink);
+          color: var(--neo-ink);
+          background-color: var(--neo-surface);
+          cursor: pointer;
+        }
+
+        .sb-btn-quiet:hover { background-color: var(--neon-yellow); }
+        .sb-btn-close { background-color: var(--neon-magenta); color: #FFFFFF; }
+        .sb-btn-close:hover { background-color: var(--neo-ink); }
+
+        .sb-log {
+          flex: 1;
+          overflow-y: auto;
+          padding: 14px;
+          background-color: var(--neo-bg);
+          display: flex;
+          flex-direction: column;
           gap: 12px;
         }
 
-        .smansa-avatar-badge {
-          background-color: var(--dark-2);
-          border: 1px solid var(--dark-hairline);
-          border-radius: var(--r-sm);
-          width: 32px;
-          height: 32px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--accent-soft);
-          flex-shrink: 0;
-        }
-
-        .smansa-bot-title {
-          display: block;
-          font-weight: 600;
-          font-size: 0.9375rem;
-          color: var(--dark-ink);
-          line-height: 1.3;
-        }
-
-        .smansa-bot-status {
-          display: block;
-          font-size: 0.75rem;
-          color: var(--dark-ink-muted);
-          line-height: 1.3;
-        }
-
-        .smansa-header-actions {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        .smansa-badge-local {
-          font-family: var(--font-mono);
-          font-size: 0.6875rem;
-          letter-spacing: 0.06em;
-          background-color: var(--dark-2);
-          color: var(--dark-ink);
-          padding: 4px 10px;
-          border-radius: var(--r-sm);
-          white-space: nowrap;
-          border: 1px solid var(--dark-hairline);
-        }
-
-        .smansa-reset-btn {
-          font-family: var(--font-mono);
-          font-size: 0.6875rem;
-          letter-spacing: 0.04em;
-          background: transparent;
-          color: var(--dark-ink-muted);
-          border: 1px solid var(--dark-hairline);
-          border-radius: var(--r-sm);
-          padding: 4px 8px;
-          cursor: pointer;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .smansa-reset-btn:hover {
-          color: var(--dark-ink);
-          border-color: var(--dark-ink-muted);
-        }
-
-        .smansa-messages-area {
-          padding: 20px;
-          min-height: 280px;
-          max-height: 420px;
-          overflow-y: auto;
+        .sb-row {
           display: flex;
           flex-direction: column;
-          gap: 14px;
-          background-color: var(--paper);
+          gap: 4px;
+          max-width: 92%;
         }
 
-        .smansa-msg-row {
-          display: flex;
-          flex-direction: column;
-          max-width: 84%;
-        }
+        .sb-row--user { align-self: flex-end; align-items: flex-end; }
+        .sb-row--bot { align-self: flex-start; align-items: flex-start; }
 
-        .smansa-msg-bot {
-          align-self: flex-start;
-        }
-
-        .smansa-msg-user {
-          align-self: flex-end;
-        }
-
-        .smansa-bubble {
-          padding: 12px 16px;
-          border-radius: var(--r-sm);
-          font-size: 0.9375rem;
-          line-height: 1.55;
-          word-break: break-word;
-        }
-
-        .smansa-msg-bot .smansa-bubble {
-          background-color: var(--surface);
-          color: var(--ink);
-          border: 1px solid var(--hairline);
-        }
-
-        .smansa-msg-user .smansa-bubble {
-          background-color: var(--accent);
-          color: var(--on-accent);
-        }
-
-        .smansa-typing-bubble {
-          background-color: var(--surface);
-          border: 1px solid var(--hairline);
-          color: var(--ink);
-        }
-
-        .smansa-timestamp {
-          font-family: var(--font-mono);
-          font-size: 0.6875rem;
-          font-variant-numeric: tabular-nums;
-          color: var(--ink-3);
-          margin-top: 4px;
-          padding: 0 2px;
-        }
-
-        .smansa-msg-user .smansa-timestamp {
-          align-self: flex-end;
-        }
-
-        .smansa-dots-container {
-          display: inline-flex;
-          align-items: center;
-          gap: 5px;
-          padding: 4px 2px;
-        }
-
-        .smansa-dot {
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-          background-color: var(--ink-3);
-          animation: smansaDotBounce 1.2s infinite ease-in-out;
-        }
-
-        .smansa-dot:nth-child(1) { animation-delay: 0s; }
-        .smansa-dot:nth-child(2) { animation-delay: 0.2s; }
-        .smansa-dot:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes smansaDotBounce {
-          0%, 80%, 100% {
-            transform: translateY(0);
-            opacity: 0.4;
-          }
-          40% {
-            transform: translateY(-5px);
-            opacity: 1;
-          }
-        }
-
-        .smansa-cursor {
-          display: inline-block;
-          width: 2px;
-          height: 1em;
-          background-color: var(--accent);
-          margin-left: 2px;
-          vertical-align: text-bottom;
-          animation: smansaBlink 0.8s infinite;
-        }
-
-        @keyframes smansaBlink {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0; }
-        }
-
-        .smansa-pills-bar {
-          padding: 12px 20px;
-          background-color: var(--surface);
-          border-top: 1px solid var(--hairline);
+        .sb-meta {
           display: flex;
           align-items: center;
-          gap: 10px;
-          flex-wrap: wrap;
-        }
-
-        .smansa-pills-title {
+          gap: 8px;
           font-family: var(--font-mono);
-          font-size: 0.6875rem;
-          letter-spacing: 0.1em;
+          font-size: 0.625rem;
           text-transform: uppercase;
-          color: var(--ink-3);
+          letter-spacing: 0.04em;
+          color: var(--neo-ink-3);
         }
 
-        .smansa-pills-list {
-          display: flex;
-          gap: 8px;
-          flex-wrap: wrap;
-        }
+        .sb-sender { font-weight: 700; }
 
-        .smansa-pill {
-          background-color: var(--paper);
-          border: 1px solid var(--hairline-2);
-          color: var(--ink-2);
-          font-size: 0.8125rem;
-          font-weight: 500;
-          padding: 5px 12px;
-          border-radius: var(--r-sm);
-          cursor: pointer;
-          transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
-        }
-
-        .smansa-pill:hover:not(:disabled) {
-          border-color: var(--accent);
-          color: var(--accent);
-          background-color: var(--accent-soft);
-        }
-
-        .smansa-pill:disabled {
-          opacity: 0.6;
-          cursor: not-allowed;
-        }
-
-        .smansa-input-form {
-          padding: 12px 20px;
-          background-color: var(--surface);
-          border-top: 1px solid var(--hairline);
-          display: flex;
-          gap: 10px;
-        }
-
-        .smansa-input-field {
-          flex: 1;
+        .sb-bubble {
+          padding: 10px 12px;
+          border: 2px solid var(--neo-ink);
+          background-color: var(--neo-surface);
+          color: var(--neo-ink);
           font-family: var(--font-sans);
-          font-size: 0.9375rem;
+          font-size: 0.8125rem;
+          line-height: 1.6;
+        }
+
+        .sb-bubble p + p { margin-top: 6px; }
+
+        .sb-row--user .sb-bubble {
+          background-color: var(--neon-cyan);
+          box-shadow: 3px 3px 0px var(--neo-ink);
+        }
+
+        .sb-row--bot .sb-bubble {
+          box-shadow: 3px 3px 0px rgba(17, 20, 24, 0.25);
+        }
+
+        .sb-typing { font-family: var(--font-mono); font-weight: 700; }
+
+        .sb-topics {
           padding: 10px 14px;
-          border: 1px solid var(--hairline-2);
-          border-radius: var(--r-sm);
-          background-color: var(--paper);
-          color: var(--ink);
-          outline: none;
-          transition: border-color 0.18s ease;
+          border-top: 2px solid var(--neo-ink);
+          background-color: var(--neo-surface);
         }
 
-        .smansa-input-field::placeholder {
-          color: var(--ink-3);
+        .sb-topics-label {
+          display: block;
+          font-family: var(--font-mono);
+          font-size: 0.625rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          color: var(--neo-ink-3);
+          margin-bottom: 6px;
         }
 
-        .smansa-input-field:focus {
-          border-color: var(--accent);
-        }
-
-        .smansa-send-button {
-          font-family: var(--font-sans);
-          font-size: 0.875rem;
-          font-weight: 500;
-          padding: 10px 20px;
-          border-radius: var(--r-sm);
-          background-color: var(--accent);
-          color: var(--on-accent);
-          border: 1px solid transparent;
-          cursor: pointer;
-          transition: background-color 0.18s ease, opacity 0.18s ease;
-        }
-
-        .smansa-send-button:hover:not(:disabled) {
-          background-color: var(--accent-ink);
-        }
-
-        .smansa-send-button:disabled {
-          opacity: 0.6;
-          cursor: not-allowed;
-        }
-
-        .smansa-floating-launcher {
-          position: fixed;
-          bottom: 24px;
-          right: 24px;
-          background-color: var(--dark);
-          color: var(--dark-ink);
-          padding: 10px 16px;
-          border-radius: var(--r-sm);
-          box-shadow: var(--shadow-2);
+        .sb-topics-list {
           display: flex;
-          align-items: center;
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+
+        .sb-pill {
+          font-family: var(--font-mono);
+          font-size: 0.6875rem;
+          font-weight: 700;
+          padding: 5px 9px;
+          border: 2px solid var(--neo-ink);
+          background-color: var(--neo-surface);
+          color: var(--neo-ink);
+          cursor: pointer;
+        }
+
+        .sb-pill:hover { background-color: var(--neon-lime); }
+        .sb-pill:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .sb-form {
+          display: flex;
           gap: 8px;
-          cursor: pointer;
-          z-index: 60;
-          font-weight: 500;
+          padding: 12px 14px;
+          border-top: 2px solid var(--neo-ink);
+          background-color: var(--neo-surface-2);
+        }
+
+        .sb-input {
+          flex: 1;
+          min-width: 0;
+          font-family: var(--font-sans);
           font-size: 0.8125rem;
-          border: 1px solid var(--dark-hairline);
-          transition: background-color 0.2s ease, transform 0.15s ease;
+          padding: 9px 10px;
+          border: 2px solid var(--neo-ink);
+          background-color: var(--neo-surface);
+          color: var(--neo-ink);
         }
 
-        .smansa-floating-launcher:hover {
-          background-color: var(--dark);
-          transform: translateY(-1px);
+        .sb-input::placeholder { color: var(--neo-ink-3); }
+        .sb-input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--neon-cyan); }
+
+        .sb-send {
+          font-family: var(--font-mono);
+          font-size: 0.6875rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          padding: 9px 14px;
+          border: 2px solid var(--neo-ink);
+          background-color: var(--neon-lime);
+          color: var(--neo-ink);
+          box-shadow: var(--neo-shadow-sm);
+          cursor: pointer;
         }
 
-        .smansa-launcher-icon {
-          display: flex;
-          align-items: center;
-          color: var(--accent-soft);
-        }
+        .sb-send:hover { background-color: var(--neon-yellow); }
+        .sb-send:active { transform: translate(2px, 2px); box-shadow: none; }
+        .sb-send:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        @media (max-width: 600px) {
-          .smansa-pills-bar {
-            flex-direction: column;
-            align-items: flex-start;
-          }
-          .smansa-floating-launcher .smansa-launcher-label {
-            display: none;
-          }
-          .smansa-floating-launcher {
-            padding: 12px;
-            border-radius: var(--r-sm);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .smansa-dot {
-            animation: none !important;
-          }
-          .smansa-cursor {
-            animation: none !important;
-          }
-          .smansa-floating-launcher {
-            transition: none !important;
-          }
+        @media (max-width: 640px) {
+          .sb-panel { right: 12px; bottom: 88px; width: calc(100vw - 24px); }
         }
       `}</style>
     </>
   );
-}
+};
+
+export default InteractiveSmansaBot;

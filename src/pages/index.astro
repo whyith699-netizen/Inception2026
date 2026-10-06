@@ -11,7 +11,6 @@ import Curriculum from '../components/react/Curriculum';
 import ValueProp from '../components/react/ValueProp';
 import AlumniSection from '../components/react/AlumniSection';
 import EventBanner from '../components/react/EventBanner';
-import ChatbotWidget from '../components/ChatbotWidget.astro';
 import Footer from '../components/react/Footer';
 
 const alumniTokoh = await getEntry('alumni', 'tokoh');
@@ -49,7 +48,6 @@ const eventData = rawEvent ? {
     <ValueProp client:visible />
     <AlumniSection client:visible items={alumniList} />
     {eventData && <EventBanner client:visible event={eventData} />}
-    <ChatbotWidget />
   </main>
   <Footer client:load />
 </BaseLayout>

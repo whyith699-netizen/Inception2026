@@ -1,4 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
+import NeoFilterBar from '../NeoFilterBar';
+import { PaperAirplaneDoodle, SparkleDoodle, CurvedDashedTrail } from '../DoodleDecorations';
 
 export interface NewsArticle {
   id: string;
@@ -38,6 +40,7 @@ function formatIso(dateInput: Date | string): string {
 
 export const BeritaPage = ({ newsList = [] }: BeritaPageProps) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -46,6 +49,8 @@ export const BeritaPage = ({ newsList = [] }: BeritaPageProps) => {
       if (catParam && CATEGORIES.some((c) => c.toLowerCase() === catParam.toLowerCase())) {
         setSelectedCategory(catParam);
       }
+      const query = params.get('q');
+      if (query) setSearchQuery(query);
     }
   }, []);
 
@@ -57,63 +62,116 @@ export const BeritaPage = ({ newsList = [] }: BeritaPageProps) => {
     });
   }, [newsList]);
 
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { Semua: sortedList.length };
+    for (const cat of CATEGORIES.slice(1)) {
+      counts[cat] = sortedList.filter(
+        (item) => item.category.toLowerCase() === cat.toLowerCase()
+      ).length;
+    }
+    return counts;
+  }, [sortedList]);
+
   const filteredArticles = useMemo(() => {
-    if (selectedCategory === 'Semua') return sortedList;
-    return sortedList.filter(
-      (item) => item.category.toLowerCase() === selectedCategory.toLowerCase()
-    );
-  }, [sortedList, selectedCategory]);
+    const query = searchQuery.toLowerCase().trim();
+    return sortedList.filter((item) => {
+      const matchCat =
+        selectedCategory === 'Semua' ||
+        item.category.toLowerCase() === selectedCategory.toLowerCase();
+      if (!matchCat) return false;
+      if (!query) return true;
+      return (
+        item.title.toLowerCase().includes(query) ||
+        item.excerpt.toLowerCase().includes(query) ||
+        item.category.toLowerCase().includes(query) ||
+        (item.author && item.author.toLowerCase().includes(query)) ||
+        item.body.some((paragraph) => paragraph.toLowerCase().includes(query))
+      );
+    });
+  }, [sortedList, selectedCategory, searchQuery]);
 
   const featuredArticle = filteredArticles[0] || null;
   const gridArticles = filteredArticles.slice(1);
 
+  const resetFilters = () => {
+    setSearchQuery('');
+    setSelectedCategory('Semua');
+  };
+
   return (
     <div className="berita-page-wrapper">
       {/* 1. Original Page Head */}
-      <section className="page-head sec sec-flush">
-        <div className="container">
+      <section className="page-head sec sec-flush relative overflow-hidden">
+        <div className="absolute top-6 right-8 doodle-float hidden sm:block">
+          <PaperAirplaneDoodle flip={true} />
+        </div>
+        <div className="absolute bottom-4 right-20 doodle-float-delayed">
+          <SparkleDoodle size={28} color="#FFE600" />
+        </div>
+        <div className="container relative z-10">
           <p className="lbl">Warta sekolah</p>
           <h1 className="page-title">Kabar dan pengumuman resmi</h1>
           <p className="lede">
             Dokumentasi prestasi, agenda akademik, kebijakan kesiswaan, serta
             kegiatan civitas akademika SMA Negeri 1 Klaten.
           </p>
+          <p className="flex flex-wrap gap-2 mt-4">
+            <span className="inline-block bg-neon-lime border-2 border-neo-ink rounded font-mono text-[11px] font-bold text-neo-ink px-2.5 py-1 shadow-neo-sm">
+              {sortedList.length} Rilisan Terkini
+            </span>
+            <span className="inline-block bg-neon-cyan border-2 border-neo-ink rounded font-mono text-[11px] font-bold text-neo-ink px-2.5 py-1 shadow-neo-sm">
+              Update Berkala
+            </span>
+          </p>
         </div>
       </section>
 
-      {/* 2. Filter Bar */}
+      {/* 2. Sub-nav: pencarian dan filter kategori */}
       <div className="container">
-        <nav className="filter-bar" aria-label="Penyaring kategori warta">
-          {CATEGORIES.map((cat) => {
-            const isActive = selectedCategory.toLowerCase() === cat.toLowerCase();
-            return (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setSelectedCategory(cat)}
-                className={`filter-link ${isActive ? 'is-active' : ''}`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </nav>
+        <NeoFilterBar
+          search={searchQuery}
+          onSearch={setSearchQuery}
+          searchLabel="Cari artikel warta"
+          placeholder="Cari berita, pengumuman, atau prestasi..."
+          groups={[
+            {
+              key: 'kategori',
+              label: 'Kategori',
+              options: CATEGORIES.map((cat) => ({
+                value: cat,
+                label: cat,
+                count: categoryCounts[cat] ?? 0,
+              })),
+            },
+          ]}
+          values={{ kategori: selectedCategory }}
+          onFilter={(_key, value) => setSelectedCategory(value)}
+          resultCount={filteredArticles.length}
+          totalCount={sortedList.length}
+          noun="artikel"
+          onReset={resetFilters}
+        />
       </div>
 
       {/* 3. Featured Post */}
       {featuredArticle && (
         <section className="featured-sec sec sec-flush">
           <div className="container">
-            <article className="featured-post">
-              <a href={`/berita/${featuredArticle.id}`} className="featured-thumb">
-                <img
-                  src={featuredArticle.image || '/images/hero-campus.webp'}
-                  alt={featuredArticle.title}
-                  loading="eager"
-                  width={640}
-                  height={400}
-                />
-              </a>
+            <article className={`featured-post ${!featuredArticle.image ? 'featured-post--no-img' : ''}`}>
+              {featuredArticle.image && (
+                <a href={`/berita/${featuredArticle.id}`} className="featured-thumb">
+                  <img
+                    src={featuredArticle.image}
+                    alt={featuredArticle.title}
+                    loading="eager"
+                    width={640}
+                    height={400}
+                    onError={(e) => {
+                      (e.target as HTMLElement).parentElement!.style.display = 'none';
+                    }}
+                  />
+                </a>
+              )}
               <div className="featured-body">
                 <div className="post-meta">
                   <span className="post-cat">{featuredArticle.category}</span>
@@ -155,14 +213,15 @@ export const BeritaPage = ({ newsList = [] }: BeritaPageProps) => {
               ))}
             </div>
           ) : !featuredArticle ? (
-            <div className="p-12 text-center bg-neo-surface border border-neo-ink rounded-md">
-              <p className="font-serif text-lg font-bold text-neo-ink mb-2">
-                Tidak ada artikel pada kategori &ldquo;{selectedCategory}&rdquo;
+            <div className="nb-empty">
+              <span className="nb-tag nb-tag--magenta">Tidak ditemukan</span>
+              <p className="font-serif text-lg font-bold text-neo-ink mt-3 mb-5">
+                Tidak ada artikel yang cocok dengan kata kunci atau kategori terpilih
               </p>
               <button
                 type="button"
-                onClick={() => setSelectedCategory('Semua')}
-                className="btn btn-secondary text-xs"
+                className="nb-reset"
+                onClick={resetFilters}
               >
                 Tampilkan Semua Berita
               </button>

@@ -1,0 +1,21 @@
+---
+import AdminDashboard from '../../components/react/admin/AdminDashboard';
+import '../../styles/tokens.css';
+import '../../styles/global.css';
+
+export const prerender = false;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>Sekretariat Digital & CMS Internal | SMAN 1 Klaten</title>
+    <link rel="icon" type="image/png" href="/images/school/logo.png" />
+  </head>
+  <body class="bg-neo-bg text-neo-ink font-sans antialiased selection:bg-neon-lime selection:text-neo-ink">
+    <AdminDashboard client:only="react" />
+  </body>
+</html>
